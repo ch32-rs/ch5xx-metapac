@@ -56,7 +56,7 @@ impl TmrFull {
     }
     #[doc = "RO/WO, TMR FIFO register, only low 26 bit."]
     #[inline(always)]
-    pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::R> {
+    pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
     }
     #[doc = "RO, DMA current buffer address."]

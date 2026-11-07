@@ -11,7 +11,7 @@ pub(crate) static REGISTERS: IR = IR {
                 array: None,
                 byte_offset: 0x0,
                 inner: BlockItemInner::Register(Register {
-                    access: Access::ReadWrite,
+                    access: Access::Read,
                     bit_size: 32,
                     fieldset: Some("Isr1"),
                 }),
@@ -22,7 +22,7 @@ pub(crate) static REGISTERS: IR = IR {
                 array: None,
                 byte_offset: 0x4,
                 inner: BlockItemInner::Register(Register {
-                    access: Access::ReadWrite,
+                    access: Access::Read,
                     bit_size: 32,
                     fieldset: Some("Isr2"),
                 }),
@@ -33,7 +33,7 @@ pub(crate) static REGISTERS: IR = IR {
                 array: None,
                 byte_offset: 0x20,
                 inner: BlockItemInner::Register(Register {
-                    access: Access::ReadWrite,
+                    access: Access::Read,
                     bit_size: 32,
                     fieldset: Some("Ipr1"),
                 }),

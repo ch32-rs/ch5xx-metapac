@@ -17,7 +17,7 @@ pub(crate) static REGISTERS: IR = IR {
                     byte_offset: 0x40,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::ReadWrite,
+                            access: Access::Write,
                             bit_size: 8,
                             fieldset: Some(
                                 "SafeAccessSig",

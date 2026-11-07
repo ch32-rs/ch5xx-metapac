@@ -113,7 +113,7 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "dma_ctrl",
                     description: Some(
-                        "RO, ADC DMA control and status register.",
+                        "RW, ADC DMA control and status register.",
                     ),
                     array: None,
                     byte_offset: 0x60,
@@ -147,7 +147,7 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "dma_if",
                     description: Some(
-                        "RO, ADC interrupt flag.",
+                        "RW1, ADC interrupt flag.",
                     ),
                     array: None,
                     byte_offset: 0x62,
@@ -164,7 +164,7 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "auto_cycle",
                     description: Some(
-                        "RO, ADC interrupt flag.",
+                        "RW, ADC auto cycle value.",
                     ),
                     array: None,
                     byte_offset: 0x63,

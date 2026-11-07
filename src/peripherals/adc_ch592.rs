@@ -59,7 +59,7 @@ impl Adc {
     pub const fn dma_if(self) -> crate::common::Reg<regs::DmaIf, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x62usize) as _) }
     }
-    #[doc = "RO, ADC interrupt flag."]
+    #[doc = "RW, ADC auto cycle value."]
     #[inline(always)]
     pub const fn auto_cycle(self) -> crate::common::Reg<regs::AutoCycle, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x63usize) as _) }

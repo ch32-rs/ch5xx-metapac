@@ -56,7 +56,7 @@ impl TmrFull {
     }
     #[doc = "RO/WO, TMR FIFO register, only low 26 bit."]
     #[inline(always)]
-    pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::R> {
+    pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
     }
     #[doc = "RO, DMA current buffer address."]
@@ -81,13 +81,13 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct CntEnd(pub u32);
     impl CntEnd {
-        #[doc = "RW1,TMR end count value."]
+        #[doc = "RW, end count value; only low 26 bits valid. Writing clears COUNT."]
         #[inline(always)]
         pub const fn cnt_end(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
             val as u32
         }
-        #[doc = "RW1,TMR end count value."]
+        #[doc = "RW, end count value; only low 26 bits valid. Writing clears COUNT."]
         #[inline(always)]
         pub fn set_cnt_end(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
@@ -227,13 +227,13 @@ pub mod regs {
         pub fn set_out_polar(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
-        #[doc = "RW,Counting frequency setting bits for TMR and TMR3."]
+        #[doc = "SDK extension, 13.56 MHz clock for TMR0/TMR3 only with sysclk >=42 MHz; reserved in DS V1.6."]
         #[inline(always)]
         pub const fn freq_13_56(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
             val != 0
         }
-        #[doc = "RW,Counting frequency setting bits for TMR and TMR3."]
+        #[doc = "SDK extension, 13.56 MHz clock for TMR0/TMR3 only with sysclk >=42 MHz; reserved in DS V1.6."]
         #[inline(always)]
         pub fn set_freq_13_56(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
@@ -341,13 +341,13 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Fifo(pub u32);
     impl Fifo {
-        #[doc = "RW1,TMR FIFO register."]
+        #[doc = "Capture word or PWM width; only low 26 bits valid. Capture bit 25 has mode-dependent metadata."]
         #[inline(always)]
         pub const fn fifo(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
             val as u32
         }
-        #[doc = "RW1,TMR FIFO register."]
+        #[doc = "Capture word or PWM width; only low 26 bits valid. Capture bit 25 has mode-dependent metadata."]
         #[inline(always)]
         pub fn set_fifo(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);

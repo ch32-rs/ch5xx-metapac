@@ -21,17 +21,17 @@ impl Pfic {
     }
     #[doc = "RO,Interrupt Status Register."]
     #[inline(always)]
-    pub const fn isr1(self) -> crate::common::Reg<regs::Isr1, crate::common::RW> {
+    pub const fn isr1(self) -> crate::common::Reg<regs::Isr1, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
     }
     #[doc = "RO,Interrupt Status Register."]
     #[inline(always)]
-    pub const fn isr2(self) -> crate::common::Reg<regs::Isr2, crate::common::RW> {
+    pub const fn isr2(self) -> crate::common::Reg<regs::Isr2, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
     }
     #[doc = "RO,Interrupt Pending Register."]
     #[inline(always)]
-    pub const fn ipr1(self) -> crate::common::Reg<regs::Ipr1, crate::common::RW> {
+    pub const fn ipr1(self) -> crate::common::Reg<regs::Ipr1, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x20usize) as _) }
     }
     #[doc = "RO,Interrupt Pending Register."]

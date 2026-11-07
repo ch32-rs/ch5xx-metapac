@@ -28,7 +28,7 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "reset_status",
                     description: Some(
-                        "RWA, reset status.",
+                        "RO, reset status.",
                     ),
                     array: None,
                     byte_offset: 0x4,

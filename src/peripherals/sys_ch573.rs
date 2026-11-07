@@ -24,7 +24,7 @@ impl Sys {
     pub const fn glob_rom_cfg(self) -> crate::common::Reg<regs::GlobRomCfg, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
     }
-    #[doc = "RWA, reset status."]
+    #[doc = "RO, reset status."]
     #[inline(always)]
     pub const fn reset_status(self) -> crate::common::Reg<regs::ResetStatus, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }

@@ -17,7 +17,7 @@ pub(crate) static REGISTERS: IR = IR {
                     byte_offset: 0x40,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::ReadWrite,
+                            access: Access::Write,
                             bit_size: 8,
                             fieldset: Some(
                                 "SafeAccessSig",
@@ -96,7 +96,7 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "reset_status",
                     description: Some(
-                        "RWA, reset status.",
+                        "RO, reset status.",
                     ),
                     array: None,
                     byte_offset: 0x44,
@@ -628,7 +628,7 @@ pub(crate) static REGISTERS: IR = IR {
             name: "ResetStatus",
             extends: None,
             description: Some(
-                "RWA, reset status.",
+                "RO, reset status.",
             ),
             bit_size: 8,
             fields: &[

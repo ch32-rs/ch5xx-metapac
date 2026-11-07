@@ -301,19 +301,19 @@ impl Usbhs {
     pub const fn uh_tx_dma(self) -> crate::common::Reg<regs::UhTxDma, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0128usize) as _) }
     }
-    #[doc = "WO, USBHS host port control register."]
+    #[doc = "RW, USBHS host port control register."]
     #[inline(always)]
-    pub const fn port_ctrl(self) -> crate::common::Reg<regs::PortCtrl, crate::common::R> {
+    pub const fn port_ctrl(self) -> crate::common::Reg<regs::PortCtrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x012cusize) as _) }
     }
-    #[doc = "RO, USBHS host port configuration register."]
+    #[doc = "RW, USBHS host port configuration register."]
     #[inline(always)]
-    pub const fn port_cfg(self) -> crate::common::Reg<regs::PortCfg, crate::common::R> {
+    pub const fn port_cfg(self) -> crate::common::Reg<regs::PortCfg, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0130usize) as _) }
     }
-    #[doc = "RO, USBHS host port configuration register."]
+    #[doc = "RW, USBHS host port interrupt enable register."]
     #[inline(always)]
-    pub const fn port_int_en(self) -> crate::common::Reg<regs::PortIntEn, crate::common::R> {
+    pub const fn port_int_en(self) -> crate::common::Reg<regs::PortIntEn, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0132usize) as _) }
     }
     #[doc = "RW, USBHS host port test mode register."]
@@ -424,7 +424,7 @@ pub mod regs {
             PortCfg(0)
         }
     }
-    #[doc = "WO, USBHS host port control register."]
+    #[doc = "RW, USBHS host port control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct PortCtrl(pub u32);

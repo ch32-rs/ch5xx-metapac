@@ -136,7 +136,7 @@ pub(crate) static REGISTERS: IR = IR {
                     byte_offset: 0x10,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Read,
+                            access: Access::ReadWrite,
                             bit_size: 32,
                             fieldset: Some(
                                 "Fifo",
@@ -210,7 +210,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "cnt_end",
                     description: Some(
-                        "RW1,TMR end count value.",
+                        "RW, end count value; only low 26 bits valid. Writing clears COUNT.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -380,7 +380,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "freq_13_56",
                     description: Some(
-                        "RW,Counting frequency setting bits for TMR and TMR3.",
+                        "SDK extension, 13.56 MHz clock for TMR0/TMR3 only with sysclk >=42 MHz; reserved in DS V1.6.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -504,7 +504,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "fifo",
                     description: Some(
-                        "RW1,TMR FIFO register.",
+                        "Capture word or PWM width; only low 26 bits valid. Capture bit 25 has mode-dependent metadata.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {

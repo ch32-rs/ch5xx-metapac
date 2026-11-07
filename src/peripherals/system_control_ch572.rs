@@ -23,7 +23,7 @@ impl SystemControl {
     #[inline(always)]
     pub const fn safe_access_sig(
         self,
-    ) -> crate::common::Reg<regs::SafeAccessSig, crate::common::RW> {
+    ) -> crate::common::Reg<regs::SafeAccessSig, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x40usize) as _) }
     }
     #[doc = "RF, chip ID register, always is ID_CH57*."]
@@ -46,7 +46,7 @@ impl SystemControl {
     pub const fn glob_rom_cfg(self) -> crate::common::Reg<regs::GlobRomCfg, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x44usize) as _) }
     }
-    #[doc = "RWA, reset status."]
+    #[doc = "RO, reset status."]
     #[inline(always)]
     pub const fn reset_status(self) -> crate::common::Reg<regs::ResetStatus, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x44usize) as _) }
@@ -411,7 +411,7 @@ pub mod regs {
             PllConfig(0)
         }
     }
-    #[doc = "RWA, reset status."]
+    #[doc = "RO, reset status."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct ResetStatus(pub u8);

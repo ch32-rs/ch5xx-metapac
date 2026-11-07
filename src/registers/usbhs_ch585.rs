@@ -927,13 +927,13 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "port_ctrl",
                     description: Some(
-                        "WO, USBHS host port control register.",
+                        "RW, USBHS host port control register.",
                     ),
                     array: None,
                     byte_offset: 0x12c,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Read,
+                            access: Access::ReadWrite,
                             bit_size: 32,
                             fieldset: Some(
                                 "PortCtrl",
@@ -944,13 +944,13 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "port_cfg",
                     description: Some(
-                        "RO, USBHS host port configuration register.",
+                        "RW, USBHS host port configuration register.",
                     ),
                     array: None,
                     byte_offset: 0x130,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Read,
+                            access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
                                 "PortCfg",
@@ -961,13 +961,13 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "port_int_en",
                     description: Some(
-                        "RO, USBHS host port configuration register.",
+                        "RW, USBHS host port interrupt enable register.",
                     ),
                     array: None,
                     byte_offset: 0x132,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Read,
+                            access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
                                 "PortIntEn",
@@ -1158,7 +1158,7 @@ pub(crate) static REGISTERS: IR = IR {
             name: "PortCtrl",
             extends: None,
             description: Some(
-                "WO, USBHS host port control register.",
+                "RW, USBHS host port control register.",
             ),
             bit_size: 32,
             fields: &[

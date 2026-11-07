@@ -130,13 +130,13 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "fifo",
                     description: Some(
-                        "RO, TMR FIFO register, only low 26 bit.",
+                        "RO/WO, TMR FIFO register, only low 26 bit.",
                     ),
                     array: None,
                     byte_offset: 0x10,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Read,
+                            access: Access::ReadWrite,
                             bit_size: 32,
                             fieldset: Some(
                                 "Fifo",
@@ -247,7 +247,7 @@ pub(crate) static REGISTERS: IR = IR {
                     byte_offset: 0x6,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Read,
+                            access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
                                 "IntFlag",
@@ -315,7 +315,7 @@ pub(crate) static REGISTERS: IR = IR {
                     byte_offset: 0x10,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Read,
+                            access: Access::ReadWrite,
                             bit_size: 32,
                             fieldset: Some(
                                 "Fifo",

@@ -23,7 +23,7 @@ impl SystemControl {
     #[inline(always)]
     pub const fn safe_access_sig(
         self,
-    ) -> crate::common::Reg<regs::SafeAccessSig, crate::common::RW> {
+    ) -> crate::common::Reg<regs::SafeAccessSig, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x40usize) as _) }
     }
     #[doc = "RF, chip ID register, always is ID_CH57*."]

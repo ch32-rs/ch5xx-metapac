@@ -147,7 +147,7 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "auto_cycle",
                     description: Some(
-                        "RO, ADC interrupt flag.",
+                        "RW, ADC auto cycle value.",
                     ),
                     array: None,
                     byte_offset: 0x63,

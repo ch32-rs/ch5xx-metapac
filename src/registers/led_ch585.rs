@@ -113,13 +113,13 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "dma_cnt",
                     description: Some(
-                        "WO, LED DMA remaining count register.",
+                        "RO, LED DMA remaining count register.",
                     ),
                     array: None,
                     byte_offset: 0x14,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Write,
+                            access: Access::Read,
                             bit_size: 16,
                             fieldset: Some(
                                 "DmaCnt",
@@ -363,7 +363,7 @@ pub(crate) static REGISTERS: IR = IR {
             name: "DmaCnt",
             extends: None,
             description: Some(
-                "WO, LED DMA remaining count register.",
+                "RO, LED DMA remaining count register.",
             ),
             bit_size: 16,
             fields: &[

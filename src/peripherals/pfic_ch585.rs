@@ -121,12 +121,12 @@ impl Pfic {
     }
     #[doc = "Interrupt ACTIVE Register."]
     #[inline(always)]
-    pub const fn iactr1(self) -> crate::common::Reg<regs::Iactr1, crate::common::RW> {
+    pub const fn iactr1(self) -> crate::common::Reg<regs::Iactr1, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0300usize) as _) }
     }
     #[doc = "Interrupt ACTIVE Register."]
     #[inline(always)]
-    pub const fn iactr2(self) -> crate::common::Reg<regs::Iactr2, crate::common::RW> {
+    pub const fn iactr2(self) -> crate::common::Reg<regs::Iactr2, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0304usize) as _) }
     }
     #[doc = "Interrupt Priority configuration Register 0."]

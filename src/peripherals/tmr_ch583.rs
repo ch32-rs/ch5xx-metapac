@@ -54,9 +54,9 @@ impl TmrFull {
     pub const fn cnt_end(self) -> crate::common::Reg<regs::CntEnd, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0cusize) as _) }
     }
-    #[doc = "RO, TMR_FULL FIFO register, only low 26 bit."]
+    #[doc = "RO/WO, TMR_FULL FIFO register, only low 26 bit."]
     #[inline(always)]
-    pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::R> {
+    pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
     }
     #[doc = "RO, TMR_FULL DMA current address."]
@@ -123,7 +123,7 @@ impl TmrNodma {
     }
     #[doc = "RO/WO, TMR_NODMA FIFO register, only low 26 bit."]
     #[inline(always)]
-    pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::R> {
+    pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
     }
 }

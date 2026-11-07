@@ -49,7 +49,7 @@ impl Adc {
     pub const fn int_flag(self) -> crate::common::Reg<regs::IntFlag, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x5eusize) as _) }
     }
-    #[doc = "RO, ADC DMA control and status register."]
+    #[doc = "RW, ADC DMA control and status register."]
     #[inline(always)]
     pub const fn dma_ctrl(self) -> crate::common::Reg<regs::DmaCtrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x60usize) as _) }
@@ -59,12 +59,12 @@ impl Adc {
     pub const fn ctrl_dma(self) -> crate::common::Reg<regs::CtrlDma, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x61usize) as _) }
     }
-    #[doc = "RO, ADC interrupt flag."]
+    #[doc = "RW1, ADC interrupt flag."]
     #[inline(always)]
     pub const fn dma_if(self) -> crate::common::Reg<regs::DmaIf, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x62usize) as _) }
     }
-    #[doc = "RO, ADC interrupt flag."]
+    #[doc = "RW, ADC auto cycle value."]
     #[inline(always)]
     pub const fn auto_cycle(self) -> crate::common::Reg<regs::AutoCycle, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x63usize) as _) }

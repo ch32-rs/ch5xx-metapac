@@ -49,9 +49,9 @@ impl Led {
     pub const fn dma_len(self) -> crate::common::Reg<regs::DmaLen, crate::common::W> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
     }
-    #[doc = "WO, LED DMA remaining count register."]
+    #[doc = "RO, LED DMA remaining count register."]
     #[inline(always)]
-    pub const fn dma_cnt(self) -> crate::common::Reg<regs::DmaCnt, crate::common::W> {
+    pub const fn dma_cnt(self) -> crate::common::Reg<regs::DmaCnt, crate::common::R> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
     }
     #[doc = "RW, LED DMA starting address."]
@@ -235,7 +235,7 @@ pub mod regs {
             DmaBeg(0)
         }
     }
-    #[doc = "WO, LED DMA remaining count register."]
+    #[doc = "RO, LED DMA remaining count register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaCnt(pub u16);
