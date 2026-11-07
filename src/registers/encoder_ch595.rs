@@ -1,0 +1,322 @@
+
+                    use crate::metadata::ir::*;
+                    pub(crate) static REGISTERS: IR = IR {
+    blocks: &[
+        Block {
+            name: "Encoder",
+            extends: None,
+            description: Some(
+                "ENCODER register.",
+            ),
+            items: &[
+                BlockItem {
+                    name: "reg_ctrl",
+                    description: Some(
+                        "RW, Encoder control register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x0,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "RegCtrl",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "inter_en",
+                    description: Some(
+                        "RW, Encoder interrupt enable register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "InterEn",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "int_flag",
+                    description: Some(
+                        "RW, Encoder interrupt flag register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x2,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "IntFlag",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "reg_cend",
+                    description: Some(
+                        "RW, Encoder final value configuration register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x4,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "RegCend",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "reg_ccnt",
+                    description: Some(
+                        "RW, Encoder current value configuration register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x8,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "RegCcnt",
+                            ),
+                        },
+                    ),
+                },
+            ],
+        },
+    ],
+    fieldsets: &[
+        FieldSet {
+            name: "IntFlag",
+            extends: None,
+            description: Some(
+                "RW, Encoder interrupt flag register.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "if_dir_inc",
+                    description: Some(
+                        "RW, Encoder forward interrupt flag.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_dir_dec",
+                    description: Some(
+                        "RW, Encoder backward interrupt flag.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "InterEn",
+            extends: None,
+            description: Some(
+                "RW, Encoder interrupt enable register.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "ie_dir_inc",
+                    description: Some(
+                        "RW, Encoder forward interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_dir_dec",
+                    description: Some(
+                        "RW, Encoder backward interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "RegCcnt",
+            extends: None,
+            description: Some(
+                "RW, Encoder current value configuration register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "reg_ccnt",
+                    description: Some(
+                        "RW, Current encoder value.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "RegCend",
+            extends: None,
+            description: Some(
+                "RW, Encoder final value configuration register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "reg_cend",
+                    description: Some(
+                        "RW, Encoder final value configuration.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "RegCtrl",
+            extends: None,
+            description: Some(
+                "RW, Encoder control register.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "start_enc_en",
+                    description: Some(
+                        "RW, Encoder work enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "sms_mode",
+                    description: Some(
+                        "RW, Encoder edge working mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "rd_clr_en",
+                    description: Some(
+                        "RW, Encoder reads count and resets.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "dir",
+                    description: Some(
+                        "RW, Current direction of encoder.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 5,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "in_ch1",
+                    description: Some(
+                        "RW, Encoder captures the value of channel 1.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 6,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "in_ch2",
+                    description: Some(
+                        "RW, Encoder captures the value of channel 2.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+    ],
+    enums: &[],
+};
+                

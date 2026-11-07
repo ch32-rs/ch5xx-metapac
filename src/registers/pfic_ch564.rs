@@ -1,0 +1,2817 @@
+
+                    use crate::metadata::ir::*;
+                    pub(crate) static REGISTERS: IR = IR {
+    blocks: &[
+        Block {
+            name: "Pfic",
+            extends: None,
+            description: Some(
+                "Programmable Fast Interrupt. Controller.",
+            ),
+            items: &[
+                BlockItem {
+                    name: "isr1",
+                    description: Some(
+                        "Interrupt Status. Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x0,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Isr1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "isr2",
+                    description: Some(
+                        "Interrupt Status. Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x4,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Isr2",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "ipr1",
+                    description: Some(
+                        "Interrupt Pending Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x20,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Ipr1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "ipr2",
+                    description: Some(
+                        "Interrupt Pending Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x24,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Ipr2",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "ithresdr",
+                    description: Some(
+                        "Interrupt Priority. Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x40,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Ithresdr",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "cfgr",
+                    description: Some(
+                        "Interrupt Config Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x48,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Cfgr",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "gisr",
+                    description: Some(
+                        "Interrupt Global Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x4c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Gisr",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "vtfidr",
+                    description: Some(
+                        "ID Config Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x50,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Vtfidr",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "vtfaddrr0",
+                    description: Some(
+                        "Interrupt 0 address. Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x60,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Vtfaddrr0",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "vtfaddrr1",
+                    description: Some(
+                        "Interrupt 1 address. Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x64,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Vtfaddrr1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "vtfaddrr2",
+                    description: Some(
+                        "Interrupt 2 address. Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x68,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Vtfaddrr2",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "vtfaddrr3",
+                    description: Some(
+                        "Interrupt 3 address. Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x6c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Vtfaddrr3",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "ienr1",
+                    description: Some(
+                        "Interrupt Setting Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x100,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Write,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Ienr1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "ienr2",
+                    description: Some(
+                        "Interrupt Setting Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x104,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Write,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Ienr2",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "irer1",
+                    description: Some(
+                        "Interrupt Clear Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x180,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Write,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Irer1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "irer2",
+                    description: Some(
+                        "Interrupt Clear Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x184,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Write,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Irer2",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "ipsr1",
+                    description: Some(
+                        "Interrupt Pending Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x200,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Write,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Ipsr1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "ipsr2",
+                    description: Some(
+                        "Interrupt Pending Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x204,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Write,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Ipsr2",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprr1",
+                    description: Some(
+                        "Interrupt Pending Clear Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x280,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Write,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Iprr1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprr2",
+                    description: Some(
+                        "Interrupt Pending Clear Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x284,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Write,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Iprr2",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iactr1",
+                    description: Some(
+                        "Interrupt ACTIVE Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x300,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Iactr1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iactr2",
+                    description: Some(
+                        "Interrupt ACTIVE Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x304,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Iactr2",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior0",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x400,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior1",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x401,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior2",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x402,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior3",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x403,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior4",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x404,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior5",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x405,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior6",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x406,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior7",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x407,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior8",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x408,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior9",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x409,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior10",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x40a,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior11",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x40b,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior12",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x40c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior13",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x40d,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior14",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x40e,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior15",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x40f,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior16",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x410,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior17",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x411,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior18",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x412,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior19",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x413,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior20",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x414,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior21",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x415,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior22",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x416,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior23",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x417,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior24",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x418,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior25",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x419,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior26",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x41a,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior27",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x41b,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior28",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x41c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior29",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x41d,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior30",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x41e,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior31",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x41f,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior32",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x420,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior33",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x421,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior34",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x422,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior35",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x423,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior36",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x424,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior37",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x425,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior38",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x426,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior39",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x427,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior40",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x428,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior41",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x429,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior42",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x42a,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior43",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x42b,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior44",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x42c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior45",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x42d,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior46",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x42e,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior47",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x42f,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior48",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x430,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior49",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x431,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior50",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x432,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior51",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x433,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior52",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x434,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior53",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x435,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior54",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x436,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior55",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x437,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior56",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x438,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior57",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x439,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior58",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x43a,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior59",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x43b,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior60",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x43c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior61",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x43d,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior62",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x43e,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior63",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x43f,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior64",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x440,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior65",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x441,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior66",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x442,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior67",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x443,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iprior68",
+                    description: Some(
+                        "Interrupt Priority Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x444,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sctlr",
+                    description: Some(
+                        "System Control Register.",
+                    ),
+                    array: None,
+                    byte_offset: 0xd10,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Sctlr",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "stk_ctlr",
+                    description: Some(
+                        "System counter control register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1000,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "StkCtlr",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "stk_sr",
+                    description: Some(
+                        "System START.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1004,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "StkSr",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "stk_cntl",
+                    description: Some(
+                        "System counter low register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1008,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "StkCntl",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "stk_cnth",
+                    description: Some(
+                        "System counter high register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x100c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "StkCnth",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "stk_cmplr",
+                    description: Some(
+                        "System compare low register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1010,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "StkCmplr",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "stk_cmphr",
+                    description: Some(
+                        "System compare high register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1014,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "StkCmphr",
+                            ),
+                        },
+                    ),
+                },
+            ],
+        },
+    ],
+    fieldsets: &[
+        FieldSet {
+            name: "Cfgr",
+            extends: None,
+            description: Some(
+                "Interrupt Config Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "rstsys",
+                    description: Some(
+                        "RESETSYS.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "keycode",
+                    description: Some(
+                        "KEYCODE.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Gisr",
+            extends: None,
+            description: Some(
+                "Interrupt Global Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "neststa",
+                    description: Some(
+                        "NESTSTA.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "gactsta",
+                    description: Some(
+                        "GACTSTA.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 8,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "gpendsta",
+                    description: Some(
+                        "GPENDSTA.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 9,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Iactr1",
+            extends: None,
+            description: Some(
+                "Interrupt ACTIVE Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "iacts2_3",
+                    description: Some(
+                        "IACTS.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "iacts12",
+                    description: Some(
+                        "IACTS.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 12,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "iacts14",
+                    description: Some(
+                        "IACTS.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 14,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "iacts16_31",
+                    description: Some(
+                        "IACTS.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Iactr2",
+            extends: None,
+            description: Some(
+                "Interrupt ACTIVE Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "iacts",
+                    description: Some(
+                        "IACTS.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Ienr1",
+            extends: None,
+            description: Some(
+                "Interrupt Setting Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "inten12",
+                    description: Some(
+                        "INTEN12.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 12,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "inten14",
+                    description: Some(
+                        "INTEN14.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 14,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "inten16_31",
+                    description: Some(
+                        "INTEN16_31.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Ienr2",
+            extends: None,
+            description: Some(
+                "Interrupt Setting Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "inten",
+                    description: Some(
+                        "INTEN.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Ipr1",
+            extends: None,
+            description: Some(
+                "Interrupt Pending Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "pendsta2_3",
+                    description: Some(
+                        "PENDSTA.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pendsta12",
+                    description: Some(
+                        "PENDSTA.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 12,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pendsta14",
+                    description: Some(
+                        "PENDSTA.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 14,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pendsta16_31",
+                    description: Some(
+                        "PENDSTA.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Ipr2",
+            extends: None,
+            description: Some(
+                "Interrupt Pending Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "pendsta",
+                    description: Some(
+                        "PENDSTA.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Iprr1",
+            extends: None,
+            description: Some(
+                "Interrupt Pending Clear Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "pendrst2_3",
+                    description: Some(
+                        "PENDRESET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pendrst12",
+                    description: Some(
+                        "PENDRESET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 12,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pendrst14",
+                    description: Some(
+                        "PENDRESET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 14,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pendrst16_31",
+                    description: Some(
+                        "PENDRESET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Iprr2",
+            extends: None,
+            description: Some(
+                "Interrupt Pending Clear Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "pendrst",
+                    description: Some(
+                        "PENDRESET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Ipsr1",
+            extends: None,
+            description: Some(
+                "Interrupt Pending Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "pendset2_3",
+                    description: Some(
+                        "PENDSET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pendset12",
+                    description: Some(
+                        "PENDSET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 12,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pendset14",
+                    description: Some(
+                        "PENDSET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 14,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pendset16_31",
+                    description: Some(
+                        "PENDSET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Ipsr2",
+            extends: None,
+            description: Some(
+                "Interrupt Pending Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "pendset",
+                    description: Some(
+                        "PENDSET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Irer1",
+            extends: None,
+            description: Some(
+                "Interrupt Clear Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "intrset12",
+                    description: Some(
+                        "INTRSET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 12,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "intrset14",
+                    description: Some(
+                        "INTRSET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 14,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "intrset16_31",
+                    description: Some(
+                        "INTRSET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Irer2",
+            extends: None,
+            description: Some(
+                "Interrupt Clear Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "intrset",
+                    description: Some(
+                        "INTRSET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Isr1",
+            extends: None,
+            description: Some(
+                "Interrupt Status. Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "intensta2_3",
+                    description: Some(
+                        "Interrupt ID Status.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "intensta12",
+                    description: Some(
+                        "Interrupt ID Status.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 12,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "intensta14",
+                    description: Some(
+                        "Interrupt ID Status.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 14,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "intensta16_31",
+                    description: Some(
+                        "Interrupt ID Status.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Isr2",
+            extends: None,
+            description: Some(
+                "Interrupt Status. Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "intensta",
+                    description: Some(
+                        "Interrupt ID Status.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Ithresdr",
+            extends: None,
+            description: Some(
+                "Interrupt Priority. Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "threshold",
+                    description: Some(
+                        "THRESHOLD.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Sctlr",
+            extends: None,
+            description: Some(
+                "System Control Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sleeponexit",
+                    description: Some(
+                        "SLEEPONEXIT.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "sleepdeep",
+                    description: Some(
+                        "SLEEPDEEP.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "wfitowfe",
+                    description: Some(
+                        "WFITOWFE.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "sevonpend",
+                    description: Some(
+                        "SEVONPEND.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "setevent",
+                    description: Some(
+                        "SETEVENT.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 5,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "lockup",
+                    description: Some(
+                        "Lock_up.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 6,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "sysreset",
+                    description: Some(
+                        "SYSRESET.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 31,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "StkCmphr",
+            extends: None,
+            description: Some(
+                "System compare high register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "cmph",
+                    description: Some(
+                        "CMPH.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "StkCmplr",
+            extends: None,
+            description: Some(
+                "System compare low register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "cmpl",
+                    description: Some(
+                        "CMPL.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "StkCnth",
+            extends: None,
+            description: Some(
+                "System counter high register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "cnth",
+                    description: Some(
+                        "CNTH.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "StkCntl",
+            extends: None,
+            description: Some(
+                "System counter low register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "cntl",
+                    description: Some(
+                        "CNTL.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "StkCtlr",
+            extends: None,
+            description: Some(
+                "System counter control register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "ste",
+                    description: Some(
+                        "System counter enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "stie",
+                    description: Some(
+                        "System counter interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "stclk",
+                    description: Some(
+                        "System selects the clock source.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "stre",
+                    description: Some(
+                        "System reload register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "mode",
+                    description: Some(
+                        "System Mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "init",
+                    description: Some(
+                        "System Initialization update.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 5,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "swie",
+                    description: Some(
+                        "System software triggered interrupts enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 31,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "StkSr",
+            extends: None,
+            description: Some(
+                "System START.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "cntif",
+                    description: Some(
+                        "CNTIF.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Vtfaddrr0",
+            extends: None,
+            description: Some(
+                "Interrupt 0 address. Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "vtf0en",
+                    description: Some(
+                        "VTF0EN.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "addr0",
+                    description: Some(
+                        "ADDR0.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 31,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Vtfaddrr1",
+            extends: None,
+            description: Some(
+                "Interrupt 1 address. Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "vtf1en",
+                    description: Some(
+                        "VTF1EN.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "addr1",
+                    description: Some(
+                        "ADDR1.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 31,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Vtfaddrr2",
+            extends: None,
+            description: Some(
+                "Interrupt 2 address. Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "vtf2en",
+                    description: Some(
+                        "VTF2EN.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "addr2",
+                    description: Some(
+                        "ADDR2.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 31,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Vtfaddrr3",
+            extends: None,
+            description: Some(
+                "Interrupt 3 address. Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "vtf3en",
+                    description: Some(
+                        "VTF3EN.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "addr3",
+                    description: Some(
+                        "ADDR3.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 31,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Vtfidr",
+            extends: None,
+            description: Some(
+                "ID Config Register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "vtfid0",
+                    description: Some(
+                        "VTFID0.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "vtfid1",
+                    description: Some(
+                        "VTFID1.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 8,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "vtfid2",
+                    description: Some(
+                        "VTFID2.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "vtfid3",
+                    description: Some(
+                        "VTFID3.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 24,
+                        },
+                    ),
+                    bit_size: 8,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+    ],
+    enums: &[],
+};
+                

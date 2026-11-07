@@ -1,0 +1,15 @@
+PROVIDE(RESERVED16 = DefaultHandler);
+PROVIDE(GPIO_A = DefaultHandler);
+PROVIDE(SPI0 = DefaultHandler);
+PROVIDE(BLEB = DefaultHandler);
+PROVIDE(BLEL = DefaultHandler);
+PROVIDE(USB = DefaultHandler);
+PROVIDE(TMR0 = DefaultHandler);
+PROVIDE(UART0 = DefaultHandler);
+PROVIDE(RTC = DefaultHandler);
+PROVIDE(CMP = DefaultHandler);
+PROVIDE(I2C0 = DefaultHandler);
+PROVIDE(PWMX = DefaultHandler);
+PROVIDE(KEYSCAN = DefaultHandler);
+PROVIDE(ENCODER = DefaultHandler);
+PROVIDE(WDOG_BAT = DefaultHandler);

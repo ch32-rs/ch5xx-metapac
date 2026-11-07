@@ -1,0 +1,1226 @@
+
+                    use crate::metadata::ir::*;
+                    pub(crate) static REGISTERS: IR = IR {
+    blocks: &[
+        Block {
+            name: "Ecdc",
+            extends: None,
+            description: Some(
+                "ECDC register.",
+            ),
+            items: &[
+                BlockItem {
+                    name: "ctrl",
+                    description: Some(
+                        "ECDC AES/SM4 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x0,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 16,
+                            fieldset: Some(
+                                "Ctrl",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "int_en",
+                    description: Some(
+                        "Interupt enable register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x2,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "IntEn",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "int_fg",
+                    description: Some(
+                        "Interupt flag register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x6,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "IntFg",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "key_255t224",
+                    description: Some(
+                        "User key 224-255 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x8,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Key255t224",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "key_223t192",
+                    description: Some(
+                        "User key 192-223 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0xc,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Key223t192",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "key_191t160",
+                    description: Some(
+                        "User key 160-191 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x10,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Key191t160",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "key_159t128",
+                    description: Some(
+                        "User key 128-159 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x14,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Key159t128",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "key_127t96",
+                    description: Some(
+                        "User key 96-127 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x18,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Key127t96",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "key_95t64",
+                    description: Some(
+                        "User key 64-95 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Key95t64",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "key_63t32",
+                    description: Some(
+                        "User key 32-63 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x20,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Key63t32",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "key_31t0",
+                    description: Some(
+                        "User key 0-31 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x24,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Key31t0",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iv_127t96",
+                    description: Some(
+                        "CTR mode count 96-127 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x28,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Iv127t96",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iv_95t64",
+                    description: Some(
+                        "CTR mode count 64-95 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x2c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Iv95t64",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iv_63t32",
+                    description: Some(
+                        "CTR mode count 32-63 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x30,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Iv63t32",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iv_31t0",
+                    description: Some(
+                        "CTR mode count 0-31 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x34,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Iv31t0",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sgsd_127t96",
+                    description: Some(
+                        "Single encryption and decryption of original data 96-127 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x40,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Sgsd127t96",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sgsd_95t64",
+                    description: Some(
+                        "Single encryption and decryption of original data 64-95 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x44,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Sgsd95t64",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sgsd_63t32",
+                    description: Some(
+                        "Single encryption and decryption of original data 32-63 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x48,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Sgsd63t32",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sgsd_31t0",
+                    description: Some(
+                        "Single encryption and decryption of original data 0-31 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x4c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Sgsd31t0",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sgrt_127t96",
+                    description: Some(
+                        "Single encryption and decryption result 96-127 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x50,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Sgrt127t96",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sgrt_95t64",
+                    description: Some(
+                        "Single encryption and decryption result 64-95 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x54,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Sgrt95t64",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sgrt_63t32",
+                    description: Some(
+                        "Single encryption and decryption result 0-31 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x58,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Sgrt63t32",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sgrt_31t0",
+                    description: Some(
+                        "Single encryption and decryption result 0-31 register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x5c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Sgrt31t0",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sram_addr",
+                    description: Some(
+                        "encryption and decryption sram start address register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x60,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "SramAddr",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sram_len",
+                    description: Some(
+                        "encryption and decryption sram size register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x64,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "SramLen",
+                            ),
+                        },
+                    ),
+                },
+            ],
+        },
+    ],
+    fieldsets: &[
+        FieldSet {
+            name: "Ctrl",
+            extends: None,
+            description: Some(
+                "ECDC AES/SM4 register.",
+            ),
+            bit_size: 16,
+            fields: &[
+                Field {
+                    name: "keyex_en",
+                    description: Some(
+                        "enable key expansion.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "rdperi_en",
+                    description: Some(
+                        "when write data to dma.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "wrperi_en",
+                    description: Some(
+                        "when read data from dma.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "mode_sel",
+                    description: Some(
+                        "ECDC mode select.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "clkdiv_mask",
+                    description: Some(
+                        "Clock divide factor.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 3,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "wrsram_en",
+                    description: Some(
+                        "module dma enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "algrm_mod",
+                    description: Some(
+                        "Encryption and decryption algorithm mode selection.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 8,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "cipher_mod",
+                    description: Some(
+                        "Block cipher mode selection.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 9,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "klen_mask",
+                    description: Some(
+                        "Key length setting.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 10,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "dat_mod",
+                    description: Some(
+                        "source data and result data is bit endian.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 13,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "IntEn",
+            extends: None,
+            description: Some(
+                "Interupt enable register.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "ie_ekdone",
+                    description: Some(
+                        "Key extension completion interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_single",
+                    description: Some(
+                        "Single encryption and decryption completion interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_wrsram",
+                    description: Some(
+                        "Memory to memory encryption and decryption completion interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "IntFg",
+            extends: None,
+            description: Some(
+                "Interupt flag register.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "if_ekdone",
+                    description: Some(
+                        "Key extension completion interrupt flag.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_single",
+                    description: Some(
+                        "Single encryption and decryption completion interrupt flag.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_wrsram",
+                    description: Some(
+                        "Memory to memory encryption and decryption completion interrupt flag.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Iv127t96",
+            extends: None,
+            description: Some(
+                "CTR mode count 96-127 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "iv_127t96",
+                    description: Some(
+                        "CTR mode count 96-127 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Iv31t0",
+            extends: None,
+            description: Some(
+                "CTR mode count 0-31 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "iv_31t0",
+                    description: Some(
+                        "CTR mode count 0-31 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Iv63t32",
+            extends: None,
+            description: Some(
+                "CTR mode count 32-63 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "iv_63t32",
+                    description: Some(
+                        "CTR mode count 32-63 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Iv95t64",
+            extends: None,
+            description: Some(
+                "CTR mode count 64-95 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "iv_95t64",
+                    description: Some(
+                        "CTR mode count 64-95 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Key127t96",
+            extends: None,
+            description: Some(
+                "User key 96-127 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "key_127t96",
+                    description: Some(
+                        "User key 96-127 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Key159t128",
+            extends: None,
+            description: Some(
+                "User key 128-159 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "key_159t128",
+                    description: Some(
+                        "User key 128-159 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Key191t160",
+            extends: None,
+            description: Some(
+                "User key 160-191 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "key_191t160",
+                    description: Some(
+                        "User key 160-191 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Key223t192",
+            extends: None,
+            description: Some(
+                "User key 192-223 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "key_223t192",
+                    description: Some(
+                        "User key 192-223 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Key255t224",
+            extends: None,
+            description: Some(
+                "User key 224-255 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "key_255t224",
+                    description: Some(
+                        "User key 224-255 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Key31t0",
+            extends: None,
+            description: Some(
+                "User key 0-31 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "key_31t0",
+                    description: Some(
+                        "User key 0-31 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Key63t32",
+            extends: None,
+            description: Some(
+                "User key 32-63 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "key_63t32",
+                    description: Some(
+                        "User key 32-63 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Key95t64",
+            extends: None,
+            description: Some(
+                "User key 64-95 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "key_95t64",
+                    description: Some(
+                        "User key 64-95 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Sgrt127t96",
+            extends: None,
+            description: Some(
+                "Single encryption and decryption result 96-127 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sgrt_127t96",
+                    description: Some(
+                        "Single encryption and decryption result 96-127 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Sgrt31t0",
+            extends: None,
+            description: Some(
+                "Single encryption and decryption result 0-31 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sgrt_31t0",
+                    description: Some(
+                        "Single encryption and decryption result 0-31 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Sgrt63t32",
+            extends: None,
+            description: Some(
+                "Single encryption and decryption result 0-31 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sgrt_63t32",
+                    description: Some(
+                        "Single encryption and decryption result 0-31 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Sgrt95t64",
+            extends: None,
+            description: Some(
+                "Single encryption and decryption result 64-95 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sgrt_95t64",
+                    description: Some(
+                        "Single encryption and decryption result 64-95 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Sgsd127t96",
+            extends: None,
+            description: Some(
+                "Single encryption and decryption of original data 96-127 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sgsd_127t96",
+                    description: Some(
+                        "Single encryption and decryption of original data 96-127 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Sgsd31t0",
+            extends: None,
+            description: Some(
+                "Single encryption and decryption of original data 0-31 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sgsd_31t0",
+                    description: Some(
+                        "Single encryption and decryption of original data 0-31 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Sgsd63t32",
+            extends: None,
+            description: Some(
+                "Single encryption and decryption of original data 32-63 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sgsd_63t32",
+                    description: Some(
+                        "Single encryption and decryption of original data 32-63 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Sgsd95t64",
+            extends: None,
+            description: Some(
+                "Single encryption and decryption of original data 64-95 register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sgsd_95t64",
+                    description: Some(
+                        "Single encryption and decryption of original data 64-95 register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "SramAddr",
+            extends: None,
+            description: Some(
+                "encryption and decryption sram start address register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sram_addr",
+                    description: Some(
+                        "encryption and decryption sram start address register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 17,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "SramLen",
+            extends: None,
+            description: Some(
+                "encryption and decryption sram size register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "sram_len",
+                    description: Some(
+                        "encryption and decryption sram size register.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 17,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+    ],
+    enums: &[],
+};
+                

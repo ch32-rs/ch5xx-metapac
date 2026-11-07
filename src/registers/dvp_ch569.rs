@@ -1,0 +1,750 @@
+
+                    use crate::metadata::ir::*;
+                    pub(crate) static REGISTERS: IR = IR {
+    blocks: &[
+        Block {
+            name: "Dvp",
+            extends: None,
+            description: Some(
+                "DVP register.",
+            ),
+            items: &[
+                BlockItem {
+                    name: "cr0",
+                    description: Some(
+                        "DVP control register0.",
+                    ),
+                    array: None,
+                    byte_offset: 0x0,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "Cr0",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "cr1",
+                    description: Some(
+                        "DVP control register1.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "Cr1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "int_en",
+                    description: Some(
+                        "DVP interrupt enable register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x2,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "IntEn",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "row_num",
+                    description: Some(
+                        "DVP row number of a frame indicator register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x4,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 16,
+                            fieldset: Some(
+                                "RowNum",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "col_num",
+                    description: Some(
+                        "DVP row number of a frame indicator register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x6,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 16,
+                            fieldset: Some(
+                                "ColNum",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "dma_buf0",
+                    description: Some(
+                        "DVP dma buffer0 addr.",
+                    ),
+                    array: None,
+                    byte_offset: 0x8,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "DmaBuf0",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "dma_buf1",
+                    description: Some(
+                        "DVP dma buffer1 addr.",
+                    ),
+                    array: None,
+                    byte_offset: 0xc,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "DmaBuf1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "int_flag",
+                    description: Some(
+                        "DVP interrupt flag register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x10,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "IntFlag",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "fifo_st",
+                    description: Some(
+                        "DVP receive fifo status.",
+                    ),
+                    array: None,
+                    byte_offset: 0x11,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "FifoSt",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "row_cnt",
+                    description: Some(
+                        "DVP row count value.",
+                    ),
+                    array: None,
+                    byte_offset: 0x14,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 16,
+                            fieldset: Some(
+                                "RowCnt",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "col_cnt",
+                    description: Some(
+                        "DVP col count value.",
+                    ),
+                    array: None,
+                    byte_offset: 0x16,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 16,
+                            fieldset: Some(
+                                "ColCnt",
+                            ),
+                        },
+                    ),
+                },
+            ],
+        },
+    ],
+    fieldsets: &[
+        FieldSet {
+            name: "ColCnt",
+            extends: None,
+            description: Some(
+                "DVP col count value.",
+            ),
+            bit_size: 16,
+            fields: &[
+                Field {
+                    name: "col_cnt",
+                    description: Some(
+                        "DVP receive fifo ready.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "ColNum",
+            extends: None,
+            description: Some(
+                "DVP row number of a frame indicator register.",
+            ),
+            bit_size: 16,
+            fields: &[
+                Field {
+                    name: "col_num",
+                    description: Some(
+                        "the number of PCLK cyccles contained in a row of data in RGB mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Cr0",
+            extends: None,
+            description: Some(
+                "DVP control register0.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "enable",
+                    description: Some(
+                        "DVP enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "v_polar",
+                    description: Some(
+                        "DVP VSYNC polarity control.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "h_polar",
+                    description: Some(
+                        "DVP HSYNC polarity control.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "p_polar",
+                    description: Some(
+                        "DVP PCLK polarity control.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "msk_dat_mod",
+                    description: Some(
+                        "DVP data bit width confguration.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "jpeg",
+                    description: Some(
+                        "DVP JPEG mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 6,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "raw_cm",
+                    description: Some(
+                        "DVP row count mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Cr1",
+            extends: None,
+            description: Some(
+                "DVP control register1.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "dma_enable",
+                    description: Some(
+                        "DVP dma enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "all_clr",
+                    description: Some(
+                        "DVP all clear, high action.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "rcv_clr",
+                    description: Some(
+                        "DVP receive logic clear, high action.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "buf_tog",
+                    description: Some(
+                        "DVP bug toggle by software.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "DmaBuf0",
+            extends: None,
+            description: Some(
+                "DVP dma buffer0 addr.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "dma_buf0",
+                    description: Some(
+                        "the receiving address 0 of DMA.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 17,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "DmaBuf1",
+            extends: None,
+            description: Some(
+                "DVP dma buffer1 addr.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "dma_buf1",
+                    description: Some(
+                        "the receiving address1 of DMA.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 17,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "FifoSt",
+            extends: None,
+            description: Some(
+                "DVP receive fifo status.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "fifo_rdy",
+                    description: Some(
+                        "DVP receive fifo ready.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "fifo_full",
+                    description: Some(
+                        "DVP receive fifo full.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "fifo_ov",
+                    description: Some(
+                        "DVP receive fifo overflow.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "msk_fifo_cnt",
+                    description: Some(
+                        "DVP receive fifo count.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 3,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "IntEn",
+            extends: None,
+            description: Some(
+                "DVP interrupt enable register.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "ie_str_frm",
+                    description: Some(
+                        "DVP frame start interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_row_done",
+                    description: Some(
+                        "DVP row received done interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_frm_done",
+                    description: Some(
+                        "DVP frame received done interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_fifo_ov",
+                    description: Some(
+                        "DVP receive fifo overflow interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_stp_frm",
+                    description: Some(
+                        "DVP frame stop interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "IntFlag",
+            extends: None,
+            description: Some(
+                "DVP interrupt flag register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "if_str_frm",
+                    description: Some(
+                        "interrupt flag for DVP frame start.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_row_done",
+                    description: Some(
+                        "interrupt flag for DVP row receive done.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_frm_done",
+                    description: Some(
+                        "interrupt flag for DVP frame receive done.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_fifo_ov",
+                    description: Some(
+                        "interrupt flag for DVP receive fifo overflow.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_stp_frm",
+                    description: Some(
+                        "interrupt flag for DVP frame stop.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "RowCnt",
+            extends: None,
+            description: Some(
+                "DVP row count value.",
+            ),
+            bit_size: 16,
+            fields: &[
+                Field {
+                    name: "row_cnt",
+                    description: Some(
+                        "DVP receive fifo full.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "RowNum",
+            extends: None,
+            description: Some(
+                "DVP row number of a frame indicator register.",
+            ),
+            bit_size: 16,
+            fields: &[
+                Field {
+                    name: "row_num",
+                    description: Some(
+                        "the number of rows contained in a frame of image data.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+    ],
+    enums: &[],
+};
+                

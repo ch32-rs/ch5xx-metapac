@@ -1,0 +1,158 @@
+
+                    use crate::metadata::ir::*;
+                    pub(crate) static REGISTERS: IR = IR {
+    blocks: &[
+        Block {
+            name: "Cmp",
+            extends: None,
+            description: Some(
+                "Comparer.",
+            ),
+            items: &[
+                BlockItem {
+                    name: "ctrl",
+                    description: Some(
+                        "RW, Comparator control register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x54,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Ctrl",
+                            ),
+                        },
+                    ),
+                },
+            ],
+        },
+    ],
+    fieldsets: &[
+        FieldSet {
+            name: "Ctrl",
+            extends: None,
+            description: Some(
+                "RW, Comparator control register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "en",
+                    description: Some(
+                        "RW, Comparator enabled.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "cap",
+                    description: Some(
+                        "RW, Timer captures channel signal source selection.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "sw",
+                    description: Some(
+                        "RW, Comparator channel selection.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "nref_level",
+                    description: Some(
+                        "RW, Selection of negative reference level for comparator.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "int",
+                    description: Some(
+                        "RW, Comparator interrupt enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 8,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "out_sel",
+                    description: Some(
+                        "RW, Comparator interrupt generates event selection.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 10,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_",
+                    description: Some(
+                        "RW1, Comparator interrupt flag, write 1 to reset to zero.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "apr_out_cmp",
+                    description: Some(
+                        "RW, Real time output signal of comparator.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 25,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+    ],
+    enums: &[],
+};
+                

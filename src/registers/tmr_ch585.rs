@@ -1,0 +1,708 @@
+
+                    use crate::metadata::ir::*;
+                    pub(crate) static REGISTERS: IR = IR {
+    blocks: &[
+        Block {
+            name: "TmrFull",
+            extends: None,
+            description: Some(
+                "Timer register.",
+            ),
+            items: &[
+                BlockItem {
+                    name: "ctrl_mod",
+                    description: Some(
+                        "RW, TMR mode control.",
+                    ),
+                    array: None,
+                    byte_offset: 0x0,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "CtrlMod",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "ctrl_dma",
+                    description: Some(
+                        "RO/WO, DMA control register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "CtrlDma",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "inter_en",
+                    description: Some(
+                        "RW, TMR interrupt enable.",
+                    ),
+                    array: None,
+                    byte_offset: 0x2,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "InterEn",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "int_flag",
+                    description: Some(
+                        "RW1, TMR interrupt flag.",
+                    ),
+                    array: None,
+                    byte_offset: 0x6,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "IntFlag",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "fifo_count",
+                    description: Some(
+                        "RO, TMR FIFO count status.",
+                    ),
+                    array: None,
+                    byte_offset: 0x7,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "FifoCount",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "count",
+                    description: Some(
+                        "RO, TMR current count.",
+                    ),
+                    array: None,
+                    byte_offset: 0x8,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Count",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "cnt_end",
+                    description: Some(
+                        "RW, TMR end count value, only low 26 bit.",
+                    ),
+                    array: None,
+                    byte_offset: 0xc,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "CntEnd",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "fifo",
+                    description: Some(
+                        "RO/WO, TMR FIFO register, only low 26 bit.",
+                    ),
+                    array: None,
+                    byte_offset: 0x10,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "Fifo",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "dma_now",
+                    description: Some(
+                        "RO, DMA current buffer address.",
+                    ),
+                    array: None,
+                    byte_offset: 0x14,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "DmaNow",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "dma_beg",
+                    description: Some(
+                        "RW, DMA start buffer address.",
+                    ),
+                    array: None,
+                    byte_offset: 0x18,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "DmaBeg",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "dma_end",
+                    description: Some(
+                        "RW, DMA end buffer address.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "DmaEnd",
+                            ),
+                        },
+                    ),
+                },
+            ],
+        },
+    ],
+    fieldsets: &[
+        FieldSet {
+            name: "CntEnd",
+            extends: None,
+            description: Some(
+                "RW, TMR end count value, only low 26 bit.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "cnt_end",
+                    description: Some(
+                        "RW, end count value; only low 26 bits valid. Writing clears COUNT.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Count",
+            extends: None,
+            description: Some(
+                "RO, TMR current count.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "count",
+                    description: Some(
+                        "RW1,TMR current count.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 26,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "CtrlDma",
+            extends: None,
+            description: Some(
+                "RO/WO, DMA control register.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "dma_enable",
+                    description: Some(
+                        "RW, DMA function enable bit.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "dma_loop",
+                    description: Some(
+                        "RW, Enable bit for DMA address loop function.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "CtrlMod",
+            extends: None,
+            description: Some(
+                "RW, TMR mode control.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "mode_in",
+                    description: Some(
+                        "RW, timer in mode: 0=timer/PWM, 1=capture/count.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "all_clear",
+                    description: Some(
+                        "RW, force clear timer FIFO and count.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "count_en",
+                    description: Some(
+                        "RW, timer count enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "out_en",
+                    description: Some(
+                        "RW, timer output enable.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "cap_count",
+                    description: Some(
+                        "RW, count sub-mode if TMR_MODE_IN=1: 0=capture, 1=count.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "out_polar",
+                    description: Some(
+                        "RW, timer PWM output polarity: 0=default low and high action, 1=default high and low action.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "freq_13_56",
+                    description: Some(
+                        "SDK extension, 13.56 MHz clock for TMR0/TMR3 only with sysclk >=42 MHz; reserved in DS V1.6.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 5,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "cap_edge",
+                    description: Some(
+                        "RW, timer capture edge mode: 00=disable, 01=edge change, 10=fall to fall, 11-rise to rise.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 6,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pwm_repeat",
+                    description: Some(
+                        "RW, timer PWM repeat mode: 00=1, 01=4, 10=8, 11-16.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 6,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "DmaBeg",
+            extends: None,
+            description: Some(
+                "RW, DMA start buffer address.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "dma_beg",
+                    description: Some(
+                        "RW, The starting address of the DMA data buffer must be aligned with 4 bytes.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 15,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "DmaEnd",
+            extends: None,
+            description: Some(
+                "RW, DMA end buffer address.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "dma_end",
+                    description: Some(
+                        "RW, DMA data buffer end address (excluding), the address must be aligned with 4 bytes.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 15,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "DmaNow",
+            extends: None,
+            description: Some(
+                "RO, DMA current buffer address.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "dma_now",
+                    description: Some(
+                        "RW, DMA data buffer current address.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 15,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Fifo",
+            extends: None,
+            description: Some(
+                "RO/WO, TMR FIFO register, only low 26 bit.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "fifo",
+                    description: Some(
+                        "Capture word or PWM width; only low 26 bits valid. Capture bit 25 has mode-dependent metadata.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 32,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "FifoCount",
+            extends: None,
+            description: Some(
+                "RO, TMR FIFO count status.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "fifo_count",
+                    description: Some(
+                        "R0,TMR FIFO count status.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "IntFlag",
+            extends: None,
+            description: Some(
+                "RW1, TMR interrupt flag.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "if_cyc_end",
+                    description: Some(
+                        "RW1, interrupt flag for timer capture count timeout or PWM cycle end.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_data_act",
+                    description: Some(
+                        "RW1, interrupt flag for timer capture input action or PWM trigger.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_fifo_hf",
+                    description: Some(
+                        "RW1, interrupt flag for timer FIFO half (capture fifo >=4 or PWM fifo less than 3.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_dma_end",
+                    description: Some(
+                        "RW1, interrupt flag for timer1/2 DMA completion.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_fifo_ov",
+                    description: Some(
+                        "RW1, interrupt flag for timer FIFO overflow.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "InterEn",
+            extends: None,
+            description: Some(
+                "RW, TMR interrupt enable.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "ie_cyc_end",
+                    description: Some(
+                        "RW, enable interrupt for timer capture count timeout or PWM cycle end.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_data_act",
+                    description: Some(
+                        "RW, enable interrupt for timer capture input action or PWM trigger.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_fifo_hf",
+                    description: Some(
+                        "RW, enable interrupt for timer FIFO half (capture fifo >=4 or PWM fifo less than 3).",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_dma_end",
+                    description: Some(
+                        "RW, enable interrupt for timer1/2 DMA completion.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_fifo_ov",
+                    description: Some(
+                        "RW, enable interrupt for timer FIFO overflow.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+    ],
+    enums: &[],
+};
+                
