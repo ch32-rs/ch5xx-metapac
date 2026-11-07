@@ -1,301 +1,184 @@
-
-                    use crate::metadata::ir::*;
-                    pub(crate) static REGISTERS: IR = IR {
-    blocks: &[
-        Block {
-            name: "Pwmx",
-            extends: None,
-            description: Some(
-                "PWMX register.",
-            ),
-            items: &[
-                BlockItem {
-                    name: "ctrl_mod",
-                    description: Some(
-                        "PWM mode control.",
-                    ),
-                    array: None,
-                    byte_offset: 0x0,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "CtrlMod",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ctrl_cfg",
-                    description: Some(
-                        "PWM configuration control.",
-                    ),
-                    array: None,
-                    byte_offset: 0x1,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "CtrlCfg",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "clock_div",
-                    description: Some(
-                        "PWM clock divisor.",
-                    ),
-                    array: None,
-                    byte_offset: 0x2,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "ClockDiv",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "pwm0_data",
-                    description: Some(
-                        "PWM data holding.",
-                    ),
-                    array: None,
-                    byte_offset: 0x4,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "Pwm0Data",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "pwm1_data",
-                    description: Some(
-                        "PWM1 data holding.",
-                    ),
-                    array: None,
-                    byte_offset: 0x5,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "Pwm1Data",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "pwm2_data",
-                    description: Some(
-                        "PWM2 data holding.",
-                    ),
-                    array: None,
-                    byte_offset: 0x6,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "Pwm2Data",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "pwm3_data",
-                    description: Some(
-                        "PWM3 data holding.",
-                    ),
-                    array: None,
-                    byte_offset: 0x7,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "Pwm3Data",
-                            ),
-                        },
-                    ),
-                },
-            ],
-        },
-    ],
+use crate::metadata::ir::*;
+pub(crate) static REGISTERS: IR = IR {
+    blocks: &[Block {
+        name: "Pwmx",
+        extends: None,
+        description: Some("PWMX register."),
+        items: &[
+            BlockItem {
+                name: "ctrl_mod",
+                description: Some("PWM mode control."),
+                array: None,
+                byte_offset: 0x0,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("CtrlMod"),
+                }),
+            },
+            BlockItem {
+                name: "ctrl_cfg",
+                description: Some("PWM configuration control."),
+                array: None,
+                byte_offset: 0x1,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("CtrlCfg"),
+                }),
+            },
+            BlockItem {
+                name: "clock_div",
+                description: Some("PWM clock divisor."),
+                array: None,
+                byte_offset: 0x2,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("ClockDiv"),
+                }),
+            },
+            BlockItem {
+                name: "pwm0_data",
+                description: Some("PWM data holding."),
+                array: None,
+                byte_offset: 0x4,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("Pwm0Data"),
+                }),
+            },
+            BlockItem {
+                name: "pwm1_data",
+                description: Some("PWM1 data holding."),
+                array: None,
+                byte_offset: 0x5,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("Pwm1Data"),
+                }),
+            },
+            BlockItem {
+                name: "pwm2_data",
+                description: Some("PWM2 data holding."),
+                array: None,
+                byte_offset: 0x6,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("Pwm2Data"),
+                }),
+            },
+            BlockItem {
+                name: "pwm3_data",
+                description: Some("PWM3 data holding."),
+                array: None,
+                byte_offset: 0x7,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("Pwm3Data"),
+                }),
+            },
+        ],
+    }],
     fieldsets: &[
         FieldSet {
             name: "ClockDiv",
             extends: None,
-            description: Some(
-                "PWM clock divisor.",
-            ),
+            description: Some("PWM clock divisor."),
             bit_size: 8,
-            fields: &[
-                Field {
-                    name: "clock_div",
-                    description: Some(
-                        "PWM clock divisor.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 8,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "clock_div",
+                description: Some("PWM clock divisor."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 8,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "CtrlCfg",
             extends: None,
-            description: Some(
-                "PWM configuration control.",
-            ),
+            description: Some("PWM configuration control."),
             bit_size: 8,
-            fields: &[
-                Field {
-                    name: "cycle_sel",
-                    description: Some(
-                        "PWM cycle selection.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 1,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "cycle_sel",
+                description: Some("PWM cycle selection."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 1,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "CtrlMod",
             extends: None,
-            description: Some(
-                "PWM mode control.",
-            ),
+            description: Some("PWM mode control."),
             bit_size: 8,
             fields: &[
                 Field {
                     name: "pwm0_out_en",
-                    description: Some(
-                        "PWM0 output enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("PWM0 output enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "pwm1_out_en",
-                    description: Some(
-                        "PWM1 output enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 1,
-                        },
-                    ),
+                    description: Some("PWM1 output enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 1 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "pwm2_out_en",
-                    description: Some(
-                        "PWM2 output enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
+                    description: Some("PWM2 output enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 2 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "pwm3_out_en",
-                    description: Some(
-                        "PWM3 output enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 3,
-                        },
-                    ),
+                    description: Some("PWM3 output enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 3 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "pwm0_polar",
-                    description: Some(
-                        "PWM0 output polarity.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 4,
-                        },
-                    ),
+                    description: Some("PWM0 output polarity."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 4 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "pwm1_polar",
-                    description: Some(
-                        "PWM1 output polarity.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 5,
-                        },
-                    ),
+                    description: Some("PWM1 output polarity."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 5 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "pwm2_polar",
-                    description: Some(
-                        "PWM2 output polarity.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 6,
-                        },
-                    ),
+                    description: Some("PWM2 output polarity."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 6 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "pwm3_polar",
-                    description: Some(
-                        "PWM3 output polarity.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 7,
-                        },
-                    ),
+                    description: Some("PWM3 output polarity."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 7 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -305,100 +188,59 @@
         FieldSet {
             name: "Pwm0Data",
             extends: None,
-            description: Some(
-                "PWM data holding.",
-            ),
+            description: Some("PWM data holding."),
             bit_size: 8,
-            fields: &[
-                Field {
-                    name: "pwm0_data",
-                    description: Some(
-                        "PWM0 data holding.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 8,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "pwm0_data",
+                description: Some("PWM0 data holding."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 8,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Pwm1Data",
             extends: None,
-            description: Some(
-                "PWM1 data holding.",
-            ),
+            description: Some("PWM1 data holding."),
             bit_size: 8,
-            fields: &[
-                Field {
-                    name: "pwm1_data",
-                    description: Some(
-                        "PWM1 data holding.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 8,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "pwm1_data",
+                description: Some("PWM1 data holding."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 8,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Pwm2Data",
             extends: None,
-            description: Some(
-                "PWM2 data holding.",
-            ),
+            description: Some("PWM2 data holding."),
             bit_size: 8,
-            fields: &[
-                Field {
-                    name: "pwm2_data",
-                    description: Some(
-                        "PWM2 data holding.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 8,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "pwm2_data",
+                description: Some("PWM2 data holding."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 8,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Pwm3Data",
             extends: None,
-            description: Some(
-                "PWM3 data holding.",
-            ),
+            description: Some("PWM3 data holding."),
             bit_size: 8,
-            fields: &[
-                Field {
-                    name: "pwm3_data",
-                    description: Some(
-                        "PWM3 data holding.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 8,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "pwm3_data",
+                description: Some("PWM3 data holding."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 8,
+                array: None,
+                enumm: None,
+            }],
         },
     ],
     enums: &[],
 };
-                

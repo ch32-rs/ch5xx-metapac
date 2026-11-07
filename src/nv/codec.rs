@@ -131,9 +131,7 @@ impl Descriptor {
 pub(super) fn is_n_complement(sibling: &str, source: &str) -> bool {
     let s = sibling.as_bytes();
     let src = source.as_bytes();
-    s.len() == src.len() + 1
-        && s[0].eq_ignore_ascii_case(&b'N')
-        && s[1..].eq_ignore_ascii_case(src)
+    s.len() == src.len() + 1 && s[0].eq_ignore_ascii_case(&b'N') && s[1..].eq_ignore_ascii_case(src)
 }
 
 pub(super) fn bit_mask(bit_size: u32) -> u64 {

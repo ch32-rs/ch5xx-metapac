@@ -175,7 +175,8 @@ fn field_literal_roundtrip_for_every_writable_field() {
                 }
                 let path = format!("{}.{}", item.name, field.name);
                 for &val in &[0u64, bit_mask(field.bit_size)] {
-                    d.encode(&mut buf, &path, EncodeInput::Literal(val)).unwrap();
+                    d.encode(&mut buf, &path, EncodeInput::Literal(val))
+                        .unwrap();
                     let v = d.decode(&buf, &path).unwrap();
                     assert_eq!(decoded_to_u64(&d, &path, v), val, "{} = {}", path, val);
                 }
@@ -302,10 +303,15 @@ fn validate_reports_corrupted_complement_entry() {
         let block = block_of(&d);
         let pair = block.items.iter().find_map(|item| {
             writable(item)?;
-            let sib = block.items.iter().find(|s| is_n_complement(s.name, item.name))?;
+            let sib = block
+                .items
+                .iter()
+                .find(|s| is_n_complement(s.name, item.name))?;
             Some((item, sib))
         });
-        let Some((item, sibling)) = pair else { continue };
+        let Some((item, sibling)) = pair else {
+            continue;
+        };
         let mut buf = [0u8; BUF];
         flush_writable_entries(&d, &mut buf);
         buf[sibling.byte_offset as usize] ^= 0xff;
@@ -321,7 +327,10 @@ fn validate_buffer_too_short_when_pairs_exist() {
     for d in Descriptor::iter() {
         let block = block_of(&d);
         let has_pair = block.items.iter().any(|item| {
-            block.items.iter().any(|s| is_n_complement(s.name, item.name))
+            block
+                .items
+                .iter()
+                .any(|s| is_n_complement(s.name, item.name))
         });
         if !has_pair {
             continue;
@@ -417,7 +426,12 @@ fn reset_buffer_too_short_when_defaults_present() {
         if d.nv.defaults.is_empty() {
             continue;
         }
-        assert_eq!(d.reset(&mut []), Err(EncodeError::BufferTooShort), "{}", d.kind());
+        assert_eq!(
+            d.reset(&mut []),
+            Err(EncodeError::BufferTooShort),
+            "{}",
+            d.kind()
+        );
     }
 }
 

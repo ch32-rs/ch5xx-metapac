@@ -7,12 +7,10 @@ pub static MEMORY: &[MemoryRegion] = &[
         role: Application,
         address: 0x0,
         size: 458752,
-        modes: &[
-            Standard {
-                erase_size: 4096,
-                write_size: 4,
-            },
-        ],
+        modes: &[Standard {
+            erase_size: 4096,
+            write_size: 4,
+        }],
         access: None,
     },
     MemoryRegion {

@@ -41,10 +41,14 @@ impl Descriptor {
         if self.nv.defaults.is_empty() {
             return Ok(());
         }
-        let Some(block) = self.block() else { return Ok(()) };
+        let Some(block) = self.block() else {
+            return Ok(());
+        };
 
         for item in block.items {
-            let Some(reg) = Self::register_of(item) else { continue };
+            let Some(reg) = Self::register_of(item) else {
+                continue;
+            };
             let start = item.byte_offset as usize;
             let end = start + ((reg.bit_size + 7) / 8) as usize;
             if end > buf.len() {
@@ -54,8 +58,12 @@ impl Descriptor {
         }
 
         for (entry_name, value) in self.nv.defaults {
-            let Some(item) = self.item(entry_name) else { continue };
-            let Some(reg) = Self::register_of(item) else { continue };
+            let Some(item) = self.item(entry_name) else {
+                continue;
+            };
+            let Some(reg) = Self::register_of(item) else {
+                continue;
+            };
             if matches!(reg.access, Access::Read) {
                 continue;
             }

@@ -1,52 +1,141 @@
 #![allow(clippy::missing_safety_doc)]
-                #![allow(clippy::identity_op)]
-                #![allow(clippy::unnecessary_cast)]
-                #![allow(clippy::erasing_op)]
+#![allow(clippy::identity_op)]
+#![allow(clippy::unnecessary_cast)]
+#![allow(clippy::erasing_op)]
 
-# [doc = "TouchKey register."]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct TouchKey { ptr : * mut u8 } unsafe impl Send for TouchKey { } unsafe impl Sync for TouchKey { } impl TouchKey { # [inline (always)]
-pub const unsafe fn from_ptr (ptr : * mut ()) -> Self { Self { ptr : ptr as _ , } } # [inline (always)]
-pub const fn as_ptr (& self) -> * mut () { self . ptr as _ } # [doc = "RW, Touchkey charge and discharge count."]
-# [inline (always)]
-pub const fn count (self) -> crate :: common :: Reg < regs :: Count , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x54usize) as _) } } # [doc = "RW, Touchkey convert start control."]
-# [inline (always)]
-pub const fn convert (self) -> crate :: common :: Reg < regs :: Convert , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x56usize) as _) } } # [doc = "RW, Touchkey configure."]
-# [inline (always)]
-pub const fn cfg (self) -> crate :: common :: Reg < regs :: Cfg , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x57usize) as _) } } } pub mod regs { # [doc = "RW, Touchkey configure."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Cfg (pub u8) ; impl Cfg { # [doc = "RW, Touchkey power on."]
-# [inline (always)]
-pub const fn pwr_on (& self) -> bool { let val = (self . 0 >> 0usize) & 0x01 ; val != 0 } # [doc = "RW, Touchkey power on."]
-# [inline (always)]
-pub fn set_pwr_on (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize) ; } # [doc = "RW, Touchkey charge current selection."]
-# [inline (always)]
-pub const fn current (& self) -> bool { let val = (self . 0 >> 1usize) & 0x01 ; val != 0 } # [doc = "RW, Touchkey charge current selection."]
-# [inline (always)]
-pub fn set_current (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize) ; } # [doc = "RW, ADC input PGA speed selection."]
-# [inline (always)]
-pub const fn pga_adj (& self) -> bool { let val = (self . 0 >> 3usize) & 0x01 ; val != 0 } # [doc = "RW, ADC input PGA speed selection."]
-# [inline (always)]
-pub fn set_pga_adj (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize) ; } } impl Default for Cfg { # [inline (always)]
-fn default () -> Cfg { Cfg (0) } } # [doc = "RW, Touchkey convert start control."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Convert (pub u8) ; impl Convert { # [doc = "RW, Touchkey convert start control."]
-# [inline (always)]
-pub const fn start (& self) -> bool { let val = (self . 0 >> 0usize) & 0x01 ; val != 0 } # [doc = "RW, Touchkey convert start control."]
-# [inline (always)]
-pub fn set_start (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize) ; } } impl Default for Convert { # [inline (always)]
-fn default () -> Convert { Convert (0) } } # [doc = "RW, Touchkey charge and discharge count."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Count (pub u8) ; impl Count { # [doc = "RW, Touchkey charge count."]
-# [inline (always)]
-pub const fn charg_cnt (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x1f ; val as u8 } # [doc = "RW, Touchkey charge count."]
-# [inline (always)]
-pub fn set_charg_cnt (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x1f << 0usize)) | (((val as u8) & 0x1f) << 0usize) ; } # [doc = "RW, Touchkey discharge count."]
-# [inline (always)]
-pub const fn disch_cnt (& self) -> u8 { let val = (self . 0 >> 5usize) & 0x07 ; val as u8 } # [doc = "RW, Touchkey discharge count."]
-# [inline (always)]
-pub fn set_disch_cnt (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x07 << 5usize)) | (((val as u8) & 0x07) << 5usize) ; } } impl Default for Count { # [inline (always)]
-fn default () -> Count { Count (0) } } }
+#[doc = "TouchKey register."]
+#[derive(Copy, Clone, Eq, PartialEq)]
+pub struct TouchKey {
+    ptr: *mut u8,
+}
+unsafe impl Send for TouchKey {}
+unsafe impl Sync for TouchKey {}
+impl TouchKey {
+    #[inline(always)]
+    pub const unsafe fn from_ptr(ptr: *mut ()) -> Self {
+        Self { ptr: ptr as _ }
+    }
+    #[inline(always)]
+    pub const fn as_ptr(&self) -> *mut () {
+        self.ptr as _
+    }
+    #[doc = "RW, Touchkey charge and discharge count."]
+    #[inline(always)]
+    pub const fn count(self) -> crate::common::Reg<regs::Count, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x54usize) as _) }
+    }
+    #[doc = "RW, Touchkey convert start control."]
+    #[inline(always)]
+    pub const fn convert(self) -> crate::common::Reg<regs::Convert, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x56usize) as _) }
+    }
+    #[doc = "RW, Touchkey configure."]
+    #[inline(always)]
+    pub const fn cfg(self) -> crate::common::Reg<regs::Cfg, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x57usize) as _) }
+    }
+}
+pub mod regs {
+    #[doc = "RW, Touchkey configure."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Cfg(pub u8);
+    impl Cfg {
+        #[doc = "RW, Touchkey power on."]
+        #[inline(always)]
+        pub const fn pwr_on(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, Touchkey power on."]
+        #[inline(always)]
+        pub fn set_pwr_on(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "RW, Touchkey charge current selection."]
+        #[inline(always)]
+        pub const fn current(&self) -> bool {
+            let val = (self.0 >> 1usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, Touchkey charge current selection."]
+        #[inline(always)]
+        pub fn set_current(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
+        }
+        #[doc = "RW, ADC input PGA speed selection."]
+        #[inline(always)]
+        pub const fn pga_adj(&self) -> bool {
+            let val = (self.0 >> 3usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, ADC input PGA speed selection."]
+        #[inline(always)]
+        pub fn set_pga_adj(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
+        }
+    }
+    impl Default for Cfg {
+        #[inline(always)]
+        fn default() -> Cfg {
+            Cfg(0)
+        }
+    }
+    #[doc = "RW, Touchkey convert start control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Convert(pub u8);
+    impl Convert {
+        #[doc = "RW, Touchkey convert start control."]
+        #[inline(always)]
+        pub const fn start(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, Touchkey convert start control."]
+        #[inline(always)]
+        pub fn set_start(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+    }
+    impl Default for Convert {
+        #[inline(always)]
+        fn default() -> Convert {
+            Convert(0)
+        }
+    }
+    #[doc = "RW, Touchkey charge and discharge count."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Count(pub u8);
+    impl Count {
+        #[doc = "RW, Touchkey charge count."]
+        #[inline(always)]
+        pub const fn charg_cnt(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x1f;
+            val as u8
+        }
+        #[doc = "RW, Touchkey charge count."]
+        #[inline(always)]
+        pub fn set_charg_cnt(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x1f << 0usize)) | (((val as u8) & 0x1f) << 0usize);
+        }
+        #[doc = "RW, Touchkey discharge count."]
+        #[inline(always)]
+        pub const fn disch_cnt(&self) -> u8 {
+            let val = (self.0 >> 5usize) & 0x07;
+            val as u8
+        }
+        #[doc = "RW, Touchkey discharge count."]
+        #[inline(always)]
+        pub fn set_disch_cnt(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x07 << 5usize)) | (((val as u8) & 0x07) << 5usize);
+        }
+    }
+    impl Default for Count {
+        #[inline(always)]
+        fn default() -> Count {
+            Count(0)
+        }
+    }
+}

@@ -1,307 +1,190 @@
-
-                    use crate::metadata::ir::*;
-                    pub(crate) static REGISTERS: IR = IR {
-    blocks: &[
-        Block {
-            name: "EthernetPtp",
-            extends: None,
-            description: Some(
-                "Ethernet: Precision time protocol.",
-            ),
-            items: &[
-                BlockItem {
-                    name: "ptptscr",
-                    description: Some(
-                        "Ethernet PTP time stamp control register. (ETH_PTPTSCR).",
-                    ),
-                    array: None,
-                    byte_offset: 0x0,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ptptscr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ptpssir",
-                    description: Some(
-                        "Ethernet PTP subsecond increment. register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x4,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ptpssir",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ptptshr",
-                    description: Some(
-                        "Ethernet PTP time stamp high. register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x8,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::Read,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ptptshr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ptptslr",
-                    description: Some(
-                        "Ethernet PTP time stamp low register. (ETH_PTPTSLR).",
-                    ),
-                    array: None,
-                    byte_offset: 0xc,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::Read,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ptptslr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ptptshur",
-                    description: Some(
-                        "Ethernet PTP time stamp high update. register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x10,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ptptshur",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ptptslur",
-                    description: Some(
-                        "Ethernet PTP time stamp low update register. (ETH_PTPTSLUR).",
-                    ),
-                    array: None,
-                    byte_offset: 0x14,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ptptslur",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ptptsar",
-                    description: Some(
-                        "Ethernet PTP time stamp addend. register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x18,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ptptsar",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ptptthr",
-                    description: Some(
-                        "Ethernet PTP target time high. register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x1c,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ptptthr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ptpttlr",
-                    description: Some(
-                        "Ethernet PTP target time low. register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x20,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ptpttlr",
-                            ),
-                        },
-                    ),
-                },
-            ],
-        },
-    ],
+use crate::metadata::ir::*;
+pub(crate) static REGISTERS: IR = IR {
+    blocks: &[Block {
+        name: "EthernetPtp",
+        extends: None,
+        description: Some("Ethernet: Precision time protocol."),
+        items: &[
+            BlockItem {
+                name: "ptptscr",
+                description: Some("Ethernet PTP time stamp control register. (ETH_PTPTSCR)."),
+                array: None,
+                byte_offset: 0x0,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Ptptscr"),
+                }),
+            },
+            BlockItem {
+                name: "ptpssir",
+                description: Some("Ethernet PTP subsecond increment. register."),
+                array: None,
+                byte_offset: 0x4,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Ptpssir"),
+                }),
+            },
+            BlockItem {
+                name: "ptptshr",
+                description: Some("Ethernet PTP time stamp high. register."),
+                array: None,
+                byte_offset: 0x8,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::Read,
+                    bit_size: 32,
+                    fieldset: Some("Ptptshr"),
+                }),
+            },
+            BlockItem {
+                name: "ptptslr",
+                description: Some("Ethernet PTP time stamp low register. (ETH_PTPTSLR)."),
+                array: None,
+                byte_offset: 0xc,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::Read,
+                    bit_size: 32,
+                    fieldset: Some("Ptptslr"),
+                }),
+            },
+            BlockItem {
+                name: "ptptshur",
+                description: Some("Ethernet PTP time stamp high update. register."),
+                array: None,
+                byte_offset: 0x10,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Ptptshur"),
+                }),
+            },
+            BlockItem {
+                name: "ptptslur",
+                description: Some("Ethernet PTP time stamp low update register. (ETH_PTPTSLUR)."),
+                array: None,
+                byte_offset: 0x14,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Ptptslur"),
+                }),
+            },
+            BlockItem {
+                name: "ptptsar",
+                description: Some("Ethernet PTP time stamp addend. register."),
+                array: None,
+                byte_offset: 0x18,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Ptptsar"),
+                }),
+            },
+            BlockItem {
+                name: "ptptthr",
+                description: Some("Ethernet PTP target time high. register."),
+                array: None,
+                byte_offset: 0x1c,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Ptptthr"),
+                }),
+            },
+            BlockItem {
+                name: "ptpttlr",
+                description: Some("Ethernet PTP target time low. register."),
+                array: None,
+                byte_offset: 0x20,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Ptpttlr"),
+                }),
+            },
+        ],
+    }],
     fieldsets: &[
         FieldSet {
             name: "Ptpssir",
             extends: None,
-            description: Some(
-                "Ethernet PTP subsecond increment. register.",
-            ),
+            description: Some("Ethernet PTP subsecond increment. register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "stssi",
-                    description: Some(
-                        "System time subsecond. increment.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 8,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "stssi",
+                description: Some("System time subsecond. increment."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 8,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Ptptsar",
             extends: None,
-            description: Some(
-                "Ethernet PTP time stamp addend. register.",
-            ),
+            description: Some("Ethernet PTP time stamp addend. register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "tsa",
-                    description: Some(
-                        "Time stamp addend.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "tsa",
+                description: Some("Time stamp addend."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Ptptscr",
             extends: None,
-            description: Some(
-                "Ethernet PTP time stamp control register. (ETH_PTPTSCR).",
-            ),
+            description: Some("Ethernet PTP time stamp control register. (ETH_PTPTSCR)."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "tse",
-                    description: Some(
-                        "Time stamp enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("Time stamp enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "tsfcu",
-                    description: Some(
-                        "Time stamp fine or coarse. update.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 1,
-                        },
-                    ),
+                    description: Some("Time stamp fine or coarse. update."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 1 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "tssti",
-                    description: Some(
-                        "Time stamp system time. initialize.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
+                    description: Some("Time stamp system time. initialize."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 2 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "tsstu",
-                    description: Some(
-                        "Time stamp system time. update.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 3,
-                        },
-                    ),
+                    description: Some("Time stamp system time. update."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 3 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "tsite",
-                    description: Some(
-                        "Time stamp interrupt trigger. enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 4,
-                        },
-                    ),
+                    description: Some("Time stamp interrupt trigger. enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 4 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "tsaru",
-                    description: Some(
-                        "Time stamp addend register. update.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 5,
-                        },
-                    ),
+                    description: Some("Time stamp addend register. update."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 5 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -311,83 +194,49 @@
         FieldSet {
             name: "Ptptshr",
             extends: None,
-            description: Some(
-                "Ethernet PTP time stamp high. register.",
-            ),
+            description: Some("Ethernet PTP time stamp high. register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "tshr",
-                    description: Some(
-                        "PTP System time value.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "tshr",
+                description: Some("PTP System time value."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Ptptshur",
             extends: None,
-            description: Some(
-                "Ethernet PTP time stamp high update. register.",
-            ),
+            description: Some("Ethernet PTP time stamp high update. register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "tsus",
-                    description: Some(
-                        "Time stamp update second.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "tsus",
+                description: Some("Time stamp update second."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Ptptslr",
             extends: None,
-            description: Some(
-                "Ethernet PTP time stamp low register. (ETH_PTPTSLR).",
-            ),
+            description: Some("Ethernet PTP time stamp low register. (ETH_PTPTSLR)."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "stss",
-                    description: Some(
-                        "System time subseconds.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("System time subseconds."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 31,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "stpns",
-                    description: Some(
-                        "System time positive or negative. sign.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 31,
-                        },
-                    ),
+                    description: Some("System time positive or negative. sign."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 31 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -397,76 +246,45 @@
         FieldSet {
             name: "Ptptslur",
             extends: None,
-            description: Some(
-                "Ethernet PTP time stamp low update register. (ETH_PTPTSLUR).",
-            ),
+            description: Some("Ethernet PTP time stamp low update register. (ETH_PTPTSLUR)."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "tsuss",
-                    description: Some(
-                        "Time stamp update. subseconds.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "tsuss",
+                description: Some("Time stamp update. subseconds."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Ptptthr",
             extends: None,
-            description: Some(
-                "Ethernet PTP target time high. register.",
-            ),
+            description: Some("Ethernet PTP target time high. register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "ttsh",
-                    description: Some(
-                        "Target time stamp high.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "ttsh",
+                description: Some("Target time stamp high."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Ptpttlr",
             extends: None,
-            description: Some(
-                "Ethernet PTP target time low. register.",
-            ),
+            description: Some("Ethernet PTP target time low. register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "ttsl",
-                    description: Some(
-                        "Target time stamp low.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "ttsl",
+                description: Some("Target time stamp low."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
     ],
     enums: &[],
 };
-                

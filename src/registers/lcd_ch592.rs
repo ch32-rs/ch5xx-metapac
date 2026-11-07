@@ -1,216 +1,131 @@
-
-                    use crate::metadata::ir::*;
-                    pub(crate) static REGISTERS: IR = IR {
-    blocks: &[
-        Block {
-            name: "Lcd",
-            extends: None,
-            description: Some(
-                "LCD register.",
-            ),
-            items: &[
-                BlockItem {
-                    name: "cmd",
-                    description: Some(
-                        "RW, LCD Command Register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x0,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Cmd",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ram0",
-                    description: Some(
-                        "RW, LCD RAM0 register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x4,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ram0",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ram1",
-                    description: Some(
-                        "RW, LCD RAM1 register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x8,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ram1",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ram2",
-                    description: Some(
-                        "RW, LCD RAM2 register.",
-                    ),
-                    array: None,
-                    byte_offset: 0xc,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Ram2",
-                            ),
-                        },
-                    ),
-                },
-            ],
-        },
-    ],
+use crate::metadata::ir::*;
+pub(crate) static REGISTERS: IR = IR {
+    blocks: &[Block {
+        name: "Lcd",
+        extends: None,
+        description: Some("LCD register."),
+        items: &[
+            BlockItem {
+                name: "cmd",
+                description: Some("RW, LCD Command Register."),
+                array: None,
+                byte_offset: 0x0,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Cmd"),
+                }),
+            },
+            BlockItem {
+                name: "ram0",
+                description: Some("RW, LCD RAM0 register."),
+                array: None,
+                byte_offset: 0x4,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Ram0"),
+                }),
+            },
+            BlockItem {
+                name: "ram1",
+                description: Some("RW, LCD RAM1 register."),
+                array: None,
+                byte_offset: 0x8,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Ram1"),
+                }),
+            },
+            BlockItem {
+                name: "ram2",
+                description: Some("RW, LCD RAM2 register."),
+                array: None,
+                byte_offset: 0xc,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Ram2"),
+                }),
+            },
+        ],
+    }],
     fieldsets: &[
         FieldSet {
             name: "Cmd",
             extends: None,
-            description: Some(
-                "RW, LCD Command Register.",
-            ),
+            description: Some("RW, LCD Command Register."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "sys_en",
-                    description: Some(
-                        "RW, System Enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("RW, System Enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "on",
-                    description: Some(
-                        "RW, LCD switch.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 1,
-                        },
-                    ),
+                    description: Some("RW, LCD switch."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 1 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "bias",
-                    description: Some(
-                        "RW, PWM6 Bias ratio selection enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
+                    description: Some("RW, PWM6 Bias ratio selection enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 2 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "duty",
-                    description: Some(
-                        "RW, LCD duty cycle selection.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 3,
-                        },
-                    ),
+                    description: Some("RW, LCD duty cycle selection."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 3 }),
                     bit_size: 2,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "scan_clk_sel",
-                    description: Some(
-                        "RW, Scan clock selection.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 5,
-                        },
-                    ),
+                    description: Some("RW, Scan clock selection."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 5 }),
                     bit_size: 2,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "vlcd_sel",
-                    description: Some(
-                        "RW, LCD driver voltage selection.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 7,
-                        },
-                    ),
+                    description: Some("RW, LCD driver voltage selection."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 7 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg_en1",
-                    description: Some(
-                        "RW, Enabling SEG0-SEG7 segments.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 8,
-                        },
-                    ),
+                    description: Some("RW, Enabling SEG0-SEG7 segments."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 8 }),
                     bit_size: 8,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg_en2",
-                    description: Some(
-                        "RW, Enabling SEG8-SEG15 segments.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 16,
-                        },
-                    ),
+                    description: Some("RW, Enabling SEG8-SEG15 segments."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 16 }),
                     bit_size: 8,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg_en3",
-                    description: Some(
-                        "RW, Enabling SEG16-SEG19 segments.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 24,
-                        },
-                    ),
+                    description: Some("RW, Enabling SEG16-SEG19 segments."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 24 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
@@ -220,119 +135,69 @@
         FieldSet {
             name: "Ram0",
             extends: None,
-            description: Some(
-                "RW, LCD RAM0 register.",
-            ),
+            description: Some("RW, LCD RAM0 register."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "seg0",
-                    description: Some(
-                        "RW, SEG0 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("RW, SEG0 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg1",
-                    description: Some(
-                        "RW, SEG1 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 4,
-                        },
-                    ),
+                    description: Some("RW, SEG1 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 4 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg2",
-                    description: Some(
-                        "RW, SEG2 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 8,
-                        },
-                    ),
+                    description: Some("RW, SEG2 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 8 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg3",
-                    description: Some(
-                        "RW, SEG3 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 12,
-                        },
-                    ),
+                    description: Some("RW, SEG3 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 12 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg4",
-                    description: Some(
-                        "RW, SEG4 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 16,
-                        },
-                    ),
+                    description: Some("RW, SEG4 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 16 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg5",
-                    description: Some(
-                        "RW, SEG5 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 20,
-                        },
-                    ),
+                    description: Some("RW, SEG5 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 20 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg6",
-                    description: Some(
-                        "RW, SEG6 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 24,
-                        },
-                    ),
+                    description: Some("RW, SEG6 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 24 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg7",
-                    description: Some(
-                        "RW, SEG7 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 28,
-                        },
-                    ),
+                    description: Some("RW, SEG7 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 28 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
@@ -342,119 +207,69 @@
         FieldSet {
             name: "Ram1",
             extends: None,
-            description: Some(
-                "RW, LCD RAM1 register.",
-            ),
+            description: Some("RW, LCD RAM1 register."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "seg8",
-                    description: Some(
-                        "RW, SEG8 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("RW, SEG8 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg9",
-                    description: Some(
-                        "RW, SEG9 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 4,
-                        },
-                    ),
+                    description: Some("RW, SEG9 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 4 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg10",
-                    description: Some(
-                        "RW, SEG10 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 8,
-                        },
-                    ),
+                    description: Some("RW, SEG10 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 8 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg11",
-                    description: Some(
-                        "RW, SEG11 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 12,
-                        },
-                    ),
+                    description: Some("RW, SEG11 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 12 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg12",
-                    description: Some(
-                        "RW, SEG12 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 16,
-                        },
-                    ),
+                    description: Some("RW, SEG12 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 16 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg13",
-                    description: Some(
-                        "RW, SEG13 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 20,
-                        },
-                    ),
+                    description: Some("RW, SEG13 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 20 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg14",
-                    description: Some(
-                        "RW, SEG14 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 24,
-                        },
-                    ),
+                    description: Some("RW, SEG14 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 24 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg15",
-                    description: Some(
-                        "RW, SEG15 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 28,
-                        },
-                    ),
+                    description: Some("RW, SEG15 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 28 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
@@ -464,63 +279,37 @@
         FieldSet {
             name: "Ram2",
             extends: None,
-            description: Some(
-                "RW, LCD RAM2 register.",
-            ),
+            description: Some("RW, LCD RAM2 register."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "seg16",
-                    description: Some(
-                        "RW, SEG16 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("RW, SEG16 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg17",
-                    description: Some(
-                        "RW, SEG17 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 4,
-                        },
-                    ),
+                    description: Some("RW, SEG17 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 4 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg18",
-                    description: Some(
-                        "RW, SEG18 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 8,
-                        },
-                    ),
+                    description: Some("RW, SEG18 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 8 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "seg19",
-                    description: Some(
-                        "RW, SEG19 segment data.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 12,
-                        },
-                    ),
+                    description: Some("RW, SEG19 segment data."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 12 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
@@ -530,4 +319,3 @@
     ],
     enums: &[],
 };
-                

@@ -1,21 +1,19 @@
 include!("../metadata_0002.rs");
-            use crate::metadata::PeripheralRccKernelClock::{Clock, Mux};
-            pub static NV_STRUCTS: &[NvStructBinding] = &[];
-            pub static METADATA: Metadata = Metadata {
-                name: "CH570",
-                family: "QingKe RISC-V-based, Wireless MCU",
-                line: "RISC-V Core 2.4G Wireless MCU",
-                memory: crate::memory_select::MEMORY,
-                nv_structs: NV_STRUCTS,
-                memory_options: &[
-    MemoryOption {
+use crate::metadata::PeripheralRccKernelClock::{Clock, Mux};
+pub static NV_STRUCTS: &[NvStructBinding] = &[];
+pub static METADATA: Metadata = Metadata {
+    name: "CH570",
+    family: "QingKe RISC-V-based, Wireless MCU",
+    line: "RISC-V Core 2.4G Wireless MCU",
+    memory: crate::memory_select::MEMORY,
+    nv_structs: NV_STRUCTS,
+    memory_options: &[MemoryOption {
         name: "default",
         region_sizes: &[],
-    },
-],
-                default_memory_option: "default",
-                peripherals: PERIPHERALS,
-                // nvic_priority_bits: 0,
-                interrupts: INTERRUPTS,
-                dma_channels: DMA_CHANNELS,
-            };
+    }],
+    default_memory_option: "default",
+    peripherals: PERIPHERALS,
+    // nvic_priority_bits: 0,
+    interrupts: INTERRUPTS,
+    dma_channels: DMA_CHANNELS,
+};

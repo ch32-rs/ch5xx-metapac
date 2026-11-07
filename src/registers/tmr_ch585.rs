@@ -1,6 +1,5 @@
-
-                    use crate::metadata::ir::*;
-                    pub(crate) static REGISTERS: IR = IR {
+use crate::metadata::ir::*;
+pub(crate) static REGISTERS: IR = IR {
     blocks: &[
         Block {
             name: "TmrFull",
@@ -137,7 +136,7 @@
                     byte_offset: 0x10,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::ReadWrite,
+                            access: Access::Read,
                             bit_size: 32,
                             fieldset: Some(
                                 "Fifo",
@@ -211,7 +210,7 @@
                 Field {
                     name: "cnt_end",
                     description: Some(
-                        "RW, end count value; only low 26 bits valid. Writing clears COUNT.",
+                        "RW1,TMR end count value.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -381,7 +380,7 @@
                 Field {
                     name: "freq_13_56",
                     description: Some(
-                        "SDK extension, 13.56 MHz clock for TMR0/TMR3 only with sysclk >=42 MHz; reserved in DS V1.6.",
+                        "RW,Counting frequency setting bits for TMR and TMR3.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -505,7 +504,7 @@
                 Field {
                     name: "fifo",
                     description: Some(
-                        "Capture word or PWM width; only low 26 bits valid. Capture bit 25 has mode-dependent metadata.",
+                        "RW1,TMR FIFO register.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -705,4 +704,3 @@
     ],
     enums: &[],
 };
-                

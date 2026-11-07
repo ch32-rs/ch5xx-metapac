@@ -1,1256 +1,3495 @@
 #![allow(clippy::missing_safety_doc)]
-                #![allow(clippy::identity_op)]
-                #![allow(clippy::unnecessary_cast)]
-                #![allow(clippy::erasing_op)]
+#![allow(clippy::identity_op)]
+#![allow(clippy::unnecessary_cast)]
+#![allow(clippy::erasing_op)]
 
-# [doc = "USB register."]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UsbhsDev { ptr : * mut u8 } unsafe impl Send for UsbhsDev { } unsafe impl Sync for UsbhsDev { } impl UsbhsDev { # [inline (always)]
-pub const unsafe fn from_ptr (ptr : * mut ()) -> Self { Self { ptr : ptr as _ , } } # [inline (always)]
-pub const fn as_ptr (& self) -> * mut () { self . ptr as _ } # [doc = "USB base control register."]
-# [inline (always)]
-pub const fn ctrl (self) -> crate :: common :: Reg < regs :: Ctrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x0usize) as _) } } # [doc = "USB mode control register."]
-# [inline (always)]
-pub const fn base_mode (self) -> crate :: common :: Reg < regs :: BaseMode , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x01usize) as _) } } # [doc = "USB interrupt enable register."]
-# [inline (always)]
-pub const fn int_en (self) -> crate :: common :: Reg < regs :: IntEn , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x02usize) as _) } } # [doc = "USB device address."]
-# [inline (always)]
-pub const fn dev_ad (self) -> crate :: common :: Reg < regs :: DevAd , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x03usize) as _) } } # [doc = "USB remote wake up register."]
-# [inline (always)]
-pub const fn wake_ctrl (self) -> crate :: common :: Reg < regs :: WakeCtrl , crate :: common :: R > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x04usize) as _) } } # [doc = "USB test mode register."]
-# [inline (always)]
-pub const fn test_mode (self) -> crate :: common :: Reg < regs :: TestMode , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x05usize) as _) } } # [doc = "USB power management register."]
-# [inline (always)]
-pub const fn lpm_data (self) -> crate :: common :: Reg < regs :: LpmData , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x06usize) as _) } } # [doc = "USB interrupt flag register."]
-# [inline (always)]
-pub const fn int_fg (self) -> crate :: common :: Reg < regs :: IntFg , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x08usize) as _) } } # [doc = "USB interrupt status."]
-# [inline (always)]
-pub const fn int_st (self) -> crate :: common :: Reg < regs :: IntSt , crate :: common :: R > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x09usize) as _) } } # [doc = "USB miscellaneous status."]
-# [inline (always)]
-pub const fn mis_st (self) -> crate :: common :: Reg < regs :: MisSt , crate :: common :: R > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x0ausize) as _) } } # [doc = "USB frame number."]
-# [inline (always)]
-pub const fn fram_no (self) -> crate :: common :: Reg < regs :: FramNo , crate :: common :: R > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x0cusize) as _) } } # [doc = "USB bus."]
-# [inline (always)]
-pub const fn bus (self) -> crate :: common :: Reg < regs :: Bus , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x0eusize) as _) } } # [doc = "USB endpoint sends the enable register."]
-# [inline (always)]
-pub const fn uep_tx_en (self) -> crate :: common :: Reg < regs :: UepTxEn , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x10usize) as _) } } # [doc = "USB endpoint receive the enable registers."]
-# [inline (always)]
-pub const fn uep_rx_en (self) -> crate :: common :: Reg < regs :: UepRxEn , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x12usize) as _) } } # [doc = "USB endpoint sends the auto-filp enable register."]
-# [inline (always)]
-pub const fn uep_t_tog_auto (self) -> crate :: common :: Reg < regs :: UepTTogAuto , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x14usize) as _) } } # [doc = "USB endpoint receive the auto-filp enable register."]
-# [inline (always)]
-pub const fn uep_r_tog_auto (self) -> crate :: common :: Reg < regs :: UepRTogAuto , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x16usize) as _) } } # [doc = "USB endpoint sends a burst register."]
-# [inline (always)]
-pub const fn uep_t_burst (self) -> crate :: common :: Reg < regs :: UepTBurst , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x18usize) as _) } } # [doc = "USB endpoint send the mode register."]
-# [inline (always)]
-pub const fn uep_t_burst_mode (self) -> crate :: common :: Reg < regs :: UepTBurstMode , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x19usize) as _) } } # [doc = "USB endpoint receives the burst register."]
-# [inline (always)]
-pub const fn uep_r_burst (self) -> crate :: common :: Reg < regs :: UepRBurst , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x1ausize) as _) } } # [doc = "USB endpoint reply mode register."]
-# [inline (always)]
-pub const fn uep_r_res_mode (self) -> crate :: common :: Reg < regs :: UepRResMode , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x1busize) as _) } } # [doc = "USB endpoint muitiplexing register."]
-# [inline (always)]
-pub const fn uep_af_mode (self) -> crate :: common :: Reg < regs :: UepAfMode , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x1cusize) as _) } } # [doc = "The start address register of the endpoint 0 buffer."]
-# [inline (always)]
-pub const fn uep0_dma (self) -> crate :: common :: Reg < regs :: Uep0Dma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x20usize) as _) } } # [doc = "endpoint 1 receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep1_rx_dma (self) -> crate :: common :: Reg < regs :: Uep1RxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x24usize) as _) } } # [doc = "endpoint 2 receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep2_rx_dma (self) -> crate :: common :: Reg < regs :: Uep2RxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x28usize) as _) } } # [doc = "endpoint 3 receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep3_rx_dma (self) -> crate :: common :: Reg < regs :: Uep3RxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x2cusize) as _) } } # [doc = "endpoint 4 receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep4_rx_dma (self) -> crate :: common :: Reg < regs :: Uep4RxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x30usize) as _) } } # [doc = "endpoint 5 receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep5_rx_dma (self) -> crate :: common :: Reg < regs :: Uep5RxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x34usize) as _) } } # [doc = "endpoint 6 receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep6_rx_dma (self) -> crate :: common :: Reg < regs :: Uep6RxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x38usize) as _) } } # [doc = "endpoint 7 receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep7_rx_dma (self) -> crate :: common :: Reg < regs :: Uep7RxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x3cusize) as _) } } # [doc = "endpoint 1 sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep1_tx_dma (self) -> crate :: common :: Reg < regs :: Uep1TxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x40usize) as _) } } # [doc = "endpoint 2 sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep2_tx_dma (self) -> crate :: common :: Reg < regs :: Uep2TxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x44usize) as _) } } # [doc = "endpoint 3 sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep3_tx_dma (self) -> crate :: common :: Reg < regs :: Uep3TxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x48usize) as _) } } # [doc = "endpoint 4 sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep4_tx_dma (self) -> crate :: common :: Reg < regs :: Uep4TxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x4cusize) as _) } } # [doc = "endpoint 5 sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep5_tx_dma (self) -> crate :: common :: Reg < regs :: Uep5TxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x50usize) as _) } } # [doc = "endpoint 6 sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep6_tx_dma (self) -> crate :: common :: Reg < regs :: Uep6TxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x54usize) as _) } } # [doc = "endpoint 7 sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep7_tx_dma (self) -> crate :: common :: Reg < regs :: Uep7TxDma , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x58usize) as _) } } # [doc = "endpoint 0 max length packet register."]
-# [inline (always)]
-pub const fn uep0_max_len (self) -> crate :: common :: Reg < regs :: Uep0MaxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x5cusize) as _) } } # [doc = "endpoint 1 max length packet register."]
-# [inline (always)]
-pub const fn uep1_max_len (self) -> crate :: common :: Reg < regs :: Uep1MaxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x60usize) as _) } } # [doc = "endpoint 2 max length packet register."]
-# [inline (always)]
-pub const fn uep2_max_len (self) -> crate :: common :: Reg < regs :: Uep2MaxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x64usize) as _) } } # [doc = "endpoint 3 max length packet register."]
-# [inline (always)]
-pub const fn uep3_max_len (self) -> crate :: common :: Reg < regs :: Uep3MaxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x68usize) as _) } } # [doc = "endpoint 4 max length packet register."]
-# [inline (always)]
-pub const fn uep4_max_len (self) -> crate :: common :: Reg < regs :: Uep4MaxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x6cusize) as _) } } # [doc = "endpoint 5 max length packet register."]
-# [inline (always)]
-pub const fn uep5_max_len (self) -> crate :: common :: Reg < regs :: Uep5MaxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x70usize) as _) } } # [doc = "endpoint 6 max length packet register."]
-# [inline (always)]
-pub const fn uep6_max_len (self) -> crate :: common :: Reg < regs :: Uep6MaxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x74usize) as _) } } # [doc = "endpoint 7 max length packet register."]
-# [inline (always)]
-pub const fn uep7_max_len (self) -> crate :: common :: Reg < regs :: Uep7MaxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x78usize) as _) } } # [doc = "endpoint 0 acceptable length."]
-# [inline (always)]
-pub const fn uep0_rx_len (self) -> crate :: common :: Reg < regs :: Uep0RxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x7cusize) as _) } } # [doc = "endpoint 1 receives the lenth register in a single pass."]
-# [inline (always)]
-pub const fn uep1_rx_len (self) -> crate :: common :: Reg < regs :: Uep1RxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x80usize) as _) } } # [doc = "the length register of the total received data at endpoint 1."]
-# [inline (always)]
-pub const fn uep1_r_size (self) -> crate :: common :: Reg < regs :: Uep1RSize , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x82usize) as _) } } # [doc = "endpoint 2 receives the lenth register in a single pass."]
-# [inline (always)]
-pub const fn uep2_rx_len (self) -> crate :: common :: Reg < regs :: Uep2RxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x84usize) as _) } } # [doc = "the length register of the total received data at endpoint 2."]
-# [inline (always)]
-pub const fn uep2_r_size (self) -> crate :: common :: Reg < regs :: Uep2RSize , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x86usize) as _) } } # [doc = "endpoint 3 receives the lenth register in a single pass."]
-# [inline (always)]
-pub const fn uep3_rx_len (self) -> crate :: common :: Reg < regs :: Uep3RxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x88usize) as _) } } # [doc = "the length register of the total received data at endpoint 3."]
-# [inline (always)]
-pub const fn uep3_r_size (self) -> crate :: common :: Reg < regs :: Uep3RSize , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x8ausize) as _) } } # [doc = "endpoint 4 receives the lenth register in a single pass."]
-# [inline (always)]
-pub const fn uep4_rx_len (self) -> crate :: common :: Reg < regs :: Uep4RxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x8cusize) as _) } } # [doc = "the length register of the total received data at endpoint 4."]
-# [inline (always)]
-pub const fn uep4_r_size (self) -> crate :: common :: Reg < regs :: Uep4RSize , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x8eusize) as _) } } # [doc = "endpoint 5 receives the lenth register in a single pass."]
-# [inline (always)]
-pub const fn uep5_rx_len (self) -> crate :: common :: Reg < regs :: Uep5RxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x90usize) as _) } } # [doc = "the length register of the total received data at endpoint 5."]
-# [inline (always)]
-pub const fn uep5_r_size (self) -> crate :: common :: Reg < regs :: Uep5RSize , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x92usize) as _) } } # [doc = "endpoint 6 receives the lenth register in a single pass."]
-# [inline (always)]
-pub const fn uep6_rx_len (self) -> crate :: common :: Reg < regs :: Uep6RxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x94usize) as _) } } # [doc = "the length register of the total received data at endpoint 6."]
-# [inline (always)]
-pub const fn uep6_r_size (self) -> crate :: common :: Reg < regs :: Uep6RSize , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x96usize) as _) } } # [doc = "endpoint 7 receives the lenth register in a single pass."]
-# [inline (always)]
-pub const fn uep7_rx_len (self) -> crate :: common :: Reg < regs :: Uep7RxLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x98usize) as _) } } # [doc = "the length register of the total received data at endpoint 7."]
-# [inline (always)]
-pub const fn uep7_r_size (self) -> crate :: common :: Reg < regs :: Uep7RSize , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x9ausize) as _) } } # [doc = "endpoint 0 send the length."]
-# [inline (always)]
-pub const fn uep0_t_len (self) -> crate :: common :: Reg < regs :: Uep0TLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x9cusize) as _) } } # [doc = "endpoint 0 send control register."]
-# [inline (always)]
-pub const fn uep0_tx_ctrl (self) -> crate :: common :: Reg < regs :: Uep0TxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x9eusize) as _) } } # [doc = "endpoint 0 send control register."]
-# [inline (always)]
-pub const fn uep0_rx_ctrl (self) -> crate :: common :: Reg < regs :: Uep0RxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0x9fusize) as _) } } # [doc = "endpoint 1 send the length register."]
-# [inline (always)]
-pub const fn uep1_t_len (self) -> crate :: common :: Reg < regs :: Uep1TLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xa0usize) as _) } } # [doc = "endpoint 1 send control register."]
-# [inline (always)]
-pub const fn uep1_tx_ctrl (self) -> crate :: common :: Reg < regs :: Uep1TxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xa2usize) as _) } } # [doc = "endpoint 1 receive control."]
-# [inline (always)]
-pub const fn uep1_rx_ctrl (self) -> crate :: common :: Reg < regs :: Uep1RxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xa3usize) as _) } } # [doc = "endpoint 2 send the length register."]
-# [inline (always)]
-pub const fn uep2_t_len (self) -> crate :: common :: Reg < regs :: Uep2TLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xa4usize) as _) } } # [doc = "endpoint 2 send control register."]
-# [inline (always)]
-pub const fn uep2_tx_ctrl (self) -> crate :: common :: Reg < regs :: Uep2TxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xa6usize) as _) } } # [doc = "endpoint 2 receive control."]
-# [inline (always)]
-pub const fn uep2_rx_ctrl (self) -> crate :: common :: Reg < regs :: Uep2RxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xa7usize) as _) } } # [doc = "endpoint 3 send the length register."]
-# [inline (always)]
-pub const fn uep3_t_len (self) -> crate :: common :: Reg < regs :: Uep3TLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xa8usize) as _) } } # [doc = "endpoint 3 send control register."]
-# [inline (always)]
-pub const fn uep3_tx_ctrl (self) -> crate :: common :: Reg < regs :: Uep3TxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xaausize) as _) } } # [doc = "endpoint 3 receive control."]
-# [inline (always)]
-pub const fn uep3_rx_ctrl (self) -> crate :: common :: Reg < regs :: Uep3RxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xabusize) as _) } } # [doc = "endpoint 4 send the length register."]
-# [inline (always)]
-pub const fn uep4_t_len (self) -> crate :: common :: Reg < regs :: Uep4TLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xacusize) as _) } } # [doc = "endpoint 4 send control register."]
-# [inline (always)]
-pub const fn uep4_tx_ctrl (self) -> crate :: common :: Reg < regs :: Uep4TxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xaeusize) as _) } } # [doc = "endpoint 4 receive control."]
-# [inline (always)]
-pub const fn uep4_rx_ctrl (self) -> crate :: common :: Reg < regs :: Uep4RxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xafusize) as _) } } # [doc = "endpoint 5 send the length register."]
-# [inline (always)]
-pub const fn uep5_t_len (self) -> crate :: common :: Reg < regs :: Uep5TLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xb0usize) as _) } } # [doc = "endpoint 5 send control register."]
-# [inline (always)]
-pub const fn uep5_tx_ctrl (self) -> crate :: common :: Reg < regs :: Uep5TxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xb2usize) as _) } } # [doc = "endpoint 5 receive control."]
-# [inline (always)]
-pub const fn uep5_rx_ctrl (self) -> crate :: common :: Reg < regs :: Uep5RxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xb3usize) as _) } } # [doc = "endpoint 6 send the length register."]
-# [inline (always)]
-pub const fn uep6_t_len (self) -> crate :: common :: Reg < regs :: Uep6TLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xb4usize) as _) } } # [doc = "endpoint 6 send control register."]
-# [inline (always)]
-pub const fn uep6_tx_ctrl (self) -> crate :: common :: Reg < regs :: Uep6TxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xb6usize) as _) } } # [doc = "endpoint 6 receive control."]
-# [inline (always)]
-pub const fn uep6_rx_ctrl (self) -> crate :: common :: Reg < regs :: Uep6RxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xb7usize) as _) } } # [doc = "endpoint 7 send the length register."]
-# [inline (always)]
-pub const fn uep7_t_len (self) -> crate :: common :: Reg < regs :: Uep7TLen , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xb8usize) as _) } } # [doc = "endpoint 7 send control register."]
-# [inline (always)]
-pub const fn uep7_tx_ctrl (self) -> crate :: common :: Reg < regs :: Uep7TxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xbausize) as _) } } # [doc = "endpoint 7 receive control."]
-# [inline (always)]
-pub const fn uep7_rx_ctrl (self) -> crate :: common :: Reg < regs :: Uep7RxCtrl , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xbbusize) as _) } } # [doc = "usb endpoint sends a synchronous mode enable register."]
-# [inline (always)]
-pub const fn uep_t_iso (self) -> crate :: common :: Reg < regs :: UepTIso , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xbcusize) as _) } } # [doc = "usb endpoint receives a synchronous mode enable register."]
-# [inline (always)]
-pub const fn uep_r_iso (self) -> crate :: common :: Reg < regs :: UepRIso , crate :: common :: RW > { unsafe { crate :: common :: Reg :: from_ptr (self . ptr . add (0xbeusize) as _) } } } pub mod regs { # [doc = "USB mode control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct BaseMode (pub u8) ; impl BaseMode { # [doc = "The desired speed mode of the device."]
-# [inline (always)]
-pub const fn exp_spd (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "The desired speed mode of the device."]
-# [inline (always)]
-pub fn set_exp_spd (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } } impl Default for BaseMode { # [inline (always)]
-fn default () -> BaseMode { BaseMode (0) } } # [doc = "USB bus."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Bus (pub u16) ; impl Bus { # [doc = "USB wakeup."]
-# [inline (always)]
-pub const fn wakeup (& self) -> bool { let val = (self . 0 >> 0usize) & 0x01 ; val != 0 } # [doc = "USB wakeup."]
-# [inline (always)]
-pub fn set_wakeup (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 0usize)) | (((val as u16) & 0x01) << 0usize) ; } # [doc = "UDP status."]
-# [inline (always)]
-pub const fn dp_st (& self) -> bool { let val = (self . 0 >> 2usize) & 0x01 ; val != 0 } # [doc = "UDP status."]
-# [inline (always)]
-pub fn set_dp_st (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 2usize)) | (((val as u16) & 0x01) << 2usize) ; } # [doc = "UDM status."]
-# [inline (always)]
-pub const fn dm_st (& self) -> bool { let val = (self . 0 >> 3usize) & 0x01 ; val != 0 } # [doc = "UDM status."]
-# [inline (always)]
-pub fn set_dm_st (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 3usize)) | (((val as u16) & 0x01) << 3usize) ; } } impl Default for Bus { # [inline (always)]
-fn default () -> Bus { Bus (0) } } # [doc = "USB base control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Ctrl (pub u8) ; impl Ctrl { # [doc = "LINK layer reset,highly effective."]
-# [inline (always)]
-pub const fn link_reset (& self) -> bool { let val = (self . 0 >> 0usize) & 0x01 ; val != 0 } # [doc = "LINK layer reset,highly effective."]
-# [inline (always)]
-pub fn set_link_reset (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize) ; } # [doc = "USB protocol processor reset."]
-# [inline (always)]
-pub const fn sie_reset (& self) -> bool { let val = (self . 0 >> 1usize) & 0x01 ; val != 0 } # [doc = "USB protocol processor reset."]
-# [inline (always)]
-pub fn set_sie_reset (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize) ; } # [doc = "clear all interrupt flags."]
-# [inline (always)]
-pub const fn all_clr (& self) -> bool { let val = (self . 0 >> 2usize) & 0x01 ; val != 0 } # [doc = "clear all interrupt flags."]
-# [inline (always)]
-pub fn set_all_clr (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize) ; } # [doc = "USB PHY suspend."]
-# [inline (always)]
-pub const fn phy_suspendm (& self) -> bool { let val = (self . 0 >> 3usize) & 0x01 ; val != 0 } # [doc = "USB PHY suspend."]
-# [inline (always)]
-pub fn set_phy_suspendm (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize) ; } # [doc = "DMA transfer enabled."]
-# [inline (always)]
-pub const fn dev_dma_en (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "DMA transfer enabled."]
-# [inline (always)]
-pub fn set_dev_dma_en (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "USB device enabled."]
-# [inline (always)]
-pub const fn dev_en (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "USB device enabled."]
-# [inline (always)]
-pub fn set_dev_en (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "LPM enable."]
-# [inline (always)]
-pub const fn dev_lpm_en (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "LPM enable."]
-# [inline (always)]
-pub fn set_dev_lpm_en (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Ctrl { # [inline (always)]
-fn default () -> Ctrl { Ctrl (0) } } # [doc = "USB device address."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct DevAd (pub u8) ; impl DevAd { # [doc = "bit mask for USB device address."]
-# [inline (always)]
-pub const fn mask_usb_addr (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "bit mask for USB device address."]
-# [inline (always)]
-pub fn set_mask_usb_addr (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u8) & 0x7f) << 0usize) ; } } impl Default for DevAd { # [inline (always)]
-fn default () -> DevAd { DevAd (0) } } # [doc = "USB frame number."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct FramNo (pub u16) ; impl FramNo { # [doc = "Received frame number."]
-# [inline (always)]
-pub const fn frame_no (& self) -> u16 { let val = (self . 0 >> 0usize) & 0x07ff ; val as u16 } # [doc = "Received frame number."]
-# [inline (always)]
-pub fn set_frame_no (& mut self , val : u16) { self . 0 = (self . 0 & ! (0x07ff << 0usize)) | (((val as u16) & 0x07ff) << 0usize) ; } # [doc = "Received micro frame number."]
-# [inline (always)]
-pub const fn micro_frame (& self) -> u8 { let val = (self . 0 >> 13usize) & 0x07 ; val as u8 } # [doc = "Received micro frame number."]
-# [inline (always)]
-pub fn set_micro_frame (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x07 << 13usize)) | (((val as u16) & 0x07) << 13usize) ; } } impl Default for FramNo { # [inline (always)]
-fn default () -> FramNo { FramNo (0) } } # [doc = "USB interrupt enable register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct IntEn (pub u8) ; impl IntEn { # [doc = "USB bus reset interrupt enabled."]
-# [inline (always)]
-pub const fn bus_rest_ie (& self) -> bool { let val = (self . 0 >> 0usize) & 0x01 ; val != 0 } # [doc = "USB bus reset interrupt enabled."]
-# [inline (always)]
-pub fn set_bus_rest_ie (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize) ; } # [doc = "USB bus pause interrupt enabled."]
-# [inline (always)]
-pub const fn bus_susp_ie (& self) -> bool { let val = (self . 0 >> 1usize) & 0x01 ; val != 0 } # [doc = "USB bus pause interrupt enabled."]
-# [inline (always)]
-pub fn set_bus_susp_ie (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize) ; } # [doc = "USB bus sleep interrupt enabled."]
-# [inline (always)]
-pub const fn bus_sleep_ie (& self) -> bool { let val = (self . 0 >> 2usize) & 0x01 ; val != 0 } # [doc = "USB bus sleep interrupt enabled."]
-# [inline (always)]
-pub fn set_bus_sleep_ie (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize) ; } # [doc = "LMP transfer end interrupt enabled."]
-# [inline (always)]
-pub const fn lpm_act_ie (& self) -> bool { let val = (self . 0 >> 3usize) & 0x01 ; val != 0 } # [doc = "LMP transfer end interrupt enabled."]
-# [inline (always)]
-pub fn set_lpm_act_ie (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize) ; } # [doc = "USB transfer end interrupt enabled."]
-# [inline (always)]
-pub const fn rtx_act_ie (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "USB transfer end interrupt enabled."]
-# [inline (always)]
-pub fn set_rtx_act_ie (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "Receive SOF packet interrupt enable."]
-# [inline (always)]
-pub const fn rx_sof_ie (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "Receive SOF packet interrupt enable."]
-# [inline (always)]
-pub fn set_rx_sof_ie (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "USB connection interrupt enable."]
-# [inline (always)]
-pub const fn link_rdy_ie (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "USB connection interrupt enable."]
-# [inline (always)]
-pub fn set_link_rdy_ie (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "USB Overflow interrupt enable."]
-# [inline (always)]
-pub const fn fifo_over_ie (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "USB Overflow interrupt enable."]
-# [inline (always)]
-pub fn set_fifo_over_ie (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for IntEn { # [inline (always)]
-fn default () -> IntEn { IntEn (0) } } # [doc = "USB interrupt flag register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct IntFg (pub u8) ; impl IntFg { # [doc = "USB bus reset interrupt flag."]
-# [inline (always)]
-pub const fn uif_bus_rst (& self) -> bool { let val = (self . 0 >> 0usize) & 0x01 ; val != 0 } # [doc = "USB bus reset interrupt flag."]
-# [inline (always)]
-pub fn set_uif_bus_rst (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize) ; } # [doc = "USB bus suspend interrupt flag."]
-# [inline (always)]
-pub const fn uif_suspend (& self) -> bool { let val = (self . 0 >> 1usize) & 0x01 ; val != 0 } # [doc = "USB bus suspend interrupt flag."]
-# [inline (always)]
-pub fn set_uif_suspend (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize) ; } # [doc = "USB bus sleep interrupt flag."]
-# [inline (always)]
-pub const fn uif_bus_sleep (& self) -> bool { let val = (self . 0 >> 2usize) & 0x01 ; val != 0 } # [doc = "USB bus sleep interrupt flag."]
-# [inline (always)]
-pub fn set_uif_bus_sleep (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize) ; } # [doc = "LPM transmission end interrupt flag."]
-# [inline (always)]
-pub const fn uif_lpm_act (& self) -> bool { let val = (self . 0 >> 3usize) & 0x01 ; val != 0 } # [doc = "LPM transmission end interrupt flag."]
-# [inline (always)]
-pub fn set_uif_lpm_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize) ; } # [doc = "USB transmission end interrupt flag."]
-# [inline (always)]
-pub const fn uif_rtx_act (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "USB transmission end interrupt flag."]
-# [inline (always)]
-pub fn set_uif_rtx_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "Receive SOF packet interrupt flag."]
-# [inline (always)]
-pub const fn uif_rx_sof (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "Receive SOF packet interrupt flag."]
-# [inline (always)]
-pub fn set_uif_rx_sof (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "USB connection interrupt flag."]
-# [inline (always)]
-pub const fn uif_link_rdy (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "USB connection interrupt flag."]
-# [inline (always)]
-pub fn set_uif_link_rdy (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "USB Overflow interrupt flag."]
-# [inline (always)]
-pub const fn uif_fifo_ov (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "USB Overflow interrupt flag."]
-# [inline (always)]
-pub fn set_uif_fifo_ov (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for IntFg { # [inline (always)]
-fn default () -> IntFg { IntFg (0) } } # [doc = "USB interrupt status."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct IntSt (pub u8) ; impl IntSt { # [doc = "The endpoint number at which the data transfer occurs."]
-# [inline (always)]
-pub const fn uis_ep_id_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x07 ; val as u8 } # [doc = "The endpoint number at which the data transfer occurs."]
-# [inline (always)]
-pub fn set_uis_ep_id_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x07 << 0usize)) | (((val as u8) & 0x07) << 0usize) ; } # [doc = "Endpoint data transmission direction."]
-# [inline (always)]
-pub const fn uis_ep_dir (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "Endpoint data transmission direction."]
-# [inline (always)]
-pub fn set_uis_ep_dir (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } } impl Default for IntSt { # [inline (always)]
-fn default () -> IntSt { IntSt (0) } } # [doc = "USB power management register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct LpmData (pub u16) ; impl LpmData { # [doc = "power management data."]
-# [inline (always)]
-pub const fn lpm_data (& self) -> u16 { let val = (self . 0 >> 0usize) & 0x07ff ; val as u16 } # [doc = "power management data."]
-# [inline (always)]
-pub fn set_lpm_data (& mut self , val : u16) { self . 0 = (self . 0 & ! (0x07ff << 0usize)) | (((val as u16) & 0x07ff) << 0usize) ; } # [doc = "power management busy."]
-# [inline (always)]
-pub const fn lpm_busy (& self) -> bool { let val = (self . 0 >> 15usize) & 0x01 ; val != 0 } # [doc = "power management busy."]
-# [inline (always)]
-pub fn set_lpm_busy (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 15usize)) | (((val as u16) & 0x01) << 15usize) ; } } impl Default for LpmData { # [inline (always)]
-fn default () -> LpmData { LpmData (0) } } # [doc = "USB miscellaneous status."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct MisSt (pub u8) ; impl MisSt { # [doc = "USB connection status."]
-# [inline (always)]
-pub const fn ums_ready (& self) -> bool { let val = (self . 0 >> 0usize) & 0x01 ; val != 0 } # [doc = "USB connection status."]
-# [inline (always)]
-pub fn set_ums_ready (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize) ; } # [doc = "USB suspend status."]
-# [inline (always)]
-pub const fn ums_suspend (& self) -> bool { let val = (self . 0 >> 1usize) & 0x01 ; val != 0 } # [doc = "USB suspend status."]
-# [inline (always)]
-pub fn set_ums_suspend (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize) ; } # [doc = "USB sleep status."]
-# [inline (always)]
-pub const fn ums_sleep (& self) -> bool { let val = (self . 0 >> 2usize) & 0x01 ; val != 0 } # [doc = "USB sleep status."]
-# [inline (always)]
-pub fn set_ums_sleep (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize) ; } # [doc = "USB free status."]
-# [inline (always)]
-pub const fn ums_free (& self) -> bool { let val = (self . 0 >> 3usize) & 0x01 ; val != 0 } # [doc = "USB free status."]
-# [inline (always)]
-pub fn set_ums_free (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize) ; } # [doc = "USB suspends the request."]
-# [inline (always)]
-pub const fn ums_susp_req (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "USB suspends the request."]
-# [inline (always)]
-pub fn set_ums_susp_req (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "whether the host is high-speed."]
-# [inline (always)]
-pub const fn ums_hs_mod (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "whether the host is high-speed."]
-# [inline (always)]
-pub fn set_ums_hs_mod (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for MisSt { # [inline (always)]
-fn default () -> MisSt { MisSt (0) } } # [doc = "USB test mode register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct TestMode (pub u8) ; impl TestMode { # [doc = "test mode,output J."]
-# [inline (always)]
-pub const fn test_j (& self) -> bool { let val = (self . 0 >> 0usize) & 0x01 ; val != 0 } # [doc = "test mode,output J."]
-# [inline (always)]
-pub fn set_test_j (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize) ; } # [doc = "test mode,output K."]
-# [inline (always)]
-pub const fn test_k (& self) -> bool { let val = (self . 0 >> 1usize) & 0x01 ; val != 0 } # [doc = "test mode,output K."]
-# [inline (always)]
-pub fn set_test_k (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize) ; } # [doc = "test mode,output a packet."]
-# [inline (always)]
-pub const fn test_pkt (& self) -> bool { let val = (self . 0 >> 2usize) & 0x01 ; val != 0 } # [doc = "test mode,output a packet."]
-# [inline (always)]
-pub fn set_test_pkt (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize) ; } # [doc = "test mode,output SEO."]
-# [inline (always)]
-pub const fn test_se0nak (& self) -> bool { let val = (self . 0 >> 3usize) & 0x01 ; val != 0 } # [doc = "test mode,output SEO."]
-# [inline (always)]
-pub fn set_test_se0nak (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize) ; } # [doc = "test mode enable."]
-# [inline (always)]
-pub const fn test_en (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "test mode enable."]
-# [inline (always)]
-pub fn set_test_en (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for TestMode { # [inline (always)]
-fn default () -> TestMode { TestMode (0) } } # [doc = "The start address register of the endpoint 0 buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep0Dma (pub u32) ; impl Uep0Dma { # [doc = "The start address of the endpoint 0 buffer."]
-# [inline (always)]
-pub const fn uep0_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "The start address of the endpoint 0 buffer."]
-# [inline (always)]
-pub fn set_uep0_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep0Dma { # [inline (always)]
-fn default () -> Uep0Dma { Uep0Dma (0) } } # [doc = "endpoint 0 max length packet register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep0MaxLen (pub u32) ; impl Uep0MaxLen { # [doc = "endpoint 0 max acceptable offset length."]
-# [inline (always)]
-pub const fn uep0_max_len (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "endpoint 0 max acceptable offset length."]
-# [inline (always)]
-pub fn set_uep0_max_len (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize) ; } } impl Default for Uep0MaxLen { # [inline (always)]
-fn default () -> Uep0MaxLen { Uep0MaxLen (0) } } # [doc = "endpoint 0 send control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep0RxCtrl (pub u8) ; impl Uep0RxCtrl { # [doc = "endpoint 0 has control over the received response."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 0 has control over the received response."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "the reception of endpoint 0 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> bool { let val = (self . 0 >> 2usize) & 0x01 ; val != 0 } # [doc = "the reception of endpoint 0 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize) ; } # [doc = "whether endpoint 0 receives a SETUP transaction."]
-# [inline (always)]
-pub const fn setup_is (& self) -> bool { let val = (self . 0 >> 3usize) & 0x01 ; val != 0 } # [doc = "whether endpoint 0 receives a SETUP transaction."]
-# [inline (always)]
-pub fn set_setup_is (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize) ; } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub const fn endp_r_tog_match (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub fn set_endp_r_tog_match (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "endpoint 0 for the received return NAK,packet type."]
-# [inline (always)]
-pub const fn uep_r_nak_tog (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "endpoint 0 for the received return NAK,packet type."]
-# [inline (always)]
-pub fn set_uep_r_nak_tog (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "endpoint 0 receives the end of NAK flag."]
-# [inline (always)]
-pub const fn uep_r_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 0 receives the end of NAK flag."]
-# [inline (always)]
-pub fn set_uep_r_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 0 receives the end flag."]
-# [inline (always)]
-pub const fn endp_r_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 0 receives the end flag."]
-# [inline (always)]
-pub fn set_endp_r_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep0RxCtrl { # [inline (always)]
-fn default () -> Uep0RxCtrl { Uep0RxCtrl (0) } } # [doc = "endpoint 0 acceptable length."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep0RxLen (pub u16) ; impl Uep0RxLen { # [doc = "endpoint 0 acceptable data length."]
-# [inline (always)]
-pub const fn uep0_rx_len (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "endpoint 0 acceptable data length."]
-# [inline (always)]
-pub fn set_uep0_rx_len (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u16) & 0x7f) << 0usize) ; } } impl Default for Uep0RxLen { # [inline (always)]
-fn default () -> Uep0RxLen { Uep0RxLen (0) } } # [doc = "endpoint 0 send the length."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep0TLen (pub u16) ; impl Uep0TLen { # [doc = "endpoint 0 send the length."]
-# [inline (always)]
-pub const fn uep0_t_len (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "endpoint 0 send the length."]
-# [inline (always)]
-pub fn set_uep0_t_len (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u16) & 0x7f) << 0usize) ; } } impl Default for Uep0TLen { # [inline (always)]
-fn default () -> Uep0TLen { Uep0TLen (0) } } # [doc = "endpoint 0 send control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep0TxCtrl (pub u8) ; impl Uep0TxCtrl { # [doc = "endpoint 0 control of the send response to IN transactions."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 0 control of the send response to IN transactions."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "endpoint 0 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub const fn ep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "endpoint 0 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub fn set_ep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "endpoint 0 sends the end flag."]
-# [inline (always)]
-pub const fn uep_t_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 0 sends the end flag."]
-# [inline (always)]
-pub fn set_uep_t_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 0 sends the end of NAK flag."]
-# [inline (always)]
-pub const fn endp_t_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 0 sends the end of NAK flag."]
-# [inline (always)]
-pub fn set_endp_t_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep0TxCtrl { # [inline (always)]
-fn default () -> Uep0TxCtrl { Uep0TxCtrl (0) } } # [doc = "endpoint 1 max length packet register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep1MaxLen (pub u32) ; impl Uep1MaxLen { # [doc = "endpoint 1 max acceptable offset length."]
-# [inline (always)]
-pub const fn uep1_max_len (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "endpoint 1 max acceptable offset length."]
-# [inline (always)]
-pub fn set_uep1_max_len (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize) ; } } impl Default for Uep1MaxLen { # [inline (always)]
-fn default () -> Uep1MaxLen { Uep1MaxLen (0) } } # [doc = "the length register of the total received data at endpoint 1."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep1RSize (pub u16) ; impl Uep1RSize { # [doc = "the length of the total received data at endpoint 1."]
-# [inline (always)]
-pub const fn uep1_r_size (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of the total received data at endpoint 1."]
-# [inline (always)]
-pub fn set_uep1_r_size (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep1RSize { # [inline (always)]
-fn default () -> Uep1RSize { Uep1RSize (0) } } # [doc = "endpoint 1 receive control."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep1RxCtrl (pub u8) ; impl Uep1RxCtrl { # [doc = "endpoint 1 has control over the received response."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 1 has control over the received response."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "the reception of endpoint 1 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "the reception of endpoint 1 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub const fn endp_r_tog_match (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub fn set_endp_r_tog_match (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "endpoint 1 for the received return NAK,packet type."]
-# [inline (always)]
-pub const fn uep_r_nak_tog (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "endpoint 1 for the received return NAK,packet type."]
-# [inline (always)]
-pub fn set_uep_r_nak_tog (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "endpoint 1 receives the end of NAK flag."]
-# [inline (always)]
-pub const fn uep_r_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 1 receives the end of NAK flag."]
-# [inline (always)]
-pub fn set_uep_r_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 1 receives the end flag."]
-# [inline (always)]
-pub const fn endp_r_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 1 receives the end flag."]
-# [inline (always)]
-pub fn set_endp_r_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep1RxCtrl { # [inline (always)]
-fn default () -> Uep1RxCtrl { Uep1RxCtrl (0) } } # [doc = "endpoint 1 receives the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep1RxDma (pub u32) ; impl Uep1RxDma { # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep1_rx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep1_rx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep1RxDma { # [inline (always)]
-fn default () -> Uep1RxDma { Uep1RxDma (0) } } # [doc = "endpoint 1 receives the lenth register in a single pass."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep1RxLen (pub u16) ; impl Uep1RxLen { # [doc = "the length of data received by endpoint 1 in a single pass."]
-# [inline (always)]
-pub const fn uep1_rx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of data received by endpoint 1 in a single pass."]
-# [inline (always)]
-pub fn set_uep1_rx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep1RxLen { # [inline (always)]
-fn default () -> Uep1RxLen { Uep1RxLen (0) } } # [doc = "endpoint 1 send the length register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep1TLen (pub u16) ; impl Uep1TLen { # [doc = "endpoint 1 send the length."]
-# [inline (always)]
-pub const fn uep1_t_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "endpoint 1 send the length."]
-# [inline (always)]
-pub fn set_uep1_t_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep1TLen { # [inline (always)]
-fn default () -> Uep1TLen { Uep1TLen (0) } } # [doc = "endpoint 1 send control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep1TxCtrl (pub u8) ; impl Uep1TxCtrl { # [doc = "endpoint 1 control of the send response to IN transactions."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 1 control of the send response to IN transactions."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "endpoint 1 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "endpoint 1 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "endpoint 1 sends the end flag."]
-# [inline (always)]
-pub const fn uep_t_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 1 sends the end flag."]
-# [inline (always)]
-pub fn set_uep_t_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 1 sends the end of NAK flag."]
-# [inline (always)]
-pub const fn endp_t_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 1 sends the end of NAK flag."]
-# [inline (always)]
-pub fn set_endp_t_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep1TxCtrl { # [inline (always)]
-fn default () -> Uep1TxCtrl { Uep1TxCtrl (0) } } # [doc = "endpoint 1 sends the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep1TxDma (pub u32) ; impl Uep1TxDma { # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep1_tx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep1_tx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep1TxDma { # [inline (always)]
-fn default () -> Uep1TxDma { Uep1TxDma (0) } } # [doc = "endpoint 2 max length packet register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep2MaxLen (pub u32) ; impl Uep2MaxLen { # [doc = "endpoint 2 max acceptable offset length."]
-# [inline (always)]
-pub const fn uep2_max_len (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "endpoint 2 max acceptable offset length."]
-# [inline (always)]
-pub fn set_uep2_max_len (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize) ; } } impl Default for Uep2MaxLen { # [inline (always)]
-fn default () -> Uep2MaxLen { Uep2MaxLen (0) } } # [doc = "the length register of the total received data at endpoint 2."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep2RSize (pub u16) ; impl Uep2RSize { # [doc = "the length of the total received data at endpoint 2."]
-# [inline (always)]
-pub const fn uep2_r_size (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of the total received data at endpoint 2."]
-# [inline (always)]
-pub fn set_uep2_r_size (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep2RSize { # [inline (always)]
-fn default () -> Uep2RSize { Uep2RSize (0) } } # [doc = "endpoint 2 receive control."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep2RxCtrl (pub u8) ; impl Uep2RxCtrl { # [doc = "endpoint 2 has control over the received response."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 2 has control over the received response."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "the reception of endpoint 2 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "the reception of endpoint 2 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub const fn endp_r_tog_match (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub fn set_endp_r_tog_match (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "endpoint 2 for the received return NAK,packet type."]
-# [inline (always)]
-pub const fn uep_r_nak_tog (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "endpoint 2 for the received return NAK,packet type."]
-# [inline (always)]
-pub fn set_uep_r_nak_tog (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "endpoint 2 receives the end of NAK flag."]
-# [inline (always)]
-pub const fn uep_r_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 2 receives the end of NAK flag."]
-# [inline (always)]
-pub fn set_uep_r_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 2 receives the end flag."]
-# [inline (always)]
-pub const fn endp_r_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 2 receives the end flag."]
-# [inline (always)]
-pub fn set_endp_r_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep2RxCtrl { # [inline (always)]
-fn default () -> Uep2RxCtrl { Uep2RxCtrl (0) } } # [doc = "endpoint 2 receives the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep2RxDma (pub u32) ; impl Uep2RxDma { # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep2_rx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep2_rx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep2RxDma { # [inline (always)]
-fn default () -> Uep2RxDma { Uep2RxDma (0) } } # [doc = "endpoint 2 receives the lenth register in a single pass."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep2RxLen (pub u16) ; impl Uep2RxLen { # [doc = "the length of data received by endpoint 2 in a single pass."]
-# [inline (always)]
-pub const fn uep2_rx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of data received by endpoint 2 in a single pass."]
-# [inline (always)]
-pub fn set_uep2_rx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep2RxLen { # [inline (always)]
-fn default () -> Uep2RxLen { Uep2RxLen (0) } } # [doc = "endpoint 2 send the length register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep2TLen (pub u16) ; impl Uep2TLen { # [doc = "endpoint 2 send the length."]
-# [inline (always)]
-pub const fn uep_tx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "endpoint 2 send the length."]
-# [inline (always)]
-pub fn set_uep_tx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep2TLen { # [inline (always)]
-fn default () -> Uep2TLen { Uep2TLen (0) } } # [doc = "endpoint 2 send control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep2TxCtrl (pub u8) ; impl Uep2TxCtrl { # [doc = "endpoint 2 control of the send response to IN transactions."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 2 control of the send response to IN transactions."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "endpoint 2 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "endpoint 2 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "endpoint 2 sends the end flag."]
-# [inline (always)]
-pub const fn uep_t_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 2 sends the end flag."]
-# [inline (always)]
-pub fn set_uep_t_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 2 sends the end of NAK flag."]
-# [inline (always)]
-pub const fn endp_t_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 2 sends the end of NAK flag."]
-# [inline (always)]
-pub fn set_endp_t_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep2TxCtrl { # [inline (always)]
-fn default () -> Uep2TxCtrl { Uep2TxCtrl (0) } } # [doc = "endpoint 2 sends the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep2TxDma (pub u32) ; impl Uep2TxDma { # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep2_tx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep2_tx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep2TxDma { # [inline (always)]
-fn default () -> Uep2TxDma { Uep2TxDma (0) } } # [doc = "endpoint 3 max length packet register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep3MaxLen (pub u32) ; impl Uep3MaxLen { # [doc = "endpoint 3 max acceptable offset length."]
-# [inline (always)]
-pub const fn uep3_max_len (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "endpoint 3 max acceptable offset length."]
-# [inline (always)]
-pub fn set_uep3_max_len (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize) ; } } impl Default for Uep3MaxLen { # [inline (always)]
-fn default () -> Uep3MaxLen { Uep3MaxLen (0) } } # [doc = "the length register of the total received data at endpoint 3."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep3RSize (pub u16) ; impl Uep3RSize { # [doc = "the length of the total received data at endpoint 3."]
-# [inline (always)]
-pub const fn uep3_r_size (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of the total received data at endpoint 3."]
-# [inline (always)]
-pub fn set_uep3_r_size (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep3RSize { # [inline (always)]
-fn default () -> Uep3RSize { Uep3RSize (0) } } # [doc = "endpoint 3 receive control."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep3RxCtrl (pub u8) ; impl Uep3RxCtrl { # [doc = "endpoint 3 has control over the received response."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 3 has control over the received response."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "the reception of endpoint 3 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "the reception of endpoint 3 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub const fn endp_r_tog_match (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub fn set_endp_r_tog_match (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "endpoint 3 for the received return NAK,packet type."]
-# [inline (always)]
-pub const fn uep_r_nak_tog (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "endpoint 3 for the received return NAK,packet type."]
-# [inline (always)]
-pub fn set_uep_r_nak_tog (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "endpoint 3 receives the end of NAK flag."]
-# [inline (always)]
-pub const fn uep_r_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 3 receives the end of NAK flag."]
-# [inline (always)]
-pub fn set_uep_r_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 3 receives the end flag."]
-# [inline (always)]
-pub const fn endp_r_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 3 receives the end flag."]
-# [inline (always)]
-pub fn set_endp_r_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep3RxCtrl { # [inline (always)]
-fn default () -> Uep3RxCtrl { Uep3RxCtrl (0) } } # [doc = "endpoint 3 receives the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep3RxDma (pub u32) ; impl Uep3RxDma { # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep3_rx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep3_rx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep3RxDma { # [inline (always)]
-fn default () -> Uep3RxDma { Uep3RxDma (0) } } # [doc = "endpoint 3 receives the lenth register in a single pass."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep3RxLen (pub u16) ; impl Uep3RxLen { # [doc = "the length of data received by endpoint 3 in a single pass."]
-# [inline (always)]
-pub const fn uep3_rx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of data received by endpoint 3 in a single pass."]
-# [inline (always)]
-pub fn set_uep3_rx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep3RxLen { # [inline (always)]
-fn default () -> Uep3RxLen { Uep3RxLen (0) } } # [doc = "endpoint 3 send the length register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep3TLen (pub u16) ; impl Uep3TLen { # [doc = "endpoint 3 send the length."]
-# [inline (always)]
-pub const fn uep_tx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "endpoint 3 send the length."]
-# [inline (always)]
-pub fn set_uep_tx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep3TLen { # [inline (always)]
-fn default () -> Uep3TLen { Uep3TLen (0) } } # [doc = "endpoint 3 send control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep3TxCtrl (pub u8) ; impl Uep3TxCtrl { # [doc = "endpoint 3 control of the send response to IN transactions."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 3 control of the send response to IN transactions."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "endpoint 3 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "endpoint 3 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "endpoint 3 sends the end flag."]
-# [inline (always)]
-pub const fn uep_t_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 3 sends the end flag."]
-# [inline (always)]
-pub fn set_uep_t_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 3 sends the end of NAK flag."]
-# [inline (always)]
-pub const fn endp_t_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 3 sends the end of NAK flag."]
-# [inline (always)]
-pub fn set_endp_t_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep3TxCtrl { # [inline (always)]
-fn default () -> Uep3TxCtrl { Uep3TxCtrl (0) } } # [doc = "endpoint 3 sends the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep3TxDma (pub u32) ; impl Uep3TxDma { # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep3_tx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep3_tx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep3TxDma { # [inline (always)]
-fn default () -> Uep3TxDma { Uep3TxDma (0) } } # [doc = "endpoint 4 max length packet register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep4MaxLen (pub u32) ; impl Uep4MaxLen { # [doc = "endpoint 4 max acceptable offset length."]
-# [inline (always)]
-pub const fn uep4_max_len (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "endpoint 4 max acceptable offset length."]
-# [inline (always)]
-pub fn set_uep4_max_len (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize) ; } } impl Default for Uep4MaxLen { # [inline (always)]
-fn default () -> Uep4MaxLen { Uep4MaxLen (0) } } # [doc = "the length register of the total received data at endpoint 4."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep4RSize (pub u16) ; impl Uep4RSize { # [doc = "the length of the total received data at endpoint 4."]
-# [inline (always)]
-pub const fn uep4_r_size (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of the total received data at endpoint 4."]
-# [inline (always)]
-pub fn set_uep4_r_size (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep4RSize { # [inline (always)]
-fn default () -> Uep4RSize { Uep4RSize (0) } } # [doc = "endpoint 4 receive control."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep4RxCtrl (pub u8) ; impl Uep4RxCtrl { # [doc = "endpoint 4 has control over the received response."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 4 has control over the received response."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "the reception of endpoint 4 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "the reception of endpoint 4 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub const fn endp_r_tog_match (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub fn set_endp_r_tog_match (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "endpoint 4 for the received return NAK,packet type."]
-# [inline (always)]
-pub const fn uep_r_nak_tog (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "endpoint 4 for the received return NAK,packet type."]
-# [inline (always)]
-pub fn set_uep_r_nak_tog (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "endpoint 4 receives the end of NAK flag."]
-# [inline (always)]
-pub const fn uep_r_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 4 receives the end of NAK flag."]
-# [inline (always)]
-pub fn set_uep_r_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 4 receives the end flag."]
-# [inline (always)]
-pub const fn endp_r_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 4 receives the end flag."]
-# [inline (always)]
-pub fn set_endp_r_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep4RxCtrl { # [inline (always)]
-fn default () -> Uep4RxCtrl { Uep4RxCtrl (0) } } # [doc = "endpoint 4 receives the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep4RxDma (pub u32) ; impl Uep4RxDma { # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep4_rx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep4_rx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep4RxDma { # [inline (always)]
-fn default () -> Uep4RxDma { Uep4RxDma (0) } } # [doc = "endpoint 4 receives the lenth register in a single pass."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep4RxLen (pub u16) ; impl Uep4RxLen { # [doc = "the length of data received by endpoint 4 in a single pass."]
-# [inline (always)]
-pub const fn uep4_rx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of data received by endpoint 4 in a single pass."]
-# [inline (always)]
-pub fn set_uep4_rx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep4RxLen { # [inline (always)]
-fn default () -> Uep4RxLen { Uep4RxLen (0) } } # [doc = "endpoint 4 send the length register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep4TLen (pub u16) ; impl Uep4TLen { # [doc = "endpoint 4 send the length."]
-# [inline (always)]
-pub const fn uep_tx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "endpoint 4 send the length."]
-# [inline (always)]
-pub fn set_uep_tx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep4TLen { # [inline (always)]
-fn default () -> Uep4TLen { Uep4TLen (0) } } # [doc = "endpoint 4 send control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep4TxCtrl (pub u8) ; impl Uep4TxCtrl { # [doc = "endpoint 4 control of the send response to IN transactions."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 4 control of the send response to IN transactions."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "endpoint 4 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "endpoint 4 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "endpoint 4 sends the end flag."]
-# [inline (always)]
-pub const fn uep_t_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 4 sends the end flag."]
-# [inline (always)]
-pub fn set_uep_t_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 4 sends the end of NAK flag."]
-# [inline (always)]
-pub const fn endp_t_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 4 sends the end of NAK flag."]
-# [inline (always)]
-pub fn set_endp_t_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep4TxCtrl { # [inline (always)]
-fn default () -> Uep4TxCtrl { Uep4TxCtrl (0) } } # [doc = "endpoint 4 sends the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep4TxDma (pub u32) ; impl Uep4TxDma { # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep4_tx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep4_tx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep4TxDma { # [inline (always)]
-fn default () -> Uep4TxDma { Uep4TxDma (0) } } # [doc = "endpoint 5 max length packet register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep5MaxLen (pub u32) ; impl Uep5MaxLen { # [doc = "endpoint 5 max acceptable offset length."]
-# [inline (always)]
-pub const fn uep5_max_len (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "endpoint 5 max acceptable offset length."]
-# [inline (always)]
-pub fn set_uep5_max_len (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize) ; } } impl Default for Uep5MaxLen { # [inline (always)]
-fn default () -> Uep5MaxLen { Uep5MaxLen (0) } } # [doc = "the length register of the total received data at endpoint 5."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep5RSize (pub u16) ; impl Uep5RSize { # [doc = "the length of the total received data at endpoint 5."]
-# [inline (always)]
-pub const fn uep5_r_size (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of the total received data at endpoint 5."]
-# [inline (always)]
-pub fn set_uep5_r_size (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep5RSize { # [inline (always)]
-fn default () -> Uep5RSize { Uep5RSize (0) } } # [doc = "endpoint 5 receive control."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep5RxCtrl (pub u8) ; impl Uep5RxCtrl { # [doc = "endpoint 5 has control over the received response."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 5 has control over the received response."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "the reception of endpoint 5 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "the reception of endpoint 5 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub const fn endp_r_tog_match (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub fn set_endp_r_tog_match (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "endpoint 5 for the received return NAK,packet type."]
-# [inline (always)]
-pub const fn uep_r_nak_tog (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "endpoint 5 for the received return NAK,packet type."]
-# [inline (always)]
-pub fn set_uep_r_nak_tog (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "endpoint 5 receives the end of NAK flag."]
-# [inline (always)]
-pub const fn uep_r_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 5 receives the end of NAK flag."]
-# [inline (always)]
-pub fn set_uep_r_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 5 receives the end flag."]
-# [inline (always)]
-pub const fn endp_r_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 5 receives the end flag."]
-# [inline (always)]
-pub fn set_endp_r_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep5RxCtrl { # [inline (always)]
-fn default () -> Uep5RxCtrl { Uep5RxCtrl (0) } } # [doc = "endpoint 5 receives the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep5RxDma (pub u32) ; impl Uep5RxDma { # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep5_rx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep5_rx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep5RxDma { # [inline (always)]
-fn default () -> Uep5RxDma { Uep5RxDma (0) } } # [doc = "endpoint 5 receives the lenth register in a single pass."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep5RxLen (pub u16) ; impl Uep5RxLen { # [doc = "the length of data received by endpoint 5 in a single pass."]
-# [inline (always)]
-pub const fn uep5_rx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of data received by endpoint 5 in a single pass."]
-# [inline (always)]
-pub fn set_uep5_rx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep5RxLen { # [inline (always)]
-fn default () -> Uep5RxLen { Uep5RxLen (0) } } # [doc = "endpoint 5 send the length register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep5TLen (pub u16) ; impl Uep5TLen { # [doc = "endpoint 5 send the length."]
-# [inline (always)]
-pub const fn uep_tx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "endpoint 5 send the length."]
-# [inline (always)]
-pub fn set_uep_tx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep5TLen { # [inline (always)]
-fn default () -> Uep5TLen { Uep5TLen (0) } } # [doc = "endpoint 5 send control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep5TxCtrl (pub u8) ; impl Uep5TxCtrl { # [doc = "endpoint 5 control of the send response to IN transactions."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 5 control of the send response to IN transactions."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "endpoint 5 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "endpoint 5 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "endpoint 5 sends the end flag."]
-# [inline (always)]
-pub const fn uep_t_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 5 sends the end flag."]
-# [inline (always)]
-pub fn set_uep_t_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 5 sends the end of NAK flag."]
-# [inline (always)]
-pub const fn endp_t_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 5 sends the end of NAK flag."]
-# [inline (always)]
-pub fn set_endp_t_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep5TxCtrl { # [inline (always)]
-fn default () -> Uep5TxCtrl { Uep5TxCtrl (0) } } # [doc = "endpoint 5 sends the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep5TxDma (pub u32) ; impl Uep5TxDma { # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep5_tx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep5_tx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep5TxDma { # [inline (always)]
-fn default () -> Uep5TxDma { Uep5TxDma (0) } } # [doc = "endpoint 6 max length packet register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep6MaxLen (pub u32) ; impl Uep6MaxLen { # [doc = "endpoint 6 max acceptable offset length."]
-# [inline (always)]
-pub const fn uep6_max_len (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "endpoint 6 max acceptable offset length."]
-# [inline (always)]
-pub fn set_uep6_max_len (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize) ; } } impl Default for Uep6MaxLen { # [inline (always)]
-fn default () -> Uep6MaxLen { Uep6MaxLen (0) } } # [doc = "the length register of the total received data at endpoint 6."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep6RSize (pub u16) ; impl Uep6RSize { # [doc = "the length of the total received data at endpoint 6."]
-# [inline (always)]
-pub const fn uep6_r_size (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of the total received data at endpoint 6."]
-# [inline (always)]
-pub fn set_uep6_r_size (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep6RSize { # [inline (always)]
-fn default () -> Uep6RSize { Uep6RSize (0) } } # [doc = "endpoint 6 receive control."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep6RxCtrl (pub u8) ; impl Uep6RxCtrl { # [doc = "endpoint 6 has control over the received response."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 6 has control over the received response."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "the reception of endpoint 6 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "the reception of endpoint 6 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub const fn endp_r_tog_match (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub fn set_endp_r_tog_match (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "endpoint 6 for the received return NAK,packet type."]
-# [inline (always)]
-pub const fn uep_r_nak_tog (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "endpoint 6 for the received return NAK,packet type."]
-# [inline (always)]
-pub fn set_uep_r_nak_tog (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "endpoint 6 receives the end of NAK flag."]
-# [inline (always)]
-pub const fn uep_r_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 6 receives the end of NAK flag."]
-# [inline (always)]
-pub fn set_uep_r_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 6 receives the end flag."]
-# [inline (always)]
-pub const fn endp_r_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 6 receives the end flag."]
-# [inline (always)]
-pub fn set_endp_r_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep6RxCtrl { # [inline (always)]
-fn default () -> Uep6RxCtrl { Uep6RxCtrl (0) } } # [doc = "endpoint 6 receives the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep6RxDma (pub u32) ; impl Uep6RxDma { # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep6_rx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep6_rx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep6RxDma { # [inline (always)]
-fn default () -> Uep6RxDma { Uep6RxDma (0) } } # [doc = "endpoint 6 receives the lenth register in a single pass."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep6RxLen (pub u16) ; impl Uep6RxLen { # [doc = "the length of data received by endpoint 6 in a single pass."]
-# [inline (always)]
-pub const fn uep6_rx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of data received by endpoint 6 in a single pass."]
-# [inline (always)]
-pub fn set_uep6_rx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep6RxLen { # [inline (always)]
-fn default () -> Uep6RxLen { Uep6RxLen (0) } } # [doc = "endpoint 6 send the length register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep6TLen (pub u16) ; impl Uep6TLen { # [doc = "endpoint 6 send the length."]
-# [inline (always)]
-pub const fn uep_tx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "endpoint 6 send the length."]
-# [inline (always)]
-pub fn set_uep_tx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep6TLen { # [inline (always)]
-fn default () -> Uep6TLen { Uep6TLen (0) } } # [doc = "endpoint 6 send control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep6TxCtrl (pub u8) ; impl Uep6TxCtrl { # [doc = "endpoint 6 control of the send response to IN transactions."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 6 control of the send response to IN transactions."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "endpoint 6 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "endpoint 6 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "endpoint 6 sends the end flag."]
-# [inline (always)]
-pub const fn uep_t_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 6 sends the end flag."]
-# [inline (always)]
-pub fn set_uep_t_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 6 sends the end of NAK flag."]
-# [inline (always)]
-pub const fn endp_t_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 6 sends the end of NAK flag."]
-# [inline (always)]
-pub fn set_endp_t_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep6TxCtrl { # [inline (always)]
-fn default () -> Uep6TxCtrl { Uep6TxCtrl (0) } } # [doc = "endpoint 6 sends the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep6TxDma (pub u32) ; impl Uep6TxDma { # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep6_tx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep6_tx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep6TxDma { # [inline (always)]
-fn default () -> Uep6TxDma { Uep6TxDma (0) } } # [doc = "endpoint 7 max length packet register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep7MaxLen (pub u32) ; impl Uep7MaxLen { # [doc = "endpoint 7 max acceptable offset length."]
-# [inline (always)]
-pub const fn uep7_max_len (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x7f ; val as u8 } # [doc = "endpoint 7 max acceptable offset length."]
-# [inline (always)]
-pub fn set_uep7_max_len (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize) ; } } impl Default for Uep7MaxLen { # [inline (always)]
-fn default () -> Uep7MaxLen { Uep7MaxLen (0) } } # [doc = "the length register of the total received data at endpoint 7."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep7RSize (pub u16) ; impl Uep7RSize { # [doc = "the length of the total received data at endpoint 7."]
-# [inline (always)]
-pub const fn uep7_r_size (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of the total received data at endpoint 7."]
-# [inline (always)]
-pub fn set_uep7_r_size (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep7RSize { # [inline (always)]
-fn default () -> Uep7RSize { Uep7RSize (0) } } # [doc = "endpoint 7 receive control."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep7RxCtrl (pub u8) ; impl Uep7RxCtrl { # [doc = "endpoint 7 has control over the received response."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 7 has control over the received response."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "the reception of endpoint 7 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "the reception of endpoint 7 expects a synchronous trigger. bit."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub const fn endp_r_tog_match (& self) -> bool { let val = (self . 0 >> 4usize) & 0x01 ; val != 0 } # [doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
-# [inline (always)]
-pub fn set_endp_r_tog_match (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize) ; } # [doc = "endpoint 7 for the received return NAK,packet type."]
-# [inline (always)]
-pub const fn uep_r_nak_tog (& self) -> bool { let val = (self . 0 >> 5usize) & 0x01 ; val != 0 } # [doc = "endpoint 7 for the received return NAK,packet type."]
-# [inline (always)]
-pub fn set_uep_r_nak_tog (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize) ; } # [doc = "endpoint 7 receives the end of NAK flag."]
-# [inline (always)]
-pub const fn uep_r_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 7 receives the end of NAK flag."]
-# [inline (always)]
-pub fn set_uep_r_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 7 receives the end flag."]
-# [inline (always)]
-pub const fn endp_r_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 7 receives the end flag."]
-# [inline (always)]
-pub fn set_endp_r_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep7RxCtrl { # [inline (always)]
-fn default () -> Uep7RxCtrl { Uep7RxCtrl (0) } } # [doc = "endpoint 7 receives the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep7RxDma (pub u32) ; impl Uep7RxDma { # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep7_rx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint receives the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep7_rx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep7RxDma { # [inline (always)]
-fn default () -> Uep7RxDma { Uep7RxDma (0) } } # [doc = "endpoint 7 receives the lenth register in a single pass."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep7RxLen (pub u16) ; impl Uep7RxLen { # [doc = "the length of data received by endpoint 7 in a single pass."]
-# [inline (always)]
-pub const fn uep7_rx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "the length of data received by endpoint 7 in a single pass."]
-# [inline (always)]
-pub fn set_uep7_rx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep7RxLen { # [inline (always)]
-fn default () -> Uep7RxLen { Uep7RxLen (0) } } # [doc = "endpoint 7 send the length register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep7TLen (pub u16) ; impl Uep7TLen { # [doc = "endpoint 7 send the length."]
-# [inline (always)]
-pub const fn uep_tx_len (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "endpoint 7 send the length."]
-# [inline (always)]
-pub fn set_uep_tx_len (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for Uep7TLen { # [inline (always)]
-fn default () -> Uep7TLen { Uep7TLen (0) } } # [doc = "endpoint 7 send control register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep7TxCtrl (pub u8) ; impl Uep7TxCtrl { # [doc = "endpoint 7 control of the send response to IN transactions."]
-# [inline (always)]
-pub const fn res_mask (& self) -> u8 { let val = (self . 0 >> 0usize) & 0x03 ; val as u8 } # [doc = "endpoint 7 control of the send response to IN transactions."]
-# [inline (always)]
-pub fn set_res_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize) ; } # [doc = "endpoint 7 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub const fn uep_tog_mask (& self) -> u8 { let val = (self . 0 >> 2usize) & 0x03 ; val as u8 } # [doc = "endpoint 7 synchronous trigger bit for the sender to. prepare."]
-# [inline (always)]
-pub fn set_uep_tog_mask (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize) ; } # [doc = "endpoint 7 sends the end flag."]
-# [inline (always)]
-pub const fn uep_t_nak_act (& self) -> bool { let val = (self . 0 >> 6usize) & 0x01 ; val != 0 } # [doc = "endpoint 7 sends the end flag."]
-# [inline (always)]
-pub fn set_uep_t_nak_act (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize) ; } # [doc = "endpoint 7 sends the end of NAK flag."]
-# [inline (always)]
-pub const fn endp_t_done (& self) -> bool { let val = (self . 0 >> 7usize) & 0x01 ; val != 0 } # [doc = "endpoint 7 sends the end of NAK flag."]
-# [inline (always)]
-pub fn set_endp_t_done (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize) ; } } impl Default for Uep7TxCtrl { # [inline (always)]
-fn default () -> Uep7TxCtrl { Uep7TxCtrl (0) } } # [doc = "endpoint 7 sends the start address register of the buffer."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct Uep7TxDma (pub u32) ; impl Uep7TxDma { # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub const fn uep7_tx_dma (& self) -> u32 { let val = (self . 0 >> 0usize) & 0x0001_ffff ; val as u32 } # [doc = "endpoint sends the start address register of the buffer."]
-# [inline (always)]
-pub fn set_uep7_tx_dma (& mut self , val : u32) { self . 0 = (self . 0 & ! (0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize) ; } } impl Default for Uep7TxDma { # [inline (always)]
-fn default () -> Uep7TxDma { Uep7TxDma (0) } } # [doc = "USB endpoint muitiplexing register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepAfMode (pub u32) ; impl UepAfMode { # [doc = "1 to 7 endpoint muitiplexing enables."]
-# [inline (always)]
-pub const fn ep_t_af (& self) -> u8 { let val = (self . 0 >> 1usize) & 0x7f ; val as u8 } # [doc = "1 to 7 endpoint muitiplexing enables."]
-# [inline (always)]
-pub fn set_ep_t_af (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 1usize)) | (((val as u32) & 0x7f) << 1usize) ; } } impl Default for UepAfMode { # [inline (always)]
-fn default () -> UepAfMode { UepAfMode (0) } } # [doc = "USB endpoint receives the burst register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepRBurst (pub u8) ; impl UepRBurst { # [doc = "0 to 7 endpoint receive burst enable."]
-# [inline (always)]
-pub const fn uep_r_burst_en (& self) -> u8 { let val = (self . 0 >> 0usize) & 0xff ; val as u8 } # [doc = "0 to 7 endpoint receive burst enable."]
-# [inline (always)]
-pub fn set_uep_r_burst_en (& mut self , val : u8) { self . 0 = (self . 0 & ! (0xff << 0usize)) | (((val as u8) & 0xff) << 0usize) ; } } impl Default for UepRBurst { # [inline (always)]
-fn default () -> UepRBurst { UepRBurst (0) } } # [doc = "usb endpoint receives a synchronous mode enable register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepRIso (pub u16) ; impl UepRIso { # [doc = "down endpoint(OUT) synchronization mode enabled."]
-# [inline (always)]
-pub const fn uep_r_iso (& self) -> u8 { let val = (self . 0 >> 1usize) & 0x7f ; val as u8 } # [doc = "down endpoint(OUT) synchronization mode enabled."]
-# [inline (always)]
-pub fn set_uep_r_iso (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 1usize)) | (((val as u16) & 0x7f) << 1usize) ; } } impl Default for UepRIso { # [inline (always)]
-fn default () -> UepRIso { UepRIso (0) } } # [doc = "USB endpoint reply mode register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepRResMode (pub u8) ; impl UepRResMode { # [doc = "0 to 7 endpoint reply mode."]
-# [inline (always)]
-pub const fn uep_r_res_mode (& self) -> u8 { let val = (self . 0 >> 0usize) & 0xff ; val as u8 } # [doc = "0 to 7 endpoint reply mode."]
-# [inline (always)]
-pub fn set_uep_r_res_mode (& mut self , val : u8) { self . 0 = (self . 0 & ! (0xff << 0usize)) | (((val as u8) & 0xff) << 0usize) ; } } impl Default for UepRResMode { # [inline (always)]
-fn default () -> UepRResMode { UepRResMode (0) } } # [doc = "USB endpoint receive the auto-filp enable register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepRTogAuto (pub u16) ; impl UepRTogAuto { # [doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
-# [inline (always)]
-pub const fn uep_r_tog_auto (& self) -> u8 { let val = (self . 0 >> 0usize) & 0xff ; val as u8 } # [doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
-# [inline (always)]
-pub fn set_uep_r_tog_auto (& mut self , val : u8) { self . 0 = (self . 0 & ! (0xff << 0usize)) | (((val as u16) & 0xff) << 0usize) ; } } impl Default for UepRTogAuto { # [inline (always)]
-fn default () -> UepRTogAuto { UepRTogAuto (0) } } # [doc = "USB endpoint receive the enable registers."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepRxEn (pub u16) ; impl UepRxEn { # [doc = "Endpoint 0 to 15 receive enable."]
-# [inline (always)]
-pub const fn uep_rx_en (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "Endpoint 0 to 15 receive enable."]
-# [inline (always)]
-pub fn set_uep_rx_en (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for UepRxEn { # [inline (always)]
-fn default () -> UepRxEn { UepRxEn (0) } } # [doc = "USB endpoint sends a burst register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepTBurst (pub u8) ; impl UepTBurst { # [doc = "0 to 7 endpoint send burst enable."]
-# [inline (always)]
-pub const fn uep_t_burst_en (& self) -> u8 { let val = (self . 0 >> 0usize) & 0xff ; val as u8 } # [doc = "0 to 7 endpoint send burst enable."]
-# [inline (always)]
-pub fn set_uep_t_burst_en (& mut self , val : u8) { self . 0 = (self . 0 & ! (0xff << 0usize)) | (((val as u8) & 0xff) << 0usize) ; } } impl Default for UepTBurst { # [inline (always)]
-fn default () -> UepTBurst { UepTBurst (0) } } # [doc = "USB endpoint send the mode register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepTBurstMode (pub u8) ; impl UepTBurstMode { # [doc = "0 to 7 endpoint send the mode enable."]
-# [inline (always)]
-pub const fn uep_t_burst_en (& self) -> u8 { let val = (self . 0 >> 0usize) & 0xff ; val as u8 } # [doc = "0 to 7 endpoint send the mode enable."]
-# [inline (always)]
-pub fn set_uep_t_burst_en (& mut self , val : u8) { self . 0 = (self . 0 & ! (0xff << 0usize)) | (((val as u8) & 0xff) << 0usize) ; } } impl Default for UepTBurstMode { # [inline (always)]
-fn default () -> UepTBurstMode { UepTBurstMode (0) } } # [doc = "usb endpoint sends a synchronous mode enable register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepTIso (pub u16) ; impl UepTIso { # [doc = "upload endpoint(IN) synchronization mode enabled."]
-# [inline (always)]
-pub const fn uep_t_iso (& self) -> u8 { let val = (self . 0 >> 1usize) & 0x7f ; val as u8 } # [doc = "upload endpoint(IN) synchronization mode enabled."]
-# [inline (always)]
-pub fn set_uep_t_iso (& mut self , val : u8) { self . 0 = (self . 0 & ! (0x7f << 1usize)) | (((val as u16) & 0x7f) << 1usize) ; } } impl Default for UepTIso { # [inline (always)]
-fn default () -> UepTIso { UepTIso (0) } } # [doc = "USB endpoint sends the auto-filp enable register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepTTogAuto (pub u16) ; impl UepTTogAuto { # [doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
-# [inline (always)]
-pub const fn uep_t_tog_auto (& self) -> u8 { let val = (self . 0 >> 0usize) & 0xff ; val as u8 } # [doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
-# [inline (always)]
-pub fn set_uep_t_tog_auto (& mut self , val : u8) { self . 0 = (self . 0 & ! (0xff << 0usize)) | (((val as u16) & 0xff) << 0usize) ; } } impl Default for UepTTogAuto { # [inline (always)]
-fn default () -> UepTTogAuto { UepTTogAuto (0) } } # [doc = "USB endpoint sends the enable register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct UepTxEn (pub u16) ; impl UepTxEn { # [doc = "Endpoint 0 to 15 sends enable."]
-# [inline (always)]
-pub const fn uep_tx_en (& self) -> u16 { let val = (self . 0 >> 0usize) & 0xffff ; val as u16 } # [doc = "Endpoint 0 to 15 sends enable."]
-# [inline (always)]
-pub fn set_uep_tx_en (& mut self , val : u16) { self . 0 = (self . 0 & ! (0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize) ; } } impl Default for UepTxEn { # [inline (always)]
-fn default () -> UepTxEn { UepTxEn (0) } } # [doc = "USB remote wake up register."]
-# [repr (transparent)]
-# [derive (Copy , Clone , Eq , PartialEq)]
-pub struct WakeCtrl (pub u16) ; impl WakeCtrl { # [doc = "remote wake up."]
-# [inline (always)]
-pub const fn rmt_wake (& self) -> bool { let val = (self . 0 >> 0usize) & 0x01 ; val != 0 } # [doc = "remote wake up."]
-# [inline (always)]
-pub fn set_rmt_wake (& mut self , val : bool) { self . 0 = (self . 0 & ! (0x01 << 0usize)) | (((val as u16) & 0x01) << 0usize) ; } } impl Default for WakeCtrl { # [inline (always)]
-fn default () -> WakeCtrl { WakeCtrl (0) } } }
+#[doc = "USB register."]
+#[derive(Copy, Clone, Eq, PartialEq)]
+pub struct UsbhsDev {
+    ptr: *mut u8,
+}
+unsafe impl Send for UsbhsDev {}
+unsafe impl Sync for UsbhsDev {}
+impl UsbhsDev {
+    #[inline(always)]
+    pub const unsafe fn from_ptr(ptr: *mut ()) -> Self {
+        Self { ptr: ptr as _ }
+    }
+    #[inline(always)]
+    pub const fn as_ptr(&self) -> *mut () {
+        self.ptr as _
+    }
+    #[doc = "USB base control register."]
+    #[inline(always)]
+    pub const fn ctrl(self) -> crate::common::Reg<regs::Ctrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+    }
+    #[doc = "USB mode control register."]
+    #[inline(always)]
+    pub const fn base_mode(self) -> crate::common::Reg<regs::BaseMode, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x01usize) as _) }
+    }
+    #[doc = "USB interrupt enable register."]
+    #[inline(always)]
+    pub const fn int_en(self) -> crate::common::Reg<regs::IntEn, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x02usize) as _) }
+    }
+    #[doc = "USB device address."]
+    #[inline(always)]
+    pub const fn dev_ad(self) -> crate::common::Reg<regs::DevAd, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x03usize) as _) }
+    }
+    #[doc = "USB remote wake up register."]
+    #[inline(always)]
+    pub const fn wake_ctrl(self) -> crate::common::Reg<regs::WakeCtrl, crate::common::R> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
+    }
+    #[doc = "USB test mode register."]
+    #[inline(always)]
+    pub const fn test_mode(self) -> crate::common::Reg<regs::TestMode, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x05usize) as _) }
+    }
+    #[doc = "USB power management register."]
+    #[inline(always)]
+    pub const fn lpm_data(self) -> crate::common::Reg<regs::LpmData, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x06usize) as _) }
+    }
+    #[doc = "USB interrupt flag register."]
+    #[inline(always)]
+    pub const fn int_fg(self) -> crate::common::Reg<regs::IntFg, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x08usize) as _) }
+    }
+    #[doc = "USB interrupt status."]
+    #[inline(always)]
+    pub const fn int_st(self) -> crate::common::Reg<regs::IntSt, crate::common::R> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x09usize) as _) }
+    }
+    #[doc = "USB miscellaneous status."]
+    #[inline(always)]
+    pub const fn mis_st(self) -> crate::common::Reg<regs::MisSt, crate::common::R> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0ausize) as _) }
+    }
+    #[doc = "USB frame number."]
+    #[inline(always)]
+    pub const fn fram_no(self) -> crate::common::Reg<regs::FramNo, crate::common::R> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0cusize) as _) }
+    }
+    #[doc = "USB bus."]
+    #[inline(always)]
+    pub const fn bus(self) -> crate::common::Reg<regs::Bus, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0eusize) as _) }
+    }
+    #[doc = "USB endpoint sends the enable register."]
+    #[inline(always)]
+    pub const fn uep_tx_en(self) -> crate::common::Reg<regs::UepTxEn, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
+    }
+    #[doc = "USB endpoint receive the enable registers."]
+    #[inline(always)]
+    pub const fn uep_rx_en(self) -> crate::common::Reg<regs::UepRxEn, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x12usize) as _) }
+    }
+    #[doc = "USB endpoint sends the auto-filp enable register."]
+    #[inline(always)]
+    pub const fn uep_t_tog_auto(self) -> crate::common::Reg<regs::UepTTogAuto, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
+    }
+    #[doc = "USB endpoint receive the auto-filp enable register."]
+    #[inline(always)]
+    pub const fn uep_r_tog_auto(self) -> crate::common::Reg<regs::UepRTogAuto, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x16usize) as _) }
+    }
+    #[doc = "USB endpoint sends a burst register."]
+    #[inline(always)]
+    pub const fn uep_t_burst(self) -> crate::common::Reg<regs::UepTBurst, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x18usize) as _) }
+    }
+    #[doc = "USB endpoint send the mode register."]
+    #[inline(always)]
+    pub const fn uep_t_burst_mode(
+        self,
+    ) -> crate::common::Reg<regs::UepTBurstMode, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x19usize) as _) }
+    }
+    #[doc = "USB endpoint receives the burst register."]
+    #[inline(always)]
+    pub const fn uep_r_burst(self) -> crate::common::Reg<regs::UepRBurst, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1ausize) as _) }
+    }
+    #[doc = "USB endpoint reply mode register."]
+    #[inline(always)]
+    pub const fn uep_r_res_mode(self) -> crate::common::Reg<regs::UepRResMode, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1busize) as _) }
+    }
+    #[doc = "USB endpoint muitiplexing register."]
+    #[inline(always)]
+    pub const fn uep_af_mode(self) -> crate::common::Reg<regs::UepAfMode, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1cusize) as _) }
+    }
+    #[doc = "The start address register of the endpoint 0 buffer."]
+    #[inline(always)]
+    pub const fn uep0_dma(self) -> crate::common::Reg<regs::Uep0Dma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x20usize) as _) }
+    }
+    #[doc = "endpoint 1 receives the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep1_rx_dma(self) -> crate::common::Reg<regs::Uep1RxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x24usize) as _) }
+    }
+    #[doc = "endpoint 2 receives the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep2_rx_dma(self) -> crate::common::Reg<regs::Uep2RxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x28usize) as _) }
+    }
+    #[doc = "endpoint 3 receives the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep3_rx_dma(self) -> crate::common::Reg<regs::Uep3RxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x2cusize) as _) }
+    }
+    #[doc = "endpoint 4 receives the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep4_rx_dma(self) -> crate::common::Reg<regs::Uep4RxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x30usize) as _) }
+    }
+    #[doc = "endpoint 5 receives the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep5_rx_dma(self) -> crate::common::Reg<regs::Uep5RxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x34usize) as _) }
+    }
+    #[doc = "endpoint 6 receives the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep6_rx_dma(self) -> crate::common::Reg<regs::Uep6RxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x38usize) as _) }
+    }
+    #[doc = "endpoint 7 receives the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep7_rx_dma(self) -> crate::common::Reg<regs::Uep7RxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x3cusize) as _) }
+    }
+    #[doc = "endpoint 1 sends the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep1_tx_dma(self) -> crate::common::Reg<regs::Uep1TxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x40usize) as _) }
+    }
+    #[doc = "endpoint 2 sends the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep2_tx_dma(self) -> crate::common::Reg<regs::Uep2TxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x44usize) as _) }
+    }
+    #[doc = "endpoint 3 sends the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep3_tx_dma(self) -> crate::common::Reg<regs::Uep3TxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x48usize) as _) }
+    }
+    #[doc = "endpoint 4 sends the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep4_tx_dma(self) -> crate::common::Reg<regs::Uep4TxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x4cusize) as _) }
+    }
+    #[doc = "endpoint 5 sends the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep5_tx_dma(self) -> crate::common::Reg<regs::Uep5TxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x50usize) as _) }
+    }
+    #[doc = "endpoint 6 sends the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep6_tx_dma(self) -> crate::common::Reg<regs::Uep6TxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x54usize) as _) }
+    }
+    #[doc = "endpoint 7 sends the start address register of the buffer."]
+    #[inline(always)]
+    pub const fn uep7_tx_dma(self) -> crate::common::Reg<regs::Uep7TxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x58usize) as _) }
+    }
+    #[doc = "endpoint 0 max length packet register."]
+    #[inline(always)]
+    pub const fn uep0_max_len(self) -> crate::common::Reg<regs::Uep0MaxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x5cusize) as _) }
+    }
+    #[doc = "endpoint 1 max length packet register."]
+    #[inline(always)]
+    pub const fn uep1_max_len(self) -> crate::common::Reg<regs::Uep1MaxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x60usize) as _) }
+    }
+    #[doc = "endpoint 2 max length packet register."]
+    #[inline(always)]
+    pub const fn uep2_max_len(self) -> crate::common::Reg<regs::Uep2MaxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x64usize) as _) }
+    }
+    #[doc = "endpoint 3 max length packet register."]
+    #[inline(always)]
+    pub const fn uep3_max_len(self) -> crate::common::Reg<regs::Uep3MaxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x68usize) as _) }
+    }
+    #[doc = "endpoint 4 max length packet register."]
+    #[inline(always)]
+    pub const fn uep4_max_len(self) -> crate::common::Reg<regs::Uep4MaxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x6cusize) as _) }
+    }
+    #[doc = "endpoint 5 max length packet register."]
+    #[inline(always)]
+    pub const fn uep5_max_len(self) -> crate::common::Reg<regs::Uep5MaxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x70usize) as _) }
+    }
+    #[doc = "endpoint 6 max length packet register."]
+    #[inline(always)]
+    pub const fn uep6_max_len(self) -> crate::common::Reg<regs::Uep6MaxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x74usize) as _) }
+    }
+    #[doc = "endpoint 7 max length packet register."]
+    #[inline(always)]
+    pub const fn uep7_max_len(self) -> crate::common::Reg<regs::Uep7MaxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x78usize) as _) }
+    }
+    #[doc = "endpoint 0 acceptable length."]
+    #[inline(always)]
+    pub const fn uep0_rx_len(self) -> crate::common::Reg<regs::Uep0RxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x7cusize) as _) }
+    }
+    #[doc = "endpoint 1 receives the lenth register in a single pass."]
+    #[inline(always)]
+    pub const fn uep1_rx_len(self) -> crate::common::Reg<regs::Uep1RxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x80usize) as _) }
+    }
+    #[doc = "the length register of the total received data at endpoint 1."]
+    #[inline(always)]
+    pub const fn uep1_r_size(self) -> crate::common::Reg<regs::Uep1RSize, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x82usize) as _) }
+    }
+    #[doc = "endpoint 2 receives the lenth register in a single pass."]
+    #[inline(always)]
+    pub const fn uep2_rx_len(self) -> crate::common::Reg<regs::Uep2RxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x84usize) as _) }
+    }
+    #[doc = "the length register of the total received data at endpoint 2."]
+    #[inline(always)]
+    pub const fn uep2_r_size(self) -> crate::common::Reg<regs::Uep2RSize, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x86usize) as _) }
+    }
+    #[doc = "endpoint 3 receives the lenth register in a single pass."]
+    #[inline(always)]
+    pub const fn uep3_rx_len(self) -> crate::common::Reg<regs::Uep3RxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x88usize) as _) }
+    }
+    #[doc = "the length register of the total received data at endpoint 3."]
+    #[inline(always)]
+    pub const fn uep3_r_size(self) -> crate::common::Reg<regs::Uep3RSize, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x8ausize) as _) }
+    }
+    #[doc = "endpoint 4 receives the lenth register in a single pass."]
+    #[inline(always)]
+    pub const fn uep4_rx_len(self) -> crate::common::Reg<regs::Uep4RxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x8cusize) as _) }
+    }
+    #[doc = "the length register of the total received data at endpoint 4."]
+    #[inline(always)]
+    pub const fn uep4_r_size(self) -> crate::common::Reg<regs::Uep4RSize, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x8eusize) as _) }
+    }
+    #[doc = "endpoint 5 receives the lenth register in a single pass."]
+    #[inline(always)]
+    pub const fn uep5_rx_len(self) -> crate::common::Reg<regs::Uep5RxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x90usize) as _) }
+    }
+    #[doc = "the length register of the total received data at endpoint 5."]
+    #[inline(always)]
+    pub const fn uep5_r_size(self) -> crate::common::Reg<regs::Uep5RSize, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x92usize) as _) }
+    }
+    #[doc = "endpoint 6 receives the lenth register in a single pass."]
+    #[inline(always)]
+    pub const fn uep6_rx_len(self) -> crate::common::Reg<regs::Uep6RxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x94usize) as _) }
+    }
+    #[doc = "the length register of the total received data at endpoint 6."]
+    #[inline(always)]
+    pub const fn uep6_r_size(self) -> crate::common::Reg<regs::Uep6RSize, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x96usize) as _) }
+    }
+    #[doc = "endpoint 7 receives the lenth register in a single pass."]
+    #[inline(always)]
+    pub const fn uep7_rx_len(self) -> crate::common::Reg<regs::Uep7RxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x98usize) as _) }
+    }
+    #[doc = "the length register of the total received data at endpoint 7."]
+    #[inline(always)]
+    pub const fn uep7_r_size(self) -> crate::common::Reg<regs::Uep7RSize, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x9ausize) as _) }
+    }
+    #[doc = "endpoint 0 send the length."]
+    #[inline(always)]
+    pub const fn uep0_t_len(self) -> crate::common::Reg<regs::Uep0TLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x9cusize) as _) }
+    }
+    #[doc = "endpoint 0 send control register."]
+    #[inline(always)]
+    pub const fn uep0_tx_ctrl(self) -> crate::common::Reg<regs::Uep0TxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x9eusize) as _) }
+    }
+    #[doc = "endpoint 0 send control register."]
+    #[inline(always)]
+    pub const fn uep0_rx_ctrl(self) -> crate::common::Reg<regs::Uep0RxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x9fusize) as _) }
+    }
+    #[doc = "endpoint 1 send the length register."]
+    #[inline(always)]
+    pub const fn uep1_t_len(self) -> crate::common::Reg<regs::Uep1TLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa0usize) as _) }
+    }
+    #[doc = "endpoint 1 send control register."]
+    #[inline(always)]
+    pub const fn uep1_tx_ctrl(self) -> crate::common::Reg<regs::Uep1TxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa2usize) as _) }
+    }
+    #[doc = "endpoint 1 receive control."]
+    #[inline(always)]
+    pub const fn uep1_rx_ctrl(self) -> crate::common::Reg<regs::Uep1RxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa3usize) as _) }
+    }
+    #[doc = "endpoint 2 send the length register."]
+    #[inline(always)]
+    pub const fn uep2_t_len(self) -> crate::common::Reg<regs::Uep2TLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa4usize) as _) }
+    }
+    #[doc = "endpoint 2 send control register."]
+    #[inline(always)]
+    pub const fn uep2_tx_ctrl(self) -> crate::common::Reg<regs::Uep2TxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa6usize) as _) }
+    }
+    #[doc = "endpoint 2 receive control."]
+    #[inline(always)]
+    pub const fn uep2_rx_ctrl(self) -> crate::common::Reg<regs::Uep2RxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa7usize) as _) }
+    }
+    #[doc = "endpoint 3 send the length register."]
+    #[inline(always)]
+    pub const fn uep3_t_len(self) -> crate::common::Reg<regs::Uep3TLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa8usize) as _) }
+    }
+    #[doc = "endpoint 3 send control register."]
+    #[inline(always)]
+    pub const fn uep3_tx_ctrl(self) -> crate::common::Reg<regs::Uep3TxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xaausize) as _) }
+    }
+    #[doc = "endpoint 3 receive control."]
+    #[inline(always)]
+    pub const fn uep3_rx_ctrl(self) -> crate::common::Reg<regs::Uep3RxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xabusize) as _) }
+    }
+    #[doc = "endpoint 4 send the length register."]
+    #[inline(always)]
+    pub const fn uep4_t_len(self) -> crate::common::Reg<regs::Uep4TLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xacusize) as _) }
+    }
+    #[doc = "endpoint 4 send control register."]
+    #[inline(always)]
+    pub const fn uep4_tx_ctrl(self) -> crate::common::Reg<regs::Uep4TxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xaeusize) as _) }
+    }
+    #[doc = "endpoint 4 receive control."]
+    #[inline(always)]
+    pub const fn uep4_rx_ctrl(self) -> crate::common::Reg<regs::Uep4RxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xafusize) as _) }
+    }
+    #[doc = "endpoint 5 send the length register."]
+    #[inline(always)]
+    pub const fn uep5_t_len(self) -> crate::common::Reg<regs::Uep5TLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb0usize) as _) }
+    }
+    #[doc = "endpoint 5 send control register."]
+    #[inline(always)]
+    pub const fn uep5_tx_ctrl(self) -> crate::common::Reg<regs::Uep5TxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb2usize) as _) }
+    }
+    #[doc = "endpoint 5 receive control."]
+    #[inline(always)]
+    pub const fn uep5_rx_ctrl(self) -> crate::common::Reg<regs::Uep5RxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb3usize) as _) }
+    }
+    #[doc = "endpoint 6 send the length register."]
+    #[inline(always)]
+    pub const fn uep6_t_len(self) -> crate::common::Reg<regs::Uep6TLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb4usize) as _) }
+    }
+    #[doc = "endpoint 6 send control register."]
+    #[inline(always)]
+    pub const fn uep6_tx_ctrl(self) -> crate::common::Reg<regs::Uep6TxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb6usize) as _) }
+    }
+    #[doc = "endpoint 6 receive control."]
+    #[inline(always)]
+    pub const fn uep6_rx_ctrl(self) -> crate::common::Reg<regs::Uep6RxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb7usize) as _) }
+    }
+    #[doc = "endpoint 7 send the length register."]
+    #[inline(always)]
+    pub const fn uep7_t_len(self) -> crate::common::Reg<regs::Uep7TLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb8usize) as _) }
+    }
+    #[doc = "endpoint 7 send control register."]
+    #[inline(always)]
+    pub const fn uep7_tx_ctrl(self) -> crate::common::Reg<regs::Uep7TxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xbausize) as _) }
+    }
+    #[doc = "endpoint 7 receive control."]
+    #[inline(always)]
+    pub const fn uep7_rx_ctrl(self) -> crate::common::Reg<regs::Uep7RxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xbbusize) as _) }
+    }
+    #[doc = "usb endpoint sends a synchronous mode enable register."]
+    #[inline(always)]
+    pub const fn uep_t_iso(self) -> crate::common::Reg<regs::UepTIso, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xbcusize) as _) }
+    }
+    #[doc = "usb endpoint receives a synchronous mode enable register."]
+    #[inline(always)]
+    pub const fn uep_r_iso(self) -> crate::common::Reg<regs::UepRIso, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xbeusize) as _) }
+    }
+}
+pub mod regs {
+    #[doc = "USB mode control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct BaseMode(pub u8);
+    impl BaseMode {
+        #[doc = "The desired speed mode of the device."]
+        #[inline(always)]
+        pub const fn exp_spd(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "The desired speed mode of the device."]
+        #[inline(always)]
+        pub fn set_exp_spd(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+    }
+    impl Default for BaseMode {
+        #[inline(always)]
+        fn default() -> BaseMode {
+            BaseMode(0)
+        }
+    }
+    #[doc = "USB bus."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Bus(pub u16);
+    impl Bus {
+        #[doc = "USB wakeup."]
+        #[inline(always)]
+        pub const fn wakeup(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB wakeup."]
+        #[inline(always)]
+        pub fn set_wakeup(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u16) & 0x01) << 0usize);
+        }
+        #[doc = "UDP status."]
+        #[inline(always)]
+        pub const fn dp_st(&self) -> bool {
+            let val = (self.0 >> 2usize) & 0x01;
+            val != 0
+        }
+        #[doc = "UDP status."]
+        #[inline(always)]
+        pub fn set_dp_st(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u16) & 0x01) << 2usize);
+        }
+        #[doc = "UDM status."]
+        #[inline(always)]
+        pub const fn dm_st(&self) -> bool {
+            let val = (self.0 >> 3usize) & 0x01;
+            val != 0
+        }
+        #[doc = "UDM status."]
+        #[inline(always)]
+        pub fn set_dm_st(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u16) & 0x01) << 3usize);
+        }
+    }
+    impl Default for Bus {
+        #[inline(always)]
+        fn default() -> Bus {
+            Bus(0)
+        }
+    }
+    #[doc = "USB base control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Ctrl(pub u8);
+    impl Ctrl {
+        #[doc = "LINK layer reset,highly effective."]
+        #[inline(always)]
+        pub const fn link_reset(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "LINK layer reset,highly effective."]
+        #[inline(always)]
+        pub fn set_link_reset(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "USB protocol processor reset."]
+        #[inline(always)]
+        pub const fn sie_reset(&self) -> bool {
+            let val = (self.0 >> 1usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB protocol processor reset."]
+        #[inline(always)]
+        pub fn set_sie_reset(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
+        }
+        #[doc = "clear all interrupt flags."]
+        #[inline(always)]
+        pub const fn all_clr(&self) -> bool {
+            let val = (self.0 >> 2usize) & 0x01;
+            val != 0
+        }
+        #[doc = "clear all interrupt flags."]
+        #[inline(always)]
+        pub fn set_all_clr(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
+        }
+        #[doc = "USB PHY suspend."]
+        #[inline(always)]
+        pub const fn phy_suspendm(&self) -> bool {
+            let val = (self.0 >> 3usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB PHY suspend."]
+        #[inline(always)]
+        pub fn set_phy_suspendm(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
+        }
+        #[doc = "DMA transfer enabled."]
+        #[inline(always)]
+        pub const fn dev_dma_en(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "DMA transfer enabled."]
+        #[inline(always)]
+        pub fn set_dev_dma_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "USB device enabled."]
+        #[inline(always)]
+        pub const fn dev_en(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB device enabled."]
+        #[inline(always)]
+        pub fn set_dev_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "LPM enable."]
+        #[inline(always)]
+        pub const fn dev_lpm_en(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "LPM enable."]
+        #[inline(always)]
+        pub fn set_dev_lpm_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Ctrl {
+        #[inline(always)]
+        fn default() -> Ctrl {
+            Ctrl(0)
+        }
+    }
+    #[doc = "USB device address."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct DevAd(pub u8);
+    impl DevAd {
+        #[doc = "bit mask for USB device address."]
+        #[inline(always)]
+        pub const fn mask_usb_addr(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "bit mask for USB device address."]
+        #[inline(always)]
+        pub fn set_mask_usb_addr(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u8) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for DevAd {
+        #[inline(always)]
+        fn default() -> DevAd {
+            DevAd(0)
+        }
+    }
+    #[doc = "USB frame number."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct FramNo(pub u16);
+    impl FramNo {
+        #[doc = "Received frame number."]
+        #[inline(always)]
+        pub const fn frame_no(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0x07ff;
+            val as u16
+        }
+        #[doc = "Received frame number."]
+        #[inline(always)]
+        pub fn set_frame_no(&mut self, val: u16) {
+            self.0 = (self.0 & !(0x07ff << 0usize)) | (((val as u16) & 0x07ff) << 0usize);
+        }
+        #[doc = "Received micro frame number."]
+        #[inline(always)]
+        pub const fn micro_frame(&self) -> u8 {
+            let val = (self.0 >> 13usize) & 0x07;
+            val as u8
+        }
+        #[doc = "Received micro frame number."]
+        #[inline(always)]
+        pub fn set_micro_frame(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x07 << 13usize)) | (((val as u16) & 0x07) << 13usize);
+        }
+    }
+    impl Default for FramNo {
+        #[inline(always)]
+        fn default() -> FramNo {
+            FramNo(0)
+        }
+    }
+    #[doc = "USB interrupt enable register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct IntEn(pub u8);
+    impl IntEn {
+        #[doc = "USB bus reset interrupt enabled."]
+        #[inline(always)]
+        pub const fn bus_rest_ie(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB bus reset interrupt enabled."]
+        #[inline(always)]
+        pub fn set_bus_rest_ie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "USB bus pause interrupt enabled."]
+        #[inline(always)]
+        pub const fn bus_susp_ie(&self) -> bool {
+            let val = (self.0 >> 1usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB bus pause interrupt enabled."]
+        #[inline(always)]
+        pub fn set_bus_susp_ie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
+        }
+        #[doc = "USB bus sleep interrupt enabled."]
+        #[inline(always)]
+        pub const fn bus_sleep_ie(&self) -> bool {
+            let val = (self.0 >> 2usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB bus sleep interrupt enabled."]
+        #[inline(always)]
+        pub fn set_bus_sleep_ie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
+        }
+        #[doc = "LMP transfer end interrupt enabled."]
+        #[inline(always)]
+        pub const fn lpm_act_ie(&self) -> bool {
+            let val = (self.0 >> 3usize) & 0x01;
+            val != 0
+        }
+        #[doc = "LMP transfer end interrupt enabled."]
+        #[inline(always)]
+        pub fn set_lpm_act_ie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
+        }
+        #[doc = "USB transfer end interrupt enabled."]
+        #[inline(always)]
+        pub const fn rtx_act_ie(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB transfer end interrupt enabled."]
+        #[inline(always)]
+        pub fn set_rtx_act_ie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "Receive SOF packet interrupt enable."]
+        #[inline(always)]
+        pub const fn rx_sof_ie(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Receive SOF packet interrupt enable."]
+        #[inline(always)]
+        pub fn set_rx_sof_ie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "USB connection interrupt enable."]
+        #[inline(always)]
+        pub const fn link_rdy_ie(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB connection interrupt enable."]
+        #[inline(always)]
+        pub fn set_link_rdy_ie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "USB Overflow interrupt enable."]
+        #[inline(always)]
+        pub const fn fifo_over_ie(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB Overflow interrupt enable."]
+        #[inline(always)]
+        pub fn set_fifo_over_ie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for IntEn {
+        #[inline(always)]
+        fn default() -> IntEn {
+            IntEn(0)
+        }
+    }
+    #[doc = "USB interrupt flag register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct IntFg(pub u8);
+    impl IntFg {
+        #[doc = "USB bus reset interrupt flag."]
+        #[inline(always)]
+        pub const fn uif_bus_rst(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB bus reset interrupt flag."]
+        #[inline(always)]
+        pub fn set_uif_bus_rst(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "USB bus suspend interrupt flag."]
+        #[inline(always)]
+        pub const fn uif_suspend(&self) -> bool {
+            let val = (self.0 >> 1usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB bus suspend interrupt flag."]
+        #[inline(always)]
+        pub fn set_uif_suspend(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
+        }
+        #[doc = "USB bus sleep interrupt flag."]
+        #[inline(always)]
+        pub const fn uif_bus_sleep(&self) -> bool {
+            let val = (self.0 >> 2usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB bus sleep interrupt flag."]
+        #[inline(always)]
+        pub fn set_uif_bus_sleep(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
+        }
+        #[doc = "LPM transmission end interrupt flag."]
+        #[inline(always)]
+        pub const fn uif_lpm_act(&self) -> bool {
+            let val = (self.0 >> 3usize) & 0x01;
+            val != 0
+        }
+        #[doc = "LPM transmission end interrupt flag."]
+        #[inline(always)]
+        pub fn set_uif_lpm_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
+        }
+        #[doc = "USB transmission end interrupt flag."]
+        #[inline(always)]
+        pub const fn uif_rtx_act(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB transmission end interrupt flag."]
+        #[inline(always)]
+        pub fn set_uif_rtx_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "Receive SOF packet interrupt flag."]
+        #[inline(always)]
+        pub const fn uif_rx_sof(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Receive SOF packet interrupt flag."]
+        #[inline(always)]
+        pub fn set_uif_rx_sof(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "USB connection interrupt flag."]
+        #[inline(always)]
+        pub const fn uif_link_rdy(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB connection interrupt flag."]
+        #[inline(always)]
+        pub fn set_uif_link_rdy(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "USB Overflow interrupt flag."]
+        #[inline(always)]
+        pub const fn uif_fifo_ov(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB Overflow interrupt flag."]
+        #[inline(always)]
+        pub fn set_uif_fifo_ov(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for IntFg {
+        #[inline(always)]
+        fn default() -> IntFg {
+            IntFg(0)
+        }
+    }
+    #[doc = "USB interrupt status."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct IntSt(pub u8);
+    impl IntSt {
+        #[doc = "The endpoint number at which the data transfer occurs."]
+        #[inline(always)]
+        pub const fn uis_ep_id_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x07;
+            val as u8
+        }
+        #[doc = "The endpoint number at which the data transfer occurs."]
+        #[inline(always)]
+        pub fn set_uis_ep_id_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x07 << 0usize)) | (((val as u8) & 0x07) << 0usize);
+        }
+        #[doc = "Endpoint data transmission direction."]
+        #[inline(always)]
+        pub const fn uis_ep_dir(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Endpoint data transmission direction."]
+        #[inline(always)]
+        pub fn set_uis_ep_dir(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+    }
+    impl Default for IntSt {
+        #[inline(always)]
+        fn default() -> IntSt {
+            IntSt(0)
+        }
+    }
+    #[doc = "USB power management register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct LpmData(pub u16);
+    impl LpmData {
+        #[doc = "power management data."]
+        #[inline(always)]
+        pub const fn lpm_data(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0x07ff;
+            val as u16
+        }
+        #[doc = "power management data."]
+        #[inline(always)]
+        pub fn set_lpm_data(&mut self, val: u16) {
+            self.0 = (self.0 & !(0x07ff << 0usize)) | (((val as u16) & 0x07ff) << 0usize);
+        }
+        #[doc = "power management busy."]
+        #[inline(always)]
+        pub const fn lpm_busy(&self) -> bool {
+            let val = (self.0 >> 15usize) & 0x01;
+            val != 0
+        }
+        #[doc = "power management busy."]
+        #[inline(always)]
+        pub fn set_lpm_busy(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 15usize)) | (((val as u16) & 0x01) << 15usize);
+        }
+    }
+    impl Default for LpmData {
+        #[inline(always)]
+        fn default() -> LpmData {
+            LpmData(0)
+        }
+    }
+    #[doc = "USB miscellaneous status."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct MisSt(pub u8);
+    impl MisSt {
+        #[doc = "USB connection status."]
+        #[inline(always)]
+        pub const fn ums_ready(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB connection status."]
+        #[inline(always)]
+        pub fn set_ums_ready(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "USB suspend status."]
+        #[inline(always)]
+        pub const fn ums_suspend(&self) -> bool {
+            let val = (self.0 >> 1usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB suspend status."]
+        #[inline(always)]
+        pub fn set_ums_suspend(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
+        }
+        #[doc = "USB sleep status."]
+        #[inline(always)]
+        pub const fn ums_sleep(&self) -> bool {
+            let val = (self.0 >> 2usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB sleep status."]
+        #[inline(always)]
+        pub fn set_ums_sleep(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
+        }
+        #[doc = "USB free status."]
+        #[inline(always)]
+        pub const fn ums_free(&self) -> bool {
+            let val = (self.0 >> 3usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB free status."]
+        #[inline(always)]
+        pub fn set_ums_free(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
+        }
+        #[doc = "USB suspends the request."]
+        #[inline(always)]
+        pub const fn ums_susp_req(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB suspends the request."]
+        #[inline(always)]
+        pub fn set_ums_susp_req(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "whether the host is high-speed."]
+        #[inline(always)]
+        pub const fn ums_hs_mod(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "whether the host is high-speed."]
+        #[inline(always)]
+        pub fn set_ums_hs_mod(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for MisSt {
+        #[inline(always)]
+        fn default() -> MisSt {
+            MisSt(0)
+        }
+    }
+    #[doc = "USB test mode register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct TestMode(pub u8);
+    impl TestMode {
+        #[doc = "test mode,output J."]
+        #[inline(always)]
+        pub const fn test_j(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "test mode,output J."]
+        #[inline(always)]
+        pub fn set_test_j(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "test mode,output K."]
+        #[inline(always)]
+        pub const fn test_k(&self) -> bool {
+            let val = (self.0 >> 1usize) & 0x01;
+            val != 0
+        }
+        #[doc = "test mode,output K."]
+        #[inline(always)]
+        pub fn set_test_k(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
+        }
+        #[doc = "test mode,output a packet."]
+        #[inline(always)]
+        pub const fn test_pkt(&self) -> bool {
+            let val = (self.0 >> 2usize) & 0x01;
+            val != 0
+        }
+        #[doc = "test mode,output a packet."]
+        #[inline(always)]
+        pub fn set_test_pkt(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
+        }
+        #[doc = "test mode,output SEO."]
+        #[inline(always)]
+        pub const fn test_se0nak(&self) -> bool {
+            let val = (self.0 >> 3usize) & 0x01;
+            val != 0
+        }
+        #[doc = "test mode,output SEO."]
+        #[inline(always)]
+        pub fn set_test_se0nak(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
+        }
+        #[doc = "test mode enable."]
+        #[inline(always)]
+        pub const fn test_en(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "test mode enable."]
+        #[inline(always)]
+        pub fn set_test_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for TestMode {
+        #[inline(always)]
+        fn default() -> TestMode {
+            TestMode(0)
+        }
+    }
+    #[doc = "The start address register of the endpoint 0 buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep0Dma(pub u32);
+    impl Uep0Dma {
+        #[doc = "The start address of the endpoint 0 buffer."]
+        #[inline(always)]
+        pub const fn uep0_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "The start address of the endpoint 0 buffer."]
+        #[inline(always)]
+        pub fn set_uep0_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep0Dma {
+        #[inline(always)]
+        fn default() -> Uep0Dma {
+            Uep0Dma(0)
+        }
+    }
+    #[doc = "endpoint 0 max length packet register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep0MaxLen(pub u32);
+    impl Uep0MaxLen {
+        #[doc = "endpoint 0 max acceptable offset length."]
+        #[inline(always)]
+        pub const fn uep0_max_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "endpoint 0 max acceptable offset length."]
+        #[inline(always)]
+        pub fn set_uep0_max_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for Uep0MaxLen {
+        #[inline(always)]
+        fn default() -> Uep0MaxLen {
+            Uep0MaxLen(0)
+        }
+    }
+    #[doc = "endpoint 0 send control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep0RxCtrl(pub u8);
+    impl Uep0RxCtrl {
+        #[doc = "endpoint 0 has control over the received response."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 0 has control over the received response."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "the reception of endpoint 0 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> bool {
+            let val = (self.0 >> 2usize) & 0x01;
+            val != 0
+        }
+        #[doc = "the reception of endpoint 0 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
+        }
+        #[doc = "whether endpoint 0 receives a SETUP transaction."]
+        #[inline(always)]
+        pub const fn setup_is(&self) -> bool {
+            let val = (self.0 >> 3usize) & 0x01;
+            val != 0
+        }
+        #[doc = "whether endpoint 0 receives a SETUP transaction."]
+        #[inline(always)]
+        pub fn set_setup_is(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub const fn endp_r_tog_match(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "endpoint 0 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub const fn uep_r_nak_tog(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 0 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "endpoint 0 receives the end of NAK flag."]
+        #[inline(always)]
+        pub const fn uep_r_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 0 receives the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 0 receives the end flag."]
+        #[inline(always)]
+        pub const fn endp_r_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 0 receives the end flag."]
+        #[inline(always)]
+        pub fn set_endp_r_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep0RxCtrl {
+        #[inline(always)]
+        fn default() -> Uep0RxCtrl {
+            Uep0RxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 0 acceptable length."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep0RxLen(pub u16);
+    impl Uep0RxLen {
+        #[doc = "endpoint 0 acceptable data length."]
+        #[inline(always)]
+        pub const fn uep0_rx_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "endpoint 0 acceptable data length."]
+        #[inline(always)]
+        pub fn set_uep0_rx_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u16) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for Uep0RxLen {
+        #[inline(always)]
+        fn default() -> Uep0RxLen {
+            Uep0RxLen(0)
+        }
+    }
+    #[doc = "endpoint 0 send the length."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep0TLen(pub u16);
+    impl Uep0TLen {
+        #[doc = "endpoint 0 send the length."]
+        #[inline(always)]
+        pub const fn uep0_t_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "endpoint 0 send the length."]
+        #[inline(always)]
+        pub fn set_uep0_t_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u16) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for Uep0TLen {
+        #[inline(always)]
+        fn default() -> Uep0TLen {
+            Uep0TLen(0)
+        }
+    }
+    #[doc = "endpoint 0 send control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep0TxCtrl(pub u8);
+    impl Uep0TxCtrl {
+        #[doc = "endpoint 0 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 0 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "endpoint 0 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub const fn ep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 0 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub fn set_ep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "endpoint 0 sends the end flag."]
+        #[inline(always)]
+        pub const fn uep_t_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 0 sends the end flag."]
+        #[inline(always)]
+        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 0 sends the end of NAK flag."]
+        #[inline(always)]
+        pub const fn endp_t_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 0 sends the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_endp_t_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep0TxCtrl {
+        #[inline(always)]
+        fn default() -> Uep0TxCtrl {
+            Uep0TxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 1 max length packet register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep1MaxLen(pub u32);
+    impl Uep1MaxLen {
+        #[doc = "endpoint 1 max acceptable offset length."]
+        #[inline(always)]
+        pub const fn uep1_max_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "endpoint 1 max acceptable offset length."]
+        #[inline(always)]
+        pub fn set_uep1_max_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for Uep1MaxLen {
+        #[inline(always)]
+        fn default() -> Uep1MaxLen {
+            Uep1MaxLen(0)
+        }
+    }
+    #[doc = "the length register of the total received data at endpoint 1."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep1RSize(pub u16);
+    impl Uep1RSize {
+        #[doc = "the length of the total received data at endpoint 1."]
+        #[inline(always)]
+        pub const fn uep1_r_size(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of the total received data at endpoint 1."]
+        #[inline(always)]
+        pub fn set_uep1_r_size(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep1RSize {
+        #[inline(always)]
+        fn default() -> Uep1RSize {
+            Uep1RSize(0)
+        }
+    }
+    #[doc = "endpoint 1 receive control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep1RxCtrl(pub u8);
+    impl Uep1RxCtrl {
+        #[doc = "endpoint 1 has control over the received response."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 1 has control over the received response."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "the reception of endpoint 1 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "the reception of endpoint 1 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub const fn endp_r_tog_match(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "endpoint 1 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub const fn uep_r_nak_tog(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 1 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "endpoint 1 receives the end of NAK flag."]
+        #[inline(always)]
+        pub const fn uep_r_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 1 receives the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 1 receives the end flag."]
+        #[inline(always)]
+        pub const fn endp_r_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 1 receives the end flag."]
+        #[inline(always)]
+        pub fn set_endp_r_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep1RxCtrl {
+        #[inline(always)]
+        fn default() -> Uep1RxCtrl {
+            Uep1RxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 1 receives the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep1RxDma(pub u32);
+    impl Uep1RxDma {
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep1_rx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep1_rx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep1RxDma {
+        #[inline(always)]
+        fn default() -> Uep1RxDma {
+            Uep1RxDma(0)
+        }
+    }
+    #[doc = "endpoint 1 receives the lenth register in a single pass."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep1RxLen(pub u16);
+    impl Uep1RxLen {
+        #[doc = "the length of data received by endpoint 1 in a single pass."]
+        #[inline(always)]
+        pub const fn uep1_rx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of data received by endpoint 1 in a single pass."]
+        #[inline(always)]
+        pub fn set_uep1_rx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep1RxLen {
+        #[inline(always)]
+        fn default() -> Uep1RxLen {
+            Uep1RxLen(0)
+        }
+    }
+    #[doc = "endpoint 1 send the length register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep1TLen(pub u16);
+    impl Uep1TLen {
+        #[doc = "endpoint 1 send the length."]
+        #[inline(always)]
+        pub const fn uep1_t_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "endpoint 1 send the length."]
+        #[inline(always)]
+        pub fn set_uep1_t_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep1TLen {
+        #[inline(always)]
+        fn default() -> Uep1TLen {
+            Uep1TLen(0)
+        }
+    }
+    #[doc = "endpoint 1 send control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep1TxCtrl(pub u8);
+    impl Uep1TxCtrl {
+        #[doc = "endpoint 1 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 1 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "endpoint 1 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 1 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "endpoint 1 sends the end flag."]
+        #[inline(always)]
+        pub const fn uep_t_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 1 sends the end flag."]
+        #[inline(always)]
+        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 1 sends the end of NAK flag."]
+        #[inline(always)]
+        pub const fn endp_t_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 1 sends the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_endp_t_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep1TxCtrl {
+        #[inline(always)]
+        fn default() -> Uep1TxCtrl {
+            Uep1TxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 1 sends the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep1TxDma(pub u32);
+    impl Uep1TxDma {
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep1_tx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep1_tx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep1TxDma {
+        #[inline(always)]
+        fn default() -> Uep1TxDma {
+            Uep1TxDma(0)
+        }
+    }
+    #[doc = "endpoint 2 max length packet register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep2MaxLen(pub u32);
+    impl Uep2MaxLen {
+        #[doc = "endpoint 2 max acceptable offset length."]
+        #[inline(always)]
+        pub const fn uep2_max_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "endpoint 2 max acceptable offset length."]
+        #[inline(always)]
+        pub fn set_uep2_max_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for Uep2MaxLen {
+        #[inline(always)]
+        fn default() -> Uep2MaxLen {
+            Uep2MaxLen(0)
+        }
+    }
+    #[doc = "the length register of the total received data at endpoint 2."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep2RSize(pub u16);
+    impl Uep2RSize {
+        #[doc = "the length of the total received data at endpoint 2."]
+        #[inline(always)]
+        pub const fn uep2_r_size(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of the total received data at endpoint 2."]
+        #[inline(always)]
+        pub fn set_uep2_r_size(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep2RSize {
+        #[inline(always)]
+        fn default() -> Uep2RSize {
+            Uep2RSize(0)
+        }
+    }
+    #[doc = "endpoint 2 receive control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep2RxCtrl(pub u8);
+    impl Uep2RxCtrl {
+        #[doc = "endpoint 2 has control over the received response."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 2 has control over the received response."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "the reception of endpoint 2 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "the reception of endpoint 2 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub const fn endp_r_tog_match(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "endpoint 2 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub const fn uep_r_nak_tog(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 2 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "endpoint 2 receives the end of NAK flag."]
+        #[inline(always)]
+        pub const fn uep_r_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 2 receives the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 2 receives the end flag."]
+        #[inline(always)]
+        pub const fn endp_r_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 2 receives the end flag."]
+        #[inline(always)]
+        pub fn set_endp_r_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep2RxCtrl {
+        #[inline(always)]
+        fn default() -> Uep2RxCtrl {
+            Uep2RxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 2 receives the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep2RxDma(pub u32);
+    impl Uep2RxDma {
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep2_rx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep2_rx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep2RxDma {
+        #[inline(always)]
+        fn default() -> Uep2RxDma {
+            Uep2RxDma(0)
+        }
+    }
+    #[doc = "endpoint 2 receives the lenth register in a single pass."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep2RxLen(pub u16);
+    impl Uep2RxLen {
+        #[doc = "the length of data received by endpoint 2 in a single pass."]
+        #[inline(always)]
+        pub const fn uep2_rx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of data received by endpoint 2 in a single pass."]
+        #[inline(always)]
+        pub fn set_uep2_rx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep2RxLen {
+        #[inline(always)]
+        fn default() -> Uep2RxLen {
+            Uep2RxLen(0)
+        }
+    }
+    #[doc = "endpoint 2 send the length register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep2TLen(pub u16);
+    impl Uep2TLen {
+        #[doc = "endpoint 2 send the length."]
+        #[inline(always)]
+        pub const fn uep_tx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "endpoint 2 send the length."]
+        #[inline(always)]
+        pub fn set_uep_tx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep2TLen {
+        #[inline(always)]
+        fn default() -> Uep2TLen {
+            Uep2TLen(0)
+        }
+    }
+    #[doc = "endpoint 2 send control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep2TxCtrl(pub u8);
+    impl Uep2TxCtrl {
+        #[doc = "endpoint 2 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 2 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "endpoint 2 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 2 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "endpoint 2 sends the end flag."]
+        #[inline(always)]
+        pub const fn uep_t_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 2 sends the end flag."]
+        #[inline(always)]
+        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 2 sends the end of NAK flag."]
+        #[inline(always)]
+        pub const fn endp_t_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 2 sends the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_endp_t_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep2TxCtrl {
+        #[inline(always)]
+        fn default() -> Uep2TxCtrl {
+            Uep2TxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 2 sends the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep2TxDma(pub u32);
+    impl Uep2TxDma {
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep2_tx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep2_tx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep2TxDma {
+        #[inline(always)]
+        fn default() -> Uep2TxDma {
+            Uep2TxDma(0)
+        }
+    }
+    #[doc = "endpoint 3 max length packet register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep3MaxLen(pub u32);
+    impl Uep3MaxLen {
+        #[doc = "endpoint 3 max acceptable offset length."]
+        #[inline(always)]
+        pub const fn uep3_max_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "endpoint 3 max acceptable offset length."]
+        #[inline(always)]
+        pub fn set_uep3_max_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for Uep3MaxLen {
+        #[inline(always)]
+        fn default() -> Uep3MaxLen {
+            Uep3MaxLen(0)
+        }
+    }
+    #[doc = "the length register of the total received data at endpoint 3."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep3RSize(pub u16);
+    impl Uep3RSize {
+        #[doc = "the length of the total received data at endpoint 3."]
+        #[inline(always)]
+        pub const fn uep3_r_size(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of the total received data at endpoint 3."]
+        #[inline(always)]
+        pub fn set_uep3_r_size(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep3RSize {
+        #[inline(always)]
+        fn default() -> Uep3RSize {
+            Uep3RSize(0)
+        }
+    }
+    #[doc = "endpoint 3 receive control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep3RxCtrl(pub u8);
+    impl Uep3RxCtrl {
+        #[doc = "endpoint 3 has control over the received response."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 3 has control over the received response."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "the reception of endpoint 3 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "the reception of endpoint 3 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub const fn endp_r_tog_match(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "endpoint 3 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub const fn uep_r_nak_tog(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 3 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "endpoint 3 receives the end of NAK flag."]
+        #[inline(always)]
+        pub const fn uep_r_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 3 receives the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 3 receives the end flag."]
+        #[inline(always)]
+        pub const fn endp_r_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 3 receives the end flag."]
+        #[inline(always)]
+        pub fn set_endp_r_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep3RxCtrl {
+        #[inline(always)]
+        fn default() -> Uep3RxCtrl {
+            Uep3RxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 3 receives the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep3RxDma(pub u32);
+    impl Uep3RxDma {
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep3_rx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep3_rx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep3RxDma {
+        #[inline(always)]
+        fn default() -> Uep3RxDma {
+            Uep3RxDma(0)
+        }
+    }
+    #[doc = "endpoint 3 receives the lenth register in a single pass."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep3RxLen(pub u16);
+    impl Uep3RxLen {
+        #[doc = "the length of data received by endpoint 3 in a single pass."]
+        #[inline(always)]
+        pub const fn uep3_rx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of data received by endpoint 3 in a single pass."]
+        #[inline(always)]
+        pub fn set_uep3_rx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep3RxLen {
+        #[inline(always)]
+        fn default() -> Uep3RxLen {
+            Uep3RxLen(0)
+        }
+    }
+    #[doc = "endpoint 3 send the length register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep3TLen(pub u16);
+    impl Uep3TLen {
+        #[doc = "endpoint 3 send the length."]
+        #[inline(always)]
+        pub const fn uep_tx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "endpoint 3 send the length."]
+        #[inline(always)]
+        pub fn set_uep_tx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep3TLen {
+        #[inline(always)]
+        fn default() -> Uep3TLen {
+            Uep3TLen(0)
+        }
+    }
+    #[doc = "endpoint 3 send control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep3TxCtrl(pub u8);
+    impl Uep3TxCtrl {
+        #[doc = "endpoint 3 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 3 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "endpoint 3 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 3 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "endpoint 3 sends the end flag."]
+        #[inline(always)]
+        pub const fn uep_t_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 3 sends the end flag."]
+        #[inline(always)]
+        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 3 sends the end of NAK flag."]
+        #[inline(always)]
+        pub const fn endp_t_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 3 sends the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_endp_t_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep3TxCtrl {
+        #[inline(always)]
+        fn default() -> Uep3TxCtrl {
+            Uep3TxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 3 sends the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep3TxDma(pub u32);
+    impl Uep3TxDma {
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep3_tx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep3_tx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep3TxDma {
+        #[inline(always)]
+        fn default() -> Uep3TxDma {
+            Uep3TxDma(0)
+        }
+    }
+    #[doc = "endpoint 4 max length packet register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep4MaxLen(pub u32);
+    impl Uep4MaxLen {
+        #[doc = "endpoint 4 max acceptable offset length."]
+        #[inline(always)]
+        pub const fn uep4_max_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "endpoint 4 max acceptable offset length."]
+        #[inline(always)]
+        pub fn set_uep4_max_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for Uep4MaxLen {
+        #[inline(always)]
+        fn default() -> Uep4MaxLen {
+            Uep4MaxLen(0)
+        }
+    }
+    #[doc = "the length register of the total received data at endpoint 4."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep4RSize(pub u16);
+    impl Uep4RSize {
+        #[doc = "the length of the total received data at endpoint 4."]
+        #[inline(always)]
+        pub const fn uep4_r_size(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of the total received data at endpoint 4."]
+        #[inline(always)]
+        pub fn set_uep4_r_size(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep4RSize {
+        #[inline(always)]
+        fn default() -> Uep4RSize {
+            Uep4RSize(0)
+        }
+    }
+    #[doc = "endpoint 4 receive control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep4RxCtrl(pub u8);
+    impl Uep4RxCtrl {
+        #[doc = "endpoint 4 has control over the received response."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 4 has control over the received response."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "the reception of endpoint 4 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "the reception of endpoint 4 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub const fn endp_r_tog_match(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "endpoint 4 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub const fn uep_r_nak_tog(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 4 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "endpoint 4 receives the end of NAK flag."]
+        #[inline(always)]
+        pub const fn uep_r_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 4 receives the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 4 receives the end flag."]
+        #[inline(always)]
+        pub const fn endp_r_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 4 receives the end flag."]
+        #[inline(always)]
+        pub fn set_endp_r_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep4RxCtrl {
+        #[inline(always)]
+        fn default() -> Uep4RxCtrl {
+            Uep4RxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 4 receives the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep4RxDma(pub u32);
+    impl Uep4RxDma {
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep4_rx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep4_rx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep4RxDma {
+        #[inline(always)]
+        fn default() -> Uep4RxDma {
+            Uep4RxDma(0)
+        }
+    }
+    #[doc = "endpoint 4 receives the lenth register in a single pass."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep4RxLen(pub u16);
+    impl Uep4RxLen {
+        #[doc = "the length of data received by endpoint 4 in a single pass."]
+        #[inline(always)]
+        pub const fn uep4_rx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of data received by endpoint 4 in a single pass."]
+        #[inline(always)]
+        pub fn set_uep4_rx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep4RxLen {
+        #[inline(always)]
+        fn default() -> Uep4RxLen {
+            Uep4RxLen(0)
+        }
+    }
+    #[doc = "endpoint 4 send the length register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep4TLen(pub u16);
+    impl Uep4TLen {
+        #[doc = "endpoint 4 send the length."]
+        #[inline(always)]
+        pub const fn uep_tx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "endpoint 4 send the length."]
+        #[inline(always)]
+        pub fn set_uep_tx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep4TLen {
+        #[inline(always)]
+        fn default() -> Uep4TLen {
+            Uep4TLen(0)
+        }
+    }
+    #[doc = "endpoint 4 send control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep4TxCtrl(pub u8);
+    impl Uep4TxCtrl {
+        #[doc = "endpoint 4 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 4 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "endpoint 4 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 4 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "endpoint 4 sends the end flag."]
+        #[inline(always)]
+        pub const fn uep_t_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 4 sends the end flag."]
+        #[inline(always)]
+        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 4 sends the end of NAK flag."]
+        #[inline(always)]
+        pub const fn endp_t_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 4 sends the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_endp_t_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep4TxCtrl {
+        #[inline(always)]
+        fn default() -> Uep4TxCtrl {
+            Uep4TxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 4 sends the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep4TxDma(pub u32);
+    impl Uep4TxDma {
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep4_tx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep4_tx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep4TxDma {
+        #[inline(always)]
+        fn default() -> Uep4TxDma {
+            Uep4TxDma(0)
+        }
+    }
+    #[doc = "endpoint 5 max length packet register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep5MaxLen(pub u32);
+    impl Uep5MaxLen {
+        #[doc = "endpoint 5 max acceptable offset length."]
+        #[inline(always)]
+        pub const fn uep5_max_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "endpoint 5 max acceptable offset length."]
+        #[inline(always)]
+        pub fn set_uep5_max_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for Uep5MaxLen {
+        #[inline(always)]
+        fn default() -> Uep5MaxLen {
+            Uep5MaxLen(0)
+        }
+    }
+    #[doc = "the length register of the total received data at endpoint 5."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep5RSize(pub u16);
+    impl Uep5RSize {
+        #[doc = "the length of the total received data at endpoint 5."]
+        #[inline(always)]
+        pub const fn uep5_r_size(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of the total received data at endpoint 5."]
+        #[inline(always)]
+        pub fn set_uep5_r_size(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep5RSize {
+        #[inline(always)]
+        fn default() -> Uep5RSize {
+            Uep5RSize(0)
+        }
+    }
+    #[doc = "endpoint 5 receive control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep5RxCtrl(pub u8);
+    impl Uep5RxCtrl {
+        #[doc = "endpoint 5 has control over the received response."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 5 has control over the received response."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "the reception of endpoint 5 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "the reception of endpoint 5 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub const fn endp_r_tog_match(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "endpoint 5 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub const fn uep_r_nak_tog(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 5 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "endpoint 5 receives the end of NAK flag."]
+        #[inline(always)]
+        pub const fn uep_r_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 5 receives the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 5 receives the end flag."]
+        #[inline(always)]
+        pub const fn endp_r_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 5 receives the end flag."]
+        #[inline(always)]
+        pub fn set_endp_r_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep5RxCtrl {
+        #[inline(always)]
+        fn default() -> Uep5RxCtrl {
+            Uep5RxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 5 receives the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep5RxDma(pub u32);
+    impl Uep5RxDma {
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep5_rx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep5_rx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep5RxDma {
+        #[inline(always)]
+        fn default() -> Uep5RxDma {
+            Uep5RxDma(0)
+        }
+    }
+    #[doc = "endpoint 5 receives the lenth register in a single pass."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep5RxLen(pub u16);
+    impl Uep5RxLen {
+        #[doc = "the length of data received by endpoint 5 in a single pass."]
+        #[inline(always)]
+        pub const fn uep5_rx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of data received by endpoint 5 in a single pass."]
+        #[inline(always)]
+        pub fn set_uep5_rx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep5RxLen {
+        #[inline(always)]
+        fn default() -> Uep5RxLen {
+            Uep5RxLen(0)
+        }
+    }
+    #[doc = "endpoint 5 send the length register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep5TLen(pub u16);
+    impl Uep5TLen {
+        #[doc = "endpoint 5 send the length."]
+        #[inline(always)]
+        pub const fn uep_tx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "endpoint 5 send the length."]
+        #[inline(always)]
+        pub fn set_uep_tx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep5TLen {
+        #[inline(always)]
+        fn default() -> Uep5TLen {
+            Uep5TLen(0)
+        }
+    }
+    #[doc = "endpoint 5 send control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep5TxCtrl(pub u8);
+    impl Uep5TxCtrl {
+        #[doc = "endpoint 5 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 5 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "endpoint 5 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 5 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "endpoint 5 sends the end flag."]
+        #[inline(always)]
+        pub const fn uep_t_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 5 sends the end flag."]
+        #[inline(always)]
+        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 5 sends the end of NAK flag."]
+        #[inline(always)]
+        pub const fn endp_t_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 5 sends the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_endp_t_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep5TxCtrl {
+        #[inline(always)]
+        fn default() -> Uep5TxCtrl {
+            Uep5TxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 5 sends the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep5TxDma(pub u32);
+    impl Uep5TxDma {
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep5_tx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep5_tx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep5TxDma {
+        #[inline(always)]
+        fn default() -> Uep5TxDma {
+            Uep5TxDma(0)
+        }
+    }
+    #[doc = "endpoint 6 max length packet register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep6MaxLen(pub u32);
+    impl Uep6MaxLen {
+        #[doc = "endpoint 6 max acceptable offset length."]
+        #[inline(always)]
+        pub const fn uep6_max_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "endpoint 6 max acceptable offset length."]
+        #[inline(always)]
+        pub fn set_uep6_max_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for Uep6MaxLen {
+        #[inline(always)]
+        fn default() -> Uep6MaxLen {
+            Uep6MaxLen(0)
+        }
+    }
+    #[doc = "the length register of the total received data at endpoint 6."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep6RSize(pub u16);
+    impl Uep6RSize {
+        #[doc = "the length of the total received data at endpoint 6."]
+        #[inline(always)]
+        pub const fn uep6_r_size(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of the total received data at endpoint 6."]
+        #[inline(always)]
+        pub fn set_uep6_r_size(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep6RSize {
+        #[inline(always)]
+        fn default() -> Uep6RSize {
+            Uep6RSize(0)
+        }
+    }
+    #[doc = "endpoint 6 receive control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep6RxCtrl(pub u8);
+    impl Uep6RxCtrl {
+        #[doc = "endpoint 6 has control over the received response."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 6 has control over the received response."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "the reception of endpoint 6 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "the reception of endpoint 6 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub const fn endp_r_tog_match(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "endpoint 6 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub const fn uep_r_nak_tog(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 6 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "endpoint 6 receives the end of NAK flag."]
+        #[inline(always)]
+        pub const fn uep_r_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 6 receives the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 6 receives the end flag."]
+        #[inline(always)]
+        pub const fn endp_r_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 6 receives the end flag."]
+        #[inline(always)]
+        pub fn set_endp_r_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep6RxCtrl {
+        #[inline(always)]
+        fn default() -> Uep6RxCtrl {
+            Uep6RxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 6 receives the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep6RxDma(pub u32);
+    impl Uep6RxDma {
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep6_rx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep6_rx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep6RxDma {
+        #[inline(always)]
+        fn default() -> Uep6RxDma {
+            Uep6RxDma(0)
+        }
+    }
+    #[doc = "endpoint 6 receives the lenth register in a single pass."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep6RxLen(pub u16);
+    impl Uep6RxLen {
+        #[doc = "the length of data received by endpoint 6 in a single pass."]
+        #[inline(always)]
+        pub const fn uep6_rx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of data received by endpoint 6 in a single pass."]
+        #[inline(always)]
+        pub fn set_uep6_rx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep6RxLen {
+        #[inline(always)]
+        fn default() -> Uep6RxLen {
+            Uep6RxLen(0)
+        }
+    }
+    #[doc = "endpoint 6 send the length register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep6TLen(pub u16);
+    impl Uep6TLen {
+        #[doc = "endpoint 6 send the length."]
+        #[inline(always)]
+        pub const fn uep_tx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "endpoint 6 send the length."]
+        #[inline(always)]
+        pub fn set_uep_tx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep6TLen {
+        #[inline(always)]
+        fn default() -> Uep6TLen {
+            Uep6TLen(0)
+        }
+    }
+    #[doc = "endpoint 6 send control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep6TxCtrl(pub u8);
+    impl Uep6TxCtrl {
+        #[doc = "endpoint 6 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 6 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "endpoint 6 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 6 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "endpoint 6 sends the end flag."]
+        #[inline(always)]
+        pub const fn uep_t_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 6 sends the end flag."]
+        #[inline(always)]
+        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 6 sends the end of NAK flag."]
+        #[inline(always)]
+        pub const fn endp_t_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 6 sends the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_endp_t_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep6TxCtrl {
+        #[inline(always)]
+        fn default() -> Uep6TxCtrl {
+            Uep6TxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 6 sends the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep6TxDma(pub u32);
+    impl Uep6TxDma {
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep6_tx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep6_tx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep6TxDma {
+        #[inline(always)]
+        fn default() -> Uep6TxDma {
+            Uep6TxDma(0)
+        }
+    }
+    #[doc = "endpoint 7 max length packet register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep7MaxLen(pub u32);
+    impl Uep7MaxLen {
+        #[doc = "endpoint 7 max acceptable offset length."]
+        #[inline(always)]
+        pub const fn uep7_max_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "endpoint 7 max acceptable offset length."]
+        #[inline(always)]
+        pub fn set_uep7_max_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
+        }
+    }
+    impl Default for Uep7MaxLen {
+        #[inline(always)]
+        fn default() -> Uep7MaxLen {
+            Uep7MaxLen(0)
+        }
+    }
+    #[doc = "the length register of the total received data at endpoint 7."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep7RSize(pub u16);
+    impl Uep7RSize {
+        #[doc = "the length of the total received data at endpoint 7."]
+        #[inline(always)]
+        pub const fn uep7_r_size(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of the total received data at endpoint 7."]
+        #[inline(always)]
+        pub fn set_uep7_r_size(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep7RSize {
+        #[inline(always)]
+        fn default() -> Uep7RSize {
+            Uep7RSize(0)
+        }
+    }
+    #[doc = "endpoint 7 receive control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep7RxCtrl(pub u8);
+    impl Uep7RxCtrl {
+        #[doc = "endpoint 7 has control over the received response."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 7 has control over the received response."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "the reception of endpoint 7 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "the reception of endpoint 7 expects a synchronous trigger. bit."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub const fn endp_r_tog_match(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[inline(always)]
+        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "endpoint 7 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub const fn uep_r_nak_tog(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 7 for the received return NAK,packet type."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "endpoint 7 receives the end of NAK flag."]
+        #[inline(always)]
+        pub const fn uep_r_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 7 receives the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 7 receives the end flag."]
+        #[inline(always)]
+        pub const fn endp_r_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 7 receives the end flag."]
+        #[inline(always)]
+        pub fn set_endp_r_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep7RxCtrl {
+        #[inline(always)]
+        fn default() -> Uep7RxCtrl {
+            Uep7RxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 7 receives the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep7RxDma(pub u32);
+    impl Uep7RxDma {
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep7_rx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint receives the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep7_rx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep7RxDma {
+        #[inline(always)]
+        fn default() -> Uep7RxDma {
+            Uep7RxDma(0)
+        }
+    }
+    #[doc = "endpoint 7 receives the lenth register in a single pass."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep7RxLen(pub u16);
+    impl Uep7RxLen {
+        #[doc = "the length of data received by endpoint 7 in a single pass."]
+        #[inline(always)]
+        pub const fn uep7_rx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "the length of data received by endpoint 7 in a single pass."]
+        #[inline(always)]
+        pub fn set_uep7_rx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep7RxLen {
+        #[inline(always)]
+        fn default() -> Uep7RxLen {
+            Uep7RxLen(0)
+        }
+    }
+    #[doc = "endpoint 7 send the length register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep7TLen(pub u16);
+    impl Uep7TLen {
+        #[doc = "endpoint 7 send the length."]
+        #[inline(always)]
+        pub const fn uep_tx_len(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "endpoint 7 send the length."]
+        #[inline(always)]
+        pub fn set_uep_tx_len(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Uep7TLen {
+        #[inline(always)]
+        fn default() -> Uep7TLen {
+            Uep7TLen(0)
+        }
+    }
+    #[doc = "endpoint 7 send control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep7TxCtrl(pub u8);
+    impl Uep7TxCtrl {
+        #[doc = "endpoint 7 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub const fn res_mask(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 7 control of the send response to IN transactions."]
+        #[inline(always)]
+        pub fn set_res_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
+        }
+        #[doc = "endpoint 7 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub const fn uep_tog_mask(&self) -> u8 {
+            let val = (self.0 >> 2usize) & 0x03;
+            val as u8
+        }
+        #[doc = "endpoint 7 synchronous trigger bit for the sender to. prepare."]
+        #[inline(always)]
+        pub fn set_uep_tog_mask(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
+        }
+        #[doc = "endpoint 7 sends the end flag."]
+        #[inline(always)]
+        pub const fn uep_t_nak_act(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 7 sends the end flag."]
+        #[inline(always)]
+        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "endpoint 7 sends the end of NAK flag."]
+        #[inline(always)]
+        pub const fn endp_t_done(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "endpoint 7 sends the end of NAK flag."]
+        #[inline(always)]
+        pub fn set_endp_t_done(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for Uep7TxCtrl {
+        #[inline(always)]
+        fn default() -> Uep7TxCtrl {
+            Uep7TxCtrl(0)
+        }
+    }
+    #[doc = "endpoint 7 sends the start address register of the buffer."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Uep7TxDma(pub u32);
+    impl Uep7TxDma {
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub const fn uep7_tx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
+        }
+        #[doc = "endpoint sends the start address register of the buffer."]
+        #[inline(always)]
+        pub fn set_uep7_tx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
+        }
+    }
+    impl Default for Uep7TxDma {
+        #[inline(always)]
+        fn default() -> Uep7TxDma {
+            Uep7TxDma(0)
+        }
+    }
+    #[doc = "USB endpoint muitiplexing register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepAfMode(pub u32);
+    impl UepAfMode {
+        #[doc = "1 to 7 endpoint muitiplexing enables."]
+        #[inline(always)]
+        pub const fn ep_t_af(&self) -> u8 {
+            let val = (self.0 >> 1usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "1 to 7 endpoint muitiplexing enables."]
+        #[inline(always)]
+        pub fn set_ep_t_af(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 1usize)) | (((val as u32) & 0x7f) << 1usize);
+        }
+    }
+    impl Default for UepAfMode {
+        #[inline(always)]
+        fn default() -> UepAfMode {
+            UepAfMode(0)
+        }
+    }
+    #[doc = "USB endpoint receives the burst register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepRBurst(pub u8);
+    impl UepRBurst {
+        #[doc = "0 to 7 endpoint receive burst enable."]
+        #[inline(always)]
+        pub const fn uep_r_burst_en(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0xff;
+            val as u8
+        }
+        #[doc = "0 to 7 endpoint receive burst enable."]
+        #[inline(always)]
+        pub fn set_uep_r_burst_en(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
+        }
+    }
+    impl Default for UepRBurst {
+        #[inline(always)]
+        fn default() -> UepRBurst {
+            UepRBurst(0)
+        }
+    }
+    #[doc = "usb endpoint receives a synchronous mode enable register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepRIso(pub u16);
+    impl UepRIso {
+        #[doc = "down endpoint(OUT) synchronization mode enabled."]
+        #[inline(always)]
+        pub const fn uep_r_iso(&self) -> u8 {
+            let val = (self.0 >> 1usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "down endpoint(OUT) synchronization mode enabled."]
+        #[inline(always)]
+        pub fn set_uep_r_iso(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 1usize)) | (((val as u16) & 0x7f) << 1usize);
+        }
+    }
+    impl Default for UepRIso {
+        #[inline(always)]
+        fn default() -> UepRIso {
+            UepRIso(0)
+        }
+    }
+    #[doc = "USB endpoint reply mode register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepRResMode(pub u8);
+    impl UepRResMode {
+        #[doc = "0 to 7 endpoint reply mode."]
+        #[inline(always)]
+        pub const fn uep_r_res_mode(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0xff;
+            val as u8
+        }
+        #[doc = "0 to 7 endpoint reply mode."]
+        #[inline(always)]
+        pub fn set_uep_r_res_mode(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
+        }
+    }
+    impl Default for UepRResMode {
+        #[inline(always)]
+        fn default() -> UepRResMode {
+            UepRResMode(0)
+        }
+    }
+    #[doc = "USB endpoint receive the auto-filp enable register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepRTogAuto(pub u16);
+    impl UepRTogAuto {
+        #[doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
+        #[inline(always)]
+        pub const fn uep_r_tog_auto(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0xff;
+            val as u8
+        }
+        #[doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
+        #[inline(always)]
+        pub fn set_uep_r_tog_auto(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u16) & 0xff) << 0usize);
+        }
+    }
+    impl Default for UepRTogAuto {
+        #[inline(always)]
+        fn default() -> UepRTogAuto {
+            UepRTogAuto(0)
+        }
+    }
+    #[doc = "USB endpoint receive the enable registers."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepRxEn(pub u16);
+    impl UepRxEn {
+        #[doc = "Endpoint 0 to 15 receive enable."]
+        #[inline(always)]
+        pub const fn uep_rx_en(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "Endpoint 0 to 15 receive enable."]
+        #[inline(always)]
+        pub fn set_uep_rx_en(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for UepRxEn {
+        #[inline(always)]
+        fn default() -> UepRxEn {
+            UepRxEn(0)
+        }
+    }
+    #[doc = "USB endpoint sends a burst register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepTBurst(pub u8);
+    impl UepTBurst {
+        #[doc = "0 to 7 endpoint send burst enable."]
+        #[inline(always)]
+        pub const fn uep_t_burst_en(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0xff;
+            val as u8
+        }
+        #[doc = "0 to 7 endpoint send burst enable."]
+        #[inline(always)]
+        pub fn set_uep_t_burst_en(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
+        }
+    }
+    impl Default for UepTBurst {
+        #[inline(always)]
+        fn default() -> UepTBurst {
+            UepTBurst(0)
+        }
+    }
+    #[doc = "USB endpoint send the mode register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepTBurstMode(pub u8);
+    impl UepTBurstMode {
+        #[doc = "0 to 7 endpoint send the mode enable."]
+        #[inline(always)]
+        pub const fn uep_t_burst_en(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0xff;
+            val as u8
+        }
+        #[doc = "0 to 7 endpoint send the mode enable."]
+        #[inline(always)]
+        pub fn set_uep_t_burst_en(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
+        }
+    }
+    impl Default for UepTBurstMode {
+        #[inline(always)]
+        fn default() -> UepTBurstMode {
+            UepTBurstMode(0)
+        }
+    }
+    #[doc = "usb endpoint sends a synchronous mode enable register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepTIso(pub u16);
+    impl UepTIso {
+        #[doc = "upload endpoint(IN) synchronization mode enabled."]
+        #[inline(always)]
+        pub const fn uep_t_iso(&self) -> u8 {
+            let val = (self.0 >> 1usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "upload endpoint(IN) synchronization mode enabled."]
+        #[inline(always)]
+        pub fn set_uep_t_iso(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 1usize)) | (((val as u16) & 0x7f) << 1usize);
+        }
+    }
+    impl Default for UepTIso {
+        #[inline(always)]
+        fn default() -> UepTIso {
+            UepTIso(0)
+        }
+    }
+    #[doc = "USB endpoint sends the auto-filp enable register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepTTogAuto(pub u16);
+    impl UepTTogAuto {
+        #[doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
+        #[inline(always)]
+        pub const fn uep_t_tog_auto(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0xff;
+            val as u8
+        }
+        #[doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
+        #[inline(always)]
+        pub fn set_uep_t_tog_auto(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u16) & 0xff) << 0usize);
+        }
+    }
+    impl Default for UepTTogAuto {
+        #[inline(always)]
+        fn default() -> UepTTogAuto {
+            UepTTogAuto(0)
+        }
+    }
+    #[doc = "USB endpoint sends the enable register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepTxEn(pub u16);
+    impl UepTxEn {
+        #[doc = "Endpoint 0 to 15 sends enable."]
+        #[inline(always)]
+        pub const fn uep_tx_en(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "Endpoint 0 to 15 sends enable."]
+        #[inline(always)]
+        pub fn set_uep_tx_en(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for UepTxEn {
+        #[inline(always)]
+        fn default() -> UepTxEn {
+            UepTxEn(0)
+        }
+    }
+    #[doc = "USB remote wake up register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct WakeCtrl(pub u16);
+    impl WakeCtrl {
+        #[doc = "remote wake up."]
+        #[inline(always)]
+        pub const fn rmt_wake(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "remote wake up."]
+        #[inline(always)]
+        pub fn set_rmt_wake(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u16) & 0x01) << 0usize);
+        }
+    }
+    impl Default for WakeCtrl {
+        #[inline(always)]
+        fn default() -> WakeCtrl {
+            WakeCtrl(0)
+        }
+    }
+}

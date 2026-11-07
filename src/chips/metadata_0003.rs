@@ -1,16 +1,14 @@
 
-                pub(crate) static PERIPHERALS: &[Peripheral] = &[
+pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "SYS",
         address: 0x40001000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "sys",
-                version: "ch573",
-                block: "SYS",
-                ir: &sys::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "sys",
+            version: "ch573",
+            block: "SYS",
+            ir: &sys::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -20,14 +18,12 @@
     Peripheral {
         name: "RTC",
         address: 0x40001000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "rtc",
-                version: "ch573",
-                block: "RTC",
-                ir: &rtc::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "rtc",
+            version: "ch573",
+            block: "RTC",
+            ir: &rtc::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -37,14 +33,12 @@
     Peripheral {
         name: "System_control",
         address: 0x40001000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "system_control",
-                version: "ch573",
-                block: "System_control",
-                ir: &system_control::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "system_control",
+            version: "ch573",
+            block: "System_control",
+            ir: &system_control::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -54,14 +48,12 @@
     Peripheral {
         name: "TouchKey",
         address: 0x40001000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "touchkey",
-                version: "ch573",
-                block: "TouchKey",
-                ir: &touchkey::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "touchkey",
+            version: "ch573",
+            block: "TouchKey",
+            ir: &touchkey::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -71,14 +63,12 @@
     Peripheral {
         name: "ADC",
         address: 0x40001000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "adc",
-                version: "ch573",
-                block: "ADC",
-                ir: &adc::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "adc",
+            version: "ch573",
+            block: "ADC",
+            ir: &adc::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -88,14 +78,12 @@
     Peripheral {
         name: "GPIO",
         address: 0x40001000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "gpio",
-                version: "ch573",
-                block: "GPIO",
-                ir: &gpio::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "gpio",
+            version: "ch573",
+            block: "GPIO",
+            ir: &gpio::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -105,14 +93,12 @@
     Peripheral {
         name: "TMR0",
         address: 0x40002000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "tmr",
-                version: "ch573",
-                block: "TMR_NODMA",
-                ir: &tmr::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "tmr",
+            version: "ch573",
+            block: "TMR_NODMA",
+            ir: &tmr::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -122,14 +108,12 @@
     Peripheral {
         name: "TMR1",
         address: 0x40002400,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "tmr",
-                version: "ch573",
-                block: "TMR_FULL",
-                ir: &tmr::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "tmr",
+            version: "ch573",
+            block: "TMR_FULL",
+            ir: &tmr::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -139,14 +123,12 @@
     Peripheral {
         name: "TMR2",
         address: 0x40002800,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "tmr",
-                version: "ch573",
-                block: "TMR_FULL",
-                ir: &tmr::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "tmr",
+            version: "ch573",
+            block: "TMR_FULL",
+            ir: &tmr::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -156,14 +138,12 @@
     Peripheral {
         name: "TMR3",
         address: 0x40002c00,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "tmr",
-                version: "ch573",
-                block: "TMR_NODMA",
-                ir: &tmr::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "tmr",
+            version: "ch573",
+            block: "TMR_NODMA",
+            ir: &tmr::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -173,14 +153,12 @@
     Peripheral {
         name: "UART0",
         address: 0x40003000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "uart",
-                version: "ch573",
-                block: "UART_FULL",
-                ir: &uart::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "uart",
+            version: "ch573",
+            block: "UART_FULL",
+            ir: &uart::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -190,14 +168,12 @@
     Peripheral {
         name: "UART1",
         address: 0x40003400,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "uart",
-                version: "ch573",
-                block: "UART_NOMODEM",
-                ir: &uart::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "uart",
+            version: "ch573",
+            block: "UART_NOMODEM",
+            ir: &uart::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -207,14 +183,12 @@
     Peripheral {
         name: "UART2",
         address: 0x40003800,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "uart",
-                version: "ch573",
-                block: "UART_NOMODEM",
-                ir: &uart::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "uart",
+            version: "ch573",
+            block: "UART_NOMODEM",
+            ir: &uart::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -224,14 +198,12 @@
     Peripheral {
         name: "UART3",
         address: 0x40003c00,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "uart",
-                version: "ch573",
-                block: "UART_NOMODEM",
-                ir: &uart::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "uart",
+            version: "ch573",
+            block: "UART_NOMODEM",
+            ir: &uart::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -241,14 +213,12 @@
     Peripheral {
         name: "SPI0",
         address: 0x40004000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "spi",
-                version: "ch573",
-                block: "SPI_FULL",
-                ir: &spi::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "spi",
+            version: "ch573",
+            block: "SPI_FULL",
+            ir: &spi::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -258,14 +228,12 @@
     Peripheral {
         name: "PWMx",
         address: 0x40005000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "pwmx",
-                version: "ch573",
-                block: "PWMx",
-                ir: &pwmx::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "pwmx",
+            version: "ch573",
+            block: "PWMx",
+            ir: &pwmx::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -275,14 +243,12 @@
     Peripheral {
         name: "USB",
         address: 0x40008000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "usb",
-                version: "ch573",
-                block: "USB",
-                ir: &usb::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "usb",
+            version: "ch573",
+            block: "USB",
+            ir: &usb::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -302,14 +268,12 @@
     Peripheral {
         name: "PFIC",
         address: 0xe000e000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "pfic",
-                version: "ch573",
-                block: "PFIC",
-                ir: &pfic::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "pfic",
+            version: "ch573",
+            block: "PFIC",
+            ir: &pfic::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -319,14 +283,12 @@
     Peripheral {
         name: "Systick",
         address: 0xe000f000,
-        registers: Some(
-            PeripheralRegisters {
-                kind: "systick",
-                version: "ch573",
-                block: "Systick",
-                ir: &systick::REGISTERS,
-            },
-        ),
+        registers: Some(PeripheralRegisters {
+            kind: "systick",
+            version: "ch573",
+            block: "Systick",
+            ir: &systick::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -334,7 +296,7 @@
         interrupts: &[],
     },
 ];
-                pub(crate) static INTERRUPTS: &[Interrupt] = &[
+pub(crate) static INTERRUPTS: &[Interrupt] = &[
     Interrupt {
         name: "TMR0",
         number: 16,
@@ -408,17 +370,30 @@
         number: 35,
     },
 ];
-                pub(crate) static DMA_CHANNELS: &[DmaChannel] = &[];
-            #[path="../registers/adc_ch573.rs"] pub mod adc;
-#[path="../registers/gpio_ch573.rs"] pub mod gpio;
-#[path="../registers/pfic_ch573.rs"] pub mod pfic;
-#[path="../registers/pwmx_ch573.rs"] pub mod pwmx;
-#[path="../registers/rtc_ch573.rs"] pub mod rtc;
-#[path="../registers/spi_ch573.rs"] pub mod spi;
-#[path="../registers/sys_ch573.rs"] pub mod sys;
-#[path="../registers/system_control_ch573.rs"] pub mod system_control;
-#[path="../registers/systick_ch573.rs"] pub mod systick;
-#[path="../registers/tmr_ch573.rs"] pub mod tmr;
-#[path="../registers/touchkey_ch573.rs"] pub mod touchkey;
-#[path="../registers/uart_ch573.rs"] pub mod uart;
-#[path="../registers/usb_ch573.rs"] pub mod usb;
+pub(crate) static DMA_CHANNELS: &[DmaChannel] = &[];
+#[path = "../registers/adc_ch573.rs"]
+pub mod adc;
+#[path = "../registers/gpio_ch573.rs"]
+pub mod gpio;
+#[path = "../registers/pfic_ch573.rs"]
+pub mod pfic;
+#[path = "../registers/pwmx_ch573.rs"]
+pub mod pwmx;
+#[path = "../registers/rtc_ch573.rs"]
+pub mod rtc;
+#[path = "../registers/spi_ch573.rs"]
+pub mod spi;
+#[path = "../registers/sys_ch573.rs"]
+pub mod sys;
+#[path = "../registers/system_control_ch573.rs"]
+pub mod system_control;
+#[path = "../registers/systick_ch573.rs"]
+pub mod systick;
+#[path = "../registers/tmr_ch573.rs"]
+pub mod tmr;
+#[path = "../registers/touchkey_ch573.rs"]
+pub mod touchkey;
+#[path = "../registers/uart_ch573.rs"]
+pub mod uart;
+#[path = "../registers/usb_ch573.rs"]
+pub mod usb;

@@ -1,299 +1,196 @@
-
-                    use crate::metadata::ir::*;
-                    pub(crate) static REGISTERS: IR = IR {
-    blocks: &[
-        Block {
-            name: "EthernetMmc",
-            extends: None,
-            description: Some(
-                "Ethernet: MAC management counters.",
-            ),
-            items: &[
-                BlockItem {
-                    name: "mmccr",
-                    description: Some(
-                        "Ethernet MMC control register. (ETH_MMCCR).",
-                    ),
-                    array: None,
-                    byte_offset: 0x0,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmccr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmcrir",
-                    description: Some(
-                        "Ethernet MMC receive interrupt register. (ETH_MMCRIR).",
-                    ),
-                    array: None,
-                    byte_offset: 0x4,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmcrir",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmctir",
-                    description: Some(
-                        "Ethernet MMC transmit interrupt register. (ETH_MMCTIR).",
-                    ),
-                    array: None,
-                    byte_offset: 0x8,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmctir",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmcrimr",
-                    description: Some(
-                        "Ethernet MMC receive interrupt mask register. (ETH_MMCRIMR).",
-                    ),
-                    array: None,
-                    byte_offset: 0xc,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmcrimr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmctimr",
-                    description: Some(
-                        "Ethernet MMC transmit interrupt mask. register (ETH_MMCTIMR).",
-                    ),
-                    array: None,
-                    byte_offset: 0x10,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmctimr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmctgfsccr",
-                    description: Some(
-                        "Ethernet MMC transmitted good frames after a. single collision counter.",
-                    ),
-                    array: None,
-                    byte_offset: 0x4c,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::Read,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmctgfsccr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmctgfmsccr",
-                    description: Some(
-                        "Ethernet MMC transmitted good frames after. more than a single collision.",
-                    ),
-                    array: None,
-                    byte_offset: 0x50,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::Read,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmctgfmsccr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmctgfcr",
-                    description: Some(
-                        "Ethernet MMC transmitted good frames counter. register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x68,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::Read,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmctgfcr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmcrfcecr",
-                    description: Some(
-                        "Ethernet MMC received frames with CRC error. counter register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x94,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::Read,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmcrfcecr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmcrfaecr",
-                    description: Some(
-                        "Ethernet MMC received frames with alignment. error counter register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x98,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::Read,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmcrfaecr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmcrafcr",
-                    description: Some(
-                        "MMC receive the frame count register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x9c,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::Read,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmcrafcr",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "state",
-                    description: Some(
-                        "Ethernet state machine register.",
-                    ),
-                    array: None,
-                    byte_offset: 0xa0,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::Read,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "State",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "mmcrgufcr",
-                    description: Some(
-                        "MMC received good unicast frames counter. register.",
-                    ),
-                    array: None,
-                    byte_offset: 0xc4,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::Read,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Mmcrgufcr",
-                            ),
-                        },
-                    ),
-                },
-            ],
-        },
-    ],
+use crate::metadata::ir::*;
+pub(crate) static REGISTERS: IR = IR {
+    blocks: &[Block {
+        name: "EthernetMmc",
+        extends: None,
+        description: Some("Ethernet: MAC management counters."),
+        items: &[
+            BlockItem {
+                name: "mmccr",
+                description: Some("Ethernet MMC control register. (ETH_MMCCR)."),
+                array: None,
+                byte_offset: 0x0,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Mmccr"),
+                }),
+            },
+            BlockItem {
+                name: "mmcrir",
+                description: Some("Ethernet MMC receive interrupt register. (ETH_MMCRIR)."),
+                array: None,
+                byte_offset: 0x4,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Mmcrir"),
+                }),
+            },
+            BlockItem {
+                name: "mmctir",
+                description: Some("Ethernet MMC transmit interrupt register. (ETH_MMCTIR)."),
+                array: None,
+                byte_offset: 0x8,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Mmctir"),
+                }),
+            },
+            BlockItem {
+                name: "mmcrimr",
+                description: Some("Ethernet MMC receive interrupt mask register. (ETH_MMCRIMR)."),
+                array: None,
+                byte_offset: 0xc,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Mmcrimr"),
+                }),
+            },
+            BlockItem {
+                name: "mmctimr",
+                description: Some("Ethernet MMC transmit interrupt mask. register (ETH_MMCTIMR)."),
+                array: None,
+                byte_offset: 0x10,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Mmctimr"),
+                }),
+            },
+            BlockItem {
+                name: "mmctgfsccr",
+                description: Some(
+                    "Ethernet MMC transmitted good frames after a. single collision counter.",
+                ),
+                array: None,
+                byte_offset: 0x4c,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::Read,
+                    bit_size: 32,
+                    fieldset: Some("Mmctgfsccr"),
+                }),
+            },
+            BlockItem {
+                name: "mmctgfmsccr",
+                description: Some(
+                    "Ethernet MMC transmitted good frames after. more than a single collision.",
+                ),
+                array: None,
+                byte_offset: 0x50,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::Read,
+                    bit_size: 32,
+                    fieldset: Some("Mmctgfmsccr"),
+                }),
+            },
+            BlockItem {
+                name: "mmctgfcr",
+                description: Some("Ethernet MMC transmitted good frames counter. register."),
+                array: None,
+                byte_offset: 0x68,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::Read,
+                    bit_size: 32,
+                    fieldset: Some("Mmctgfcr"),
+                }),
+            },
+            BlockItem {
+                name: "mmcrfcecr",
+                description: Some("Ethernet MMC received frames with CRC error. counter register."),
+                array: None,
+                byte_offset: 0x94,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::Read,
+                    bit_size: 32,
+                    fieldset: Some("Mmcrfcecr"),
+                }),
+            },
+            BlockItem {
+                name: "mmcrfaecr",
+                description: Some(
+                    "Ethernet MMC received frames with alignment. error counter register.",
+                ),
+                array: None,
+                byte_offset: 0x98,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::Read,
+                    bit_size: 32,
+                    fieldset: Some("Mmcrfaecr"),
+                }),
+            },
+            BlockItem {
+                name: "mmcrafcr",
+                description: Some("MMC receive the frame count register."),
+                array: None,
+                byte_offset: 0x9c,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::Read,
+                    bit_size: 32,
+                    fieldset: Some("Mmcrafcr"),
+                }),
+            },
+            BlockItem {
+                name: "state",
+                description: Some("Ethernet state machine register."),
+                array: None,
+                byte_offset: 0xa0,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::Read,
+                    bit_size: 32,
+                    fieldset: Some("State"),
+                }),
+            },
+            BlockItem {
+                name: "mmcrgufcr",
+                description: Some("MMC received good unicast frames counter. register."),
+                array: None,
+                byte_offset: 0xc4,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::Read,
+                    bit_size: 32,
+                    fieldset: Some("Mmcrgufcr"),
+                }),
+            },
+        ],
+    }],
     fieldsets: &[
         FieldSet {
             name: "Mmccr",
             extends: None,
-            description: Some(
-                "Ethernet MMC control register. (ETH_MMCCR).",
-            ),
+            description: Some("Ethernet MMC control register. (ETH_MMCCR)."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "cr",
-                    description: Some(
-                        "Counter reset.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("Counter reset."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "csr",
-                    description: Some(
-                        "Counter stop rollover.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 1,
-                        },
-                    ),
+                    description: Some("Counter stop rollover."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 1 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "ror",
-                    description: Some(
-                        "Reset on read.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
+                    description: Some("Reset on read."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 2 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "mcf",
-                    description: Some(
-                        "MMC counter freeze.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 3,
-                        },
-                    ),
+                    description: Some("MMC counter freeze."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 3 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -303,26 +200,16 @@
         FieldSet {
             name: "Mmcrafcr",
             extends: None,
-            description: Some(
-                "MMC receive the frame count register.",
-            ),
+            description: Some("MMC receive the frame count register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "rafcr",
-                    description: Some(
-                        "The number of all Ethernet MMC frame received.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "rafcr",
+                description: Some("The number of all Ethernet MMC frame received."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Mmcrfaecr",
@@ -331,117 +218,69 @@
                 "Ethernet MMC received frames with alignment. error counter register.",
             ),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "rfaec",
-                    description: Some(
-                        "Received frames with alignment error. counter.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "rfaec",
+                description: Some("Received frames with alignment error. counter."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Mmcrfcecr",
             extends: None,
-            description: Some(
-                "Ethernet MMC received frames with CRC error. counter register.",
-            ),
+            description: Some("Ethernet MMC received frames with CRC error. counter register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "rfcfc",
-                    description: Some(
-                        "Received frames with CRC error. counter.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "rfcfc",
+                description: Some("Received frames with CRC error. counter."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Mmcrgufcr",
             extends: None,
-            description: Some(
-                "MMC received good unicast frames counter. register.",
-            ),
+            description: Some("MMC received good unicast frames counter. register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "rgufc",
-                    description: Some(
-                        "Received good unicast frames. counter.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "rgufc",
+                description: Some("Received good unicast frames. counter."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Mmcrimr",
             extends: None,
-            description: Some(
-                "Ethernet MMC receive interrupt mask register. (ETH_MMCRIMR).",
-            ),
+            description: Some("Ethernet MMC receive interrupt mask register. (ETH_MMCRIMR)."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "rfcem",
-                    description: Some(
-                        "Received frame CRC error. mask.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 5,
-                        },
-                    ),
+                    description: Some("Received frame CRC error. mask."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 5 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "rfaem",
-                    description: Some(
-                        "Received frames alignment error. mask.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 6,
-                        },
-                    ),
+                    description: Some("Received frames alignment error. mask."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 6 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "rgufm",
-                    description: Some(
-                        "Received good unicast frames. mask.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 17,
-                        },
-                    ),
+                    description: Some("Received good unicast frames. mask."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 17 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -451,35 +290,21 @@
         FieldSet {
             name: "Mmcrir",
             extends: None,
-            description: Some(
-                "Ethernet MMC receive interrupt register. (ETH_MMCRIR).",
-            ),
+            description: Some("Ethernet MMC receive interrupt register. (ETH_MMCRIR)."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "rfces",
-                    description: Some(
-                        "Received frames CRC error. status.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 5,
-                        },
-                    ),
+                    description: Some("Received frames CRC error. status."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 5 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "rgufs",
-                    description: Some(
-                        "Received Good Unicast Frames. Status.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 17,
-                        },
-                    ),
+                    description: Some("Received Good Unicast Frames. Status."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 17 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -489,26 +314,16 @@
         FieldSet {
             name: "Mmctgfcr",
             extends: None,
-            description: Some(
-                "Ethernet MMC transmitted good frames counter. register.",
-            ),
+            description: Some("Ethernet MMC transmitted good frames counter. register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "tgfc",
-                    description: Some(
-                        "Transmitted good frames. counter.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "tgfc",
+                description: Some("Transmitted good frames. counter."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Mmctgfmsccr",
@@ -517,22 +332,16 @@
                 "Ethernet MMC transmitted good frames after. more than a single collision.",
             ),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "tgfmscc",
-                    description: Some(
-                        "Transmitted good frames after more than. a single collision counter.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "tgfmscc",
+                description: Some(
+                    "Transmitted good frames after more than. a single collision counter.",
+                ),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Mmctgfsccr",
@@ -541,69 +350,41 @@
                 "Ethernet MMC transmitted good frames after a. single collision counter.",
             ),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "tgfscc",
-                    description: Some(
-                        "Transmitted good frames after a single. collision counter.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 32,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "tgfscc",
+                description: Some("Transmitted good frames after a single. collision counter."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 32,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Mmctimr",
             extends: None,
-            description: Some(
-                "Ethernet MMC transmit interrupt mask. register (ETH_MMCTIMR).",
-            ),
+            description: Some("Ethernet MMC transmit interrupt mask. register (ETH_MMCTIMR)."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "tgfscm",
-                    description: Some(
-                        "Transmitted good frames single collision. mask.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 14,
-                        },
-                    ),
+                    description: Some("Transmitted good frames single collision. mask."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 14 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "tgfmscm",
-                    description: Some(
-                        "Transmitted good frames more single. collision mask.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 15,
-                        },
-                    ),
+                    description: Some("Transmitted good frames more single. collision mask."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 15 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "tgfm",
-                    description: Some(
-                        "Transmitted good frames. mask.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 21,
-                        },
-                    ),
+                    description: Some("Transmitted good frames. mask."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 21 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -613,59 +394,35 @@
         FieldSet {
             name: "Mmctir",
             extends: None,
-            description: Some(
-                "Ethernet MMC transmit interrupt register. (ETH_MMCTIR).",
-            ),
+            description: Some("Ethernet MMC transmit interrupt register. (ETH_MMCTIR)."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "tgfs",
-                    description: Some(
-                        "Transmitted good frames. status.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 21,
-                        },
-                    ),
-                    bit_size: 1,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "tgfs",
+                description: Some("Transmitted good frames. status."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 21 }),
+                bit_size: 1,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "State",
             extends: None,
-            description: Some(
-                "Ethernet state machine register.",
-            ),
+            description: Some("Ethernet state machine register."),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "etx_state",
-                    description: Some(
-                        "Ethernet receiving state machine.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("Ethernet receiving state machine."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 3,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "erx_state",
-                    description: Some(
-                        "Ethernet sending state machine.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 8,
-                        },
-                    ),
+                    description: Some("Ethernet sending state machine."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 8 }),
                     bit_size: 3,
                     array: None,
                     enumm: None,
@@ -675,4 +432,3 @@
     ],
     enums: &[],
 };
-                

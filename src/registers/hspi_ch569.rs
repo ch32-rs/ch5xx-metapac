@@ -1,418 +1,267 @@
-
-                    use crate::metadata::ir::*;
-                    pub(crate) static REGISTERS: IR = IR {
-    blocks: &[
-        Block {
-            name: "Hspi",
-            extends: None,
-            description: Some(
-                "HSPI register.",
-            ),
-            items: &[
-                BlockItem {
-                    name: "cfg",
-                    description: Some(
-                        "parallel if tx or rx cfg.",
-                    ),
-                    array: None,
-                    byte_offset: 0x0,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "Cfg",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "ctrl",
-                    description: Some(
-                        "parallel if tx or rx control.",
-                    ),
-                    array: None,
-                    byte_offset: 0x1,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "Ctrl",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "int_en",
-                    description: Some(
-                        "parallel if interrupt enable register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x2,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "IntEn",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "aux",
-                    description: Some(
-                        "parallel if aux.",
-                    ),
-                    array: None,
-                    byte_offset: 0x3,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "Aux",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "tx_addr0",
-                    description: Some(
-                        "parallel if dma tx addr0.",
-                    ),
-                    array: None,
-                    byte_offset: 0x4,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "TxAddr0",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "tx_addr1",
-                    description: Some(
-                        "parallel if dma tx addr1.",
-                    ),
-                    array: None,
-                    byte_offset: 0x8,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "TxAddr1",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "rx_addr0",
-                    description: Some(
-                        "parallel if dma rx addr0.",
-                    ),
-                    array: None,
-                    byte_offset: 0xc,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "RxAddr0",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "rx_addr1",
-                    description: Some(
-                        "parallel if dma rx addr1.",
-                    ),
-                    array: None,
-                    byte_offset: 0x10,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "RxAddr1",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "dma_len0",
-                    description: Some(
-                        "parallel if dma length0.",
-                    ),
-                    array: None,
-                    byte_offset: 0x14,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 16,
-                            fieldset: Some(
-                                "DmaLen0",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "rx_len0",
-                    description: Some(
-                        "parallel if receive length0.",
-                    ),
-                    array: None,
-                    byte_offset: 0x16,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 16,
-                            fieldset: Some(
-                                "RxLen0",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "dma_len1",
-                    description: Some(
-                        "parallel if dma length1.",
-                    ),
-                    array: None,
-                    byte_offset: 0x18,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 16,
-                            fieldset: Some(
-                                "DmaLen1",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "rx_len1",
-                    description: Some(
-                        "parallel if receive length1.",
-                    ),
-                    array: None,
-                    byte_offset: 0x1a,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 16,
-                            fieldset: Some(
-                                "RxLen1",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "burst_cfg",
-                    description: Some(
-                        "parallel if tx burst config register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x1c,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 16,
-                            fieldset: Some(
-                                "BurstCfg",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "burst_cnt",
-                    description: Some(
-                        "parallel if tx burst count.",
-                    ),
-                    array: None,
-                    byte_offset: 0x1e,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "BurstCnt",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "udf0",
-                    description: Some(
-                        "parallel if user defined field 0 register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x20,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Udf0",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "udf1",
-                    description: Some(
-                        "parallel if user defined field 1 register.",
-                    ),
-                    array: None,
-                    byte_offset: 0x24,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 32,
-                            fieldset: Some(
-                                "Udf1",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "int_flag",
-                    description: Some(
-                        "parallel if interrupt flag.",
-                    ),
-                    array: None,
-                    byte_offset: 0x28,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "IntFlag",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "rtx_status",
-                    description: Some(
-                        "parallel rtx status.",
-                    ),
-                    array: None,
-                    byte_offset: 0x29,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "RtxStatus",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "tx_sc",
-                    description: Some(
-                        "parallel TX sequence ctrl.",
-                    ),
-                    array: None,
-                    byte_offset: 0x2a,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "TxSc",
-                            ),
-                        },
-                    ),
-                },
-                BlockItem {
-                    name: "rx_sc",
-                    description: Some(
-                        "parallel RX sequence ctrl.",
-                    ),
-                    array: None,
-                    byte_offset: 0x2b,
-                    inner: BlockItemInner::Register(
-                        Register {
-                            access: Access::ReadWrite,
-                            bit_size: 8,
-                            fieldset: Some(
-                                "RxSc",
-                            ),
-                        },
-                    ),
-                },
-            ],
-        },
-    ],
+use crate::metadata::ir::*;
+pub(crate) static REGISTERS: IR = IR {
+    blocks: &[Block {
+        name: "Hspi",
+        extends: None,
+        description: Some("HSPI register."),
+        items: &[
+            BlockItem {
+                name: "cfg",
+                description: Some("parallel if tx or rx cfg."),
+                array: None,
+                byte_offset: 0x0,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("Cfg"),
+                }),
+            },
+            BlockItem {
+                name: "ctrl",
+                description: Some("parallel if tx or rx control."),
+                array: None,
+                byte_offset: 0x1,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("Ctrl"),
+                }),
+            },
+            BlockItem {
+                name: "int_en",
+                description: Some("parallel if interrupt enable register."),
+                array: None,
+                byte_offset: 0x2,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("IntEn"),
+                }),
+            },
+            BlockItem {
+                name: "aux",
+                description: Some("parallel if aux."),
+                array: None,
+                byte_offset: 0x3,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("Aux"),
+                }),
+            },
+            BlockItem {
+                name: "tx_addr0",
+                description: Some("parallel if dma tx addr0."),
+                array: None,
+                byte_offset: 0x4,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("TxAddr0"),
+                }),
+            },
+            BlockItem {
+                name: "tx_addr1",
+                description: Some("parallel if dma tx addr1."),
+                array: None,
+                byte_offset: 0x8,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("TxAddr1"),
+                }),
+            },
+            BlockItem {
+                name: "rx_addr0",
+                description: Some("parallel if dma rx addr0."),
+                array: None,
+                byte_offset: 0xc,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("RxAddr0"),
+                }),
+            },
+            BlockItem {
+                name: "rx_addr1",
+                description: Some("parallel if dma rx addr1."),
+                array: None,
+                byte_offset: 0x10,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("RxAddr1"),
+                }),
+            },
+            BlockItem {
+                name: "dma_len0",
+                description: Some("parallel if dma length0."),
+                array: None,
+                byte_offset: 0x14,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 16,
+                    fieldset: Some("DmaLen0"),
+                }),
+            },
+            BlockItem {
+                name: "rx_len0",
+                description: Some("parallel if receive length0."),
+                array: None,
+                byte_offset: 0x16,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 16,
+                    fieldset: Some("RxLen0"),
+                }),
+            },
+            BlockItem {
+                name: "dma_len1",
+                description: Some("parallel if dma length1."),
+                array: None,
+                byte_offset: 0x18,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 16,
+                    fieldset: Some("DmaLen1"),
+                }),
+            },
+            BlockItem {
+                name: "rx_len1",
+                description: Some("parallel if receive length1."),
+                array: None,
+                byte_offset: 0x1a,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 16,
+                    fieldset: Some("RxLen1"),
+                }),
+            },
+            BlockItem {
+                name: "burst_cfg",
+                description: Some("parallel if tx burst config register."),
+                array: None,
+                byte_offset: 0x1c,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 16,
+                    fieldset: Some("BurstCfg"),
+                }),
+            },
+            BlockItem {
+                name: "burst_cnt",
+                description: Some("parallel if tx burst count."),
+                array: None,
+                byte_offset: 0x1e,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("BurstCnt"),
+                }),
+            },
+            BlockItem {
+                name: "udf0",
+                description: Some("parallel if user defined field 0 register."),
+                array: None,
+                byte_offset: 0x20,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Udf0"),
+                }),
+            },
+            BlockItem {
+                name: "udf1",
+                description: Some("parallel if user defined field 1 register."),
+                array: None,
+                byte_offset: 0x24,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 32,
+                    fieldset: Some("Udf1"),
+                }),
+            },
+            BlockItem {
+                name: "int_flag",
+                description: Some("parallel if interrupt flag."),
+                array: None,
+                byte_offset: 0x28,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("IntFlag"),
+                }),
+            },
+            BlockItem {
+                name: "rtx_status",
+                description: Some("parallel rtx status."),
+                array: None,
+                byte_offset: 0x29,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("RtxStatus"),
+                }),
+            },
+            BlockItem {
+                name: "tx_sc",
+                description: Some("parallel TX sequence ctrl."),
+                array: None,
+                byte_offset: 0x2a,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("TxSc"),
+                }),
+            },
+            BlockItem {
+                name: "rx_sc",
+                description: Some("parallel RX sequence ctrl."),
+                array: None,
+                byte_offset: 0x2b,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: Some("RxSc"),
+                }),
+            },
+        ],
+    }],
     fieldsets: &[
         FieldSet {
             name: "Aux",
             extends: None,
-            description: Some(
-                "parallel if aux.",
-            ),
+            description: Some("parallel if aux."),
             bit_size: 8,
             fields: &[
                 Field {
                     name: "tck_mod",
-                    description: Some(
-                        "parallel if tx clk polar control.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("parallel if tx clk polar control."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "rck_mod",
-                    description: Some(
-                        "parallel if rx clk polar control.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 1,
-                        },
-                    ),
+                    description: Some("parallel if rx clk polar control."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 1 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "ack_tx_mod",
-                    description: Some(
-                        "parallel if tx ack mode cfg.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
+                    description: Some("parallel if tx ack mode cfg."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 2 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "ack_cnt_sel",
-                    description: Some(
-                        "delay time of parallel if send ack when receive done.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 3,
-                        },
-                    ),
+                    description: Some("delay time of parallel if send ack when receive done."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 3 }),
                     bit_size: 2,
                     array: None,
                     enumm: None,
@@ -422,35 +271,21 @@
         FieldSet {
             name: "BurstCfg",
             extends: None,
-            description: Some(
-                "parallel if tx burst config register.",
-            ),
+            description: Some("parallel if tx burst config register."),
             bit_size: 16,
             fields: &[
                 Field {
                     name: "burst_en",
-                    description: Some(
-                        "burst transmit enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("burst transmit enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "burst_len",
-                    description: Some(
-                        "burst transmit length.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 8,
-                        },
-                    ),
+                    description: Some("burst transmit length."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 8 }),
                     bit_size: 8,
                     array: None,
                     enumm: None,
@@ -460,115 +295,67 @@
         FieldSet {
             name: "BurstCnt",
             extends: None,
-            description: Some(
-                "parallel if tx burst count.",
-            ),
+            description: Some("parallel if tx burst count."),
             bit_size: 8,
-            fields: &[
-                Field {
-                    name: "burst_cnt",
-                    description: Some(
-                        "parallel if tx burst count.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 8,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "burst_cnt",
+                description: Some("parallel if tx burst count."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 8,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Cfg",
             extends: None,
-            description: Some(
-                "parallel if tx or rx cfg.",
-            ),
+            description: Some("parallel if tx or rx cfg."),
             bit_size: 8,
             fields: &[
                 Field {
                     name: "mode",
-                    description: Some(
-                        "parallel if mode.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("parallel if mode."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "dualdma",
-                    description: Some(
-                        "parallel if dualdma mode enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 1,
-                        },
-                    ),
+                    description: Some("parallel if dualdma mode enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 1 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "msk_size",
-                    description: Some(
-                        "parallel if data mode.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
+                    description: Some("parallel if data mode."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 2 }),
                     bit_size: 2,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "tx_tog_en",
-                    description: Some(
-                        "parallel if tx addr toggle enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 5,
-                        },
-                    ),
+                    description: Some("parallel if tx addr toggle enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 5 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "rx_tog_en",
-                    description: Some(
-                        "parallel if rx addr toggle enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 6,
-                        },
-                    ),
+                    description: Some("parallel if rx addr toggle enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 6 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "hw_ack",
-                    description: Some(
-                        "parallel if tx ack by hardware.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 7,
-                        },
-                    ),
+                    description: Some("parallel if tx ack by hardware."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 7 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -578,77 +365,45 @@
         FieldSet {
             name: "Ctrl",
             extends: None,
-            description: Some(
-                "parallel if tx or rx control.",
-            ),
+            description: Some("parallel if tx or rx control."),
             bit_size: 8,
             fields: &[
                 Field {
                     name: "enable",
-                    description: Some(
-                        "parallel if enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("parallel if enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "dma_en",
-                    description: Some(
-                        "parallel if dma enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 1,
-                        },
-                    ),
+                    description: Some("parallel if dma enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 1 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "sw_act",
-                    description: Some(
-                        "parallel if transmit software trigger.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
+                    description: Some("parallel if transmit software trigger."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 2 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "all_clr",
-                    description: Some(
-                        "parallel if all clear.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 3,
-                        },
-                    ),
+                    description: Some("parallel if all clear."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 3 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "trx_rst",
-                    description: Some(
-                        "parallel if tx and rx logic clear, high action.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 4,
-                        },
-                    ),
+                    description: Some("parallel if tx and rx logic clear, high action."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 4 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -658,111 +413,65 @@
         FieldSet {
             name: "DmaLen0",
             extends: None,
-            description: Some(
-                "parallel if dma length0.",
-            ),
+            description: Some("parallel if dma length0."),
             bit_size: 16,
-            fields: &[
-                Field {
-                    name: "dma_len0",
-                    description: Some(
-                        "parallel if dma length0.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 12,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "dma_len0",
+                description: Some("parallel if dma length0."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 12,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "DmaLen1",
             extends: None,
-            description: Some(
-                "parallel if dma length1.",
-            ),
+            description: Some("parallel if dma length1."),
             bit_size: 16,
-            fields: &[
-                Field {
-                    name: "dma_len1",
-                    description: Some(
-                        "parallel if dma length1.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 12,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "dma_len1",
+                description: Some("parallel if dma length1."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 12,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "IntEn",
             extends: None,
-            description: Some(
-                "parallel if interrupt enable register.",
-            ),
+            description: Some("parallel if interrupt enable register."),
             bit_size: 8,
             fields: &[
                 Field {
                     name: "ie_t_done",
-                    description: Some(
-                        "parallel if transmit done interrupt enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("parallel if transmit done interrupt enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "ie_r_done",
-                    description: Some(
-                        "parallel if receive done interrupt enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 1,
-                        },
-                    ),
+                    description: Some("parallel if receive done interrupt enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 1 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "ie_fifo_ov",
-                    description: Some(
-                        "parallel if fifo overflow interrupt enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
+                    description: Some("parallel if fifo overflow interrupt enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 2 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "ie_b_done",
-                    description: Some(
-                        "parallel if tx burst done interrupt enable.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 3,
-                        },
-                    ),
+                    description: Some("parallel if tx burst done interrupt enable."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 3 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -772,63 +481,37 @@
         FieldSet {
             name: "IntFlag",
             extends: None,
-            description: Some(
-                "parallel if interrupt flag.",
-            ),
+            description: Some("parallel if interrupt flag."),
             bit_size: 8,
             fields: &[
                 Field {
                     name: "if_t_done",
-                    description: Some(
-                        "interrupt flag for parallel if transmit done.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("interrupt flag for parallel if transmit done."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "if_r_done",
-                    description: Some(
-                        "interrupt flag for parallel if receive done.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 1,
-                        },
-                    ),
+                    description: Some("interrupt flag for parallel if receive done."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 1 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "if_fifo_ov",
-                    description: Some(
-                        "interrupt flag for parallel if FIFO overflow.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
+                    description: Some("interrupt flag for parallel if FIFO overflow."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 2 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "if_b_done",
-                    description: Some(
-                        "interrupt flag for parallel if tx burst done.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 3,
-                        },
-                    ),
+                    description: Some("interrupt flag for parallel if tx burst done."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 3 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -838,35 +521,21 @@
         FieldSet {
             name: "RtxStatus",
             extends: None,
-            description: Some(
-                "parallel rtx status.",
-            ),
+            description: Some("parallel rtx status."),
             bit_size: 8,
             fields: &[
                 Field {
                     name: "crc_err",
-                    description: Some(
-                        "CRC error occur.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 1,
-                        },
-                    ),
+                    description: Some("CRC error occur."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 1 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "num_mis",
-                    description: Some(
-                        "rx and tx sequence number mismatch.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
+                    description: Some("rx and tx sequence number mismatch."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 2 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -876,131 +545,77 @@
         FieldSet {
             name: "RxAddr0",
             extends: None,
-            description: Some(
-                "parallel if dma rx addr0.",
-            ),
+            description: Some("parallel if dma rx addr0."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "rx_addr0",
-                    description: Some(
-                        "parallel if dma rx addr0.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 17,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "rx_addr0",
+                description: Some("parallel if dma rx addr0."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 17,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "RxAddr1",
             extends: None,
-            description: Some(
-                "parallel if dma rx addr1.",
-            ),
+            description: Some("parallel if dma rx addr1."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "rx_addr1",
-                    description: Some(
-                        "parallel if dma rx addr1.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 17,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "rx_addr1",
+                description: Some("parallel if dma rx addr1."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 17,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "RxLen0",
             extends: None,
-            description: Some(
-                "parallel if receive length0.",
-            ),
+            description: Some("parallel if receive length0."),
             bit_size: 16,
-            fields: &[
-                Field {
-                    name: "rx_len0",
-                    description: Some(
-                        "parallel if dma length0.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 12,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "rx_len0",
+                description: Some("parallel if dma length0."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 12,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "RxLen1",
             extends: None,
-            description: Some(
-                "parallel if receive length1.",
-            ),
+            description: Some("parallel if receive length1."),
             bit_size: 16,
-            fields: &[
-                Field {
-                    name: "rx_len1",
-                    description: Some(
-                        "parallel if dma length1.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 12,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "rx_len1",
+                description: Some("parallel if dma length1."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 12,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "RxSc",
             extends: None,
-            description: Some(
-                "parallel RX sequence ctrl.",
-            ),
+            description: Some("parallel RX sequence ctrl."),
             bit_size: 8,
             fields: &[
                 Field {
                     name: "rx_num",
-                    description: Some(
-                        "parallel if rx sequence num.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("parallel if rx sequence num."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "rx_tog",
-                    description: Some(
-                        "parallel if rx addr toggle flag.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 4,
-                        },
-                    ),
+                    description: Some("parallel if rx addr toggle flag."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 4 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -1010,83 +625,49 @@
         FieldSet {
             name: "TxAddr0",
             extends: None,
-            description: Some(
-                "parallel if dma tx addr0.",
-            ),
+            description: Some("parallel if dma tx addr0."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "tx_addr0",
-                    description: Some(
-                        "parallel if dma tx addr0.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 17,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "tx_addr0",
+                description: Some("parallel if dma tx addr0."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 17,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "TxAddr1",
             extends: None,
-            description: Some(
-                "parallel if dma tx addr1.",
-            ),
+            description: Some("parallel if dma tx addr1."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "tx_addr1",
-                    description: Some(
-                        "parallel if dma tx addr1.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 17,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "tx_addr1",
+                description: Some("parallel if dma tx addr1."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 17,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "TxSc",
             extends: None,
-            description: Some(
-                "parallel TX sequence ctrl.",
-            ),
+            description: Some("parallel TX sequence ctrl."),
             bit_size: 8,
             fields: &[
                 Field {
                     name: "tx_num",
-                    description: Some(
-                        "parallel if tx sequence num.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
+                    description: Some("parallel if tx sequence num."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                     bit_size: 4,
                     array: None,
                     enumm: None,
                 },
                 Field {
                     name: "tx_tog",
-                    description: Some(
-                        "parallel if tx addr toggle flag.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 4,
-                        },
-                    ),
+                    description: Some("parallel if tx addr toggle flag."),
+                    bit_offset: BitOffset::Regular(RegularBitOffset { offset: 4 }),
                     bit_size: 1,
                     array: None,
                     enumm: None,
@@ -1096,52 +677,31 @@
         FieldSet {
             name: "Udf0",
             extends: None,
-            description: Some(
-                "parallel if user defined field 0 register.",
-            ),
+            description: Some("parallel if user defined field 0 register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "udf0",
-                    description: Some(
-                        "parallel if user defined field 0 register.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 26,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "udf0",
+                description: Some("parallel if user defined field 0 register."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 26,
+                array: None,
+                enumm: None,
+            }],
         },
         FieldSet {
             name: "Udf1",
             extends: None,
-            description: Some(
-                "parallel if user defined field 1 register.",
-            ),
+            description: Some("parallel if user defined field 1 register."),
             bit_size: 32,
-            fields: &[
-                Field {
-                    name: "udf1",
-                    description: Some(
-                        "parallel if user defined field 1 register.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 0,
-                        },
-                    ),
-                    bit_size: 26,
-                    array: None,
-                    enumm: None,
-                },
-            ],
+            fields: &[Field {
+                name: "udf1",
+                description: Some("parallel if user defined field 1 register."),
+                bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
+                bit_size: 26,
+                array: None,
+                enumm: None,
+            }],
         },
     ],
     enums: &[],
 };
-                
