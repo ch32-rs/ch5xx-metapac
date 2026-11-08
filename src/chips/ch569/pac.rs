@@ -110,6 +110,7 @@ pub const SYS: sys::Sys = unsafe { sys::Sys::from_ptr(0x4000_1000usize as _) };
 pub const SYSTEM_CONTROL: system_control::SystemControl =
     unsafe { system_control::SystemControl::from_ptr(0x4000_1000usize as _) };
 pub const GPIO: gpio::Gpio = unsafe { gpio::Gpio::from_ptr(0x4000_1000usize as _) };
+pub const FLASHROM: *mut () = 0x4000_1800usize as _;
 pub const TMR0: tmr::TmrNodma = unsafe { tmr::TmrNodma::from_ptr(0x4000_2000usize as _) };
 pub const TMR1: tmr::TmrFull = unsafe { tmr::TmrFull::from_ptr(0x4000_2400usize as _) };
 pub const TMR2: tmr::TmrFull = unsafe { tmr::TmrFull::from_ptr(0x4000_2800usize as _) };

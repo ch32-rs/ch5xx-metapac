@@ -91,6 +91,16 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         interrupts: &[],
     },
     Peripheral {
+        name: "FLASHROM",
+        address: 0x40001800,
+        registers: None,
+        rcc: None,
+        remap: None,
+        pins: &[],
+        dma_channels: &[],
+        interrupts: &[],
+    },
+    Peripheral {
         name: "TMR0",
         address: 0x40002000,
         registers: Some(PeripheralRegisters {
