@@ -212,6 +212,40 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                 },
+                BlockItem {
+                    name: "scan_cfg1",
+                    description: Some(
+                        "RW, ADC scan sequence, channels 2 through 9.",
+                    ),
+                    array: None,
+                    byte_offset: 0x70,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "ScanCfg1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "scan_cfg2",
+                    description: Some(
+                        "RW, ADC scan sequence, channels 10 through 12, and scan control.",
+                    ),
+                    array: None,
+                    byte_offset: 0x74,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "ScanCfg2",
+                            ),
+                        },
+                    ),
+                },
             ],
         },
     ],
@@ -220,7 +254,7 @@ pub(crate) static REGISTERS: IR = IR {
             name: "AutoCycle",
             extends: None,
             description: Some(
-                "RO, ADC interrupt flag.",
+                "RW, auto ADC cycle value, unit is 16 Fsys.",
             ),
             bit_size: 8,
             fields: &[
@@ -654,6 +688,124 @@ pub(crate) static REGISTERS: IR = IR {
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
                             offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "ScanCfg1",
+            extends: None,
+            description: Some(
+                "RW, ADC scan sequence, channels 2 through 9.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "ch",
+                    description: Some(
+                        "Scan sequence entry; entry 0 holds the second channel in the sequence.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 8,
+                                stride: 4,
+                            },
+                        ),
+                    ),
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "ScanCfg2",
+            extends: None,
+            description: Some(
+                "RW, ADC scan sequence, channels 10 through 12, and scan control.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "ch",
+                    description: Some(
+                        "Scan sequence entry; entry 0 holds the tenth channel in the sequence.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 3,
+                                stride: 4,
+                            },
+                        ),
+                    ),
+                    enumm: None,
+                },
+                Field {
+                    name: "scan_num",
+                    description: Some(
+                        "Number of scanned channels minus one.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "scan_sel",
+                    description: Some(
+                        "Scan source: 0 selects the touch-key block, 1 selects the ADC.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 20,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_scan_end",
+                    description: Some(
+                        "Enable an interrupt when one scan pass ends.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 21,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_scan_end",
+                    description: Some(
+                        "Scan pass end flag; write 1 to clear.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 24,
                         },
                     ),
                     bit_size: 1,

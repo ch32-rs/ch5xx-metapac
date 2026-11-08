@@ -79,9 +79,19 @@ impl Adc {
     pub const fn dma_end(self) -> crate::common::Reg<regs::DmaEnd, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x6cusize) as _) }
     }
+    #[doc = "RW, ADC scan sequence, channels 2 through 9."]
+    #[inline(always)]
+    pub const fn scan_cfg1(self) -> crate::common::Reg<regs::ScanCfg1, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x70usize) as _) }
+    }
+    #[doc = "RW, ADC scan sequence, channels 10 through 12, and scan control."]
+    #[inline(always)]
+    pub const fn scan_cfg2(self) -> crate::common::Reg<regs::ScanCfg2, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x74usize) as _) }
+    }
 }
 pub mod regs {
-    #[doc = "RO, ADC interrupt flag."]
+    #[doc = "RW, auto ADC cycle value, unit is 16 Fsys."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct AutoCycle(pub u8);
@@ -477,6 +487,104 @@ usage."]
         #[inline(always)]
         fn default() -> IntFlag {
             IntFlag(0)
+        }
+    }
+    #[doc = "RW, ADC scan sequence, channels 2 through 9."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct ScanCfg1(pub u32);
+    impl ScanCfg1 {
+        #[doc = "Scan sequence entry; entry 0 holds the second channel in the sequence."]
+        #[inline(always)]
+        pub const fn ch(&self, n: usize) -> u8 {
+            assert!(n < 8usize);
+            let offs = 0usize + n * 4usize;
+            let val = (self.0 >> offs) & 0x0f;
+            val as u8
+        }
+        #[doc = "Scan sequence entry; entry 0 holds the second channel in the sequence."]
+        #[inline(always)]
+        pub fn set_ch(&mut self, n: usize, val: u8) {
+            assert!(n < 8usize);
+            let offs = 0usize + n * 4usize;
+            self.0 = (self.0 & !(0x0f << offs)) | (((val as u32) & 0x0f) << offs);
+        }
+    }
+    impl Default for ScanCfg1 {
+        #[inline(always)]
+        fn default() -> ScanCfg1 {
+            ScanCfg1(0)
+        }
+    }
+    #[doc = "RW, ADC scan sequence, channels 10 through 12, and scan control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct ScanCfg2(pub u32);
+    impl ScanCfg2 {
+        #[doc = "Scan sequence entry; entry 0 holds the tenth channel in the sequence."]
+        #[inline(always)]
+        pub const fn ch(&self, n: usize) -> u8 {
+            assert!(n < 3usize);
+            let offs = 0usize + n * 4usize;
+            let val = (self.0 >> offs) & 0x0f;
+            val as u8
+        }
+        #[doc = "Scan sequence entry; entry 0 holds the tenth channel in the sequence."]
+        #[inline(always)]
+        pub fn set_ch(&mut self, n: usize, val: u8) {
+            assert!(n < 3usize);
+            let offs = 0usize + n * 4usize;
+            self.0 = (self.0 & !(0x0f << offs)) | (((val as u32) & 0x0f) << offs);
+        }
+        #[doc = "Number of scanned channels minus one."]
+        #[inline(always)]
+        pub const fn scan_num(&self) -> u8 {
+            let val = (self.0 >> 16usize) & 0x0f;
+            val as u8
+        }
+        #[doc = "Number of scanned channels minus one."]
+        #[inline(always)]
+        pub fn set_scan_num(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x0f << 16usize)) | (((val as u32) & 0x0f) << 16usize);
+        }
+        #[doc = "Scan source: 0 selects the touch-key block, 1 selects the ADC."]
+        #[inline(always)]
+        pub const fn scan_sel(&self) -> bool {
+            let val = (self.0 >> 20usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Scan source: 0 selects the touch-key block, 1 selects the ADC."]
+        #[inline(always)]
+        pub fn set_scan_sel(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 20usize)) | (((val as u32) & 0x01) << 20usize);
+        }
+        #[doc = "Enable an interrupt when one scan pass ends."]
+        #[inline(always)]
+        pub const fn ie_scan_end(&self) -> bool {
+            let val = (self.0 >> 21usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Enable an interrupt when one scan pass ends."]
+        #[inline(always)]
+        pub fn set_ie_scan_end(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 21usize)) | (((val as u32) & 0x01) << 21usize);
+        }
+        #[doc = "Scan pass end flag; write 1 to clear."]
+        #[inline(always)]
+        pub const fn if_scan_end(&self) -> bool {
+            let val = (self.0 >> 24usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Scan pass end flag; write 1 to clear."]
+        #[inline(always)]
+        pub fn set_if_scan_end(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 24usize)) | (((val as u32) & 0x01) << 24usize);
+        }
+    }
+    impl Default for ScanCfg2 {
+        #[inline(always)]
+        fn default() -> ScanCfg2 {
+            ScanCfg2(0)
         }
     }
     #[doc = "RW, temperature sensor control."]
