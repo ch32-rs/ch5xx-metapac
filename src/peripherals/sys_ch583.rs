@@ -1064,6 +1064,17 @@ pub mod regs {
         pub fn set_slp_clk_usb(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
+        #[doc = "RWA, USB2 controller clock gate: 0=enabled, 1=disabled (CH583 datasheet section 5.2)."]
+        #[inline(always)]
+        pub const fn slp_clk_usb2(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RWA, USB2 controller clock gate: 0=enabled, 1=disabled (CH583 datasheet section 5.2)."]
+        #[inline(always)]
+        pub fn set_slp_clk_usb2(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
         #[doc = "RWA, close BLE clock."]
         #[inline(always)]
         pub const fn slp_clk_ble(&self) -> bool {

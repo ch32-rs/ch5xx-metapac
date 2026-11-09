@@ -232,7 +232,7 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "uep2_dma__uh_rx_dma",
                     description: Some(
-                        "endpoint 2 DMA buffer address;host rx endpoint buffer high address.",
+                        "endpoint 2 DMA buffer address; host RX endpoint buffer address.",
                     ),
                     array: None,
                     byte_offset: 0x18,
@@ -249,7 +249,7 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "uep3_dma__uh_tx_dma",
                     description: Some(
-                        "endpoint 3 DMA buffer address;host tx endpoint buffer high address.",
+                        "endpoint 3 DMA buffer address; host TX endpoint buffer address.",
                     ),
                     array: None,
                     byte_offset: 0x1c,
@@ -1033,7 +1033,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "uis_setup_act",
                     description: Some(
-                        "RO, indicate current USB transfer is NAK received for USB device mode.",
+                        "RO, indicates a SETUP token and 8-byte setup request were received in USB device mode.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -1325,7 +1325,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "uep_auto_tog",
                     description: Some(
-                        "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.",
+                        "Automatic toggle is documented for endpoints 1, 2 and 3 only.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -1734,14 +1734,14 @@ pub(crate) static REGISTERS: IR = IR {
             name: "Uep2Dma_uhRxDma",
             extends: None,
             description: Some(
-                "endpoint 2 DMA buffer address;host rx endpoint buffer high address.",
+                "endpoint 2 DMA buffer address; host RX endpoint buffer address.",
             ),
             bit_size: 16,
             fields: &[
                 Field {
                     name: "uep2_dma",
                     description: Some(
-                        "RW,endpoint 2 DMA buffer address;host rx endpoint buffer high address.",
+                        "RW,endpoint 2 DMA buffer address; host RX endpoint buffer address.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -1904,14 +1904,14 @@ pub(crate) static REGISTERS: IR = IR {
             name: "Uep3Dma_uhTxDma",
             extends: None,
             description: Some(
-                "endpoint 3 DMA buffer address;host tx endpoint buffer high address.",
+                "endpoint 3 DMA buffer address; host TX endpoint buffer address.",
             ),
             bit_size: 16,
             fields: &[
                 Field {
                     name: "uep3_dma",
                     description: Some(
-                        "RW,endpoint 3 DMA buffer address;host rx endpoint buffer high address.",
+                        "RW, endpoint 3 DMA buffer address; host TX endpoint buffer address.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -2067,7 +2067,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "uep_auto_tog",
                     description: Some(
-                        "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.",
+                        "Automatic toggle is documented for endpoints 1, 2 and 3 only.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -2265,7 +2265,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "uep_auto_tog",
                     description: Some(
-                        "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.",
+                        "Automatic toggle is documented for endpoints 1, 2 and 3 only.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -2317,7 +2317,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "uep5_dma",
                     description: Some(
-                        "RW,endpoint 5 DMA buffer address;host rx endpoint buffer high address.",
+                        "RW, endpoint 5 DMA buffer address.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -2393,7 +2393,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "uep_auto_tog",
                     description: Some(
-                        "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.",
+                        "Automatic toggle is documented for endpoints 1, 2 and 3 only.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -2445,7 +2445,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "uep6_dma",
                     description: Some(
-                        "RW,endpoint 6 DMA buffer address;host rx endpoint buffer high address.",
+                        "RW, endpoint 6 DMA buffer address.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -2521,7 +2521,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "uep_auto_tog",
                     description: Some(
-                        "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle.",
+                        "Automatic toggle is documented for endpoints 1, 2 and 3 only.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -2573,7 +2573,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "uep7_dma",
                     description: Some(
-                        "RW,endpoint 7 DMA buffer address;host rx endpoint buffer high address.",
+                        "RW, endpoint 7 DMA buffer address.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
