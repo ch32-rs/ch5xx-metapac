@@ -24,11 +24,14 @@ impl Usb {
     pub const fn ctrl(self) -> crate::common::Reg<regs::Ctrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
     }
-    #[doc = "USB device physical prot control."]
+    #[doc = "USB device physical port control."]
     #[inline(always)]
-    pub const fn udev_ctrl__uhost_ctrl(
-        self,
-    ) -> crate::common::Reg<regs::UdevCtrl_uhostCtrl, crate::common::RW> {
+    pub const fn udev_ctrl(self) -> crate::common::Reg<regs::UdevCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x01usize) as _) }
+    }
+    #[doc = "USB host physical port control."]
+    #[inline(always)]
+    pub const fn uhost_ctrl(self) -> crate::common::Reg<regs::UhostCtrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x01usize) as _) }
     }
     #[doc = "USB interrupt enable."]
@@ -66,11 +69,14 @@ impl Usb {
     pub const fn uep4_1_mod(self) -> crate::common::Reg<regs::Uep41Mod, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0cusize) as _) }
     }
-    #[doc = "endpoint 2_3 mode;host endpoint mode."]
+    #[doc = "Device endpoints 2 and 3 mode."]
     #[inline(always)]
-    pub const fn uep2_3_mod__uh_ep_mod(
-        self,
-    ) -> crate::common::Reg<regs::Uep23Mod_uhEpMod, crate::common::RW> {
+    pub const fn uep2_3_mod(self) -> crate::common::Reg<regs::Uep23Mod, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0dusize) as _) }
+    }
+    #[doc = "Host endpoint mode."]
+    #[inline(always)]
+    pub const fn uh_ep_mod(self) -> crate::common::Reg<regs::UhEpMod, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0dusize) as _) }
     }
     #[doc = "endpoint 5/6/7 mode."]
@@ -88,18 +94,24 @@ impl Usb {
     pub const fn uep1_dma(self) -> crate::common::Reg<regs::Uep1Dma, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
     }
-    #[doc = "endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
+    #[doc = "Endpoint 2 DMA buffer address."]
     #[inline(always)]
-    pub const fn uep2_dma__uh_rx_dma(
-        self,
-    ) -> crate::common::Reg<regs::Uep2Dma_uhRxDma, crate::common::RW> {
+    pub const fn uep2_dma(self) -> crate::common::Reg<regs::Uep2Dma, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x18usize) as _) }
     }
-    #[doc = "endpoint 3 DMA buffer address;host tx endpoint buffer high address."]
+    #[doc = "Host receive endpoint DMA buffer address."]
     #[inline(always)]
-    pub const fn uep3_dma__uh_tx_dma(
-        self,
-    ) -> crate::common::Reg<regs::Uep3Dma_uhTxDma, crate::common::RW> {
+    pub const fn uh_rx_dma(self) -> crate::common::Reg<regs::UhRxDma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x18usize) as _) }
+    }
+    #[doc = "Endpoint 3 DMA buffer address."]
+    #[inline(always)]
+    pub const fn uep3_dma(self) -> crate::common::Reg<regs::Uep3Dma, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1cusize) as _) }
+    }
+    #[doc = "Host transmit endpoint DMA buffer address."]
+    #[inline(always)]
+    pub const fn uh_tx_dma(self) -> crate::common::Reg<regs::UhTxDma, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1cusize) as _) }
     }
     #[doc = "endpoint 0 transmittal length."]
@@ -117,39 +129,54 @@ impl Usb {
     pub const fn uep1_t_len(self) -> crate::common::Reg<regs::Uep1TLen, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x24usize) as _) }
     }
-    #[doc = "endpoint 1 control;host aux setup."]
+    #[doc = "Endpoint 1 control."]
     #[inline(always)]
-    pub const fn uep1_ctrl__uh_setup(
-        self,
-    ) -> crate::common::Reg<regs::Uep1Ctrl_uhSetup, crate::common::RW> {
+    pub const fn uep1_ctrl(self) -> crate::common::Reg<regs::Uep1Ctrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x26usize) as _) }
     }
-    #[doc = "endpoint 2 transmittal length;host endpoint and PID."]
+    #[doc = "Host auxiliary setup."]
     #[inline(always)]
-    pub const fn uep2_t_len_uh_ep_pid(
-        self,
-    ) -> crate::common::Reg<regs::Uep2TLenUhEpPid, crate::common::RW> {
+    pub const fn uh_setup(self) -> crate::common::Reg<regs::UhSetup, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x26usize) as _) }
+    }
+    #[doc = "Endpoint 2 transmit length."]
+    #[inline(always)]
+    pub const fn uep2_t_len(self) -> crate::common::Reg<regs::Uep2TLen, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x28usize) as _) }
     }
-    #[doc = "endpoint 2 control;host receiver endpoint control."]
+    #[doc = "Host endpoint and token PID."]
     #[inline(always)]
-    pub const fn uep2_ctrl_uh_rx_ctrl(
-        self,
-    ) -> crate::common::Reg<regs::Uep2CtrlUhRxCtrl, crate::common::RW> {
+    pub const fn uh_ep_pid(self) -> crate::common::Reg<regs::UhEpPid, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x28usize) as _) }
+    }
+    #[doc = "Endpoint 2 control."]
+    #[inline(always)]
+    pub const fn uep2_ctrl(self) -> crate::common::Reg<regs::Uep2Ctrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x2ausize) as _) }
     }
-    #[doc = "endpoint 3 transmittal length;host transmittal endpoint transmittal length."]
+    #[doc = "Host receive endpoint control."]
     #[inline(always)]
-    pub const fn uep3_t_len__uh_tx_len(
-        self,
-    ) -> crate::common::Reg<regs::Uep3TLen_uhTxLen, crate::common::RW> {
+    pub const fn uh_rx_ctrl(self) -> crate::common::Reg<regs::UhRxCtrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x2ausize) as _) }
+    }
+    #[doc = "Endpoint 3 transmit length."]
+    #[inline(always)]
+    pub const fn uep3_t_len(self) -> crate::common::Reg<regs::Uep3TLen, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x2cusize) as _) }
     }
-    #[doc = "endpoint 3 control;host transmittal endpoint control."]
+    #[doc = "Host transmit length."]
     #[inline(always)]
-    pub const fn uep3_ctrl__uh_tx_ctrl(
-        self,
-    ) -> crate::common::Reg<regs::Uep3Ctrl_uhTxCtrl, crate::common::RW> {
+    pub const fn uh_tx_len(self) -> crate::common::Reg<regs::UhTxLen, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x2cusize) as _) }
+    }
+    #[doc = "Endpoint 3 control."]
+    #[inline(always)]
+    pub const fn uep3_ctrl(self) -> crate::common::Reg<regs::Uep3Ctrl, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x2eusize) as _) }
+    }
+    #[doc = "Host transmit endpoint control."]
+    #[inline(always)]
+    pub const fn uh_tx_ctrl(self) -> crate::common::Reg<regs::UhTxCtrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x2eusize) as _) }
     }
     #[doc = "endpoint 4 transmittal length."]
@@ -570,13 +597,13 @@ pub mod regs {
         pub fn set_uis_tog_ok(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
-        #[doc = "RO, indicate current USB transfer is NAK received for USB device mode."]
+        #[doc = "RO, indicates a SETUP token and 8-byte setup request were received in USB device mode."]
         #[inline(always)]
         pub const fn uis_setup_act(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
             val != 0
         }
-        #[doc = "RO, indicate current USB transfer is NAK received for USB device mode."]
+        #[doc = "RO, indicates a SETUP token and 8-byte setup request were received in USB device mode."]
         #[inline(always)]
         pub fn set_uis_setup_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
@@ -711,82 +738,82 @@ pub mod regs {
             RxLen(0)
         }
     }
-    #[doc = "USB device physical prot control."]
+    #[doc = "USB device physical port control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct UdevCtrl_uhostCtrl(pub u8);
-    impl UdevCtrl_uhostCtrl {
-        #[doc = "enable USB physical port I-O: 0=disable, 1=enable;enable USB port: 0=disable, 1=enable port, automatic disabled if USB device detached."]
+    pub struct UdevCtrl(pub u8);
+    impl UdevCtrl {
+        #[doc = "enable USB physical port I-O: 0=disable, 1=enable"]
         #[inline(always)]
-        pub const fn ud_port_en__uh_port_en(&self) -> bool {
+        pub const fn ud_port_en(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "enable USB physical port I-O: 0=disable, 1=enable;enable USB port: 0=disable, 1=enable port, automatic disabled if USB device detached."]
+        #[doc = "enable USB physical port I-O: 0=disable, 1=enable"]
         #[inline(always)]
-        pub fn set_ud_port_en__uh_port_en(&mut self, val: bool) {
+        pub fn set_ud_port_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
-        #[doc = "general purpose bit;control USB bus reset: 0=normal, 1=force bus reset."]
+        #[doc = "general purpose bit"]
         #[inline(always)]
-        pub const fn ud_gp_bit__uh_bus_reset(&self) -> bool {
+        pub const fn ud_gp_bit(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
             val != 0
         }
-        #[doc = "general purpose bit;control USB bus reset: 0=normal, 1=force bus reset."]
+        #[doc = "general purpose bit"]
         #[inline(always)]
-        pub fn set_ud_gp_bit__uh_bus_reset(&mut self, val: bool) {
+        pub fn set_ud_gp_bit(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
-        #[doc = "enable USB physical port low speed: 0=full speed, 1=low speed;enable USB port low speed: 0=full speed, 1=low speed."]
+        #[doc = "enable USB physical port low speed: 0=full speed, 1=low speed"]
         #[inline(always)]
-        pub const fn ud_low_speed__uh_low_speed(&self) -> bool {
+        pub const fn ud_low_speed(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
             val != 0
         }
-        #[doc = "enable USB physical port low speed: 0=full speed, 1=low speed;enable USB port low speed: 0=full speed, 1=low speed."]
+        #[doc = "enable USB physical port low speed: 0=full speed, 1=low speed"]
         #[inline(always)]
-        pub fn set_ud_low_speed__uh_low_speed(&mut self, val: bool) {
+        pub fn set_ud_low_speed(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "ReadOnly: indicate current UDM pin level."]
         #[inline(always)]
-        pub const fn ud_dm_pin__uh_dm_pin(&self) -> bool {
+        pub const fn ud_dm_pin(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
         #[doc = "ReadOnly: indicate current UDM pin level."]
         #[inline(always)]
-        pub fn set_ud_dm_pin__uh_dm_pin(&mut self, val: bool) {
+        pub fn set_ud_dm_pin(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "ReadOnly: indicate current UDP pin level."]
         #[inline(always)]
-        pub const fn ud_dp_pin__uh_dp_pin(&self) -> bool {
+        pub const fn ud_dp_pin(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
             val != 0
         }
         #[doc = "ReadOnly: indicate current UDP pin level."]
         #[inline(always)]
-        pub fn set_ud_dp_pin__uh_dp_pin(&mut self, val: bool) {
+        pub fn set_ud_dp_pin(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "disable USB UDP-UDM pulldown resistance: 0=enable pulldown, 1=disable."]
         #[inline(always)]
-        pub const fn ud_pd_dis__uh_pd_dis(&self) -> bool {
+        pub const fn ud_pd_dis(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
             val != 0
         }
         #[doc = "disable USB UDP-UDM pulldown resistance: 0=enable pulldown, 1=disable."]
         #[inline(always)]
-        pub fn set_ud_pd_dis__uh_pd_dis(&mut self, val: bool) {
+        pub fn set_ud_pd_dis(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
-    impl Default for UdevCtrl_uhostCtrl {
+    impl Default for UdevCtrl {
         #[inline(always)]
-        fn default() -> UdevCtrl_uhostCtrl {
-            UdevCtrl_uhostCtrl(0)
+        fn default() -> UdevCtrl {
+            UdevCtrl(0)
         }
     }
     #[doc = "endpoint 0 control."]
@@ -816,13 +843,13 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
@@ -902,11 +929,11 @@ pub mod regs {
             Uep0TLen(0)
         }
     }
-    #[doc = "endpoint 1 control;host aux setup."]
+    #[doc = "Endpoint 1 control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep1Ctrl_uhSetup(pub u8);
-    impl Uep1Ctrl_uhSetup {
+    pub struct Uep1Ctrl(pub u8);
+    impl Uep1Ctrl {
         #[doc = "bit mask of handshake response type for USB endpoint X transmittal (IN)."]
         #[inline(always)]
         pub const fn mask_uep_t_res(&self) -> u8 {
@@ -940,33 +967,33 @@ pub mod regs {
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
-        #[doc = "prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1;USB host automatic SOF enable."]
+        #[doc = "prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1"]
         #[inline(always)]
-        pub const fn uep_t_tog__uh_sof_en(&self) -> bool {
+        pub const fn uep_t_tog(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
             val != 0
         }
-        #[doc = "prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1;USB host automatic SOF enable."]
+        #[doc = "prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1"]
         #[inline(always)]
-        pub fn set_uep_t_tog__uh_sof_en(&mut self, val: bool) {
+        pub fn set_uep_t_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
-        #[doc = "expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1;RB_UH_PRE_PID_EN;USB host PRE PID enable for low speed device via hub."]
+        #[doc = "expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1"]
         #[inline(always)]
-        pub const fn uep_r_tog__uh_pre_pid_en(&self) -> bool {
+        pub const fn uep_r_tog(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
             val != 0
         }
-        #[doc = "expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1;RB_UH_PRE_PID_EN;USB host PRE PID enable for low speed device via hub."]
+        #[doc = "expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1"]
         #[inline(always)]
-        pub fn set_uep_r_tog__uh_pre_pid_en(&mut self, val: bool) {
+        pub fn set_uep_r_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
-    impl Default for Uep1Ctrl_uhSetup {
+    impl Default for Uep1Ctrl {
         #[inline(always)]
-        fn default() -> Uep1Ctrl_uhSetup {
-            Uep1Ctrl_uhSetup(0)
+        fn default() -> Uep1Ctrl {
+            Uep1Ctrl(0)
         }
     }
     #[doc = "endpoint 1 DMA buffer address."]
@@ -1015,20 +1042,20 @@ pub mod regs {
             Uep1TLen(0)
         }
     }
-    #[doc = "endpoint 2_3 mode;host endpoint mode."]
+    #[doc = "Device endpoints 2 and 3 mode."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep23Mod_uhEpMod(pub u8);
-    impl Uep23Mod_uhEpMod {
-        #[doc = "buffer mode of USB endpoint 2;buffer mode of USB host IN endpoint."]
+    pub struct Uep23Mod(pub u8);
+    impl Uep23Mod {
+        #[doc = "buffer mode of USB endpoint 2"]
         #[inline(always)]
-        pub const fn uep2_buf_mod__uh_ep_rbuf_mod(&self) -> bool {
+        pub const fn uep2_buf_mod(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
             val != 0
         }
-        #[doc = "buffer mode of USB endpoint 2;buffer mode of USB host IN endpoint."]
+        #[doc = "buffer mode of USB endpoint 2"]
         #[inline(always)]
-        pub fn set_uep2_buf_mod__uh_ep_rbuf_mod(&mut self, val: bool) {
+        pub fn set_uep2_buf_mod(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "enable USB endpoint 2 transmittal (IN)."]
@@ -1042,37 +1069,37 @@ pub mod regs {
         pub fn set_uep2_tx_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
-        #[doc = "enable USB endpoint 2 receiving (OUT);enable USB host IN endpoint receiving."]
+        #[doc = "enable USB endpoint 2 receiving (OUT)"]
         #[inline(always)]
-        pub const fn uep2_rx_en__uh_ep_rx_en(&self) -> bool {
+        pub const fn uep2_rx_en(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
             val != 0
         }
-        #[doc = "enable USB endpoint 2 receiving (OUT);enable USB host IN endpoint receiving."]
+        #[doc = "enable USB endpoint 2 receiving (OUT)"]
         #[inline(always)]
-        pub fn set_uep2_rx_en__uh_ep_rx_en(&mut self, val: bool) {
+        pub fn set_uep2_rx_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
-        #[doc = "buffer mode of USB endpoint 3;buffer mode of USB host OUT endpoint."]
+        #[doc = "buffer mode of USB endpoint 3"]
         #[inline(always)]
-        pub const fn uep3_buf_mod__uh_ep_tbuf_mod(&self) -> bool {
+        pub const fn uep3_buf_mod(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "buffer mode of USB endpoint 3;buffer mode of USB host OUT endpoint."]
+        #[doc = "buffer mode of USB endpoint 3"]
         #[inline(always)]
-        pub fn set_uep3_buf_mod__uh_ep_tbuf_mod(&mut self, val: bool) {
+        pub fn set_uep3_buf_mod(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
-        #[doc = "enable USB endpoint 3 transmittal (IN);enable USB host OUT endpoint transmittal."]
+        #[doc = "enable USB endpoint 3 transmittal (IN)"]
         #[inline(always)]
-        pub const fn uep3_tx_en__uh_ep_tx_en(&self) -> bool {
+        pub const fn uep3_tx_en(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
             val != 0
         }
-        #[doc = "enable USB endpoint 3 transmittal (IN);enable USB host OUT endpoint transmittal."]
+        #[doc = "enable USB endpoint 3 transmittal (IN)"]
         #[inline(always)]
-        pub fn set_uep3_tx_en__uh_ep_tx_en(&mut self, val: bool) {
+        pub fn set_uep3_tx_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "enable USB endpoint 3 receiving (OUT)."]
@@ -1087,17 +1114,17 @@ pub mod regs {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
-    impl Default for Uep23Mod_uhEpMod {
+    impl Default for Uep23Mod {
         #[inline(always)]
-        fn default() -> Uep23Mod_uhEpMod {
-            Uep23Mod_uhEpMod(0)
+        fn default() -> Uep23Mod {
+            Uep23Mod(0)
         }
     }
-    #[doc = "endpoint 2 control;host receiver endpoint control."]
+    #[doc = "Endpoint 2 control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep2CtrlUhRxCtrl(pub u8);
-    impl Uep2CtrlUhRxCtrl {
+    pub struct Uep2Ctrl(pub u8);
+    impl Uep2Ctrl {
         #[doc = "bit mask of handshake response type for USB endpoint X transmittal (IN)."]
         #[inline(always)]
         pub const fn mask_uep_t_res(&self) -> u8 {
@@ -1120,26 +1147,15 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "bit mask of handshake response type for USB endpoint X receiving (OUT)."]
+        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle"]
         #[inline(always)]
-        pub const fn mask_uh_r_res(&self) -> bool {
-            let val = (self.0 >> 2usize) & 0x01;
-            val != 0
-        }
-        #[doc = "bit mask of handshake response type for USB endpoint X receiving (OUT)."]
-        #[inline(always)]
-        pub fn set_mask_uh_r_res(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
-        }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle;enable automatic toggle after successful transfer completion: 0=manual toggle, 1=automatic toggle."]
-        #[inline(always)]
-        pub const fn uep_auto_tog__uh_r_auto_tog(&self) -> bool {
+        pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle;enable automatic toggle after successful transfer completion: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle"]
         #[inline(always)]
-        pub fn set_uep_auto_tog__uh_r_auto_tog(&mut self, val: bool) {
+        pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1."]
@@ -1153,97 +1169,75 @@ pub mod regs {
         pub fn set_uep_t_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
-        #[doc = "expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1;expected data toggle flag of host receiving (IN): 0=DATA0, 1=DATA1."]
+        #[doc = "expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1"]
         #[inline(always)]
-        pub const fn uep_r_tog__uh_r_tog(&self) -> bool {
+        pub const fn uep_r_tog(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
             val != 0
         }
-        #[doc = "expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1;expected data toggle flag of host receiving (IN): 0=DATA0, 1=DATA1."]
+        #[doc = "expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1"]
         #[inline(always)]
-        pub fn set_uep_r_tog__uh_r_tog(&mut self, val: bool) {
+        pub fn set_uep_r_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
-    impl Default for Uep2CtrlUhRxCtrl {
+    impl Default for Uep2Ctrl {
         #[inline(always)]
-        fn default() -> Uep2CtrlUhRxCtrl {
-            Uep2CtrlUhRxCtrl(0)
+        fn default() -> Uep2Ctrl {
+            Uep2Ctrl(0)
         }
     }
-    #[doc = "endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
+    #[doc = "Endpoint 2 DMA buffer address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep2Dma_uhRxDma(pub u16);
-    impl Uep2Dma_uhRxDma {
-        #[doc = "RW,endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
+    pub struct Uep2Dma(pub u16);
+    impl Uep2Dma {
+        #[doc = "Endpoint 2 DMA buffer address."]
         #[inline(always)]
         pub const fn uep2_dma(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "RW,endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "Endpoint 2 DMA buffer address."]
         #[inline(always)]
         pub fn set_uep2_dma(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
-    impl Default for Uep2Dma_uhRxDma {
+    impl Default for Uep2Dma {
         #[inline(always)]
-        fn default() -> Uep2Dma_uhRxDma {
-            Uep2Dma_uhRxDma(0)
+        fn default() -> Uep2Dma {
+            Uep2Dma(0)
         }
     }
-    #[doc = "endpoint 2 transmittal length;host endpoint and PID."]
+    #[doc = "Endpoint 2 transmit length."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep2TLenUhEpPid(pub u8);
-    impl Uep2TLenUhEpPid {
-        #[doc = "bit mask of endpoint number for USB host transfer."]
-        #[inline(always)]
-        pub const fn mask_uh_endp(&self) -> u8 {
-            let val = (self.0 >> 0usize) & 0x0f;
-            val as u8
-        }
-        #[doc = "bit mask of endpoint number for USB host transfer."]
-        #[inline(always)]
-        pub fn set_mask_uh_endp(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u8) & 0x0f) << 0usize);
-        }
-        #[doc = "endpoint 2 transmittal length;."]
+    pub struct Uep2TLen(pub u8);
+    impl Uep2TLen {
+        #[doc = "endpoint 2 transmittal length"]
         #[inline(always)]
         pub const fn uep2_t_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
             val as u8
         }
-        #[doc = "endpoint 2 transmittal length;."]
+        #[doc = "endpoint 2 transmittal length"]
         #[inline(always)]
         pub fn set_uep2_t_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
-        #[doc = "bit mask of token PID for USB host transfer."]
+    }
+    impl Default for Uep2TLen {
         #[inline(always)]
-        pub const fn mask_uh_token(&self) -> u8 {
-            let val = (self.0 >> 4usize) & 0x0f;
-            val as u8
-        }
-        #[doc = "bit mask of token PID for USB host transfer."]
-        #[inline(always)]
-        pub fn set_mask_uh_token(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x0f << 4usize)) | (((val as u8) & 0x0f) << 4usize);
+        fn default() -> Uep2TLen {
+            Uep2TLen(0)
         }
     }
-    impl Default for Uep2TLenUhEpPid {
-        #[inline(always)]
-        fn default() -> Uep2TLenUhEpPid {
-            Uep2TLenUhEpPid(0)
-        }
-    }
-    #[doc = "endpoint 3 control;host transmittal endpoint control."]
+    #[doc = "Endpoint 3 control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep3Ctrl_uhTxCtrl(pub u8);
-    impl Uep3Ctrl_uhTxCtrl {
+    pub struct Uep3Ctrl(pub u8);
+    impl Uep3Ctrl {
         #[doc = "bit mask of handshake response type for USB endpoint X transmittal (IN)."]
         #[inline(always)]
         pub const fn mask_uep_t_res(&self) -> u8 {
@@ -1253,17 +1247,6 @@ pub mod regs {
         #[doc = "bit mask of handshake response type for USB endpoint X transmittal (IN)."]
         #[inline(always)]
         pub fn set_mask_uep_t_res(&mut self, val: u8) {
-            self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
-        }
-        #[doc = "bit mask of handshake response type for USB endpoint X transmittal (IN)."]
-        #[inline(always)]
-        pub const fn uh_t_res(&self) -> u8 {
-            let val = (self.0 >> 0usize) & 0x03;
-            val as u8
-        }
-        #[doc = "bit mask of handshake response type for USB endpoint X transmittal (IN)."]
-        #[inline(always)]
-        pub fn set_uh_t_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "bit mask of handshake response type for USB endpoint X receiving (OUT)."]
@@ -1279,24 +1262,24 @@ pub mod regs {
         }
         #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
         #[inline(always)]
-        pub const fn uep_auto_tog_rb_uh_t_auto_tog(&self) -> bool {
+        pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
         #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
         #[inline(always)]
-        pub fn set_uep_auto_tog_rb_uh_t_auto_tog(&mut self, val: bool) {
+        pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1."]
         #[inline(always)]
-        pub const fn uep_t_tog_rb_uh_t_tog(&self) -> bool {
+        pub const fn uep_t_tog(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
             val != 0
         }
         #[doc = "prepared data toggle flag of USB endpoint X transmittal (IN): 0=DATA0, 1=DATA1."]
         #[inline(always)]
-        pub fn set_uep_t_tog_rb_uh_t_tog(&mut self, val: bool) {
+        pub fn set_uep_t_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "expected data toggle flag of USB endpoint X receiving (OUT): 0=DATA0, 1=DATA1."]
@@ -1311,56 +1294,56 @@ pub mod regs {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
-    impl Default for Uep3Ctrl_uhTxCtrl {
+    impl Default for Uep3Ctrl {
         #[inline(always)]
-        fn default() -> Uep3Ctrl_uhTxCtrl {
-            Uep3Ctrl_uhTxCtrl(0)
+        fn default() -> Uep3Ctrl {
+            Uep3Ctrl(0)
         }
     }
-    #[doc = "endpoint 3 DMA buffer address;host tx endpoint buffer high address."]
+    #[doc = "Endpoint 3 DMA buffer address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep3Dma_uhTxDma(pub u16);
-    impl Uep3Dma_uhTxDma {
-        #[doc = "RW,endpoint 3 DMA buffer address;host rx endpoint buffer high address."]
+    pub struct Uep3Dma(pub u16);
+    impl Uep3Dma {
+        #[doc = "Endpoint 3 DMA buffer address."]
         #[inline(always)]
         pub const fn uep3_dma(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "RW,endpoint 3 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "Endpoint 3 DMA buffer address."]
         #[inline(always)]
         pub fn set_uep3_dma(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
-    impl Default for Uep3Dma_uhTxDma {
+    impl Default for Uep3Dma {
         #[inline(always)]
-        fn default() -> Uep3Dma_uhTxDma {
-            Uep3Dma_uhTxDma(0)
+        fn default() -> Uep3Dma {
+            Uep3Dma(0)
         }
     }
-    #[doc = "endpoint 3 transmittal length;host transmittal endpoint transmittal length."]
+    #[doc = "Endpoint 3 transmit length."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep3TLen_uhTxLen(pub u8);
-    impl Uep3TLen_uhTxLen {
-        #[doc = "endpoint 1 transmittal length."]
+    pub struct Uep3TLen(pub u8);
+    impl Uep3TLen {
+        #[doc = "Endpoint 3 transmit length."]
         #[inline(always)]
-        pub const fn uep3_t_len__uh_tx_len(&self) -> u8 {
+        pub const fn uep3_t_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
             val as u8
         }
-        #[doc = "endpoint 1 transmittal length."]
+        #[doc = "Endpoint 3 transmit length."]
         #[inline(always)]
-        pub fn set_uep3_t_len__uh_tx_len(&mut self, val: u8) {
+        pub fn set_uep3_t_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
-    impl Default for Uep3TLen_uhTxLen {
+    impl Default for Uep3TLen {
         #[inline(always)]
-        fn default() -> Uep3TLen_uhTxLen {
-            Uep3TLen_uhTxLen(0)
+        fn default() -> Uep3TLen {
+            Uep3TLen(0)
         }
     }
     #[doc = "endpoint 4/1 mode."]
@@ -1457,13 +1440,13 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
@@ -1625,13 +1608,13 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
@@ -1670,13 +1653,13 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep5Dma(pub u16);
     impl Uep5Dma {
-        #[doc = "RW,endpoint 5 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 5 DMA buffer address."]
         #[inline(always)]
         pub const fn uep5_dma(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "RW,endpoint 5 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 5 DMA buffer address."]
         #[inline(always)]
         pub fn set_uep5_dma(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
@@ -1738,13 +1721,13 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
@@ -1783,13 +1766,13 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep6Dma(pub u16);
     impl Uep6Dma {
-        #[doc = "RW,endpoint 6 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 6 DMA buffer address."]
         #[inline(always)]
         pub const fn uep6_dma(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "RW,endpoint 6 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 6 DMA buffer address."]
         #[inline(always)]
         pub fn set_uep6_dma(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
@@ -1851,13 +1834,13 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
@@ -1896,13 +1879,13 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep7Dma(pub u16);
     impl Uep7Dma {
-        #[doc = "RW,endpoint 7 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 7 DMA buffer address."]
         #[inline(always)]
         pub const fn uep7_dma(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "RW,endpoint 7 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 7 DMA buffer address."]
         #[inline(always)]
         pub fn set_uep7_dma(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
@@ -1935,6 +1918,367 @@ pub mod regs {
         #[inline(always)]
         fn default() -> Uep7TLen {
             Uep7TLen(0)
+        }
+    }
+    #[doc = "Host endpoint mode."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UhEpMod(pub u8);
+    impl UhEpMod {
+        #[doc = "buffer mode of USB host IN endpoint."]
+        #[inline(always)]
+        pub const fn uh_ep_rbuf_mod(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "buffer mode of USB host IN endpoint."]
+        #[inline(always)]
+        pub fn set_uh_ep_rbuf_mod(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "enable USB host IN endpoint receiving."]
+        #[inline(always)]
+        pub const fn uh_ep_rx_en(&self) -> bool {
+            let val = (self.0 >> 3usize) & 0x01;
+            val != 0
+        }
+        #[doc = "enable USB host IN endpoint receiving."]
+        #[inline(always)]
+        pub fn set_uh_ep_rx_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
+        }
+        #[doc = "buffer mode of USB host OUT endpoint."]
+        #[inline(always)]
+        pub const fn uh_ep_tbuf_mod(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "buffer mode of USB host OUT endpoint."]
+        #[inline(always)]
+        pub fn set_uh_ep_tbuf_mod(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "enable USB host OUT endpoint transmittal."]
+        #[inline(always)]
+        pub const fn uh_ep_tx_en(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "enable USB host OUT endpoint transmittal."]
+        #[inline(always)]
+        pub fn set_uh_ep_tx_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+    }
+    impl Default for UhEpMod {
+        #[inline(always)]
+        fn default() -> UhEpMod {
+            UhEpMod(0)
+        }
+    }
+    #[doc = "Host endpoint and token PID."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UhEpPid(pub u8);
+    impl UhEpPid {
+        #[doc = "bit mask of endpoint number for USB host transfer."]
+        #[inline(always)]
+        pub const fn mask_uh_endp(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x0f;
+            val as u8
+        }
+        #[doc = "bit mask of endpoint number for USB host transfer."]
+        #[inline(always)]
+        pub fn set_mask_uh_endp(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u8) & 0x0f) << 0usize);
+        }
+        #[doc = "bit mask of token PID for USB host transfer."]
+        #[inline(always)]
+        pub const fn mask_uh_token(&self) -> u8 {
+            let val = (self.0 >> 4usize) & 0x0f;
+            val as u8
+        }
+        #[doc = "bit mask of token PID for USB host transfer."]
+        #[inline(always)]
+        pub fn set_mask_uh_token(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x0f << 4usize)) | (((val as u8) & 0x0f) << 4usize);
+        }
+    }
+    impl Default for UhEpPid {
+        #[inline(always)]
+        fn default() -> UhEpPid {
+            UhEpPid(0)
+        }
+    }
+    #[doc = "Host receive endpoint control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UhRxCtrl(pub u8);
+    impl UhRxCtrl {
+        #[doc = "Host receive handshake response control."]
+        #[inline(always)]
+        pub const fn mask_uh_r_res(&self) -> bool {
+            let val = (self.0 >> 2usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Host receive handshake response control."]
+        #[inline(always)]
+        pub fn set_mask_uh_r_res(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
+        }
+        #[doc = "enable automatic toggle after successful transfer completion: 0=manual toggle, 1=automatic toggle."]
+        #[inline(always)]
+        pub const fn uh_r_auto_tog(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "enable automatic toggle after successful transfer completion: 0=manual toggle, 1=automatic toggle."]
+        #[inline(always)]
+        pub fn set_uh_r_auto_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "expected data toggle flag of host receiving (IN): 0=DATA0, 1=DATA1."]
+        #[inline(always)]
+        pub const fn uh_r_tog(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "expected data toggle flag of host receiving (IN): 0=DATA0, 1=DATA1."]
+        #[inline(always)]
+        pub fn set_uh_r_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for UhRxCtrl {
+        #[inline(always)]
+        fn default() -> UhRxCtrl {
+            UhRxCtrl(0)
+        }
+    }
+    #[doc = "Host receive endpoint DMA buffer address."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UhRxDma(pub u16);
+    impl UhRxDma {
+        #[doc = "Host receive endpoint DMA buffer address."]
+        #[inline(always)]
+        pub const fn uh_rx_dma(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "Host receive endpoint DMA buffer address."]
+        #[inline(always)]
+        pub fn set_uh_rx_dma(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for UhRxDma {
+        #[inline(always)]
+        fn default() -> UhRxDma {
+            UhRxDma(0)
+        }
+    }
+    #[doc = "Host auxiliary setup."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UhSetup(pub u8);
+    impl UhSetup {
+        #[doc = "USB host automatic SOF enable."]
+        #[inline(always)]
+        pub const fn uh_sof_en(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB host automatic SOF enable."]
+        #[inline(always)]
+        pub fn set_uh_sof_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "USB host PRE PID enable for low speed device via hub."]
+        #[inline(always)]
+        pub const fn uh_pre_pid_en(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "USB host PRE PID enable for low speed device via hub."]
+        #[inline(always)]
+        pub fn set_uh_pre_pid_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for UhSetup {
+        #[inline(always)]
+        fn default() -> UhSetup {
+            UhSetup(0)
+        }
+    }
+    #[doc = "Host transmit endpoint control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UhTxCtrl(pub u8);
+    impl UhTxCtrl {
+        #[doc = "Host transmit handshake response control."]
+        #[inline(always)]
+        pub const fn uh_t_res(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Host transmit handshake response control."]
+        #[inline(always)]
+        pub fn set_uh_t_res(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "Enable automatic toggle after successful host transmission."]
+        #[inline(always)]
+        pub const fn uh_t_auto_tog(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Enable automatic toggle after successful host transmission."]
+        #[inline(always)]
+        pub fn set_uh_t_auto_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "Prepared host transmit data toggle flag."]
+        #[inline(always)]
+        pub const fn uh_t_tog(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Prepared host transmit data toggle flag."]
+        #[inline(always)]
+        pub fn set_uh_t_tog(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+    }
+    impl Default for UhTxCtrl {
+        #[inline(always)]
+        fn default() -> UhTxCtrl {
+            UhTxCtrl(0)
+        }
+    }
+    #[doc = "Host transmit endpoint DMA buffer address."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UhTxDma(pub u16);
+    impl UhTxDma {
+        #[doc = "Host transmit endpoint DMA buffer address."]
+        #[inline(always)]
+        pub const fn uh_tx_dma(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "Host transmit endpoint DMA buffer address."]
+        #[inline(always)]
+        pub fn set_uh_tx_dma(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for UhTxDma {
+        #[inline(always)]
+        fn default() -> UhTxDma {
+            UhTxDma(0)
+        }
+    }
+    #[doc = "Host transmit length."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UhTxLen(pub u8);
+    impl UhTxLen {
+        #[doc = "Host transmit length."]
+        #[inline(always)]
+        pub const fn uh_tx_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0xff;
+            val as u8
+        }
+        #[doc = "Host transmit length."]
+        #[inline(always)]
+        pub fn set_uh_tx_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
+        }
+    }
+    impl Default for UhTxLen {
+        #[inline(always)]
+        fn default() -> UhTxLen {
+            UhTxLen(0)
+        }
+    }
+    #[doc = "USB host physical port control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UhostCtrl(pub u8);
+    impl UhostCtrl {
+        #[doc = "enable USB port: 0=disable, 1=enable port, automatic disabled if USB device detached."]
+        #[inline(always)]
+        pub const fn uh_port_en(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "enable USB port: 0=disable, 1=enable port, automatic disabled if USB device detached."]
+        #[inline(always)]
+        pub fn set_uh_port_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "control USB bus reset: 0=normal, 1=force bus reset."]
+        #[inline(always)]
+        pub const fn uh_bus_reset(&self) -> bool {
+            let val = (self.0 >> 1usize) & 0x01;
+            val != 0
+        }
+        #[doc = "control USB bus reset: 0=normal, 1=force bus reset."]
+        #[inline(always)]
+        pub fn set_uh_bus_reset(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
+        }
+        #[doc = "enable USB port low speed: 0=full speed, 1=low speed."]
+        #[inline(always)]
+        pub const fn uh_low_speed(&self) -> bool {
+            let val = (self.0 >> 2usize) & 0x01;
+            val != 0
+        }
+        #[doc = "enable USB port low speed: 0=full speed, 1=low speed."]
+        #[inline(always)]
+        pub fn set_uh_low_speed(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
+        }
+        #[doc = "ReadOnly: indicate current UDM pin level."]
+        #[inline(always)]
+        pub const fn uh_dm_pin(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "ReadOnly: indicate current UDM pin level."]
+        #[inline(always)]
+        pub fn set_uh_dm_pin(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "ReadOnly: indicate current UDP pin level."]
+        #[inline(always)]
+        pub const fn uh_dp_pin(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "ReadOnly: indicate current UDP pin level."]
+        #[inline(always)]
+        pub fn set_uh_dp_pin(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "disable USB UDP-UDM pulldown resistance: 0=enable pulldown, 1=disable."]
+        #[inline(always)]
+        pub const fn uh_pd_dis(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "disable USB UDP-UDM pulldown resistance: 0=enable pulldown, 1=disable."]
+        #[inline(always)]
+        pub fn set_uh_pd_dis(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for UhostCtrl {
+        #[inline(always)]
+        fn default() -> UhostCtrl {
+            UhostCtrl(0)
         }
     }
 }

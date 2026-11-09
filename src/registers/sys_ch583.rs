@@ -1449,6 +1449,20 @@ pub(crate) static REGISTERS: IR = IR {
                     enumm: None,
                 },
                 Field {
+                    name: "slp_clk_usb2",
+                    description: Some(
+                        "RWA, USB2 controller clock gate: 0=enabled, 1=disabled (CH583 datasheet section 5.2).",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 5,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
                     name: "slp_clk_ble",
                     description: Some(
                         "RWA, close BLE clock.",
