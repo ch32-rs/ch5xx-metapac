@@ -88,14 +88,14 @@ impl Usb {
     pub const fn uep1_dma(self) -> crate::common::Reg<regs::Uep1Dma, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
     }
-    #[doc = "endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
+    #[doc = "endpoint 2 DMA buffer address; host RX endpoint buffer address."]
     #[inline(always)]
     pub const fn uep2_dma__uh_rx_dma(
         self,
     ) -> crate::common::Reg<regs::Uep2Dma_uhRxDma, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x18usize) as _) }
     }
-    #[doc = "endpoint 3 DMA buffer address;host tx endpoint buffer high address."]
+    #[doc = "endpoint 3 DMA buffer address; host TX endpoint buffer address."]
     #[inline(always)]
     pub const fn uep3_dma__uh_tx_dma(
         self,
@@ -570,13 +570,13 @@ pub mod regs {
         pub fn set_uis_tog_ok(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
-        #[doc = "RO, indicate current USB transfer is NAK received for USB device mode."]
+        #[doc = "RO, indicates a SETUP token and 8-byte setup request were received in USB device mode."]
         #[inline(always)]
         pub const fn uis_setup_act(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
             val != 0
         }
-        #[doc = "RO, indicate current USB transfer is NAK received for USB device mode."]
+        #[doc = "RO, indicates a SETUP token and 8-byte setup request were received in USB device mode."]
         #[inline(always)]
         pub fn set_uis_setup_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
@@ -816,13 +816,13 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
@@ -1171,18 +1171,18 @@ pub mod regs {
             Uep2CtrlUhRxCtrl(0)
         }
     }
-    #[doc = "endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
+    #[doc = "endpoint 2 DMA buffer address; host RX endpoint buffer address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep2Dma_uhRxDma(pub u16);
     impl Uep2Dma_uhRxDma {
-        #[doc = "RW,endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW,endpoint 2 DMA buffer address; host RX endpoint buffer address."]
         #[inline(always)]
         pub const fn uep2_dma(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "RW,endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW,endpoint 2 DMA buffer address; host RX endpoint buffer address."]
         #[inline(always)]
         pub fn set_uep2_dma(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
@@ -1317,18 +1317,18 @@ pub mod regs {
             Uep3Ctrl_uhTxCtrl(0)
         }
     }
-    #[doc = "endpoint 3 DMA buffer address;host tx endpoint buffer high address."]
+    #[doc = "endpoint 3 DMA buffer address; host TX endpoint buffer address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep3Dma_uhTxDma(pub u16);
     impl Uep3Dma_uhTxDma {
-        #[doc = "RW,endpoint 3 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 3 DMA buffer address; host TX endpoint buffer address."]
         #[inline(always)]
         pub const fn uep3_dma(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "RW,endpoint 3 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 3 DMA buffer address; host TX endpoint buffer address."]
         #[inline(always)]
         pub fn set_uep3_dma(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
@@ -1457,13 +1457,13 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
@@ -1625,13 +1625,13 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
@@ -1670,13 +1670,13 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep5Dma(pub u16);
     impl Uep5Dma {
-        #[doc = "RW,endpoint 5 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 5 DMA buffer address."]
         #[inline(always)]
         pub const fn uep5_dma(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "RW,endpoint 5 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 5 DMA buffer address."]
         #[inline(always)]
         pub fn set_uep5_dma(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
@@ -1738,13 +1738,13 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
@@ -1783,13 +1783,13 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep6Dma(pub u16);
     impl Uep6Dma {
-        #[doc = "RW,endpoint 6 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 6 DMA buffer address."]
         #[inline(always)]
         pub const fn uep6_dma(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "RW,endpoint 6 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 6 DMA buffer address."]
         #[inline(always)]
         pub fn set_uep6_dma(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
@@ -1851,13 +1851,13 @@ pub mod regs {
         pub fn set_mask_uep_r_res(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub const fn uep_auto_tog(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
             val != 0
         }
-        #[doc = "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle."]
+        #[doc = "Automatic toggle is documented for endpoints 1, 2 and 3 only."]
         #[inline(always)]
         pub fn set_uep_auto_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
@@ -1896,13 +1896,13 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep7Dma(pub u16);
     impl Uep7Dma {
-        #[doc = "RW,endpoint 7 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 7 DMA buffer address."]
         #[inline(always)]
         pub const fn uep7_dma(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
             val as u16
         }
-        #[doc = "RW,endpoint 7 DMA buffer address;host rx endpoint buffer high address."]
+        #[doc = "RW, endpoint 7 DMA buffer address."]
         #[inline(always)]
         pub fn set_uep7_dma(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
