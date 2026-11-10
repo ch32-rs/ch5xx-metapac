@@ -82,16 +82,16 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct StkCmplr(pub u32);
     impl StkCmplr {
-        #[doc = "RW,CNTH."]
+        #[doc = "RW, set the lower 32 bits of the reload counter value."]
         #[must_use]
         #[inline(always)]
-        pub const fn cnth(&self) -> u32 {
+        pub const fn cmpl(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
             val as u32
         }
-        #[doc = "RW,CNTH."]
+        #[doc = "RW, set the lower 32 bits of the reload counter value."]
         #[inline(always)]
-        pub const fn set_cnth(&mut self, val: u32) {
+        pub const fn set_cmpl(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -104,7 +104,7 @@ pub mod regs {
     impl core::fmt::Debug for StkCmplr {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("StkCmplr")
-                .field("cnth", &self.cnth())
+                .field("cmpl", &self.cmpl())
                 .finish()
         }
     }

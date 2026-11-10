@@ -83,8 +83,8 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some("Count reload low register."),
             bit_size: 32,
             fields: &[Field {
-                name: "cnth",
-                description: Some("RW,CNTH."),
+                name: "cmpl",
+                description: Some("RW, set the lower 32 bits of the reload counter value."),
                 bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                 bit_size: 32,
                 array: None,
