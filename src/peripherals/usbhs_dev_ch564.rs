@@ -22,429 +22,429 @@ impl UsbhsDev {
     #[doc = "USB base control register."]
     #[inline(always)]
     pub const fn ctrl(self) -> crate::common::Reg<regs::Ctrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "USB mode control register."]
     #[inline(always)]
     pub const fn base_mode(self) -> crate::common::Reg<regs::BaseMode, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x01usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x01usize) as _) }
     }
     #[doc = "USB interrupt enable register."]
     #[inline(always)]
     pub const fn int_en(self) -> crate::common::Reg<regs::IntEn, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x02usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x02usize) as _) }
     }
     #[doc = "USB device address."]
     #[inline(always)]
     pub const fn dev_ad(self) -> crate::common::Reg<regs::DevAd, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x03usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x03usize) as _) }
     }
     #[doc = "USB remote wake up register."]
     #[inline(always)]
     pub const fn wake_ctrl(self) -> crate::common::Reg<regs::WakeCtrl, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "USB test mode register."]
     #[inline(always)]
     pub const fn test_mode(self) -> crate::common::Reg<regs::TestMode, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x05usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x05usize) as _) }
     }
     #[doc = "USB power management register."]
     #[inline(always)]
     pub const fn lpm_data(self) -> crate::common::Reg<regs::LpmData, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x06usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x06usize) as _) }
     }
     #[doc = "USB interrupt flag register."]
     #[inline(always)]
     pub const fn int_fg(self) -> crate::common::Reg<regs::IntFg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x08usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "USB interrupt status."]
     #[inline(always)]
     pub const fn int_st(self) -> crate::common::Reg<regs::IntSt, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x09usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x09usize) as _) }
     }
     #[doc = "USB miscellaneous status."]
     #[inline(always)]
     pub const fn mis_st(self) -> crate::common::Reg<regs::MisSt, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0ausize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0ausize) as _) }
     }
     #[doc = "USB frame number."]
     #[inline(always)]
     pub const fn fram_no(self) -> crate::common::Reg<regs::FramNo, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0cusize) as _) }
     }
     #[doc = "USB bus."]
     #[inline(always)]
     pub const fn bus(self) -> crate::common::Reg<regs::Bus, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0eusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0eusize) as _) }
     }
     #[doc = "USB endpoint sends the enable register."]
     #[inline(always)]
     pub const fn uep_tx_en(self) -> crate::common::Reg<regs::UepTxEn, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "USB endpoint receive the enable registers."]
     #[inline(always)]
     pub const fn uep_rx_en(self) -> crate::common::Reg<regs::UepRxEn, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x12usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x12usize) as _) }
     }
     #[doc = "USB endpoint sends the auto-filp enable register."]
     #[inline(always)]
     pub const fn uep_t_tog_auto(self) -> crate::common::Reg<regs::UepTTogAuto, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
     #[doc = "USB endpoint receive the auto-filp enable register."]
     #[inline(always)]
     pub const fn uep_r_tog_auto(self) -> crate::common::Reg<regs::UepRTogAuto, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x16usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x16usize) as _) }
     }
     #[doc = "USB endpoint sends a burst register."]
     #[inline(always)]
     pub const fn uep_t_burst(self) -> crate::common::Reg<regs::UepTBurst, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x18usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
     #[doc = "USB endpoint send the mode register."]
     #[inline(always)]
     pub const fn uep_t_burst_mode(
         self,
     ) -> crate::common::Reg<regs::UepTBurstMode, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x19usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x19usize) as _) }
     }
     #[doc = "USB endpoint receives the burst register."]
     #[inline(always)]
     pub const fn uep_r_burst(self) -> crate::common::Reg<regs::UepRBurst, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1ausize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1ausize) as _) }
     }
     #[doc = "USB endpoint reply mode register."]
     #[inline(always)]
     pub const fn uep_r_res_mode(self) -> crate::common::Reg<regs::UepRResMode, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1busize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1busize) as _) }
     }
     #[doc = "USB endpoint muitiplexing register."]
     #[inline(always)]
     pub const fn uep_af_mode(self) -> crate::common::Reg<regs::UepAfMode, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1cusize) as _) }
     }
     #[doc = "The start address register of the endpoint 0 buffer."]
     #[inline(always)]
     pub const fn uep0_dma(self) -> crate::common::Reg<regs::Uep0Dma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x20usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
     #[doc = "endpoint 1 receives the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep1_rx_dma(self) -> crate::common::Reg<regs::Uep1RxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x24usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x24usize) as _) }
     }
     #[doc = "endpoint 2 receives the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep2_rx_dma(self) -> crate::common::Reg<regs::Uep2RxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x28usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
     }
     #[doc = "endpoint 3 receives the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep3_rx_dma(self) -> crate::common::Reg<regs::Uep3RxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x2cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x2cusize) as _) }
     }
     #[doc = "endpoint 4 receives the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep4_rx_dma(self) -> crate::common::Reg<regs::Uep4RxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x30usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x30usize) as _) }
     }
     #[doc = "endpoint 5 receives the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep5_rx_dma(self) -> crate::common::Reg<regs::Uep5RxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x34usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x34usize) as _) }
     }
     #[doc = "endpoint 6 receives the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep6_rx_dma(self) -> crate::common::Reg<regs::Uep6RxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x38usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x38usize) as _) }
     }
     #[doc = "endpoint 7 receives the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep7_rx_dma(self) -> crate::common::Reg<regs::Uep7RxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x3cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x3cusize) as _) }
     }
     #[doc = "endpoint 1 sends the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep1_tx_dma(self) -> crate::common::Reg<regs::Uep1TxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x40usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x40usize) as _) }
     }
     #[doc = "endpoint 2 sends the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep2_tx_dma(self) -> crate::common::Reg<regs::Uep2TxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x44usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x44usize) as _) }
     }
     #[doc = "endpoint 3 sends the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep3_tx_dma(self) -> crate::common::Reg<regs::Uep3TxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x48usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x48usize) as _) }
     }
     #[doc = "endpoint 4 sends the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep4_tx_dma(self) -> crate::common::Reg<regs::Uep4TxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x4cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x4cusize) as _) }
     }
     #[doc = "endpoint 5 sends the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep5_tx_dma(self) -> crate::common::Reg<regs::Uep5TxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x50usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x50usize) as _) }
     }
     #[doc = "endpoint 6 sends the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep6_tx_dma(self) -> crate::common::Reg<regs::Uep6TxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x54usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x54usize) as _) }
     }
     #[doc = "endpoint 7 sends the start address register of the buffer."]
     #[inline(always)]
     pub const fn uep7_tx_dma(self) -> crate::common::Reg<regs::Uep7TxDma, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x58usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x58usize) as _) }
     }
     #[doc = "endpoint 0 max length packet register."]
     #[inline(always)]
     pub const fn uep0_max_len(self) -> crate::common::Reg<regs::Uep0MaxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x5cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x5cusize) as _) }
     }
     #[doc = "endpoint 1 max length packet register."]
     #[inline(always)]
     pub const fn uep1_max_len(self) -> crate::common::Reg<regs::Uep1MaxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x60usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x60usize) as _) }
     }
     #[doc = "endpoint 2 max length packet register."]
     #[inline(always)]
     pub const fn uep2_max_len(self) -> crate::common::Reg<regs::Uep2MaxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x64usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x64usize) as _) }
     }
     #[doc = "endpoint 3 max length packet register."]
     #[inline(always)]
     pub const fn uep3_max_len(self) -> crate::common::Reg<regs::Uep3MaxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x68usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x68usize) as _) }
     }
     #[doc = "endpoint 4 max length packet register."]
     #[inline(always)]
     pub const fn uep4_max_len(self) -> crate::common::Reg<regs::Uep4MaxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x6cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x6cusize) as _) }
     }
     #[doc = "endpoint 5 max length packet register."]
     #[inline(always)]
     pub const fn uep5_max_len(self) -> crate::common::Reg<regs::Uep5MaxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x70usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x70usize) as _) }
     }
     #[doc = "endpoint 6 max length packet register."]
     #[inline(always)]
     pub const fn uep6_max_len(self) -> crate::common::Reg<regs::Uep6MaxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x74usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x74usize) as _) }
     }
     #[doc = "endpoint 7 max length packet register."]
     #[inline(always)]
     pub const fn uep7_max_len(self) -> crate::common::Reg<regs::Uep7MaxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x78usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x78usize) as _) }
     }
     #[doc = "endpoint 0 acceptable length."]
     #[inline(always)]
     pub const fn uep0_rx_len(self) -> crate::common::Reg<regs::Uep0RxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x7cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x7cusize) as _) }
     }
     #[doc = "endpoint 1 receives the lenth register in a single pass."]
     #[inline(always)]
     pub const fn uep1_rx_len(self) -> crate::common::Reg<regs::Uep1RxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x80usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x80usize) as _) }
     }
     #[doc = "the length register of the total received data at endpoint 1."]
     #[inline(always)]
     pub const fn uep1_r_size(self) -> crate::common::Reg<regs::Uep1RSize, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x82usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x82usize) as _) }
     }
     #[doc = "endpoint 2 receives the lenth register in a single pass."]
     #[inline(always)]
     pub const fn uep2_rx_len(self) -> crate::common::Reg<regs::Uep2RxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x84usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x84usize) as _) }
     }
     #[doc = "the length register of the total received data at endpoint 2."]
     #[inline(always)]
     pub const fn uep2_r_size(self) -> crate::common::Reg<regs::Uep2RSize, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x86usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x86usize) as _) }
     }
     #[doc = "endpoint 3 receives the lenth register in a single pass."]
     #[inline(always)]
     pub const fn uep3_rx_len(self) -> crate::common::Reg<regs::Uep3RxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x88usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x88usize) as _) }
     }
     #[doc = "the length register of the total received data at endpoint 3."]
     #[inline(always)]
     pub const fn uep3_r_size(self) -> crate::common::Reg<regs::Uep3RSize, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x8ausize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x8ausize) as _) }
     }
     #[doc = "endpoint 4 receives the lenth register in a single pass."]
     #[inline(always)]
     pub const fn uep4_rx_len(self) -> crate::common::Reg<regs::Uep4RxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x8cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x8cusize) as _) }
     }
     #[doc = "the length register of the total received data at endpoint 4."]
     #[inline(always)]
     pub const fn uep4_r_size(self) -> crate::common::Reg<regs::Uep4RSize, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x8eusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x8eusize) as _) }
     }
     #[doc = "endpoint 5 receives the lenth register in a single pass."]
     #[inline(always)]
     pub const fn uep5_rx_len(self) -> crate::common::Reg<regs::Uep5RxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x90usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x90usize) as _) }
     }
     #[doc = "the length register of the total received data at endpoint 5."]
     #[inline(always)]
     pub const fn uep5_r_size(self) -> crate::common::Reg<regs::Uep5RSize, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x92usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x92usize) as _) }
     }
     #[doc = "endpoint 6 receives the lenth register in a single pass."]
     #[inline(always)]
     pub const fn uep6_rx_len(self) -> crate::common::Reg<regs::Uep6RxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x94usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x94usize) as _) }
     }
     #[doc = "the length register of the total received data at endpoint 6."]
     #[inline(always)]
     pub const fn uep6_r_size(self) -> crate::common::Reg<regs::Uep6RSize, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x96usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x96usize) as _) }
     }
     #[doc = "endpoint 7 receives the lenth register in a single pass."]
     #[inline(always)]
     pub const fn uep7_rx_len(self) -> crate::common::Reg<regs::Uep7RxLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x98usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x98usize) as _) }
     }
     #[doc = "the length register of the total received data at endpoint 7."]
     #[inline(always)]
     pub const fn uep7_r_size(self) -> crate::common::Reg<regs::Uep7RSize, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x9ausize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x9ausize) as _) }
     }
     #[doc = "endpoint 0 send the length."]
     #[inline(always)]
     pub const fn uep0_t_len(self) -> crate::common::Reg<regs::Uep0TLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x9cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x9cusize) as _) }
     }
     #[doc = "endpoint 0 send control register."]
     #[inline(always)]
     pub const fn uep0_tx_ctrl(self) -> crate::common::Reg<regs::Uep0TxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x9eusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x9eusize) as _) }
     }
     #[doc = "endpoint 0 send control register."]
     #[inline(always)]
     pub const fn uep0_rx_ctrl(self) -> crate::common::Reg<regs::Uep0RxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x9fusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x9fusize) as _) }
     }
     #[doc = "endpoint 1 send the length register."]
     #[inline(always)]
     pub const fn uep1_t_len(self) -> crate::common::Reg<regs::Uep1TLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xa0usize) as _) }
     }
     #[doc = "endpoint 1 send control register."]
     #[inline(always)]
     pub const fn uep1_tx_ctrl(self) -> crate::common::Reg<regs::Uep1TxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa2usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xa2usize) as _) }
     }
     #[doc = "endpoint 1 receive control."]
     #[inline(always)]
     pub const fn uep1_rx_ctrl(self) -> crate::common::Reg<regs::Uep1RxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa3usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xa3usize) as _) }
     }
     #[doc = "endpoint 2 send the length register."]
     #[inline(always)]
     pub const fn uep2_t_len(self) -> crate::common::Reg<regs::Uep2TLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa4usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xa4usize) as _) }
     }
     #[doc = "endpoint 2 send control register."]
     #[inline(always)]
     pub const fn uep2_tx_ctrl(self) -> crate::common::Reg<regs::Uep2TxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa6usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xa6usize) as _) }
     }
     #[doc = "endpoint 2 receive control."]
     #[inline(always)]
     pub const fn uep2_rx_ctrl(self) -> crate::common::Reg<regs::Uep2RxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa7usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xa7usize) as _) }
     }
     #[doc = "endpoint 3 send the length register."]
     #[inline(always)]
     pub const fn uep3_t_len(self) -> crate::common::Reg<regs::Uep3TLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xa8usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xa8usize) as _) }
     }
     #[doc = "endpoint 3 send control register."]
     #[inline(always)]
     pub const fn uep3_tx_ctrl(self) -> crate::common::Reg<regs::Uep3TxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xaausize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xaausize) as _) }
     }
     #[doc = "endpoint 3 receive control."]
     #[inline(always)]
     pub const fn uep3_rx_ctrl(self) -> crate::common::Reg<regs::Uep3RxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xabusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xabusize) as _) }
     }
     #[doc = "endpoint 4 send the length register."]
     #[inline(always)]
     pub const fn uep4_t_len(self) -> crate::common::Reg<regs::Uep4TLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xacusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xacusize) as _) }
     }
     #[doc = "endpoint 4 send control register."]
     #[inline(always)]
     pub const fn uep4_tx_ctrl(self) -> crate::common::Reg<regs::Uep4TxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xaeusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xaeusize) as _) }
     }
     #[doc = "endpoint 4 receive control."]
     #[inline(always)]
     pub const fn uep4_rx_ctrl(self) -> crate::common::Reg<regs::Uep4RxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xafusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xafusize) as _) }
     }
     #[doc = "endpoint 5 send the length register."]
     #[inline(always)]
     pub const fn uep5_t_len(self) -> crate::common::Reg<regs::Uep5TLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xb0usize) as _) }
     }
     #[doc = "endpoint 5 send control register."]
     #[inline(always)]
     pub const fn uep5_tx_ctrl(self) -> crate::common::Reg<regs::Uep5TxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb2usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xb2usize) as _) }
     }
     #[doc = "endpoint 5 receive control."]
     #[inline(always)]
     pub const fn uep5_rx_ctrl(self) -> crate::common::Reg<regs::Uep5RxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb3usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xb3usize) as _) }
     }
     #[doc = "endpoint 6 send the length register."]
     #[inline(always)]
     pub const fn uep6_t_len(self) -> crate::common::Reg<regs::Uep6TLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb4usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xb4usize) as _) }
     }
     #[doc = "endpoint 6 send control register."]
     #[inline(always)]
     pub const fn uep6_tx_ctrl(self) -> crate::common::Reg<regs::Uep6TxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb6usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xb6usize) as _) }
     }
     #[doc = "endpoint 6 receive control."]
     #[inline(always)]
     pub const fn uep6_rx_ctrl(self) -> crate::common::Reg<regs::Uep6RxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb7usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xb7usize) as _) }
     }
     #[doc = "endpoint 7 send the length register."]
     #[inline(always)]
     pub const fn uep7_t_len(self) -> crate::common::Reg<regs::Uep7TLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xb8usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xb8usize) as _) }
     }
     #[doc = "endpoint 7 send control register."]
     #[inline(always)]
     pub const fn uep7_tx_ctrl(self) -> crate::common::Reg<regs::Uep7TxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xbausize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xbausize) as _) }
     }
     #[doc = "endpoint 7 receive control."]
     #[inline(always)]
     pub const fn uep7_rx_ctrl(self) -> crate::common::Reg<regs::Uep7RxCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xbbusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xbbusize) as _) }
     }
     #[doc = "usb endpoint sends a synchronous mode enable register."]
     #[inline(always)]
     pub const fn uep_t_iso(self) -> crate::common::Reg<regs::UepTIso, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xbcusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xbcusize) as _) }
     }
     #[doc = "usb endpoint receives a synchronous mode enable register."]
     #[inline(always)]
     pub const fn uep_r_iso(self) -> crate::common::Reg<regs::UepRIso, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0xbeusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0xbeusize) as _) }
     }
 }
 pub mod regs {
@@ -454,6 +454,7 @@ pub mod regs {
     pub struct BaseMode(pub u8);
     impl BaseMode {
         #[doc = "The desired speed mode of the device."]
+        #[must_use]
         #[inline(always)]
         pub const fn exp_spd(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -461,7 +462,7 @@ pub mod regs {
         }
         #[doc = "The desired speed mode of the device."]
         #[inline(always)]
-        pub fn set_exp_spd(&mut self, val: u8) {
+        pub const fn set_exp_spd(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
     }
@@ -471,12 +472,20 @@ pub mod regs {
             BaseMode(0)
         }
     }
+    impl core::fmt::Debug for BaseMode {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("BaseMode")
+                .field("exp_spd", &self.exp_spd())
+                .finish()
+        }
+    }
     #[doc = "USB bus."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Bus(pub u16);
     impl Bus {
         #[doc = "USB wakeup."]
+        #[must_use]
         #[inline(always)]
         pub const fn wakeup(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -484,10 +493,11 @@ pub mod regs {
         }
         #[doc = "USB wakeup."]
         #[inline(always)]
-        pub fn set_wakeup(&mut self, val: bool) {
+        pub const fn set_wakeup(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u16) & 0x01) << 0usize);
         }
         #[doc = "UDP status."]
+        #[must_use]
         #[inline(always)]
         pub const fn dp_st(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -495,10 +505,11 @@ pub mod regs {
         }
         #[doc = "UDP status."]
         #[inline(always)]
-        pub fn set_dp_st(&mut self, val: bool) {
+        pub const fn set_dp_st(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u16) & 0x01) << 2usize);
         }
         #[doc = "UDM status."]
+        #[must_use]
         #[inline(always)]
         pub const fn dm_st(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -506,7 +517,7 @@ pub mod regs {
         }
         #[doc = "UDM status."]
         #[inline(always)]
-        pub fn set_dm_st(&mut self, val: bool) {
+        pub const fn set_dm_st(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u16) & 0x01) << 3usize);
         }
     }
@@ -516,12 +527,22 @@ pub mod regs {
             Bus(0)
         }
     }
+    impl core::fmt::Debug for Bus {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Bus")
+                .field("wakeup", &self.wakeup())
+                .field("dp_st", &self.dp_st())
+                .field("dm_st", &self.dm_st())
+                .finish()
+        }
+    }
     #[doc = "USB base control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ctrl(pub u8);
     impl Ctrl {
         #[doc = "LINK layer reset,highly effective."]
+        #[must_use]
         #[inline(always)]
         pub const fn link_reset(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -529,10 +550,11 @@ pub mod regs {
         }
         #[doc = "LINK layer reset,highly effective."]
         #[inline(always)]
-        pub fn set_link_reset(&mut self, val: bool) {
+        pub const fn set_link_reset(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "USB protocol processor reset."]
+        #[must_use]
         #[inline(always)]
         pub const fn sie_reset(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -540,10 +562,11 @@ pub mod regs {
         }
         #[doc = "USB protocol processor reset."]
         #[inline(always)]
-        pub fn set_sie_reset(&mut self, val: bool) {
+        pub const fn set_sie_reset(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "clear all interrupt flags."]
+        #[must_use]
         #[inline(always)]
         pub const fn all_clr(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -551,10 +574,11 @@ pub mod regs {
         }
         #[doc = "clear all interrupt flags."]
         #[inline(always)]
-        pub fn set_all_clr(&mut self, val: bool) {
+        pub const fn set_all_clr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "USB PHY suspend."]
+        #[must_use]
         #[inline(always)]
         pub const fn phy_suspendm(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -562,10 +586,11 @@ pub mod regs {
         }
         #[doc = "USB PHY suspend."]
         #[inline(always)]
-        pub fn set_phy_suspendm(&mut self, val: bool) {
+        pub const fn set_phy_suspendm(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "DMA transfer enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn dev_dma_en(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -573,10 +598,11 @@ pub mod regs {
         }
         #[doc = "DMA transfer enabled."]
         #[inline(always)]
-        pub fn set_dev_dma_en(&mut self, val: bool) {
+        pub const fn set_dev_dma_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "USB device enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn dev_en(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -584,10 +610,11 @@ pub mod regs {
         }
         #[doc = "USB device enabled."]
         #[inline(always)]
-        pub fn set_dev_en(&mut self, val: bool) {
+        pub const fn set_dev_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "LPM enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn dev_lpm_en(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -595,7 +622,7 @@ pub mod regs {
         }
         #[doc = "LPM enable."]
         #[inline(always)]
-        pub fn set_dev_lpm_en(&mut self, val: bool) {
+        pub const fn set_dev_lpm_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -605,12 +632,26 @@ pub mod regs {
             Ctrl(0)
         }
     }
+    impl core::fmt::Debug for Ctrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ctrl")
+                .field("link_reset", &self.link_reset())
+                .field("sie_reset", &self.sie_reset())
+                .field("all_clr", &self.all_clr())
+                .field("phy_suspendm", &self.phy_suspendm())
+                .field("dev_dma_en", &self.dev_dma_en())
+                .field("dev_en", &self.dev_en())
+                .field("dev_lpm_en", &self.dev_lpm_en())
+                .finish()
+        }
+    }
     #[doc = "USB device address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DevAd(pub u8);
     impl DevAd {
         #[doc = "bit mask for USB device address."]
+        #[must_use]
         #[inline(always)]
         pub const fn mask_usb_addr(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -618,7 +659,7 @@ pub mod regs {
         }
         #[doc = "bit mask for USB device address."]
         #[inline(always)]
-        pub fn set_mask_usb_addr(&mut self, val: u8) {
+        pub const fn set_mask_usb_addr(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u8) & 0x7f) << 0usize);
         }
     }
@@ -628,12 +669,20 @@ pub mod regs {
             DevAd(0)
         }
     }
+    impl core::fmt::Debug for DevAd {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DevAd")
+                .field("mask_usb_addr", &self.mask_usb_addr())
+                .finish()
+        }
+    }
     #[doc = "USB frame number."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct FramNo(pub u16);
     impl FramNo {
         #[doc = "Received frame number."]
+        #[must_use]
         #[inline(always)]
         pub const fn frame_no(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0x07ff;
@@ -641,10 +690,11 @@ pub mod regs {
         }
         #[doc = "Received frame number."]
         #[inline(always)]
-        pub fn set_frame_no(&mut self, val: u16) {
+        pub const fn set_frame_no(&mut self, val: u16) {
             self.0 = (self.0 & !(0x07ff << 0usize)) | (((val as u16) & 0x07ff) << 0usize);
         }
         #[doc = "Received micro frame number."]
+        #[must_use]
         #[inline(always)]
         pub const fn micro_frame(&self) -> u8 {
             let val = (self.0 >> 13usize) & 0x07;
@@ -652,7 +702,7 @@ pub mod regs {
         }
         #[doc = "Received micro frame number."]
         #[inline(always)]
-        pub fn set_micro_frame(&mut self, val: u8) {
+        pub const fn set_micro_frame(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 13usize)) | (((val as u16) & 0x07) << 13usize);
         }
     }
@@ -662,12 +712,21 @@ pub mod regs {
             FramNo(0)
         }
     }
+    impl core::fmt::Debug for FramNo {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("FramNo")
+                .field("frame_no", &self.frame_no())
+                .field("micro_frame", &self.micro_frame())
+                .finish()
+        }
+    }
     #[doc = "USB interrupt enable register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct IntEn(pub u8);
     impl IntEn {
         #[doc = "USB bus reset interrupt enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn bus_rest_ie(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -675,10 +734,11 @@ pub mod regs {
         }
         #[doc = "USB bus reset interrupt enabled."]
         #[inline(always)]
-        pub fn set_bus_rest_ie(&mut self, val: bool) {
+        pub const fn set_bus_rest_ie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "USB bus pause interrupt enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn bus_susp_ie(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -686,10 +746,11 @@ pub mod regs {
         }
         #[doc = "USB bus pause interrupt enabled."]
         #[inline(always)]
-        pub fn set_bus_susp_ie(&mut self, val: bool) {
+        pub const fn set_bus_susp_ie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "USB bus sleep interrupt enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn bus_sleep_ie(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -697,10 +758,11 @@ pub mod regs {
         }
         #[doc = "USB bus sleep interrupt enabled."]
         #[inline(always)]
-        pub fn set_bus_sleep_ie(&mut self, val: bool) {
+        pub const fn set_bus_sleep_ie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "LMP transfer end interrupt enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn lpm_act_ie(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -708,10 +770,11 @@ pub mod regs {
         }
         #[doc = "LMP transfer end interrupt enabled."]
         #[inline(always)]
-        pub fn set_lpm_act_ie(&mut self, val: bool) {
+        pub const fn set_lpm_act_ie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "USB transfer end interrupt enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn rtx_act_ie(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -719,10 +782,11 @@ pub mod regs {
         }
         #[doc = "USB transfer end interrupt enabled."]
         #[inline(always)]
-        pub fn set_rtx_act_ie(&mut self, val: bool) {
+        pub const fn set_rtx_act_ie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "Receive SOF packet interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn rx_sof_ie(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -730,10 +794,11 @@ pub mod regs {
         }
         #[doc = "Receive SOF packet interrupt enable."]
         #[inline(always)]
-        pub fn set_rx_sof_ie(&mut self, val: bool) {
+        pub const fn set_rx_sof_ie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "USB connection interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn link_rdy_ie(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -741,10 +806,11 @@ pub mod regs {
         }
         #[doc = "USB connection interrupt enable."]
         #[inline(always)]
-        pub fn set_link_rdy_ie(&mut self, val: bool) {
+        pub const fn set_link_rdy_ie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "USB Overflow interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn fifo_over_ie(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -752,7 +818,7 @@ pub mod regs {
         }
         #[doc = "USB Overflow interrupt enable."]
         #[inline(always)]
-        pub fn set_fifo_over_ie(&mut self, val: bool) {
+        pub const fn set_fifo_over_ie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -762,12 +828,27 @@ pub mod regs {
             IntEn(0)
         }
     }
+    impl core::fmt::Debug for IntEn {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("IntEn")
+                .field("bus_rest_ie", &self.bus_rest_ie())
+                .field("bus_susp_ie", &self.bus_susp_ie())
+                .field("bus_sleep_ie", &self.bus_sleep_ie())
+                .field("lpm_act_ie", &self.lpm_act_ie())
+                .field("rtx_act_ie", &self.rtx_act_ie())
+                .field("rx_sof_ie", &self.rx_sof_ie())
+                .field("link_rdy_ie", &self.link_rdy_ie())
+                .field("fifo_over_ie", &self.fifo_over_ie())
+                .finish()
+        }
+    }
     #[doc = "USB interrupt flag register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct IntFg(pub u8);
     impl IntFg {
         #[doc = "USB bus reset interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uif_bus_rst(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -775,10 +856,11 @@ pub mod regs {
         }
         #[doc = "USB bus reset interrupt flag."]
         #[inline(always)]
-        pub fn set_uif_bus_rst(&mut self, val: bool) {
+        pub const fn set_uif_bus_rst(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "USB bus suspend interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uif_suspend(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -786,10 +868,11 @@ pub mod regs {
         }
         #[doc = "USB bus suspend interrupt flag."]
         #[inline(always)]
-        pub fn set_uif_suspend(&mut self, val: bool) {
+        pub const fn set_uif_suspend(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "USB bus sleep interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uif_bus_sleep(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -797,10 +880,11 @@ pub mod regs {
         }
         #[doc = "USB bus sleep interrupt flag."]
         #[inline(always)]
-        pub fn set_uif_bus_sleep(&mut self, val: bool) {
+        pub const fn set_uif_bus_sleep(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "LPM transmission end interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uif_lpm_act(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -808,10 +892,11 @@ pub mod regs {
         }
         #[doc = "LPM transmission end interrupt flag."]
         #[inline(always)]
-        pub fn set_uif_lpm_act(&mut self, val: bool) {
+        pub const fn set_uif_lpm_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "USB transmission end interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uif_rtx_act(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -819,10 +904,11 @@ pub mod regs {
         }
         #[doc = "USB transmission end interrupt flag."]
         #[inline(always)]
-        pub fn set_uif_rtx_act(&mut self, val: bool) {
+        pub const fn set_uif_rtx_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "Receive SOF packet interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uif_rx_sof(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -830,10 +916,11 @@ pub mod regs {
         }
         #[doc = "Receive SOF packet interrupt flag."]
         #[inline(always)]
-        pub fn set_uif_rx_sof(&mut self, val: bool) {
+        pub const fn set_uif_rx_sof(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "USB connection interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uif_link_rdy(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -841,10 +928,11 @@ pub mod regs {
         }
         #[doc = "USB connection interrupt flag."]
         #[inline(always)]
-        pub fn set_uif_link_rdy(&mut self, val: bool) {
+        pub const fn set_uif_link_rdy(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "USB Overflow interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uif_fifo_ov(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -852,7 +940,7 @@ pub mod regs {
         }
         #[doc = "USB Overflow interrupt flag."]
         #[inline(always)]
-        pub fn set_uif_fifo_ov(&mut self, val: bool) {
+        pub const fn set_uif_fifo_ov(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -862,12 +950,27 @@ pub mod regs {
             IntFg(0)
         }
     }
+    impl core::fmt::Debug for IntFg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("IntFg")
+                .field("uif_bus_rst", &self.uif_bus_rst())
+                .field("uif_suspend", &self.uif_suspend())
+                .field("uif_bus_sleep", &self.uif_bus_sleep())
+                .field("uif_lpm_act", &self.uif_lpm_act())
+                .field("uif_rtx_act", &self.uif_rtx_act())
+                .field("uif_rx_sof", &self.uif_rx_sof())
+                .field("uif_link_rdy", &self.uif_link_rdy())
+                .field("uif_fifo_ov", &self.uif_fifo_ov())
+                .finish()
+        }
+    }
     #[doc = "USB interrupt status."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct IntSt(pub u8);
     impl IntSt {
         #[doc = "The endpoint number at which the data transfer occurs."]
+        #[must_use]
         #[inline(always)]
         pub const fn uis_ep_id_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x07;
@@ -875,10 +978,11 @@ pub mod regs {
         }
         #[doc = "The endpoint number at which the data transfer occurs."]
         #[inline(always)]
-        pub fn set_uis_ep_id_mask(&mut self, val: u8) {
+        pub const fn set_uis_ep_id_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 0usize)) | (((val as u8) & 0x07) << 0usize);
         }
         #[doc = "Endpoint data transmission direction."]
+        #[must_use]
         #[inline(always)]
         pub const fn uis_ep_dir(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -886,7 +990,7 @@ pub mod regs {
         }
         #[doc = "Endpoint data transmission direction."]
         #[inline(always)]
-        pub fn set_uis_ep_dir(&mut self, val: bool) {
+        pub const fn set_uis_ep_dir(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
     }
@@ -896,12 +1000,21 @@ pub mod regs {
             IntSt(0)
         }
     }
+    impl core::fmt::Debug for IntSt {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("IntSt")
+                .field("uis_ep_id_mask", &self.uis_ep_id_mask())
+                .field("uis_ep_dir", &self.uis_ep_dir())
+                .finish()
+        }
+    }
     #[doc = "USB power management register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct LpmData(pub u16);
     impl LpmData {
         #[doc = "power management data."]
+        #[must_use]
         #[inline(always)]
         pub const fn lpm_data(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0x07ff;
@@ -909,10 +1022,11 @@ pub mod regs {
         }
         #[doc = "power management data."]
         #[inline(always)]
-        pub fn set_lpm_data(&mut self, val: u16) {
+        pub const fn set_lpm_data(&mut self, val: u16) {
             self.0 = (self.0 & !(0x07ff << 0usize)) | (((val as u16) & 0x07ff) << 0usize);
         }
         #[doc = "power management busy."]
+        #[must_use]
         #[inline(always)]
         pub const fn lpm_busy(&self) -> bool {
             let val = (self.0 >> 15usize) & 0x01;
@@ -920,7 +1034,7 @@ pub mod regs {
         }
         #[doc = "power management busy."]
         #[inline(always)]
-        pub fn set_lpm_busy(&mut self, val: bool) {
+        pub const fn set_lpm_busy(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 15usize)) | (((val as u16) & 0x01) << 15usize);
         }
     }
@@ -930,12 +1044,21 @@ pub mod regs {
             LpmData(0)
         }
     }
+    impl core::fmt::Debug for LpmData {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("LpmData")
+                .field("lpm_data", &self.lpm_data())
+                .field("lpm_busy", &self.lpm_busy())
+                .finish()
+        }
+    }
     #[doc = "USB miscellaneous status."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct MisSt(pub u8);
     impl MisSt {
         #[doc = "USB connection status."]
+        #[must_use]
         #[inline(always)]
         pub const fn ums_ready(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -943,10 +1066,11 @@ pub mod regs {
         }
         #[doc = "USB connection status."]
         #[inline(always)]
-        pub fn set_ums_ready(&mut self, val: bool) {
+        pub const fn set_ums_ready(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "USB suspend status."]
+        #[must_use]
         #[inline(always)]
         pub const fn ums_suspend(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -954,10 +1078,11 @@ pub mod regs {
         }
         #[doc = "USB suspend status."]
         #[inline(always)]
-        pub fn set_ums_suspend(&mut self, val: bool) {
+        pub const fn set_ums_suspend(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "USB sleep status."]
+        #[must_use]
         #[inline(always)]
         pub const fn ums_sleep(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -965,10 +1090,11 @@ pub mod regs {
         }
         #[doc = "USB sleep status."]
         #[inline(always)]
-        pub fn set_ums_sleep(&mut self, val: bool) {
+        pub const fn set_ums_sleep(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "USB free status."]
+        #[must_use]
         #[inline(always)]
         pub const fn ums_free(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -976,10 +1102,11 @@ pub mod regs {
         }
         #[doc = "USB free status."]
         #[inline(always)]
-        pub fn set_ums_free(&mut self, val: bool) {
+        pub const fn set_ums_free(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "USB suspends the request."]
+        #[must_use]
         #[inline(always)]
         pub const fn ums_susp_req(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -987,10 +1114,11 @@ pub mod regs {
         }
         #[doc = "USB suspends the request."]
         #[inline(always)]
-        pub fn set_ums_susp_req(&mut self, val: bool) {
+        pub const fn set_ums_susp_req(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "whether the host is high-speed."]
+        #[must_use]
         #[inline(always)]
         pub const fn ums_hs_mod(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -998,7 +1126,7 @@ pub mod regs {
         }
         #[doc = "whether the host is high-speed."]
         #[inline(always)]
-        pub fn set_ums_hs_mod(&mut self, val: bool) {
+        pub const fn set_ums_hs_mod(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -1008,12 +1136,25 @@ pub mod regs {
             MisSt(0)
         }
     }
+    impl core::fmt::Debug for MisSt {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("MisSt")
+                .field("ums_ready", &self.ums_ready())
+                .field("ums_suspend", &self.ums_suspend())
+                .field("ums_sleep", &self.ums_sleep())
+                .field("ums_free", &self.ums_free())
+                .field("ums_susp_req", &self.ums_susp_req())
+                .field("ums_hs_mod", &self.ums_hs_mod())
+                .finish()
+        }
+    }
     #[doc = "USB test mode register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct TestMode(pub u8);
     impl TestMode {
         #[doc = "test mode,output J."]
+        #[must_use]
         #[inline(always)]
         pub const fn test_j(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -1021,10 +1162,11 @@ pub mod regs {
         }
         #[doc = "test mode,output J."]
         #[inline(always)]
-        pub fn set_test_j(&mut self, val: bool) {
+        pub const fn set_test_j(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "test mode,output K."]
+        #[must_use]
         #[inline(always)]
         pub const fn test_k(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -1032,10 +1174,11 @@ pub mod regs {
         }
         #[doc = "test mode,output K."]
         #[inline(always)]
-        pub fn set_test_k(&mut self, val: bool) {
+        pub const fn set_test_k(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "test mode,output a packet."]
+        #[must_use]
         #[inline(always)]
         pub const fn test_pkt(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -1043,10 +1186,11 @@ pub mod regs {
         }
         #[doc = "test mode,output a packet."]
         #[inline(always)]
-        pub fn set_test_pkt(&mut self, val: bool) {
+        pub const fn set_test_pkt(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "test mode,output SEO."]
+        #[must_use]
         #[inline(always)]
         pub const fn test_se0nak(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -1054,10 +1198,11 @@ pub mod regs {
         }
         #[doc = "test mode,output SEO."]
         #[inline(always)]
-        pub fn set_test_se0nak(&mut self, val: bool) {
+        pub const fn set_test_se0nak(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "test mode enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn test_en(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -1065,7 +1210,7 @@ pub mod regs {
         }
         #[doc = "test mode enable."]
         #[inline(always)]
-        pub fn set_test_en(&mut self, val: bool) {
+        pub const fn set_test_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -1075,12 +1220,24 @@ pub mod regs {
             TestMode(0)
         }
     }
+    impl core::fmt::Debug for TestMode {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("TestMode")
+                .field("test_j", &self.test_j())
+                .field("test_k", &self.test_k())
+                .field("test_pkt", &self.test_pkt())
+                .field("test_se0nak", &self.test_se0nak())
+                .field("test_en", &self.test_en())
+                .finish()
+        }
+    }
     #[doc = "The start address register of the endpoint 0 buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep0Dma(pub u32);
     impl Uep0Dma {
         #[doc = "The start address of the endpoint 0 buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep0_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -1088,7 +1245,7 @@ pub mod regs {
         }
         #[doc = "The start address of the endpoint 0 buffer."]
         #[inline(always)]
-        pub fn set_uep0_dma(&mut self, val: u32) {
+        pub const fn set_uep0_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -1098,12 +1255,20 @@ pub mod regs {
             Uep0Dma(0)
         }
     }
+    impl core::fmt::Debug for Uep0Dma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep0Dma")
+                .field("uep0_dma", &self.uep0_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 0 max length packet register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep0MaxLen(pub u32);
     impl Uep0MaxLen {
         #[doc = "endpoint 0 max acceptable offset length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep0_max_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -1111,7 +1276,7 @@ pub mod regs {
         }
         #[doc = "endpoint 0 max acceptable offset length."]
         #[inline(always)]
-        pub fn set_uep0_max_len(&mut self, val: u8) {
+        pub const fn set_uep0_max_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
         }
     }
@@ -1121,12 +1286,20 @@ pub mod regs {
             Uep0MaxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep0MaxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep0MaxLen")
+                .field("uep0_max_len", &self.uep0_max_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 0 send control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep0RxCtrl(pub u8);
     impl Uep0RxCtrl {
         #[doc = "endpoint 0 has control over the received response."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -1134,10 +1307,11 @@ pub mod regs {
         }
         #[doc = "endpoint 0 has control over the received response."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "the reception of endpoint 0 expects a synchronous trigger. bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -1145,10 +1319,11 @@ pub mod regs {
         }
         #[doc = "the reception of endpoint 0 expects a synchronous trigger. bit."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: bool) {
+        pub const fn set_uep_tog_mask(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "whether endpoint 0 receives a SETUP transaction."]
+        #[must_use]
         #[inline(always)]
         pub const fn setup_is(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -1156,10 +1331,11 @@ pub mod regs {
         }
         #[doc = "whether endpoint 0 receives a SETUP transaction."]
         #[inline(always)]
-        pub fn set_setup_is(&mut self, val: bool) {
+        pub const fn set_setup_is(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_tog_match(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -1167,10 +1343,11 @@ pub mod regs {
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
         #[inline(always)]
-        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+        pub const fn set_endp_r_tog_match(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "endpoint 0 for the received return NAK,packet type."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_tog(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -1178,10 +1355,11 @@ pub mod regs {
         }
         #[doc = "endpoint 0 for the received return NAK,packet type."]
         #[inline(always)]
-        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "endpoint 0 receives the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -1189,10 +1367,11 @@ pub mod regs {
         }
         #[doc = "endpoint 0 receives the end of NAK flag."]
         #[inline(always)]
-        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 0 receives the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -1200,7 +1379,7 @@ pub mod regs {
         }
         #[doc = "endpoint 0 receives the end flag."]
         #[inline(always)]
-        pub fn set_endp_r_done(&mut self, val: bool) {
+        pub const fn set_endp_r_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -1210,12 +1389,26 @@ pub mod regs {
             Uep0RxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep0RxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep0RxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("setup_is", &self.setup_is())
+                .field("endp_r_tog_match", &self.endp_r_tog_match())
+                .field("uep_r_nak_tog", &self.uep_r_nak_tog())
+                .field("uep_r_nak_act", &self.uep_r_nak_act())
+                .field("endp_r_done", &self.endp_r_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 0 acceptable length."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep0RxLen(pub u16);
     impl Uep0RxLen {
         #[doc = "endpoint 0 acceptable data length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep0_rx_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -1223,7 +1416,7 @@ pub mod regs {
         }
         #[doc = "endpoint 0 acceptable data length."]
         #[inline(always)]
-        pub fn set_uep0_rx_len(&mut self, val: u8) {
+        pub const fn set_uep0_rx_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u16) & 0x7f) << 0usize);
         }
     }
@@ -1233,12 +1426,20 @@ pub mod regs {
             Uep0RxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep0RxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep0RxLen")
+                .field("uep0_rx_len", &self.uep0_rx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 0 send the length."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep0TLen(pub u16);
     impl Uep0TLen {
         #[doc = "endpoint 0 send the length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep0_t_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -1246,7 +1447,7 @@ pub mod regs {
         }
         #[doc = "endpoint 0 send the length."]
         #[inline(always)]
-        pub fn set_uep0_t_len(&mut self, val: u8) {
+        pub const fn set_uep0_t_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u16) & 0x7f) << 0usize);
         }
     }
@@ -1256,12 +1457,20 @@ pub mod regs {
             Uep0TLen(0)
         }
     }
+    impl core::fmt::Debug for Uep0TLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep0TLen")
+                .field("uep0_t_len", &self.uep0_t_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 0 send control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep0TxCtrl(pub u8);
     impl Uep0TxCtrl {
         #[doc = "endpoint 0 control of the send response to IN transactions."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -1269,10 +1478,11 @@ pub mod regs {
         }
         #[doc = "endpoint 0 control of the send response to IN transactions."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "endpoint 0 synchronous trigger bit for the sender to. prepare."]
+        #[must_use]
         #[inline(always)]
         pub const fn ep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -1280,10 +1490,11 @@ pub mod regs {
         }
         #[doc = "endpoint 0 synchronous trigger bit for the sender to. prepare."]
         #[inline(always)]
-        pub fn set_ep_tog_mask(&mut self, val: u8) {
+        pub const fn set_ep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "endpoint 0 sends the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -1291,10 +1502,11 @@ pub mod regs {
         }
         #[doc = "endpoint 0 sends the end flag."]
         #[inline(always)]
-        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_t_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 0 sends the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_t_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -1302,7 +1514,7 @@ pub mod regs {
         }
         #[doc = "endpoint 0 sends the end of NAK flag."]
         #[inline(always)]
-        pub fn set_endp_t_done(&mut self, val: bool) {
+        pub const fn set_endp_t_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -1312,12 +1524,23 @@ pub mod regs {
             Uep0TxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep0TxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep0TxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("ep_tog_mask", &self.ep_tog_mask())
+                .field("uep_t_nak_act", &self.uep_t_nak_act())
+                .field("endp_t_done", &self.endp_t_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 1 max length packet register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep1MaxLen(pub u32);
     impl Uep1MaxLen {
         #[doc = "endpoint 1 max acceptable offset length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep1_max_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -1325,7 +1548,7 @@ pub mod regs {
         }
         #[doc = "endpoint 1 max acceptable offset length."]
         #[inline(always)]
-        pub fn set_uep1_max_len(&mut self, val: u8) {
+        pub const fn set_uep1_max_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
         }
     }
@@ -1335,12 +1558,20 @@ pub mod regs {
             Uep1MaxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep1MaxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep1MaxLen")
+                .field("uep1_max_len", &self.uep1_max_len())
+                .finish()
+        }
+    }
     #[doc = "the length register of the total received data at endpoint 1."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep1RSize(pub u16);
     impl Uep1RSize {
         #[doc = "the length of the total received data at endpoint 1."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep1_r_size(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -1348,7 +1579,7 @@ pub mod regs {
         }
         #[doc = "the length of the total received data at endpoint 1."]
         #[inline(always)]
-        pub fn set_uep1_r_size(&mut self, val: u16) {
+        pub const fn set_uep1_r_size(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -1358,12 +1589,20 @@ pub mod regs {
             Uep1RSize(0)
         }
     }
+    impl core::fmt::Debug for Uep1RSize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep1RSize")
+                .field("uep1_r_size", &self.uep1_r_size())
+                .finish()
+        }
+    }
     #[doc = "endpoint 1 receive control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep1RxCtrl(pub u8);
     impl Uep1RxCtrl {
         #[doc = "endpoint 1 has control over the received response."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -1371,10 +1610,11 @@ pub mod regs {
         }
         #[doc = "endpoint 1 has control over the received response."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "the reception of endpoint 1 expects a synchronous trigger. bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -1382,10 +1622,11 @@ pub mod regs {
         }
         #[doc = "the reception of endpoint 1 expects a synchronous trigger. bit."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_tog_match(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -1393,10 +1634,11 @@ pub mod regs {
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
         #[inline(always)]
-        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+        pub const fn set_endp_r_tog_match(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "endpoint 1 for the received return NAK,packet type."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_tog(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -1404,10 +1646,11 @@ pub mod regs {
         }
         #[doc = "endpoint 1 for the received return NAK,packet type."]
         #[inline(always)]
-        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "endpoint 1 receives the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -1415,10 +1658,11 @@ pub mod regs {
         }
         #[doc = "endpoint 1 receives the end of NAK flag."]
         #[inline(always)]
-        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 1 receives the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -1426,7 +1670,7 @@ pub mod regs {
         }
         #[doc = "endpoint 1 receives the end flag."]
         #[inline(always)]
-        pub fn set_endp_r_done(&mut self, val: bool) {
+        pub const fn set_endp_r_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -1436,12 +1680,25 @@ pub mod regs {
             Uep1RxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep1RxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep1RxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("endp_r_tog_match", &self.endp_r_tog_match())
+                .field("uep_r_nak_tog", &self.uep_r_nak_tog())
+                .field("uep_r_nak_act", &self.uep_r_nak_act())
+                .field("endp_r_done", &self.endp_r_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 1 receives the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep1RxDma(pub u32);
     impl Uep1RxDma {
         #[doc = "endpoint receives the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep1_rx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -1449,7 +1706,7 @@ pub mod regs {
         }
         #[doc = "endpoint receives the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep1_rx_dma(&mut self, val: u32) {
+        pub const fn set_uep1_rx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -1459,12 +1716,20 @@ pub mod regs {
             Uep1RxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep1RxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep1RxDma")
+                .field("uep1_rx_dma", &self.uep1_rx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 1 receives the lenth register in a single pass."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep1RxLen(pub u16);
     impl Uep1RxLen {
         #[doc = "the length of data received by endpoint 1 in a single pass."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep1_rx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -1472,7 +1737,7 @@ pub mod regs {
         }
         #[doc = "the length of data received by endpoint 1 in a single pass."]
         #[inline(always)]
-        pub fn set_uep1_rx_len(&mut self, val: u16) {
+        pub const fn set_uep1_rx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -1482,12 +1747,20 @@ pub mod regs {
             Uep1RxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep1RxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep1RxLen")
+                .field("uep1_rx_len", &self.uep1_rx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 1 send the length register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep1TLen(pub u16);
     impl Uep1TLen {
         #[doc = "endpoint 1 send the length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep1_t_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -1495,7 +1768,7 @@ pub mod regs {
         }
         #[doc = "endpoint 1 send the length."]
         #[inline(always)]
-        pub fn set_uep1_t_len(&mut self, val: u16) {
+        pub const fn set_uep1_t_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -1505,12 +1778,20 @@ pub mod regs {
             Uep1TLen(0)
         }
     }
+    impl core::fmt::Debug for Uep1TLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep1TLen")
+                .field("uep1_t_len", &self.uep1_t_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 1 send control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep1TxCtrl(pub u8);
     impl Uep1TxCtrl {
         #[doc = "endpoint 1 control of the send response to IN transactions."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -1518,10 +1799,11 @@ pub mod regs {
         }
         #[doc = "endpoint 1 control of the send response to IN transactions."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "endpoint 1 synchronous trigger bit for the sender to. prepare."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -1529,10 +1811,11 @@ pub mod regs {
         }
         #[doc = "endpoint 1 synchronous trigger bit for the sender to. prepare."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "endpoint 1 sends the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -1540,10 +1823,11 @@ pub mod regs {
         }
         #[doc = "endpoint 1 sends the end flag."]
         #[inline(always)]
-        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_t_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 1 sends the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_t_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -1551,7 +1835,7 @@ pub mod regs {
         }
         #[doc = "endpoint 1 sends the end of NAK flag."]
         #[inline(always)]
-        pub fn set_endp_t_done(&mut self, val: bool) {
+        pub const fn set_endp_t_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -1561,12 +1845,23 @@ pub mod regs {
             Uep1TxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep1TxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep1TxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("uep_t_nak_act", &self.uep_t_nak_act())
+                .field("endp_t_done", &self.endp_t_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 1 sends the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep1TxDma(pub u32);
     impl Uep1TxDma {
         #[doc = "endpoint sends the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep1_tx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -1574,7 +1869,7 @@ pub mod regs {
         }
         #[doc = "endpoint sends the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep1_tx_dma(&mut self, val: u32) {
+        pub const fn set_uep1_tx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -1584,12 +1879,20 @@ pub mod regs {
             Uep1TxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep1TxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep1TxDma")
+                .field("uep1_tx_dma", &self.uep1_tx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 2 max length packet register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep2MaxLen(pub u32);
     impl Uep2MaxLen {
         #[doc = "endpoint 2 max acceptable offset length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep2_max_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -1597,7 +1900,7 @@ pub mod regs {
         }
         #[doc = "endpoint 2 max acceptable offset length."]
         #[inline(always)]
-        pub fn set_uep2_max_len(&mut self, val: u8) {
+        pub const fn set_uep2_max_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
         }
     }
@@ -1607,12 +1910,20 @@ pub mod regs {
             Uep2MaxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep2MaxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep2MaxLen")
+                .field("uep2_max_len", &self.uep2_max_len())
+                .finish()
+        }
+    }
     #[doc = "the length register of the total received data at endpoint 2."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep2RSize(pub u16);
     impl Uep2RSize {
         #[doc = "the length of the total received data at endpoint 2."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep2_r_size(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -1620,7 +1931,7 @@ pub mod regs {
         }
         #[doc = "the length of the total received data at endpoint 2."]
         #[inline(always)]
-        pub fn set_uep2_r_size(&mut self, val: u16) {
+        pub const fn set_uep2_r_size(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -1630,12 +1941,20 @@ pub mod regs {
             Uep2RSize(0)
         }
     }
+    impl core::fmt::Debug for Uep2RSize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep2RSize")
+                .field("uep2_r_size", &self.uep2_r_size())
+                .finish()
+        }
+    }
     #[doc = "endpoint 2 receive control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep2RxCtrl(pub u8);
     impl Uep2RxCtrl {
         #[doc = "endpoint 2 has control over the received response."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -1643,10 +1962,11 @@ pub mod regs {
         }
         #[doc = "endpoint 2 has control over the received response."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "the reception of endpoint 2 expects a synchronous trigger. bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -1654,10 +1974,11 @@ pub mod regs {
         }
         #[doc = "the reception of endpoint 2 expects a synchronous trigger. bit."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_tog_match(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -1665,10 +1986,11 @@ pub mod regs {
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
         #[inline(always)]
-        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+        pub const fn set_endp_r_tog_match(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "endpoint 2 for the received return NAK,packet type."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_tog(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -1676,10 +1998,11 @@ pub mod regs {
         }
         #[doc = "endpoint 2 for the received return NAK,packet type."]
         #[inline(always)]
-        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "endpoint 2 receives the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -1687,10 +2010,11 @@ pub mod regs {
         }
         #[doc = "endpoint 2 receives the end of NAK flag."]
         #[inline(always)]
-        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 2 receives the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -1698,7 +2022,7 @@ pub mod regs {
         }
         #[doc = "endpoint 2 receives the end flag."]
         #[inline(always)]
-        pub fn set_endp_r_done(&mut self, val: bool) {
+        pub const fn set_endp_r_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -1708,12 +2032,25 @@ pub mod regs {
             Uep2RxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep2RxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep2RxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("endp_r_tog_match", &self.endp_r_tog_match())
+                .field("uep_r_nak_tog", &self.uep_r_nak_tog())
+                .field("uep_r_nak_act", &self.uep_r_nak_act())
+                .field("endp_r_done", &self.endp_r_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 2 receives the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep2RxDma(pub u32);
     impl Uep2RxDma {
         #[doc = "endpoint receives the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep2_rx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -1721,7 +2058,7 @@ pub mod regs {
         }
         #[doc = "endpoint receives the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep2_rx_dma(&mut self, val: u32) {
+        pub const fn set_uep2_rx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -1731,12 +2068,20 @@ pub mod regs {
             Uep2RxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep2RxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep2RxDma")
+                .field("uep2_rx_dma", &self.uep2_rx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 2 receives the lenth register in a single pass."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep2RxLen(pub u16);
     impl Uep2RxLen {
         #[doc = "the length of data received by endpoint 2 in a single pass."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep2_rx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -1744,7 +2089,7 @@ pub mod regs {
         }
         #[doc = "the length of data received by endpoint 2 in a single pass."]
         #[inline(always)]
-        pub fn set_uep2_rx_len(&mut self, val: u16) {
+        pub const fn set_uep2_rx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -1754,12 +2099,20 @@ pub mod regs {
             Uep2RxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep2RxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep2RxLen")
+                .field("uep2_rx_len", &self.uep2_rx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 2 send the length register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep2TLen(pub u16);
     impl Uep2TLen {
         #[doc = "endpoint 2 send the length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -1767,7 +2120,7 @@ pub mod regs {
         }
         #[doc = "endpoint 2 send the length."]
         #[inline(always)]
-        pub fn set_uep_tx_len(&mut self, val: u16) {
+        pub const fn set_uep_tx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -1777,12 +2130,20 @@ pub mod regs {
             Uep2TLen(0)
         }
     }
+    impl core::fmt::Debug for Uep2TLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep2TLen")
+                .field("uep_tx_len", &self.uep_tx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 2 send control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep2TxCtrl(pub u8);
     impl Uep2TxCtrl {
         #[doc = "endpoint 2 control of the send response to IN transactions."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -1790,10 +2151,11 @@ pub mod regs {
         }
         #[doc = "endpoint 2 control of the send response to IN transactions."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "endpoint 2 synchronous trigger bit for the sender to. prepare."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -1801,10 +2163,11 @@ pub mod regs {
         }
         #[doc = "endpoint 2 synchronous trigger bit for the sender to. prepare."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "endpoint 2 sends the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -1812,10 +2175,11 @@ pub mod regs {
         }
         #[doc = "endpoint 2 sends the end flag."]
         #[inline(always)]
-        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_t_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 2 sends the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_t_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -1823,7 +2187,7 @@ pub mod regs {
         }
         #[doc = "endpoint 2 sends the end of NAK flag."]
         #[inline(always)]
-        pub fn set_endp_t_done(&mut self, val: bool) {
+        pub const fn set_endp_t_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -1833,12 +2197,23 @@ pub mod regs {
             Uep2TxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep2TxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep2TxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("uep_t_nak_act", &self.uep_t_nak_act())
+                .field("endp_t_done", &self.endp_t_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 2 sends the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep2TxDma(pub u32);
     impl Uep2TxDma {
         #[doc = "endpoint sends the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep2_tx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -1846,7 +2221,7 @@ pub mod regs {
         }
         #[doc = "endpoint sends the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep2_tx_dma(&mut self, val: u32) {
+        pub const fn set_uep2_tx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -1856,12 +2231,20 @@ pub mod regs {
             Uep2TxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep2TxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep2TxDma")
+                .field("uep2_tx_dma", &self.uep2_tx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 3 max length packet register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep3MaxLen(pub u32);
     impl Uep3MaxLen {
         #[doc = "endpoint 3 max acceptable offset length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep3_max_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -1869,7 +2252,7 @@ pub mod regs {
         }
         #[doc = "endpoint 3 max acceptable offset length."]
         #[inline(always)]
-        pub fn set_uep3_max_len(&mut self, val: u8) {
+        pub const fn set_uep3_max_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
         }
     }
@@ -1879,12 +2262,20 @@ pub mod regs {
             Uep3MaxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep3MaxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep3MaxLen")
+                .field("uep3_max_len", &self.uep3_max_len())
+                .finish()
+        }
+    }
     #[doc = "the length register of the total received data at endpoint 3."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep3RSize(pub u16);
     impl Uep3RSize {
         #[doc = "the length of the total received data at endpoint 3."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep3_r_size(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -1892,7 +2283,7 @@ pub mod regs {
         }
         #[doc = "the length of the total received data at endpoint 3."]
         #[inline(always)]
-        pub fn set_uep3_r_size(&mut self, val: u16) {
+        pub const fn set_uep3_r_size(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -1902,12 +2293,20 @@ pub mod regs {
             Uep3RSize(0)
         }
     }
+    impl core::fmt::Debug for Uep3RSize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep3RSize")
+                .field("uep3_r_size", &self.uep3_r_size())
+                .finish()
+        }
+    }
     #[doc = "endpoint 3 receive control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep3RxCtrl(pub u8);
     impl Uep3RxCtrl {
         #[doc = "endpoint 3 has control over the received response."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -1915,10 +2314,11 @@ pub mod regs {
         }
         #[doc = "endpoint 3 has control over the received response."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "the reception of endpoint 3 expects a synchronous trigger. bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -1926,10 +2326,11 @@ pub mod regs {
         }
         #[doc = "the reception of endpoint 3 expects a synchronous trigger. bit."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_tog_match(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -1937,10 +2338,11 @@ pub mod regs {
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
         #[inline(always)]
-        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+        pub const fn set_endp_r_tog_match(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "endpoint 3 for the received return NAK,packet type."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_tog(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -1948,10 +2350,11 @@ pub mod regs {
         }
         #[doc = "endpoint 3 for the received return NAK,packet type."]
         #[inline(always)]
-        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "endpoint 3 receives the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -1959,10 +2362,11 @@ pub mod regs {
         }
         #[doc = "endpoint 3 receives the end of NAK flag."]
         #[inline(always)]
-        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 3 receives the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -1970,7 +2374,7 @@ pub mod regs {
         }
         #[doc = "endpoint 3 receives the end flag."]
         #[inline(always)]
-        pub fn set_endp_r_done(&mut self, val: bool) {
+        pub const fn set_endp_r_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -1980,12 +2384,25 @@ pub mod regs {
             Uep3RxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep3RxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep3RxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("endp_r_tog_match", &self.endp_r_tog_match())
+                .field("uep_r_nak_tog", &self.uep_r_nak_tog())
+                .field("uep_r_nak_act", &self.uep_r_nak_act())
+                .field("endp_r_done", &self.endp_r_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 3 receives the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep3RxDma(pub u32);
     impl Uep3RxDma {
         #[doc = "endpoint receives the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep3_rx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -1993,7 +2410,7 @@ pub mod regs {
         }
         #[doc = "endpoint receives the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep3_rx_dma(&mut self, val: u32) {
+        pub const fn set_uep3_rx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -2003,12 +2420,20 @@ pub mod regs {
             Uep3RxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep3RxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep3RxDma")
+                .field("uep3_rx_dma", &self.uep3_rx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 3 receives the lenth register in a single pass."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep3RxLen(pub u16);
     impl Uep3RxLen {
         #[doc = "the length of data received by endpoint 3 in a single pass."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep3_rx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2016,7 +2441,7 @@ pub mod regs {
         }
         #[doc = "the length of data received by endpoint 3 in a single pass."]
         #[inline(always)]
-        pub fn set_uep3_rx_len(&mut self, val: u16) {
+        pub const fn set_uep3_rx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2026,12 +2451,20 @@ pub mod regs {
             Uep3RxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep3RxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep3RxLen")
+                .field("uep3_rx_len", &self.uep3_rx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 3 send the length register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep3TLen(pub u16);
     impl Uep3TLen {
         #[doc = "endpoint 3 send the length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2039,7 +2472,7 @@ pub mod regs {
         }
         #[doc = "endpoint 3 send the length."]
         #[inline(always)]
-        pub fn set_uep_tx_len(&mut self, val: u16) {
+        pub const fn set_uep_tx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2049,12 +2482,20 @@ pub mod regs {
             Uep3TLen(0)
         }
     }
+    impl core::fmt::Debug for Uep3TLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep3TLen")
+                .field("uep_tx_len", &self.uep_tx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 3 send control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep3TxCtrl(pub u8);
     impl Uep3TxCtrl {
         #[doc = "endpoint 3 control of the send response to IN transactions."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -2062,10 +2503,11 @@ pub mod regs {
         }
         #[doc = "endpoint 3 control of the send response to IN transactions."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "endpoint 3 synchronous trigger bit for the sender to. prepare."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -2073,10 +2515,11 @@ pub mod regs {
         }
         #[doc = "endpoint 3 synchronous trigger bit for the sender to. prepare."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "endpoint 3 sends the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -2084,10 +2527,11 @@ pub mod regs {
         }
         #[doc = "endpoint 3 sends the end flag."]
         #[inline(always)]
-        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_t_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 3 sends the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_t_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -2095,7 +2539,7 @@ pub mod regs {
         }
         #[doc = "endpoint 3 sends the end of NAK flag."]
         #[inline(always)]
-        pub fn set_endp_t_done(&mut self, val: bool) {
+        pub const fn set_endp_t_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -2105,12 +2549,23 @@ pub mod regs {
             Uep3TxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep3TxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep3TxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("uep_t_nak_act", &self.uep_t_nak_act())
+                .field("endp_t_done", &self.endp_t_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 3 sends the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep3TxDma(pub u32);
     impl Uep3TxDma {
         #[doc = "endpoint sends the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep3_tx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -2118,7 +2573,7 @@ pub mod regs {
         }
         #[doc = "endpoint sends the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep3_tx_dma(&mut self, val: u32) {
+        pub const fn set_uep3_tx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -2128,12 +2583,20 @@ pub mod regs {
             Uep3TxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep3TxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep3TxDma")
+                .field("uep3_tx_dma", &self.uep3_tx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 4 max length packet register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep4MaxLen(pub u32);
     impl Uep4MaxLen {
         #[doc = "endpoint 4 max acceptable offset length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep4_max_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -2141,7 +2604,7 @@ pub mod regs {
         }
         #[doc = "endpoint 4 max acceptable offset length."]
         #[inline(always)]
-        pub fn set_uep4_max_len(&mut self, val: u8) {
+        pub const fn set_uep4_max_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
         }
     }
@@ -2151,12 +2614,20 @@ pub mod regs {
             Uep4MaxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep4MaxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep4MaxLen")
+                .field("uep4_max_len", &self.uep4_max_len())
+                .finish()
+        }
+    }
     #[doc = "the length register of the total received data at endpoint 4."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep4RSize(pub u16);
     impl Uep4RSize {
         #[doc = "the length of the total received data at endpoint 4."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep4_r_size(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2164,7 +2635,7 @@ pub mod regs {
         }
         #[doc = "the length of the total received data at endpoint 4."]
         #[inline(always)]
-        pub fn set_uep4_r_size(&mut self, val: u16) {
+        pub const fn set_uep4_r_size(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2174,12 +2645,20 @@ pub mod regs {
             Uep4RSize(0)
         }
     }
+    impl core::fmt::Debug for Uep4RSize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep4RSize")
+                .field("uep4_r_size", &self.uep4_r_size())
+                .finish()
+        }
+    }
     #[doc = "endpoint 4 receive control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep4RxCtrl(pub u8);
     impl Uep4RxCtrl {
         #[doc = "endpoint 4 has control over the received response."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -2187,10 +2666,11 @@ pub mod regs {
         }
         #[doc = "endpoint 4 has control over the received response."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "the reception of endpoint 4 expects a synchronous trigger. bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -2198,10 +2678,11 @@ pub mod regs {
         }
         #[doc = "the reception of endpoint 4 expects a synchronous trigger. bit."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_tog_match(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -2209,10 +2690,11 @@ pub mod regs {
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
         #[inline(always)]
-        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+        pub const fn set_endp_r_tog_match(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "endpoint 4 for the received return NAK,packet type."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_tog(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -2220,10 +2702,11 @@ pub mod regs {
         }
         #[doc = "endpoint 4 for the received return NAK,packet type."]
         #[inline(always)]
-        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "endpoint 4 receives the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -2231,10 +2714,11 @@ pub mod regs {
         }
         #[doc = "endpoint 4 receives the end of NAK flag."]
         #[inline(always)]
-        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 4 receives the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -2242,7 +2726,7 @@ pub mod regs {
         }
         #[doc = "endpoint 4 receives the end flag."]
         #[inline(always)]
-        pub fn set_endp_r_done(&mut self, val: bool) {
+        pub const fn set_endp_r_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -2252,12 +2736,25 @@ pub mod regs {
             Uep4RxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep4RxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep4RxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("endp_r_tog_match", &self.endp_r_tog_match())
+                .field("uep_r_nak_tog", &self.uep_r_nak_tog())
+                .field("uep_r_nak_act", &self.uep_r_nak_act())
+                .field("endp_r_done", &self.endp_r_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 4 receives the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep4RxDma(pub u32);
     impl Uep4RxDma {
         #[doc = "endpoint receives the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep4_rx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -2265,7 +2762,7 @@ pub mod regs {
         }
         #[doc = "endpoint receives the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep4_rx_dma(&mut self, val: u32) {
+        pub const fn set_uep4_rx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -2275,12 +2772,20 @@ pub mod regs {
             Uep4RxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep4RxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep4RxDma")
+                .field("uep4_rx_dma", &self.uep4_rx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 4 receives the lenth register in a single pass."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep4RxLen(pub u16);
     impl Uep4RxLen {
         #[doc = "the length of data received by endpoint 4 in a single pass."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep4_rx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2288,7 +2793,7 @@ pub mod regs {
         }
         #[doc = "the length of data received by endpoint 4 in a single pass."]
         #[inline(always)]
-        pub fn set_uep4_rx_len(&mut self, val: u16) {
+        pub const fn set_uep4_rx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2298,12 +2803,20 @@ pub mod regs {
             Uep4RxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep4RxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep4RxLen")
+                .field("uep4_rx_len", &self.uep4_rx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 4 send the length register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep4TLen(pub u16);
     impl Uep4TLen {
         #[doc = "endpoint 4 send the length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2311,7 +2824,7 @@ pub mod regs {
         }
         #[doc = "endpoint 4 send the length."]
         #[inline(always)]
-        pub fn set_uep_tx_len(&mut self, val: u16) {
+        pub const fn set_uep_tx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2321,12 +2834,20 @@ pub mod regs {
             Uep4TLen(0)
         }
     }
+    impl core::fmt::Debug for Uep4TLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep4TLen")
+                .field("uep_tx_len", &self.uep_tx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 4 send control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep4TxCtrl(pub u8);
     impl Uep4TxCtrl {
         #[doc = "endpoint 4 control of the send response to IN transactions."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -2334,10 +2855,11 @@ pub mod regs {
         }
         #[doc = "endpoint 4 control of the send response to IN transactions."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "endpoint 4 synchronous trigger bit for the sender to. prepare."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -2345,10 +2867,11 @@ pub mod regs {
         }
         #[doc = "endpoint 4 synchronous trigger bit for the sender to. prepare."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "endpoint 4 sends the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -2356,10 +2879,11 @@ pub mod regs {
         }
         #[doc = "endpoint 4 sends the end flag."]
         #[inline(always)]
-        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_t_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 4 sends the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_t_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -2367,7 +2891,7 @@ pub mod regs {
         }
         #[doc = "endpoint 4 sends the end of NAK flag."]
         #[inline(always)]
-        pub fn set_endp_t_done(&mut self, val: bool) {
+        pub const fn set_endp_t_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -2377,12 +2901,23 @@ pub mod regs {
             Uep4TxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep4TxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep4TxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("uep_t_nak_act", &self.uep_t_nak_act())
+                .field("endp_t_done", &self.endp_t_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 4 sends the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep4TxDma(pub u32);
     impl Uep4TxDma {
         #[doc = "endpoint sends the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep4_tx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -2390,7 +2925,7 @@ pub mod regs {
         }
         #[doc = "endpoint sends the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep4_tx_dma(&mut self, val: u32) {
+        pub const fn set_uep4_tx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -2400,12 +2935,20 @@ pub mod regs {
             Uep4TxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep4TxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep4TxDma")
+                .field("uep4_tx_dma", &self.uep4_tx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 5 max length packet register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep5MaxLen(pub u32);
     impl Uep5MaxLen {
         #[doc = "endpoint 5 max acceptable offset length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep5_max_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -2413,7 +2956,7 @@ pub mod regs {
         }
         #[doc = "endpoint 5 max acceptable offset length."]
         #[inline(always)]
-        pub fn set_uep5_max_len(&mut self, val: u8) {
+        pub const fn set_uep5_max_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
         }
     }
@@ -2423,12 +2966,20 @@ pub mod regs {
             Uep5MaxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep5MaxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep5MaxLen")
+                .field("uep5_max_len", &self.uep5_max_len())
+                .finish()
+        }
+    }
     #[doc = "the length register of the total received data at endpoint 5."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep5RSize(pub u16);
     impl Uep5RSize {
         #[doc = "the length of the total received data at endpoint 5."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep5_r_size(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2436,7 +2987,7 @@ pub mod regs {
         }
         #[doc = "the length of the total received data at endpoint 5."]
         #[inline(always)]
-        pub fn set_uep5_r_size(&mut self, val: u16) {
+        pub const fn set_uep5_r_size(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2446,12 +2997,20 @@ pub mod regs {
             Uep5RSize(0)
         }
     }
+    impl core::fmt::Debug for Uep5RSize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep5RSize")
+                .field("uep5_r_size", &self.uep5_r_size())
+                .finish()
+        }
+    }
     #[doc = "endpoint 5 receive control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep5RxCtrl(pub u8);
     impl Uep5RxCtrl {
         #[doc = "endpoint 5 has control over the received response."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -2459,10 +3018,11 @@ pub mod regs {
         }
         #[doc = "endpoint 5 has control over the received response."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "the reception of endpoint 5 expects a synchronous trigger. bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -2470,10 +3030,11 @@ pub mod regs {
         }
         #[doc = "the reception of endpoint 5 expects a synchronous trigger. bit."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_tog_match(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -2481,10 +3042,11 @@ pub mod regs {
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
         #[inline(always)]
-        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+        pub const fn set_endp_r_tog_match(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "endpoint 5 for the received return NAK,packet type."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_tog(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -2492,10 +3054,11 @@ pub mod regs {
         }
         #[doc = "endpoint 5 for the received return NAK,packet type."]
         #[inline(always)]
-        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "endpoint 5 receives the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -2503,10 +3066,11 @@ pub mod regs {
         }
         #[doc = "endpoint 5 receives the end of NAK flag."]
         #[inline(always)]
-        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 5 receives the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -2514,7 +3078,7 @@ pub mod regs {
         }
         #[doc = "endpoint 5 receives the end flag."]
         #[inline(always)]
-        pub fn set_endp_r_done(&mut self, val: bool) {
+        pub const fn set_endp_r_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -2524,12 +3088,25 @@ pub mod regs {
             Uep5RxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep5RxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep5RxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("endp_r_tog_match", &self.endp_r_tog_match())
+                .field("uep_r_nak_tog", &self.uep_r_nak_tog())
+                .field("uep_r_nak_act", &self.uep_r_nak_act())
+                .field("endp_r_done", &self.endp_r_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 5 receives the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep5RxDma(pub u32);
     impl Uep5RxDma {
         #[doc = "endpoint receives the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep5_rx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -2537,7 +3114,7 @@ pub mod regs {
         }
         #[doc = "endpoint receives the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep5_rx_dma(&mut self, val: u32) {
+        pub const fn set_uep5_rx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -2547,12 +3124,20 @@ pub mod regs {
             Uep5RxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep5RxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep5RxDma")
+                .field("uep5_rx_dma", &self.uep5_rx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 5 receives the lenth register in a single pass."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep5RxLen(pub u16);
     impl Uep5RxLen {
         #[doc = "the length of data received by endpoint 5 in a single pass."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep5_rx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2560,7 +3145,7 @@ pub mod regs {
         }
         #[doc = "the length of data received by endpoint 5 in a single pass."]
         #[inline(always)]
-        pub fn set_uep5_rx_len(&mut self, val: u16) {
+        pub const fn set_uep5_rx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2570,12 +3155,20 @@ pub mod regs {
             Uep5RxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep5RxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep5RxLen")
+                .field("uep5_rx_len", &self.uep5_rx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 5 send the length register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep5TLen(pub u16);
     impl Uep5TLen {
         #[doc = "endpoint 5 send the length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2583,7 +3176,7 @@ pub mod regs {
         }
         #[doc = "endpoint 5 send the length."]
         #[inline(always)]
-        pub fn set_uep_tx_len(&mut self, val: u16) {
+        pub const fn set_uep_tx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2593,12 +3186,20 @@ pub mod regs {
             Uep5TLen(0)
         }
     }
+    impl core::fmt::Debug for Uep5TLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep5TLen")
+                .field("uep_tx_len", &self.uep_tx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 5 send control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep5TxCtrl(pub u8);
     impl Uep5TxCtrl {
         #[doc = "endpoint 5 control of the send response to IN transactions."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -2606,10 +3207,11 @@ pub mod regs {
         }
         #[doc = "endpoint 5 control of the send response to IN transactions."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "endpoint 5 synchronous trigger bit for the sender to. prepare."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -2617,10 +3219,11 @@ pub mod regs {
         }
         #[doc = "endpoint 5 synchronous trigger bit for the sender to. prepare."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "endpoint 5 sends the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -2628,10 +3231,11 @@ pub mod regs {
         }
         #[doc = "endpoint 5 sends the end flag."]
         #[inline(always)]
-        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_t_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 5 sends the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_t_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -2639,7 +3243,7 @@ pub mod regs {
         }
         #[doc = "endpoint 5 sends the end of NAK flag."]
         #[inline(always)]
-        pub fn set_endp_t_done(&mut self, val: bool) {
+        pub const fn set_endp_t_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -2649,12 +3253,23 @@ pub mod regs {
             Uep5TxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep5TxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep5TxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("uep_t_nak_act", &self.uep_t_nak_act())
+                .field("endp_t_done", &self.endp_t_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 5 sends the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep5TxDma(pub u32);
     impl Uep5TxDma {
         #[doc = "endpoint sends the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep5_tx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -2662,7 +3277,7 @@ pub mod regs {
         }
         #[doc = "endpoint sends the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep5_tx_dma(&mut self, val: u32) {
+        pub const fn set_uep5_tx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -2672,12 +3287,20 @@ pub mod regs {
             Uep5TxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep5TxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep5TxDma")
+                .field("uep5_tx_dma", &self.uep5_tx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 6 max length packet register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep6MaxLen(pub u32);
     impl Uep6MaxLen {
         #[doc = "endpoint 6 max acceptable offset length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep6_max_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -2685,7 +3308,7 @@ pub mod regs {
         }
         #[doc = "endpoint 6 max acceptable offset length."]
         #[inline(always)]
-        pub fn set_uep6_max_len(&mut self, val: u8) {
+        pub const fn set_uep6_max_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
         }
     }
@@ -2695,12 +3318,20 @@ pub mod regs {
             Uep6MaxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep6MaxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep6MaxLen")
+                .field("uep6_max_len", &self.uep6_max_len())
+                .finish()
+        }
+    }
     #[doc = "the length register of the total received data at endpoint 6."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep6RSize(pub u16);
     impl Uep6RSize {
         #[doc = "the length of the total received data at endpoint 6."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep6_r_size(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2708,7 +3339,7 @@ pub mod regs {
         }
         #[doc = "the length of the total received data at endpoint 6."]
         #[inline(always)]
-        pub fn set_uep6_r_size(&mut self, val: u16) {
+        pub const fn set_uep6_r_size(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2718,12 +3349,20 @@ pub mod regs {
             Uep6RSize(0)
         }
     }
+    impl core::fmt::Debug for Uep6RSize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep6RSize")
+                .field("uep6_r_size", &self.uep6_r_size())
+                .finish()
+        }
+    }
     #[doc = "endpoint 6 receive control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep6RxCtrl(pub u8);
     impl Uep6RxCtrl {
         #[doc = "endpoint 6 has control over the received response."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -2731,10 +3370,11 @@ pub mod regs {
         }
         #[doc = "endpoint 6 has control over the received response."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "the reception of endpoint 6 expects a synchronous trigger. bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -2742,10 +3382,11 @@ pub mod regs {
         }
         #[doc = "the reception of endpoint 6 expects a synchronous trigger. bit."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_tog_match(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -2753,10 +3394,11 @@ pub mod regs {
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
         #[inline(always)]
-        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+        pub const fn set_endp_r_tog_match(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "endpoint 6 for the received return NAK,packet type."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_tog(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -2764,10 +3406,11 @@ pub mod regs {
         }
         #[doc = "endpoint 6 for the received return NAK,packet type."]
         #[inline(always)]
-        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "endpoint 6 receives the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -2775,10 +3418,11 @@ pub mod regs {
         }
         #[doc = "endpoint 6 receives the end of NAK flag."]
         #[inline(always)]
-        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 6 receives the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -2786,7 +3430,7 @@ pub mod regs {
         }
         #[doc = "endpoint 6 receives the end flag."]
         #[inline(always)]
-        pub fn set_endp_r_done(&mut self, val: bool) {
+        pub const fn set_endp_r_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -2796,12 +3440,25 @@ pub mod regs {
             Uep6RxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep6RxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep6RxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("endp_r_tog_match", &self.endp_r_tog_match())
+                .field("uep_r_nak_tog", &self.uep_r_nak_tog())
+                .field("uep_r_nak_act", &self.uep_r_nak_act())
+                .field("endp_r_done", &self.endp_r_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 6 receives the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep6RxDma(pub u32);
     impl Uep6RxDma {
         #[doc = "endpoint receives the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep6_rx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -2809,7 +3466,7 @@ pub mod regs {
         }
         #[doc = "endpoint receives the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep6_rx_dma(&mut self, val: u32) {
+        pub const fn set_uep6_rx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -2819,12 +3476,20 @@ pub mod regs {
             Uep6RxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep6RxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep6RxDma")
+                .field("uep6_rx_dma", &self.uep6_rx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 6 receives the lenth register in a single pass."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep6RxLen(pub u16);
     impl Uep6RxLen {
         #[doc = "the length of data received by endpoint 6 in a single pass."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep6_rx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2832,7 +3497,7 @@ pub mod regs {
         }
         #[doc = "the length of data received by endpoint 6 in a single pass."]
         #[inline(always)]
-        pub fn set_uep6_rx_len(&mut self, val: u16) {
+        pub const fn set_uep6_rx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2842,12 +3507,20 @@ pub mod regs {
             Uep6RxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep6RxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep6RxLen")
+                .field("uep6_rx_len", &self.uep6_rx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 6 send the length register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep6TLen(pub u16);
     impl Uep6TLen {
         #[doc = "endpoint 6 send the length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2855,7 +3528,7 @@ pub mod regs {
         }
         #[doc = "endpoint 6 send the length."]
         #[inline(always)]
-        pub fn set_uep_tx_len(&mut self, val: u16) {
+        pub const fn set_uep_tx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2865,12 +3538,20 @@ pub mod regs {
             Uep6TLen(0)
         }
     }
+    impl core::fmt::Debug for Uep6TLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep6TLen")
+                .field("uep_tx_len", &self.uep_tx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 6 send control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep6TxCtrl(pub u8);
     impl Uep6TxCtrl {
         #[doc = "endpoint 6 control of the send response to IN transactions."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -2878,10 +3559,11 @@ pub mod regs {
         }
         #[doc = "endpoint 6 control of the send response to IN transactions."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "endpoint 6 synchronous trigger bit for the sender to. prepare."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -2889,10 +3571,11 @@ pub mod regs {
         }
         #[doc = "endpoint 6 synchronous trigger bit for the sender to. prepare."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "endpoint 6 sends the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -2900,10 +3583,11 @@ pub mod regs {
         }
         #[doc = "endpoint 6 sends the end flag."]
         #[inline(always)]
-        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_t_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 6 sends the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_t_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -2911,7 +3595,7 @@ pub mod regs {
         }
         #[doc = "endpoint 6 sends the end of NAK flag."]
         #[inline(always)]
-        pub fn set_endp_t_done(&mut self, val: bool) {
+        pub const fn set_endp_t_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -2921,12 +3605,23 @@ pub mod regs {
             Uep6TxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep6TxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep6TxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("uep_t_nak_act", &self.uep_t_nak_act())
+                .field("endp_t_done", &self.endp_t_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 6 sends the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep6TxDma(pub u32);
     impl Uep6TxDma {
         #[doc = "endpoint sends the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep6_tx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -2934,7 +3629,7 @@ pub mod regs {
         }
         #[doc = "endpoint sends the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep6_tx_dma(&mut self, val: u32) {
+        pub const fn set_uep6_tx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -2944,12 +3639,20 @@ pub mod regs {
             Uep6TxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep6TxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep6TxDma")
+                .field("uep6_tx_dma", &self.uep6_tx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 7 max length packet register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep7MaxLen(pub u32);
     impl Uep7MaxLen {
         #[doc = "endpoint 7 max acceptable offset length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep7_max_len(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x7f;
@@ -2957,7 +3660,7 @@ pub mod regs {
         }
         #[doc = "endpoint 7 max acceptable offset length."]
         #[inline(always)]
-        pub fn set_uep7_max_len(&mut self, val: u8) {
+        pub const fn set_uep7_max_len(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 0usize)) | (((val as u32) & 0x7f) << 0usize);
         }
     }
@@ -2967,12 +3670,20 @@ pub mod regs {
             Uep7MaxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep7MaxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep7MaxLen")
+                .field("uep7_max_len", &self.uep7_max_len())
+                .finish()
+        }
+    }
     #[doc = "the length register of the total received data at endpoint 7."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep7RSize(pub u16);
     impl Uep7RSize {
         #[doc = "the length of the total received data at endpoint 7."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep7_r_size(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -2980,7 +3691,7 @@ pub mod regs {
         }
         #[doc = "the length of the total received data at endpoint 7."]
         #[inline(always)]
-        pub fn set_uep7_r_size(&mut self, val: u16) {
+        pub const fn set_uep7_r_size(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -2990,12 +3701,20 @@ pub mod regs {
             Uep7RSize(0)
         }
     }
+    impl core::fmt::Debug for Uep7RSize {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep7RSize")
+                .field("uep7_r_size", &self.uep7_r_size())
+                .finish()
+        }
+    }
     #[doc = "endpoint 7 receive control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep7RxCtrl(pub u8);
     impl Uep7RxCtrl {
         #[doc = "endpoint 7 has control over the received response."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -3003,10 +3722,11 @@ pub mod regs {
         }
         #[doc = "endpoint 7 has control over the received response."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "the reception of endpoint 7 expects a synchronous trigger. bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -3014,10 +3734,11 @@ pub mod regs {
         }
         #[doc = "the reception of endpoint 7 expects a synchronous trigger. bit."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_tog_match(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -3025,10 +3746,11 @@ pub mod regs {
         }
         #[doc = "received synchronization trigger bit matches the desired. synchronization trigger bit state."]
         #[inline(always)]
-        pub fn set_endp_r_tog_match(&mut self, val: bool) {
+        pub const fn set_endp_r_tog_match(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "endpoint 7 for the received return NAK,packet type."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_tog(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -3036,10 +3758,11 @@ pub mod regs {
         }
         #[doc = "endpoint 7 for the received return NAK,packet type."]
         #[inline(always)]
-        pub fn set_uep_r_nak_tog(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "endpoint 7 receives the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -3047,10 +3770,11 @@ pub mod regs {
         }
         #[doc = "endpoint 7 receives the end of NAK flag."]
         #[inline(always)]
-        pub fn set_uep_r_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_r_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 7 receives the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_r_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -3058,7 +3782,7 @@ pub mod regs {
         }
         #[doc = "endpoint 7 receives the end flag."]
         #[inline(always)]
-        pub fn set_endp_r_done(&mut self, val: bool) {
+        pub const fn set_endp_r_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -3068,12 +3792,25 @@ pub mod regs {
             Uep7RxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep7RxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep7RxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("endp_r_tog_match", &self.endp_r_tog_match())
+                .field("uep_r_nak_tog", &self.uep_r_nak_tog())
+                .field("uep_r_nak_act", &self.uep_r_nak_act())
+                .field("endp_r_done", &self.endp_r_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 7 receives the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep7RxDma(pub u32);
     impl Uep7RxDma {
         #[doc = "endpoint receives the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep7_rx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -3081,7 +3818,7 @@ pub mod regs {
         }
         #[doc = "endpoint receives the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep7_rx_dma(&mut self, val: u32) {
+        pub const fn set_uep7_rx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -3091,12 +3828,20 @@ pub mod regs {
             Uep7RxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep7RxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep7RxDma")
+                .field("uep7_rx_dma", &self.uep7_rx_dma())
+                .finish()
+        }
+    }
     #[doc = "endpoint 7 receives the lenth register in a single pass."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep7RxLen(pub u16);
     impl Uep7RxLen {
         #[doc = "the length of data received by endpoint 7 in a single pass."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep7_rx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -3104,7 +3849,7 @@ pub mod regs {
         }
         #[doc = "the length of data received by endpoint 7 in a single pass."]
         #[inline(always)]
-        pub fn set_uep7_rx_len(&mut self, val: u16) {
+        pub const fn set_uep7_rx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -3114,12 +3859,20 @@ pub mod regs {
             Uep7RxLen(0)
         }
     }
+    impl core::fmt::Debug for Uep7RxLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep7RxLen")
+                .field("uep7_rx_len", &self.uep7_rx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 7 send the length register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep7TLen(pub u16);
     impl Uep7TLen {
         #[doc = "endpoint 7 send the length."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tx_len(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -3127,7 +3880,7 @@ pub mod regs {
         }
         #[doc = "endpoint 7 send the length."]
         #[inline(always)]
-        pub fn set_uep_tx_len(&mut self, val: u16) {
+        pub const fn set_uep_tx_len(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -3137,12 +3890,20 @@ pub mod regs {
             Uep7TLen(0)
         }
     }
+    impl core::fmt::Debug for Uep7TLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep7TLen")
+                .field("uep_tx_len", &self.uep_tx_len())
+                .finish()
+        }
+    }
     #[doc = "endpoint 7 send control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep7TxCtrl(pub u8);
     impl Uep7TxCtrl {
         #[doc = "endpoint 7 control of the send response to IN transactions."]
+        #[must_use]
         #[inline(always)]
         pub const fn res_mask(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -3150,10 +3911,11 @@ pub mod regs {
         }
         #[doc = "endpoint 7 control of the send response to IN transactions."]
         #[inline(always)]
-        pub fn set_res_mask(&mut self, val: u8) {
+        pub const fn set_res_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "endpoint 7 synchronous trigger bit for the sender to. prepare."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tog_mask(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -3161,10 +3923,11 @@ pub mod regs {
         }
         #[doc = "endpoint 7 synchronous trigger bit for the sender to. prepare."]
         #[inline(always)]
-        pub fn set_uep_tog_mask(&mut self, val: u8) {
+        pub const fn set_uep_tog_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u8) & 0x03) << 2usize);
         }
         #[doc = "endpoint 7 sends the end flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_nak_act(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -3172,10 +3935,11 @@ pub mod regs {
         }
         #[doc = "endpoint 7 sends the end flag."]
         #[inline(always)]
-        pub fn set_uep_t_nak_act(&mut self, val: bool) {
+        pub const fn set_uep_t_nak_act(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "endpoint 7 sends the end of NAK flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn endp_t_done(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -3183,7 +3947,7 @@ pub mod regs {
         }
         #[doc = "endpoint 7 sends the end of NAK flag."]
         #[inline(always)]
-        pub fn set_endp_t_done(&mut self, val: bool) {
+        pub const fn set_endp_t_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -3193,12 +3957,23 @@ pub mod regs {
             Uep7TxCtrl(0)
         }
     }
+    impl core::fmt::Debug for Uep7TxCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep7TxCtrl")
+                .field("res_mask", &self.res_mask())
+                .field("uep_tog_mask", &self.uep_tog_mask())
+                .field("uep_t_nak_act", &self.uep_t_nak_act())
+                .field("endp_t_done", &self.endp_t_done())
+                .finish()
+        }
+    }
     #[doc = "endpoint 7 sends the start address register of the buffer."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Uep7TxDma(pub u32);
     impl Uep7TxDma {
         #[doc = "endpoint sends the start address register of the buffer."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep7_tx_dma(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -3206,7 +3981,7 @@ pub mod regs {
         }
         #[doc = "endpoint sends the start address register of the buffer."]
         #[inline(always)]
-        pub fn set_uep7_tx_dma(&mut self, val: u32) {
+        pub const fn set_uep7_tx_dma(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -3216,12 +3991,20 @@ pub mod regs {
             Uep7TxDma(0)
         }
     }
+    impl core::fmt::Debug for Uep7TxDma {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Uep7TxDma")
+                .field("uep7_tx_dma", &self.uep7_tx_dma())
+                .finish()
+        }
+    }
     #[doc = "USB endpoint muitiplexing register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepAfMode(pub u32);
     impl UepAfMode {
         #[doc = "1 to 7 endpoint muitiplexing enables."]
+        #[must_use]
         #[inline(always)]
         pub const fn ep_t_af(&self) -> u8 {
             let val = (self.0 >> 1usize) & 0x7f;
@@ -3229,7 +4012,7 @@ pub mod regs {
         }
         #[doc = "1 to 7 endpoint muitiplexing enables."]
         #[inline(always)]
-        pub fn set_ep_t_af(&mut self, val: u8) {
+        pub const fn set_ep_t_af(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 1usize)) | (((val as u32) & 0x7f) << 1usize);
         }
     }
@@ -3239,12 +4022,20 @@ pub mod regs {
             UepAfMode(0)
         }
     }
+    impl core::fmt::Debug for UepAfMode {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepAfMode")
+                .field("ep_t_af", &self.ep_t_af())
+                .finish()
+        }
+    }
     #[doc = "USB endpoint receives the burst register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepRBurst(pub u8);
     impl UepRBurst {
         #[doc = "0 to 7 endpoint receive burst enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_burst_en(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -3252,7 +4043,7 @@ pub mod regs {
         }
         #[doc = "0 to 7 endpoint receive burst enable."]
         #[inline(always)]
-        pub fn set_uep_r_burst_en(&mut self, val: u8) {
+        pub const fn set_uep_r_burst_en(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -3262,12 +4053,20 @@ pub mod regs {
             UepRBurst(0)
         }
     }
+    impl core::fmt::Debug for UepRBurst {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepRBurst")
+                .field("uep_r_burst_en", &self.uep_r_burst_en())
+                .finish()
+        }
+    }
     #[doc = "usb endpoint receives a synchronous mode enable register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepRIso(pub u16);
     impl UepRIso {
         #[doc = "down endpoint(OUT) synchronization mode enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_iso(&self) -> u8 {
             let val = (self.0 >> 1usize) & 0x7f;
@@ -3275,7 +4074,7 @@ pub mod regs {
         }
         #[doc = "down endpoint(OUT) synchronization mode enabled."]
         #[inline(always)]
-        pub fn set_uep_r_iso(&mut self, val: u8) {
+        pub const fn set_uep_r_iso(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 1usize)) | (((val as u16) & 0x7f) << 1usize);
         }
     }
@@ -3285,12 +4084,20 @@ pub mod regs {
             UepRIso(0)
         }
     }
+    impl core::fmt::Debug for UepRIso {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepRIso")
+                .field("uep_r_iso", &self.uep_r_iso())
+                .finish()
+        }
+    }
     #[doc = "USB endpoint reply mode register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepRResMode(pub u8);
     impl UepRResMode {
         #[doc = "0 to 7 endpoint reply mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_res_mode(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -3298,7 +4105,7 @@ pub mod regs {
         }
         #[doc = "0 to 7 endpoint reply mode."]
         #[inline(always)]
-        pub fn set_uep_r_res_mode(&mut self, val: u8) {
+        pub const fn set_uep_r_res_mode(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -3308,12 +4115,20 @@ pub mod regs {
             UepRResMode(0)
         }
     }
+    impl core::fmt::Debug for UepRResMode {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepRResMode")
+                .field("uep_r_res_mode", &self.uep_r_res_mode())
+                .finish()
+        }
+    }
     #[doc = "USB endpoint receive the auto-filp enable register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepRTogAuto(pub u16);
     impl UepRTogAuto {
         #[doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_r_tog_auto(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -3321,7 +4136,7 @@ pub mod regs {
         }
         #[doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
         #[inline(always)]
-        pub fn set_uep_r_tog_auto(&mut self, val: u8) {
+        pub const fn set_uep_r_tog_auto(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u16) & 0xff) << 0usize);
         }
     }
@@ -3331,12 +4146,20 @@ pub mod regs {
             UepRTogAuto(0)
         }
     }
+    impl core::fmt::Debug for UepRTogAuto {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepRTogAuto")
+                .field("uep_r_tog_auto", &self.uep_r_tog_auto())
+                .finish()
+        }
+    }
     #[doc = "USB endpoint receive the enable registers."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepRxEn(pub u16);
     impl UepRxEn {
         #[doc = "Endpoint 0 to 15 receive enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_rx_en(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -3344,7 +4167,7 @@ pub mod regs {
         }
         #[doc = "Endpoint 0 to 15 receive enable."]
         #[inline(always)]
-        pub fn set_uep_rx_en(&mut self, val: u16) {
+        pub const fn set_uep_rx_en(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -3354,12 +4177,20 @@ pub mod regs {
             UepRxEn(0)
         }
     }
+    impl core::fmt::Debug for UepRxEn {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepRxEn")
+                .field("uep_rx_en", &self.uep_rx_en())
+                .finish()
+        }
+    }
     #[doc = "USB endpoint sends a burst register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepTBurst(pub u8);
     impl UepTBurst {
         #[doc = "0 to 7 endpoint send burst enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_burst_en(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -3367,7 +4198,7 @@ pub mod regs {
         }
         #[doc = "0 to 7 endpoint send burst enable."]
         #[inline(always)]
-        pub fn set_uep_t_burst_en(&mut self, val: u8) {
+        pub const fn set_uep_t_burst_en(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -3377,12 +4208,20 @@ pub mod regs {
             UepTBurst(0)
         }
     }
+    impl core::fmt::Debug for UepTBurst {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepTBurst")
+                .field("uep_t_burst_en", &self.uep_t_burst_en())
+                .finish()
+        }
+    }
     #[doc = "USB endpoint send the mode register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepTBurstMode(pub u8);
     impl UepTBurstMode {
         #[doc = "0 to 7 endpoint send the mode enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_burst_en(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -3390,7 +4229,7 @@ pub mod regs {
         }
         #[doc = "0 to 7 endpoint send the mode enable."]
         #[inline(always)]
-        pub fn set_uep_t_burst_en(&mut self, val: u8) {
+        pub const fn set_uep_t_burst_en(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -3400,12 +4239,20 @@ pub mod regs {
             UepTBurstMode(0)
         }
     }
+    impl core::fmt::Debug for UepTBurstMode {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepTBurstMode")
+                .field("uep_t_burst_en", &self.uep_t_burst_en())
+                .finish()
+        }
+    }
     #[doc = "usb endpoint sends a synchronous mode enable register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepTIso(pub u16);
     impl UepTIso {
         #[doc = "upload endpoint(IN) synchronization mode enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_iso(&self) -> u8 {
             let val = (self.0 >> 1usize) & 0x7f;
@@ -3413,7 +4260,7 @@ pub mod regs {
         }
         #[doc = "upload endpoint(IN) synchronization mode enabled."]
         #[inline(always)]
-        pub fn set_uep_t_iso(&mut self, val: u8) {
+        pub const fn set_uep_t_iso(&mut self, val: u8) {
             self.0 = (self.0 & !(0x7f << 1usize)) | (((val as u16) & 0x7f) << 1usize);
         }
     }
@@ -3423,12 +4270,20 @@ pub mod regs {
             UepTIso(0)
         }
     }
+    impl core::fmt::Debug for UepTIso {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepTIso")
+                .field("uep_t_iso", &self.uep_t_iso())
+                .finish()
+        }
+    }
     #[doc = "USB endpoint sends the auto-filp enable register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepTTogAuto(pub u16);
     impl UepTTogAuto {
         #[doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_t_tog_auto(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -3436,7 +4291,7 @@ pub mod regs {
         }
         #[doc = "0 to 7 endpoint synchronization triggers bit auto-filp. enable."]
         #[inline(always)]
-        pub fn set_uep_t_tog_auto(&mut self, val: u8) {
+        pub const fn set_uep_t_tog_auto(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u16) & 0xff) << 0usize);
         }
     }
@@ -3446,12 +4301,20 @@ pub mod regs {
             UepTTogAuto(0)
         }
     }
+    impl core::fmt::Debug for UepTTogAuto {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepTTogAuto")
+                .field("uep_t_tog_auto", &self.uep_t_tog_auto())
+                .finish()
+        }
+    }
     #[doc = "USB endpoint sends the enable register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct UepTxEn(pub u16);
     impl UepTxEn {
         #[doc = "Endpoint 0 to 15 sends enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn uep_tx_en(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -3459,7 +4322,7 @@ pub mod regs {
         }
         #[doc = "Endpoint 0 to 15 sends enable."]
         #[inline(always)]
-        pub fn set_uep_tx_en(&mut self, val: u16) {
+        pub const fn set_uep_tx_en(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -3469,12 +4332,20 @@ pub mod regs {
             UepTxEn(0)
         }
     }
+    impl core::fmt::Debug for UepTxEn {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepTxEn")
+                .field("uep_tx_en", &self.uep_tx_en())
+                .finish()
+        }
+    }
     #[doc = "USB remote wake up register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct WakeCtrl(pub u16);
     impl WakeCtrl {
         #[doc = "remote wake up."]
+        #[must_use]
         #[inline(always)]
         pub const fn rmt_wake(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -3482,7 +4353,7 @@ pub mod regs {
         }
         #[doc = "remote wake up."]
         #[inline(always)]
-        pub fn set_rmt_wake(&mut self, val: bool) {
+        pub const fn set_rmt_wake(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u16) & 0x01) << 0usize);
         }
     }
@@ -3490,6 +4361,13 @@ pub mod regs {
         #[inline(always)]
         fn default() -> WakeCtrl {
             WakeCtrl(0)
+        }
+    }
+    impl core::fmt::Debug for WakeCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("WakeCtrl")
+                .field("rmt_wake", &self.rmt_wake())
+                .finish()
         }
     }
 }

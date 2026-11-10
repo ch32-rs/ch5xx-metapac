@@ -22,32 +22,32 @@ impl Systick {
     #[doc = "Systick counter control register."]
     #[inline(always)]
     pub const fn stk_ctlr(self) -> crate::common::Reg<regs::StkCtlr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "Systick counter low register."]
     #[inline(always)]
     pub const fn stk_cntl(self) -> crate::common::Reg<regs::StkCntl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "Systick counter high register."]
     #[inline(always)]
     pub const fn stk_cnth(self) -> crate::common::Reg<regs::StkCnth, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x08usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "Systick compare low register."]
     #[inline(always)]
     pub const fn stk_cmplr(self) -> crate::common::Reg<regs::StkCmplr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0cusize) as _) }
     }
     #[doc = "Systick compare high register."]
     #[inline(always)]
     pub const fn stk_cmphr(self) -> crate::common::Reg<regs::StkCmphr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "Systick counter flag."]
     #[inline(always)]
     pub const fn stk_cntfg(self) -> crate::common::Reg<regs::StkCntfg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
 }
 pub mod regs {
@@ -57,6 +57,7 @@ pub mod regs {
     pub struct StkCmphr(pub u32);
     impl StkCmphr {
         #[doc = "RW,CMPH."]
+        #[must_use]
         #[inline(always)]
         pub const fn cmph(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -64,7 +65,7 @@ pub mod regs {
         }
         #[doc = "RW,CMPH."]
         #[inline(always)]
-        pub fn set_cmph(&mut self, val: u32) {
+        pub const fn set_cmph(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -74,12 +75,20 @@ pub mod regs {
             StkCmphr(0)
         }
     }
+    impl core::fmt::Debug for StkCmphr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("StkCmphr")
+                .field("cmph", &self.cmph())
+                .finish()
+        }
+    }
     #[doc = "Systick compare low register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct StkCmplr(pub u32);
     impl StkCmplr {
         #[doc = "RW,CMPL."]
+        #[must_use]
         #[inline(always)]
         pub const fn cmpl(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -87,7 +96,7 @@ pub mod regs {
         }
         #[doc = "RW,CMPL."]
         #[inline(always)]
-        pub fn set_cmpl(&mut self, val: u32) {
+        pub const fn set_cmpl(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -97,12 +106,20 @@ pub mod regs {
             StkCmplr(0)
         }
     }
+    impl core::fmt::Debug for StkCmplr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("StkCmplr")
+                .field("cmpl", &self.cmpl())
+                .finish()
+        }
+    }
     #[doc = "Systick counter flag."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct StkCntfg(pub u32);
     impl StkCntfg {
         #[doc = "RW0,System soft interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn swie(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -110,10 +127,11 @@ pub mod regs {
         }
         #[doc = "RW0,System soft interrupt enable."]
         #[inline(always)]
-        pub fn set_swie(&mut self, val: bool) {
+        pub const fn set_swie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "RW,Systick counter clear zero flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn cntif(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -121,7 +139,7 @@ pub mod regs {
         }
         #[doc = "RW,Systick counter clear zero flag."]
         #[inline(always)]
-        pub fn set_cntif(&mut self, val: bool) {
+        pub const fn set_cntif(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
     }
@@ -131,12 +149,21 @@ pub mod regs {
             StkCntfg(0)
         }
     }
+    impl core::fmt::Debug for StkCntfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("StkCntfg")
+                .field("swie", &self.swie())
+                .field("cntif", &self.cntif())
+                .finish()
+        }
+    }
     #[doc = "Systick counter high register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct StkCnth(pub u32);
     impl StkCnth {
         #[doc = "RW,CNTH."]
+        #[must_use]
         #[inline(always)]
         pub const fn cnth(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -144,7 +171,7 @@ pub mod regs {
         }
         #[doc = "RW,CNTH."]
         #[inline(always)]
-        pub fn set_cnth(&mut self, val: u32) {
+        pub const fn set_cnth(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -154,12 +181,20 @@ pub mod regs {
             StkCnth(0)
         }
     }
+    impl core::fmt::Debug for StkCnth {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("StkCnth")
+                .field("cnth", &self.cnth())
+                .finish()
+        }
+    }
     #[doc = "Systick counter low register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct StkCntl(pub u32);
     impl StkCntl {
         #[doc = "RW,CNTL."]
+        #[must_use]
         #[inline(always)]
         pub const fn cntl(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -167,7 +202,7 @@ pub mod regs {
         }
         #[doc = "RW,CNTL."]
         #[inline(always)]
-        pub fn set_cntl(&mut self, val: u32) {
+        pub const fn set_cntl(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -177,12 +212,20 @@ pub mod regs {
             StkCntl(0)
         }
     }
+    impl core::fmt::Debug for StkCntl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("StkCntl")
+                .field("cntl", &self.cntl())
+                .finish()
+        }
+    }
     #[doc = "Systick counter control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct StkCtlr(pub u32);
     impl StkCtlr {
         #[doc = "Systick counter enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ste(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -190,10 +233,11 @@ pub mod regs {
         }
         #[doc = "Systick counter enable."]
         #[inline(always)]
-        pub fn set_ste(&mut self, val: bool) {
+        pub const fn set_ste(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "Systick counter interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn stie(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -201,10 +245,11 @@ pub mod regs {
         }
         #[doc = "Systick counter interrupt enable."]
         #[inline(always)]
-        pub fn set_stie(&mut self, val: bool) {
+        pub const fn set_stie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
         #[doc = "System counter clock Source selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn stclk(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -212,10 +257,11 @@ pub mod regs {
         }
         #[doc = "System counter clock Source selection."]
         #[inline(always)]
-        pub fn set_stclk(&mut self, val: bool) {
+        pub const fn set_stclk(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
         #[doc = "System counter reload control."]
+        #[must_use]
         #[inline(always)]
         pub const fn streload(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
@@ -223,7 +269,7 @@ pub mod regs {
         }
         #[doc = "System counter reload control."]
         #[inline(always)]
-        pub fn set_streload(&mut self, val: bool) {
+        pub const fn set_streload(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
     }
@@ -231,6 +277,16 @@ pub mod regs {
         #[inline(always)]
         fn default() -> StkCtlr {
             StkCtlr(0)
+        }
+    }
+    impl core::fmt::Debug for StkCtlr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("StkCtlr")
+                .field("ste", &self.ste())
+                .field("stie", &self.stie())
+                .field("stclk", &self.stclk())
+                .field("streload", &self.streload())
+                .finish()
         }
     }
 }

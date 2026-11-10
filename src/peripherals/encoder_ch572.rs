@@ -22,27 +22,27 @@ impl Encoder {
     #[doc = "RW, Encoder mode control register."]
     #[inline(always)]
     pub const fn reg_ctrl(self) -> crate::common::Reg<regs::RegCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x20usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
     #[doc = "RW, Encoder mode interrupt enable register."]
     #[inline(always)]
     pub const fn inter_en(self) -> crate::common::Reg<regs::InterEn, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x21usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x21usize) as _) }
     }
     #[doc = "RW, Encoder mode interrupt flag register."]
     #[inline(always)]
     pub const fn int_flag(self) -> crate::common::Reg<regs::IntFlag, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x22usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x22usize) as _) }
     }
     #[doc = "RW, Encoder mode final value configuration register."]
     #[inline(always)]
     pub const fn reg_cend(self) -> crate::common::Reg<regs::RegCend, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x24usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x24usize) as _) }
     }
     #[doc = "RW, Encoder mode current value configuration register."]
     #[inline(always)]
     pub const fn reg_ccnt(self) -> crate::common::Reg<regs::RegCcnt, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x28usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
     }
 }
 pub mod regs {
@@ -52,6 +52,7 @@ pub mod regs {
     pub struct IntFlag(pub u8);
     impl IntFlag {
         #[doc = "RW, Encoder mode forward interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_dir_inc(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -59,10 +60,11 @@ pub mod regs {
         }
         #[doc = "RW, Encoder mode forward interrupt flag."]
         #[inline(always)]
-        pub fn set_if_dir_inc(&mut self, val: bool) {
+        pub const fn set_if_dir_inc(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "RW, Encoder mode backward interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_dir_dec(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -70,7 +72,7 @@ pub mod regs {
         }
         #[doc = "RW, Encoder mode backward interrupt flag."]
         #[inline(always)]
-        pub fn set_if_dir_dec(&mut self, val: bool) {
+        pub const fn set_if_dir_dec(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
     }
@@ -80,12 +82,21 @@ pub mod regs {
             IntFlag(0)
         }
     }
+    impl core::fmt::Debug for IntFlag {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("IntFlag")
+                .field("if_dir_inc", &self.if_dir_inc())
+                .field("if_dir_dec", &self.if_dir_dec())
+                .finish()
+        }
+    }
     #[doc = "RW, Encoder mode interrupt enable register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct InterEn(pub u8);
     impl InterEn {
         #[doc = "RW, Encoder mode forward interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_dir_inc(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -93,10 +104,11 @@ pub mod regs {
         }
         #[doc = "RW, Encoder mode forward interrupt enable."]
         #[inline(always)]
-        pub fn set_ie_dir_inc(&mut self, val: bool) {
+        pub const fn set_ie_dir_inc(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "RW, Encoder mode backward interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_dir_dec(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -104,7 +116,7 @@ pub mod regs {
         }
         #[doc = "RW, Encoder mode backward interrupt enable."]
         #[inline(always)]
-        pub fn set_ie_dir_dec(&mut self, val: bool) {
+        pub const fn set_ie_dir_dec(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
     }
@@ -114,12 +126,21 @@ pub mod regs {
             InterEn(0)
         }
     }
+    impl core::fmt::Debug for InterEn {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("InterEn")
+                .field("ie_dir_inc", &self.ie_dir_inc())
+                .field("ie_dir_dec", &self.ie_dir_dec())
+                .finish()
+        }
+    }
     #[doc = "RW, Encoder mode current value configuration register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct RegCcnt(pub u32);
     impl RegCcnt {
         #[doc = "RO, Current encoder mode value."]
+        #[must_use]
         #[inline(always)]
         pub const fn reg_ccnt(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -127,7 +148,7 @@ pub mod regs {
         }
         #[doc = "RO, Current encoder mode value."]
         #[inline(always)]
-        pub fn set_reg_ccnt(&mut self, val: u32) {
+        pub const fn set_reg_ccnt(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -137,12 +158,20 @@ pub mod regs {
             RegCcnt(0)
         }
     }
+    impl core::fmt::Debug for RegCcnt {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("RegCcnt")
+                .field("reg_ccnt", &self.reg_ccnt())
+                .finish()
+        }
+    }
     #[doc = "RW, Encoder mode final value configuration register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct RegCend(pub u32);
     impl RegCend {
         #[doc = "RW, Preset encoder mode final value."]
+        #[must_use]
         #[inline(always)]
         pub const fn reg_cend(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -150,7 +179,7 @@ pub mod regs {
         }
         #[doc = "RW, Preset encoder mode final value."]
         #[inline(always)]
-        pub fn set_reg_cend(&mut self, val: u32) {
+        pub const fn set_reg_cend(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -160,12 +189,20 @@ pub mod regs {
             RegCend(0)
         }
     }
+    impl core::fmt::Debug for RegCend {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("RegCend")
+                .field("reg_cend", &self.reg_cend())
+                .finish()
+        }
+    }
     #[doc = "RW, Encoder mode control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct RegCtrl(pub u8);
     impl RegCtrl {
         #[doc = "RW, Enable encoder mode operation."]
+        #[must_use]
         #[inline(always)]
         pub const fn start_enc_en(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -173,10 +210,11 @@ pub mod regs {
         }
         #[doc = "RW, Enable encoder mode operation."]
         #[inline(always)]
-        pub fn set_start_enc_en(&mut self, val: bool) {
+        pub const fn set_start_enc_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "RW, Encoder mode edge working mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn sms_mode(&self) -> u8 {
             let val = (self.0 >> 1usize) & 0x03;
@@ -184,10 +222,11 @@ pub mod regs {
         }
         #[doc = "RW, Encoder mode edge working mode."]
         #[inline(always)]
-        pub fn set_sms_mode(&mut self, val: u8) {
+        pub const fn set_sms_mode(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 1usize)) | (((val as u8) & 0x03) << 1usize);
         }
         #[doc = "RW, Encoder mode reads count and resets to zero."]
+        #[must_use]
         #[inline(always)]
         pub const fn rd_clr_en(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -195,10 +234,11 @@ pub mod regs {
         }
         #[doc = "RW, Encoder mode reads count and resets to zero."]
         #[inline(always)]
-        pub fn set_rd_clr_en(&mut self, val: bool) {
+        pub const fn set_rd_clr_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "RO, Current direction of encoder."]
+        #[must_use]
         #[inline(always)]
         pub const fn dir(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -206,7 +246,7 @@ pub mod regs {
         }
         #[doc = "RO, Current direction of encoder."]
         #[inline(always)]
-        pub fn set_dir(&mut self, val: bool) {
+        pub const fn set_dir(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
     }
@@ -214,6 +254,16 @@ pub mod regs {
         #[inline(always)]
         fn default() -> RegCtrl {
             RegCtrl(0)
+        }
+    }
+    impl core::fmt::Debug for RegCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("RegCtrl")
+                .field("start_enc_en", &self.start_enc_en())
+                .field("sms_mode", &self.sms_mode())
+                .field("rd_clr_en", &self.rd_clr_en())
+                .field("dir", &self.dir())
+                .finish()
         }
     }
 }

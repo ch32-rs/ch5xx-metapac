@@ -22,37 +22,37 @@ impl Led {
     #[doc = "RW, LED mode configuration register."]
     #[inline(always)]
     pub const fn ctrl_mod(self) -> crate::common::Reg<regs::CtrlMod, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "RW, LED serial clock divider register."]
     #[inline(always)]
     pub const fn clock_div(self) -> crate::common::Reg<regs::ClockDiv, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x01usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x01usize) as _) }
     }
     #[doc = "RW1, LED status register."]
     #[inline(always)]
     pub const fn status(self) -> crate::common::Reg<regs::Status, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "WO, LED data FIFO register."]
     #[inline(always)]
     pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x08usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "WO, LED DMA transmission length."]
     #[inline(always)]
     pub const fn dma_cnt(self) -> crate::common::Reg<regs::DmaCnt, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "WO, LED main buffer DMA address."]
     #[inline(always)]
     pub const fn dma_main(self) -> crate::common::Reg<regs::DmaMain, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
     #[doc = "RW, LED auxiliary buffer DMA address."]
     #[inline(always)]
     pub const fn dma_aux(self) -> crate::common::Reg<regs::DmaAux, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x18usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
 }
 pub mod regs {
@@ -62,6 +62,7 @@ pub mod regs {
     pub struct ClockDiv(pub u8);
     impl ClockDiv {
         #[doc = "LED output clock frequency division coefficient."]
+        #[must_use]
         #[inline(always)]
         pub const fn clock_div(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -69,7 +70,7 @@ pub mod regs {
         }
         #[doc = "LED output clock frequency division coefficient."]
         #[inline(always)]
-        pub fn set_clock_div(&mut self, val: u8) {
+        pub const fn set_clock_div(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -79,12 +80,20 @@ pub mod regs {
             ClockDiv(0)
         }
     }
+    impl core::fmt::Debug for ClockDiv {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("ClockDiv")
+                .field("clock_div", &self.clock_div())
+                .finish()
+        }
+    }
     #[doc = "RW, LED mode configuration register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct CtrlMod(pub u8);
     impl CtrlMod {
         #[doc = "Selection of LED serial data bit sequence."]
+        #[must_use]
         #[inline(always)]
         pub const fn bit_order(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -92,10 +101,11 @@ pub mod regs {
         }
         #[doc = "Selection of LED serial data bit sequence."]
         #[inline(always)]
-        pub fn set_bit_order(&mut self, val: bool) {
+        pub const fn set_bit_order(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "LED FIFO/counter/interrupt flag reset to zero."]
+        #[must_use]
         #[inline(always)]
         pub const fn all_clear(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -103,10 +113,11 @@ pub mod regs {
         }
         #[doc = "LED FIFO/counter/interrupt flag reset to zero."]
         #[inline(always)]
-        pub fn set_all_clear(&mut self, val: bool) {
+        pub const fn set_all_clear(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "LED data output polarity control bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn out_polar(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -114,10 +125,11 @@ pub mod regs {
         }
         #[doc = "LED data output polarity control bit."]
         #[inline(always)]
-        pub fn set_out_polar(&mut self, val: bool) {
+        pub const fn set_out_polar(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "LED signal output enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn out_en(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -125,10 +137,11 @@ pub mod regs {
         }
         #[doc = "LED signal output enable."]
         #[inline(always)]
-        pub fn set_out_en(&mut self, val: bool) {
+        pub const fn set_out_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "LED DMA function and DMA interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_en(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -136,10 +149,11 @@ pub mod regs {
         }
         #[doc = "LED DMA function and DMA interrupt enable."]
         #[inline(always)]
-        pub fn set_dma_en(&mut self, val: bool) {
+        pub const fn set_dma_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "FIFO count over half interrupt enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_fifo(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -147,10 +161,11 @@ pub mod regs {
         }
         #[doc = "FIFO count over half interrupt enabled."]
         #[inline(always)]
-        pub fn set_ie_fifo(&mut self, val: bool) {
+        pub const fn set_ie_fifo(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "LED channel mode selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn chan_mod(&self) -> u8 {
             let val = (self.0 >> 6usize) & 0x03;
@@ -158,7 +173,7 @@ pub mod regs {
         }
         #[doc = "LED channel mode selection."]
         #[inline(always)]
-        pub fn set_chan_mod(&mut self, val: u8) {
+        pub const fn set_chan_mod(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 6usize)) | (((val as u8) & 0x03) << 6usize);
         }
     }
@@ -168,12 +183,26 @@ pub mod regs {
             CtrlMod(0)
         }
     }
+    impl core::fmt::Debug for CtrlMod {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("CtrlMod")
+                .field("bit_order", &self.bit_order())
+                .field("all_clear", &self.all_clear())
+                .field("out_polar", &self.out_polar())
+                .field("out_en", &self.out_en())
+                .field("dma_en", &self.dma_en())
+                .field("ie_fifo", &self.ie_fifo())
+                .field("chan_mod", &self.chan_mod())
+                .finish()
+        }
+    }
     #[doc = "RW, LED auxiliary buffer DMA address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaAux(pub u16);
     impl DmaAux {
         #[doc = "LED auxiliary buffer DMA address."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_aux(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -181,7 +210,7 @@ pub mod regs {
         }
         #[doc = "LED auxiliary buffer DMA address."]
         #[inline(always)]
-        pub fn set_dma_aux(&mut self, val: u16) {
+        pub const fn set_dma_aux(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -191,12 +220,20 @@ pub mod regs {
             DmaAux(0)
         }
     }
+    impl core::fmt::Debug for DmaAux {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaAux")
+                .field("dma_aux", &self.dma_aux())
+                .finish()
+        }
+    }
     #[doc = "WO, LED DMA transmission length."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaCnt(pub u16);
     impl DmaCnt {
         #[doc = "DMA transmission count length."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_cnt(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -204,7 +241,7 @@ pub mod regs {
         }
         #[doc = "DMA transmission count length."]
         #[inline(always)]
-        pub fn set_dma_cnt(&mut self, val: u16) {
+        pub const fn set_dma_cnt(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -214,12 +251,20 @@ pub mod regs {
             DmaCnt(0)
         }
     }
+    impl core::fmt::Debug for DmaCnt {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaCnt")
+                .field("dma_cnt", &self.dma_cnt())
+                .finish()
+        }
+    }
     #[doc = "WO, LED main buffer DMA address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaMain(pub u16);
     impl DmaMain {
         #[doc = "LED main buffer DMA address."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_main(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -227,7 +272,7 @@ pub mod regs {
         }
         #[doc = "LED main buffer DMA address."]
         #[inline(always)]
-        pub fn set_dma_main(&mut self, val: u16) {
+        pub const fn set_dma_main(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -237,12 +282,20 @@ pub mod regs {
             DmaMain(0)
         }
     }
+    impl core::fmt::Debug for DmaMain {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaMain")
+                .field("dma_main", &self.dma_main())
+                .finish()
+        }
+    }
     #[doc = "WO, LED data FIFO register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Fifo(pub u16);
     impl Fifo {
         #[doc = "LED data FIFO input, 16-bit write."]
+        #[must_use]
         #[inline(always)]
         pub const fn fifo(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -250,7 +303,7 @@ pub mod regs {
         }
         #[doc = "LED data FIFO input, 16-bit write."]
         #[inline(always)]
-        pub fn set_fifo(&mut self, val: u16) {
+        pub const fn set_fifo(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -260,12 +313,18 @@ pub mod regs {
             Fifo(0)
         }
     }
+    impl core::fmt::Debug for Fifo {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Fifo").field("fifo", &self.fifo()).finish()
+        }
+    }
     #[doc = "RW1, LED status register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Status(pub u8);
     impl Status {
         #[doc = "The byte count value in the current FIFO must be even."]
+        #[must_use]
         #[inline(always)]
         pub const fn fifo_count(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x07;
@@ -273,10 +332,11 @@ pub mod regs {
         }
         #[doc = "The byte count value in the current FIFO must be even."]
         #[inline(always)]
-        pub fn set_fifo_count(&mut self, val: u8) {
+        pub const fn set_fifo_count(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 0usize)) | (((val as u8) & 0x07) << 0usize);
         }
         #[doc = "Current LED clock signal level status."]
+        #[must_use]
         #[inline(always)]
         pub const fn clock(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -284,10 +344,11 @@ pub mod regs {
         }
         #[doc = "Current LED clock signal level status."]
         #[inline(always)]
-        pub fn set_clock(&mut self, val: bool) {
+        pub const fn set_clock(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "FIFO count over half interrupt flag, write 1 to reset or write R16_SED_LFO to reset."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_fifo(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -295,10 +356,11 @@ pub mod regs {
         }
         #[doc = "FIFO count over half interrupt flag, write 1 to reset or write R16_SED_LFO to reset."]
         #[inline(always)]
-        pub fn set_if_fifo(&mut self, val: bool) {
+        pub const fn set_if_fifo(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "FIFO empty status bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn fifo_empty(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -306,10 +368,11 @@ pub mod regs {
         }
         #[doc = "FIFO empty status bit."]
         #[inline(always)]
-        pub fn set_fifo_empty(&mut self, val: bool) {
+        pub const fn set_fifo_empty(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "DMA completion flag bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_dma_end(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -317,7 +380,7 @@ pub mod regs {
         }
         #[doc = "DMA completion flag bit."]
         #[inline(always)]
-        pub fn set_if_dma_end(&mut self, val: bool) {
+        pub const fn set_if_dma_end(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -325,6 +388,17 @@ pub mod regs {
         #[inline(always)]
         fn default() -> Status {
             Status(0)
+        }
+    }
+    impl core::fmt::Debug for Status {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Status")
+                .field("fifo_count", &self.fifo_count())
+                .field("clock", &self.clock())
+                .field("if_fifo", &self.if_fifo())
+                .field("fifo_empty", &self.fifo_empty())
+                .field("if_dma_end", &self.if_dma_end())
+                .finish()
         }
     }
 }

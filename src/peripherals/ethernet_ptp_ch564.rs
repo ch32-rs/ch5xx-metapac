@@ -22,47 +22,47 @@ impl EthernetPtp {
     #[doc = "Ethernet PTP time stamp control register. (ETH_PTPTSCR)."]
     #[inline(always)]
     pub const fn ptptscr(self) -> crate::common::Reg<regs::Ptptscr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "Ethernet PTP subsecond increment. register."]
     #[inline(always)]
     pub const fn ptpssir(self) -> crate::common::Reg<regs::Ptpssir, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "Ethernet PTP time stamp high. register."]
     #[inline(always)]
     pub const fn ptptshr(self) -> crate::common::Reg<regs::Ptptshr, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x08usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "Ethernet PTP time stamp low register. (ETH_PTPTSLR)."]
     #[inline(always)]
     pub const fn ptptslr(self) -> crate::common::Reg<regs::Ptptslr, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0cusize) as _) }
     }
     #[doc = "Ethernet PTP time stamp high update. register."]
     #[inline(always)]
     pub const fn ptptshur(self) -> crate::common::Reg<regs::Ptptshur, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "Ethernet PTP time stamp low update register. (ETH_PTPTSLUR)."]
     #[inline(always)]
     pub const fn ptptslur(self) -> crate::common::Reg<regs::Ptptslur, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
     #[doc = "Ethernet PTP time stamp addend. register."]
     #[inline(always)]
     pub const fn ptptsar(self) -> crate::common::Reg<regs::Ptptsar, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x18usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
     #[doc = "Ethernet PTP target time high. register."]
     #[inline(always)]
     pub const fn ptptthr(self) -> crate::common::Reg<regs::Ptptthr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1cusize) as _) }
     }
     #[doc = "Ethernet PTP target time low. register."]
     #[inline(always)]
     pub const fn ptpttlr(self) -> crate::common::Reg<regs::Ptpttlr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x20usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
 }
 pub mod regs {
@@ -72,6 +72,7 @@ pub mod regs {
     pub struct Ptpssir(pub u32);
     impl Ptpssir {
         #[doc = "System time subsecond. increment."]
+        #[must_use]
         #[inline(always)]
         pub const fn stssi(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -79,7 +80,7 @@ pub mod regs {
         }
         #[doc = "System time subsecond. increment."]
         #[inline(always)]
-        pub fn set_stssi(&mut self, val: u8) {
+        pub const fn set_stssi(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u32) & 0xff) << 0usize);
         }
     }
@@ -89,12 +90,20 @@ pub mod regs {
             Ptpssir(0)
         }
     }
+    impl core::fmt::Debug for Ptpssir {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ptpssir")
+                .field("stssi", &self.stssi())
+                .finish()
+        }
+    }
     #[doc = "Ethernet PTP time stamp addend. register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ptptsar(pub u32);
     impl Ptptsar {
         #[doc = "Time stamp addend."]
+        #[must_use]
         #[inline(always)]
         pub const fn tsa(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -102,7 +111,7 @@ pub mod regs {
         }
         #[doc = "Time stamp addend."]
         #[inline(always)]
-        pub fn set_tsa(&mut self, val: u32) {
+        pub const fn set_tsa(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -112,12 +121,18 @@ pub mod regs {
             Ptptsar(0)
         }
     }
+    impl core::fmt::Debug for Ptptsar {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ptptsar").field("tsa", &self.tsa()).finish()
+        }
+    }
     #[doc = "Ethernet PTP time stamp control register. (ETH_PTPTSCR)."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ptptscr(pub u32);
     impl Ptptscr {
         #[doc = "Time stamp enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn tse(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -125,10 +140,11 @@ pub mod regs {
         }
         #[doc = "Time stamp enable."]
         #[inline(always)]
-        pub fn set_tse(&mut self, val: bool) {
+        pub const fn set_tse(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "Time stamp fine or coarse. update."]
+        #[must_use]
         #[inline(always)]
         pub const fn tsfcu(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -136,10 +152,11 @@ pub mod regs {
         }
         #[doc = "Time stamp fine or coarse. update."]
         #[inline(always)]
-        pub fn set_tsfcu(&mut self, val: bool) {
+        pub const fn set_tsfcu(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
         #[doc = "Time stamp system time. initialize."]
+        #[must_use]
         #[inline(always)]
         pub const fn tssti(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -147,10 +164,11 @@ pub mod regs {
         }
         #[doc = "Time stamp system time. initialize."]
         #[inline(always)]
-        pub fn set_tssti(&mut self, val: bool) {
+        pub const fn set_tssti(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
         #[doc = "Time stamp system time. update."]
+        #[must_use]
         #[inline(always)]
         pub const fn tsstu(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -158,10 +176,11 @@ pub mod regs {
         }
         #[doc = "Time stamp system time. update."]
         #[inline(always)]
-        pub fn set_tsstu(&mut self, val: bool) {
+        pub const fn set_tsstu(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
         }
         #[doc = "Time stamp interrupt trigger. enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn tsite(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -169,10 +188,11 @@ pub mod regs {
         }
         #[doc = "Time stamp interrupt trigger. enable."]
         #[inline(always)]
-        pub fn set_tsite(&mut self, val: bool) {
+        pub const fn set_tsite(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
         }
         #[doc = "Time stamp addend register. update."]
+        #[must_use]
         #[inline(always)]
         pub const fn tsaru(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -180,7 +200,7 @@ pub mod regs {
         }
         #[doc = "Time stamp addend register. update."]
         #[inline(always)]
-        pub fn set_tsaru(&mut self, val: bool) {
+        pub const fn set_tsaru(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
         }
     }
@@ -190,12 +210,25 @@ pub mod regs {
             Ptptscr(0)
         }
     }
+    impl core::fmt::Debug for Ptptscr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ptptscr")
+                .field("tse", &self.tse())
+                .field("tsfcu", &self.tsfcu())
+                .field("tssti", &self.tssti())
+                .field("tsstu", &self.tsstu())
+                .field("tsite", &self.tsite())
+                .field("tsaru", &self.tsaru())
+                .finish()
+        }
+    }
     #[doc = "Ethernet PTP time stamp high. register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ptptshr(pub u32);
     impl Ptptshr {
         #[doc = "PTP System time value."]
+        #[must_use]
         #[inline(always)]
         pub const fn tshr(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -203,7 +236,7 @@ pub mod regs {
         }
         #[doc = "PTP System time value."]
         #[inline(always)]
-        pub fn set_tshr(&mut self, val: u32) {
+        pub const fn set_tshr(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -213,12 +246,20 @@ pub mod regs {
             Ptptshr(0)
         }
     }
+    impl core::fmt::Debug for Ptptshr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ptptshr")
+                .field("tshr", &self.tshr())
+                .finish()
+        }
+    }
     #[doc = "Ethernet PTP time stamp high update. register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ptptshur(pub u32);
     impl Ptptshur {
         #[doc = "Time stamp update second."]
+        #[must_use]
         #[inline(always)]
         pub const fn tsus(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -226,7 +267,7 @@ pub mod regs {
         }
         #[doc = "Time stamp update second."]
         #[inline(always)]
-        pub fn set_tsus(&mut self, val: u32) {
+        pub const fn set_tsus(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -236,12 +277,20 @@ pub mod regs {
             Ptptshur(0)
         }
     }
+    impl core::fmt::Debug for Ptptshur {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ptptshur")
+                .field("tsus", &self.tsus())
+                .finish()
+        }
+    }
     #[doc = "Ethernet PTP time stamp low register. (ETH_PTPTSLR)."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ptptslr(pub u32);
     impl Ptptslr {
         #[doc = "System time subseconds."]
+        #[must_use]
         #[inline(always)]
         pub const fn stss(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x7fff_ffff;
@@ -249,10 +298,11 @@ pub mod regs {
         }
         #[doc = "System time subseconds."]
         #[inline(always)]
-        pub fn set_stss(&mut self, val: u32) {
+        pub const fn set_stss(&mut self, val: u32) {
             self.0 = (self.0 & !(0x7fff_ffff << 0usize)) | (((val as u32) & 0x7fff_ffff) << 0usize);
         }
         #[doc = "System time positive or negative. sign."]
+        #[must_use]
         #[inline(always)]
         pub const fn stpns(&self) -> bool {
             let val = (self.0 >> 31usize) & 0x01;
@@ -260,7 +310,7 @@ pub mod regs {
         }
         #[doc = "System time positive or negative. sign."]
         #[inline(always)]
-        pub fn set_stpns(&mut self, val: bool) {
+        pub const fn set_stpns(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 31usize)) | (((val as u32) & 0x01) << 31usize);
         }
     }
@@ -270,12 +320,21 @@ pub mod regs {
             Ptptslr(0)
         }
     }
+    impl core::fmt::Debug for Ptptslr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ptptslr")
+                .field("stss", &self.stss())
+                .field("stpns", &self.stpns())
+                .finish()
+        }
+    }
     #[doc = "Ethernet PTP time stamp low update register. (ETH_PTPTSLUR)."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ptptslur(pub u32);
     impl Ptptslur {
         #[doc = "Time stamp update. subseconds."]
+        #[must_use]
         #[inline(always)]
         pub const fn tsuss(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -283,7 +342,7 @@ pub mod regs {
         }
         #[doc = "Time stamp update. subseconds."]
         #[inline(always)]
-        pub fn set_tsuss(&mut self, val: u32) {
+        pub const fn set_tsuss(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -293,12 +352,20 @@ pub mod regs {
             Ptptslur(0)
         }
     }
+    impl core::fmt::Debug for Ptptslur {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ptptslur")
+                .field("tsuss", &self.tsuss())
+                .finish()
+        }
+    }
     #[doc = "Ethernet PTP target time high. register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ptptthr(pub u32);
     impl Ptptthr {
         #[doc = "Target time stamp high."]
+        #[must_use]
         #[inline(always)]
         pub const fn ttsh(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -306,7 +373,7 @@ pub mod regs {
         }
         #[doc = "Target time stamp high."]
         #[inline(always)]
-        pub fn set_ttsh(&mut self, val: u32) {
+        pub const fn set_ttsh(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -316,12 +383,20 @@ pub mod regs {
             Ptptthr(0)
         }
     }
+    impl core::fmt::Debug for Ptptthr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ptptthr")
+                .field("ttsh", &self.ttsh())
+                .finish()
+        }
+    }
     #[doc = "Ethernet PTP target time low. register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ptpttlr(pub u32);
     impl Ptpttlr {
         #[doc = "Target time stamp low."]
+        #[must_use]
         #[inline(always)]
         pub const fn ttsl(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -329,7 +404,7 @@ pub mod regs {
         }
         #[doc = "Target time stamp low."]
         #[inline(always)]
-        pub fn set_ttsl(&mut self, val: u32) {
+        pub const fn set_ttsl(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -337,6 +412,13 @@ pub mod regs {
         #[inline(always)]
         fn default() -> Ptpttlr {
             Ptpttlr(0)
+        }
+    }
+    impl core::fmt::Debug for Ptpttlr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ptpttlr")
+                .field("ttsl", &self.ttsl())
+                .finish()
         }
     }
 }

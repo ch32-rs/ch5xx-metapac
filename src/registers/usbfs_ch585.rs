@@ -740,9 +740,9 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
-                    name: "epn_mode",
+                    name: "ep_mode",
                     description: Some(
-                        "endpoint n control,（n=8/10/11/12/13/14/15）.",
+                        "endpoint 8-15 control.",
                     ),
                     array: None,
                     byte_offset: 0x70,
@@ -751,7 +751,7 @@ pub(crate) static REGISTERS: IR = IR {
                             access: Access::ReadWrite,
                             bit_size: 32,
                             fieldset: Some(
-                                "EpnMode",
+                                "EpMode",
                             ),
                         },
                     ),
@@ -921,10 +921,10 @@ pub(crate) static REGISTERS: IR = IR {
             ],
         },
         FieldSet {
-            name: "EpnMode",
+            name: "EpMode",
             extends: None,
             description: Some(
-                "endpoint n control,（n=8/10/11/12/13/14/15）.",
+                "endpoint 8-15 control.",
             ),
             bit_size: 32,
             fields: &[
@@ -938,8 +938,15 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 8,
-                    array: None,
+                    bit_size: 1,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 8,
+                                stride: 1,
+                            },
+                        ),
+                    ),
                     enumm: None,
                 },
                 Field {
@@ -952,8 +959,15 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 8,
                         },
                     ),
-                    bit_size: 8,
-                    array: None,
+                    bit_size: 1,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 8,
+                                stride: 1,
+                            },
+                        ),
+                    ),
                     enumm: None,
                 },
                 Field {
@@ -966,8 +980,15 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 17,
                         },
                     ),
-                    bit_size: 7,
-                    array: None,
+                    bit_size: 1,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 7,
+                                stride: 1,
+                            },
+                        ),
+                    ),
                     enumm: None,
                 },
             ],

@@ -22,127 +22,127 @@ impl Ecdc {
     #[doc = "ECDC AES/SM4 register."]
     #[inline(always)]
     pub const fn ctrl(self) -> crate::common::Reg<regs::Ctrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "Interupt enable register."]
     #[inline(always)]
     pub const fn int_en(self) -> crate::common::Reg<regs::IntEn, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x02usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x02usize) as _) }
     }
     #[doc = "Interupt flag register."]
     #[inline(always)]
     pub const fn int_fg(self) -> crate::common::Reg<regs::IntFg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x06usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x06usize) as _) }
     }
     #[doc = "User key 224-255 register."]
     #[inline(always)]
     pub const fn key_255t224(self) -> crate::common::Reg<regs::Key255t224, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x08usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "User key 192-223 register."]
     #[inline(always)]
     pub const fn key_223t192(self) -> crate::common::Reg<regs::Key223t192, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0cusize) as _) }
     }
     #[doc = "User key 160-191 register."]
     #[inline(always)]
     pub const fn key_191t160(self) -> crate::common::Reg<regs::Key191t160, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "User key 128-159 register."]
     #[inline(always)]
     pub const fn key_159t128(self) -> crate::common::Reg<regs::Key159t128, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
     #[doc = "User key 96-127 register."]
     #[inline(always)]
     pub const fn key_127t96(self) -> crate::common::Reg<regs::Key127t96, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x18usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
     #[doc = "User key 64-95 register."]
     #[inline(always)]
     pub const fn key_95t64(self) -> crate::common::Reg<regs::Key95t64, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1cusize) as _) }
     }
     #[doc = "User key 32-63 register."]
     #[inline(always)]
     pub const fn key_63t32(self) -> crate::common::Reg<regs::Key63t32, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x20usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
     #[doc = "User key 0-31 register."]
     #[inline(always)]
     pub const fn key_31t0(self) -> crate::common::Reg<regs::Key31t0, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x24usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x24usize) as _) }
     }
     #[doc = "CTR mode count 96-127 register."]
     #[inline(always)]
     pub const fn iv_127t96(self) -> crate::common::Reg<regs::Iv127t96, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x28usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x28usize) as _) }
     }
     #[doc = "CTR mode count 64-95 register."]
     #[inline(always)]
     pub const fn iv_95t64(self) -> crate::common::Reg<regs::Iv95t64, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x2cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x2cusize) as _) }
     }
     #[doc = "CTR mode count 32-63 register."]
     #[inline(always)]
     pub const fn iv_63t32(self) -> crate::common::Reg<regs::Iv63t32, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x30usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x30usize) as _) }
     }
     #[doc = "CTR mode count 0-31 register."]
     #[inline(always)]
     pub const fn iv_31t0(self) -> crate::common::Reg<regs::Iv31t0, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x34usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x34usize) as _) }
     }
     #[doc = "Single encryption and decryption of original data 96-127 register."]
     #[inline(always)]
     pub const fn sgsd_127t96(self) -> crate::common::Reg<regs::Sgsd127t96, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x40usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x40usize) as _) }
     }
     #[doc = "Single encryption and decryption of original data 64-95 register."]
     #[inline(always)]
     pub const fn sgsd_95t64(self) -> crate::common::Reg<regs::Sgsd95t64, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x44usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x44usize) as _) }
     }
     #[doc = "Single encryption and decryption of original data 32-63 register."]
     #[inline(always)]
     pub const fn sgsd_63t32(self) -> crate::common::Reg<regs::Sgsd63t32, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x48usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x48usize) as _) }
     }
     #[doc = "Single encryption and decryption of original data 0-31 register."]
     #[inline(always)]
     pub const fn sgsd_31t0(self) -> crate::common::Reg<regs::Sgsd31t0, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x4cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x4cusize) as _) }
     }
     #[doc = "Single encryption and decryption result 96-127 register."]
     #[inline(always)]
     pub const fn sgrt_127t96(self) -> crate::common::Reg<regs::Sgrt127t96, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x50usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x50usize) as _) }
     }
     #[doc = "Single encryption and decryption result 64-95 register."]
     #[inline(always)]
     pub const fn sgrt_95t64(self) -> crate::common::Reg<regs::Sgrt95t64, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x54usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x54usize) as _) }
     }
     #[doc = "Single encryption and decryption result 0-31 register."]
     #[inline(always)]
     pub const fn sgrt_63t32(self) -> crate::common::Reg<regs::Sgrt63t32, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x58usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x58usize) as _) }
     }
     #[doc = "Single encryption and decryption result 0-31 register."]
     #[inline(always)]
     pub const fn sgrt_31t0(self) -> crate::common::Reg<regs::Sgrt31t0, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x5cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x5cusize) as _) }
     }
     #[doc = "encryption and decryption sram start address register."]
     #[inline(always)]
     pub const fn sram_addr(self) -> crate::common::Reg<regs::SramAddr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x60usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x60usize) as _) }
     }
     #[doc = "encryption and decryption sram size register."]
     #[inline(always)]
     pub const fn sram_len(self) -> crate::common::Reg<regs::SramLen, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x64usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x64usize) as _) }
     }
 }
 pub mod regs {
@@ -152,6 +152,7 @@ pub mod regs {
     pub struct Ctrl(pub u16);
     impl Ctrl {
         #[doc = "enable key expansion."]
+        #[must_use]
         #[inline(always)]
         pub const fn keyex_en(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -159,10 +160,11 @@ pub mod regs {
         }
         #[doc = "enable key expansion."]
         #[inline(always)]
-        pub fn set_keyex_en(&mut self, val: bool) {
+        pub const fn set_keyex_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u16) & 0x01) << 0usize);
         }
         #[doc = "when write data to dma."]
+        #[must_use]
         #[inline(always)]
         pub const fn rdperi_en(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -170,10 +172,11 @@ pub mod regs {
         }
         #[doc = "when write data to dma."]
         #[inline(always)]
-        pub fn set_rdperi_en(&mut self, val: bool) {
+        pub const fn set_rdperi_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u16) & 0x01) << 1usize);
         }
         #[doc = "when read data from dma."]
+        #[must_use]
         #[inline(always)]
         pub const fn wrperi_en(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -181,10 +184,11 @@ pub mod regs {
         }
         #[doc = "when read data from dma."]
         #[inline(always)]
-        pub fn set_wrperi_en(&mut self, val: bool) {
+        pub const fn set_wrperi_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u16) & 0x01) << 2usize);
         }
         #[doc = "ECDC mode select."]
+        #[must_use]
         #[inline(always)]
         pub const fn mode_sel(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -192,10 +196,11 @@ pub mod regs {
         }
         #[doc = "ECDC mode select."]
         #[inline(always)]
-        pub fn set_mode_sel(&mut self, val: bool) {
+        pub const fn set_mode_sel(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u16) & 0x01) << 3usize);
         }
         #[doc = "Clock divide factor."]
+        #[must_use]
         #[inline(always)]
         pub const fn clkdiv_mask(&self) -> u8 {
             let val = (self.0 >> 4usize) & 0x07;
@@ -203,10 +208,11 @@ pub mod regs {
         }
         #[doc = "Clock divide factor."]
         #[inline(always)]
-        pub fn set_clkdiv_mask(&mut self, val: u8) {
+        pub const fn set_clkdiv_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 4usize)) | (((val as u16) & 0x07) << 4usize);
         }
         #[doc = "module dma enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn wrsram_en(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -214,10 +220,11 @@ pub mod regs {
         }
         #[doc = "module dma enable."]
         #[inline(always)]
-        pub fn set_wrsram_en(&mut self, val: bool) {
+        pub const fn set_wrsram_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u16) & 0x01) << 7usize);
         }
         #[doc = "Encryption and decryption algorithm mode selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn algrm_mod(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
@@ -225,10 +232,11 @@ pub mod regs {
         }
         #[doc = "Encryption and decryption algorithm mode selection."]
         #[inline(always)]
-        pub fn set_algrm_mod(&mut self, val: bool) {
+        pub const fn set_algrm_mod(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u16) & 0x01) << 8usize);
         }
         #[doc = "Block cipher mode selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn cipher_mod(&self) -> bool {
             let val = (self.0 >> 9usize) & 0x01;
@@ -236,10 +244,11 @@ pub mod regs {
         }
         #[doc = "Block cipher mode selection."]
         #[inline(always)]
-        pub fn set_cipher_mod(&mut self, val: bool) {
+        pub const fn set_cipher_mod(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 9usize)) | (((val as u16) & 0x01) << 9usize);
         }
         #[doc = "Key length setting."]
+        #[must_use]
         #[inline(always)]
         pub const fn klen_mask(&self) -> u8 {
             let val = (self.0 >> 10usize) & 0x03;
@@ -247,10 +256,11 @@ pub mod regs {
         }
         #[doc = "Key length setting."]
         #[inline(always)]
-        pub fn set_klen_mask(&mut self, val: u8) {
+        pub const fn set_klen_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 10usize)) | (((val as u16) & 0x03) << 10usize);
         }
         #[doc = "source data and result data is bit endian."]
+        #[must_use]
         #[inline(always)]
         pub const fn dat_mod(&self) -> bool {
             let val = (self.0 >> 13usize) & 0x01;
@@ -258,7 +268,7 @@ pub mod regs {
         }
         #[doc = "source data and result data is bit endian."]
         #[inline(always)]
-        pub fn set_dat_mod(&mut self, val: bool) {
+        pub const fn set_dat_mod(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 13usize)) | (((val as u16) & 0x01) << 13usize);
         }
     }
@@ -268,12 +278,29 @@ pub mod regs {
             Ctrl(0)
         }
     }
+    impl core::fmt::Debug for Ctrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ctrl")
+                .field("keyex_en", &self.keyex_en())
+                .field("rdperi_en", &self.rdperi_en())
+                .field("wrperi_en", &self.wrperi_en())
+                .field("mode_sel", &self.mode_sel())
+                .field("clkdiv_mask", &self.clkdiv_mask())
+                .field("wrsram_en", &self.wrsram_en())
+                .field("algrm_mod", &self.algrm_mod())
+                .field("cipher_mod", &self.cipher_mod())
+                .field("klen_mask", &self.klen_mask())
+                .field("dat_mod", &self.dat_mod())
+                .finish()
+        }
+    }
     #[doc = "Interupt enable register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct IntEn(pub u8);
     impl IntEn {
         #[doc = "Key extension completion interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_ekdone(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -281,10 +308,11 @@ pub mod regs {
         }
         #[doc = "Key extension completion interrupt enable."]
         #[inline(always)]
-        pub fn set_ie_ekdone(&mut self, val: bool) {
+        pub const fn set_ie_ekdone(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "Single encryption and decryption completion interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_single(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -292,10 +320,11 @@ pub mod regs {
         }
         #[doc = "Single encryption and decryption completion interrupt enable."]
         #[inline(always)]
-        pub fn set_ie_single(&mut self, val: bool) {
+        pub const fn set_ie_single(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "Memory to memory encryption and decryption completion interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_wrsram(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -303,7 +332,7 @@ pub mod regs {
         }
         #[doc = "Memory to memory encryption and decryption completion interrupt enable."]
         #[inline(always)]
-        pub fn set_ie_wrsram(&mut self, val: bool) {
+        pub const fn set_ie_wrsram(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
     }
@@ -313,12 +342,22 @@ pub mod regs {
             IntEn(0)
         }
     }
+    impl core::fmt::Debug for IntEn {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("IntEn")
+                .field("ie_ekdone", &self.ie_ekdone())
+                .field("ie_single", &self.ie_single())
+                .field("ie_wrsram", &self.ie_wrsram())
+                .finish()
+        }
+    }
     #[doc = "Interupt flag register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct IntFg(pub u8);
     impl IntFg {
         #[doc = "Key extension completion interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_ekdone(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -326,10 +365,11 @@ pub mod regs {
         }
         #[doc = "Key extension completion interrupt flag."]
         #[inline(always)]
-        pub fn set_if_ekdone(&mut self, val: bool) {
+        pub const fn set_if_ekdone(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "Single encryption and decryption completion interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_single(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -337,10 +377,11 @@ pub mod regs {
         }
         #[doc = "Single encryption and decryption completion interrupt flag."]
         #[inline(always)]
-        pub fn set_if_single(&mut self, val: bool) {
+        pub const fn set_if_single(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "Memory to memory encryption and decryption completion interrupt flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_wrsram(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -348,7 +389,7 @@ pub mod regs {
         }
         #[doc = "Memory to memory encryption and decryption completion interrupt flag."]
         #[inline(always)]
-        pub fn set_if_wrsram(&mut self, val: bool) {
+        pub const fn set_if_wrsram(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
     }
@@ -358,12 +399,22 @@ pub mod regs {
             IntFg(0)
         }
     }
+    impl core::fmt::Debug for IntFg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("IntFg")
+                .field("if_ekdone", &self.if_ekdone())
+                .field("if_single", &self.if_single())
+                .field("if_wrsram", &self.if_wrsram())
+                .finish()
+        }
+    }
     #[doc = "CTR mode count 96-127 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Iv127t96(pub u32);
     impl Iv127t96 {
         #[doc = "CTR mode count 96-127 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn iv_127t96(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -371,7 +422,7 @@ pub mod regs {
         }
         #[doc = "CTR mode count 96-127 register."]
         #[inline(always)]
-        pub fn set_iv_127t96(&mut self, val: u32) {
+        pub const fn set_iv_127t96(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -381,12 +432,20 @@ pub mod regs {
             Iv127t96(0)
         }
     }
+    impl core::fmt::Debug for Iv127t96 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Iv127t96")
+                .field("iv_127t96", &self.iv_127t96())
+                .finish()
+        }
+    }
     #[doc = "CTR mode count 0-31 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Iv31t0(pub u32);
     impl Iv31t0 {
         #[doc = "CTR mode count 0-31 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn iv_31t0(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -394,7 +453,7 @@ pub mod regs {
         }
         #[doc = "CTR mode count 0-31 register."]
         #[inline(always)]
-        pub fn set_iv_31t0(&mut self, val: u32) {
+        pub const fn set_iv_31t0(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -404,12 +463,20 @@ pub mod regs {
             Iv31t0(0)
         }
     }
+    impl core::fmt::Debug for Iv31t0 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Iv31t0")
+                .field("iv_31t0", &self.iv_31t0())
+                .finish()
+        }
+    }
     #[doc = "CTR mode count 32-63 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Iv63t32(pub u32);
     impl Iv63t32 {
         #[doc = "CTR mode count 32-63 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn iv_63t32(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -417,7 +484,7 @@ pub mod regs {
         }
         #[doc = "CTR mode count 32-63 register."]
         #[inline(always)]
-        pub fn set_iv_63t32(&mut self, val: u32) {
+        pub const fn set_iv_63t32(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -427,12 +494,20 @@ pub mod regs {
             Iv63t32(0)
         }
     }
+    impl core::fmt::Debug for Iv63t32 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Iv63t32")
+                .field("iv_63t32", &self.iv_63t32())
+                .finish()
+        }
+    }
     #[doc = "CTR mode count 64-95 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Iv95t64(pub u32);
     impl Iv95t64 {
         #[doc = "CTR mode count 64-95 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn iv_95t64(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -440,7 +515,7 @@ pub mod regs {
         }
         #[doc = "CTR mode count 64-95 register."]
         #[inline(always)]
-        pub fn set_iv_95t64(&mut self, val: u32) {
+        pub const fn set_iv_95t64(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -450,12 +525,20 @@ pub mod regs {
             Iv95t64(0)
         }
     }
+    impl core::fmt::Debug for Iv95t64 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Iv95t64")
+                .field("iv_95t64", &self.iv_95t64())
+                .finish()
+        }
+    }
     #[doc = "User key 96-127 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Key127t96(pub u32);
     impl Key127t96 {
         #[doc = "User key 96-127 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn key_127t96(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -463,7 +546,7 @@ pub mod regs {
         }
         #[doc = "User key 96-127 register."]
         #[inline(always)]
-        pub fn set_key_127t96(&mut self, val: u32) {
+        pub const fn set_key_127t96(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -473,12 +556,20 @@ pub mod regs {
             Key127t96(0)
         }
     }
+    impl core::fmt::Debug for Key127t96 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Key127t96")
+                .field("key_127t96", &self.key_127t96())
+                .finish()
+        }
+    }
     #[doc = "User key 128-159 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Key159t128(pub u32);
     impl Key159t128 {
         #[doc = "User key 128-159 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn key_159t128(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -486,7 +577,7 @@ pub mod regs {
         }
         #[doc = "User key 128-159 register."]
         #[inline(always)]
-        pub fn set_key_159t128(&mut self, val: u32) {
+        pub const fn set_key_159t128(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -496,12 +587,20 @@ pub mod regs {
             Key159t128(0)
         }
     }
+    impl core::fmt::Debug for Key159t128 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Key159t128")
+                .field("key_159t128", &self.key_159t128())
+                .finish()
+        }
+    }
     #[doc = "User key 160-191 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Key191t160(pub u32);
     impl Key191t160 {
         #[doc = "User key 160-191 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn key_191t160(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -509,7 +608,7 @@ pub mod regs {
         }
         #[doc = "User key 160-191 register."]
         #[inline(always)]
-        pub fn set_key_191t160(&mut self, val: u32) {
+        pub const fn set_key_191t160(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -519,12 +618,20 @@ pub mod regs {
             Key191t160(0)
         }
     }
+    impl core::fmt::Debug for Key191t160 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Key191t160")
+                .field("key_191t160", &self.key_191t160())
+                .finish()
+        }
+    }
     #[doc = "User key 192-223 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Key223t192(pub u32);
     impl Key223t192 {
         #[doc = "User key 192-223 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn key_223t192(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -532,7 +639,7 @@ pub mod regs {
         }
         #[doc = "User key 192-223 register."]
         #[inline(always)]
-        pub fn set_key_223t192(&mut self, val: u32) {
+        pub const fn set_key_223t192(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -542,12 +649,20 @@ pub mod regs {
             Key223t192(0)
         }
     }
+    impl core::fmt::Debug for Key223t192 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Key223t192")
+                .field("key_223t192", &self.key_223t192())
+                .finish()
+        }
+    }
     #[doc = "User key 224-255 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Key255t224(pub u32);
     impl Key255t224 {
         #[doc = "User key 224-255 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn key_255t224(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -555,7 +670,7 @@ pub mod regs {
         }
         #[doc = "User key 224-255 register."]
         #[inline(always)]
-        pub fn set_key_255t224(&mut self, val: u32) {
+        pub const fn set_key_255t224(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -565,12 +680,20 @@ pub mod regs {
             Key255t224(0)
         }
     }
+    impl core::fmt::Debug for Key255t224 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Key255t224")
+                .field("key_255t224", &self.key_255t224())
+                .finish()
+        }
+    }
     #[doc = "User key 0-31 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Key31t0(pub u32);
     impl Key31t0 {
         #[doc = "User key 0-31 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn key_31t0(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -578,7 +701,7 @@ pub mod regs {
         }
         #[doc = "User key 0-31 register."]
         #[inline(always)]
-        pub fn set_key_31t0(&mut self, val: u32) {
+        pub const fn set_key_31t0(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -588,12 +711,20 @@ pub mod regs {
             Key31t0(0)
         }
     }
+    impl core::fmt::Debug for Key31t0 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Key31t0")
+                .field("key_31t0", &self.key_31t0())
+                .finish()
+        }
+    }
     #[doc = "User key 32-63 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Key63t32(pub u32);
     impl Key63t32 {
         #[doc = "User key 32-63 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn key_63t32(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -601,7 +732,7 @@ pub mod regs {
         }
         #[doc = "User key 32-63 register."]
         #[inline(always)]
-        pub fn set_key_63t32(&mut self, val: u32) {
+        pub const fn set_key_63t32(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -611,12 +742,20 @@ pub mod regs {
             Key63t32(0)
         }
     }
+    impl core::fmt::Debug for Key63t32 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Key63t32")
+                .field("key_63t32", &self.key_63t32())
+                .finish()
+        }
+    }
     #[doc = "User key 64-95 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Key95t64(pub u32);
     impl Key95t64 {
         #[doc = "User key 64-95 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn key_95t64(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -624,7 +763,7 @@ pub mod regs {
         }
         #[doc = "User key 64-95 register."]
         #[inline(always)]
-        pub fn set_key_95t64(&mut self, val: u32) {
+        pub const fn set_key_95t64(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -634,12 +773,20 @@ pub mod regs {
             Key95t64(0)
         }
     }
+    impl core::fmt::Debug for Key95t64 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Key95t64")
+                .field("key_95t64", &self.key_95t64())
+                .finish()
+        }
+    }
     #[doc = "Single encryption and decryption result 96-127 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sgrt127t96(pub u32);
     impl Sgrt127t96 {
         #[doc = "Single encryption and decryption result 96-127 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn sgrt_127t96(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -647,7 +794,7 @@ pub mod regs {
         }
         #[doc = "Single encryption and decryption result 96-127 register."]
         #[inline(always)]
-        pub fn set_sgrt_127t96(&mut self, val: u32) {
+        pub const fn set_sgrt_127t96(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -657,12 +804,20 @@ pub mod regs {
             Sgrt127t96(0)
         }
     }
+    impl core::fmt::Debug for Sgrt127t96 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sgrt127t96")
+                .field("sgrt_127t96", &self.sgrt_127t96())
+                .finish()
+        }
+    }
     #[doc = "Single encryption and decryption result 0-31 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sgrt31t0(pub u32);
     impl Sgrt31t0 {
         #[doc = "Single encryption and decryption result 0-31 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn sgrt_31t0(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -670,7 +825,7 @@ pub mod regs {
         }
         #[doc = "Single encryption and decryption result 0-31 register."]
         #[inline(always)]
-        pub fn set_sgrt_31t0(&mut self, val: u32) {
+        pub const fn set_sgrt_31t0(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -680,12 +835,20 @@ pub mod regs {
             Sgrt31t0(0)
         }
     }
+    impl core::fmt::Debug for Sgrt31t0 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sgrt31t0")
+                .field("sgrt_31t0", &self.sgrt_31t0())
+                .finish()
+        }
+    }
     #[doc = "Single encryption and decryption result 0-31 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sgrt63t32(pub u32);
     impl Sgrt63t32 {
         #[doc = "Single encryption and decryption result 0-31 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn sgrt_63t32(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -693,7 +856,7 @@ pub mod regs {
         }
         #[doc = "Single encryption and decryption result 0-31 register."]
         #[inline(always)]
-        pub fn set_sgrt_63t32(&mut self, val: u32) {
+        pub const fn set_sgrt_63t32(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -703,12 +866,20 @@ pub mod regs {
             Sgrt63t32(0)
         }
     }
+    impl core::fmt::Debug for Sgrt63t32 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sgrt63t32")
+                .field("sgrt_63t32", &self.sgrt_63t32())
+                .finish()
+        }
+    }
     #[doc = "Single encryption and decryption result 64-95 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sgrt95t64(pub u32);
     impl Sgrt95t64 {
         #[doc = "Single encryption and decryption result 64-95 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn sgrt_95t64(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -716,7 +887,7 @@ pub mod regs {
         }
         #[doc = "Single encryption and decryption result 64-95 register."]
         #[inline(always)]
-        pub fn set_sgrt_95t64(&mut self, val: u32) {
+        pub const fn set_sgrt_95t64(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -726,12 +897,20 @@ pub mod regs {
             Sgrt95t64(0)
         }
     }
+    impl core::fmt::Debug for Sgrt95t64 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sgrt95t64")
+                .field("sgrt_95t64", &self.sgrt_95t64())
+                .finish()
+        }
+    }
     #[doc = "Single encryption and decryption of original data 96-127 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sgsd127t96(pub u32);
     impl Sgsd127t96 {
         #[doc = "Single encryption and decryption of original data 96-127 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn sgsd_127t96(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -739,7 +918,7 @@ pub mod regs {
         }
         #[doc = "Single encryption and decryption of original data 96-127 register."]
         #[inline(always)]
-        pub fn set_sgsd_127t96(&mut self, val: u32) {
+        pub const fn set_sgsd_127t96(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -749,12 +928,20 @@ pub mod regs {
             Sgsd127t96(0)
         }
     }
+    impl core::fmt::Debug for Sgsd127t96 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sgsd127t96")
+                .field("sgsd_127t96", &self.sgsd_127t96())
+                .finish()
+        }
+    }
     #[doc = "Single encryption and decryption of original data 0-31 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sgsd31t0(pub u32);
     impl Sgsd31t0 {
         #[doc = "Single encryption and decryption of original data 0-31 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn sgsd_31t0(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -762,7 +949,7 @@ pub mod regs {
         }
         #[doc = "Single encryption and decryption of original data 0-31 register."]
         #[inline(always)]
-        pub fn set_sgsd_31t0(&mut self, val: u32) {
+        pub const fn set_sgsd_31t0(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -772,12 +959,20 @@ pub mod regs {
             Sgsd31t0(0)
         }
     }
+    impl core::fmt::Debug for Sgsd31t0 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sgsd31t0")
+                .field("sgsd_31t0", &self.sgsd_31t0())
+                .finish()
+        }
+    }
     #[doc = "Single encryption and decryption of original data 32-63 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sgsd63t32(pub u32);
     impl Sgsd63t32 {
         #[doc = "Single encryption and decryption of original data 32-63 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn sgsd_63t32(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -785,7 +980,7 @@ pub mod regs {
         }
         #[doc = "Single encryption and decryption of original data 32-63 register."]
         #[inline(always)]
-        pub fn set_sgsd_63t32(&mut self, val: u32) {
+        pub const fn set_sgsd_63t32(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -795,12 +990,20 @@ pub mod regs {
             Sgsd63t32(0)
         }
     }
+    impl core::fmt::Debug for Sgsd63t32 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sgsd63t32")
+                .field("sgsd_63t32", &self.sgsd_63t32())
+                .finish()
+        }
+    }
     #[doc = "Single encryption and decryption of original data 64-95 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Sgsd95t64(pub u32);
     impl Sgsd95t64 {
         #[doc = "Single encryption and decryption of original data 64-95 register."]
+        #[must_use]
         #[inline(always)]
         pub const fn sgsd_95t64(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -808,7 +1011,7 @@ pub mod regs {
         }
         #[doc = "Single encryption and decryption of original data 64-95 register."]
         #[inline(always)]
-        pub fn set_sgsd_95t64(&mut self, val: u32) {
+        pub const fn set_sgsd_95t64(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -818,12 +1021,20 @@ pub mod regs {
             Sgsd95t64(0)
         }
     }
+    impl core::fmt::Debug for Sgsd95t64 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Sgsd95t64")
+                .field("sgsd_95t64", &self.sgsd_95t64())
+                .finish()
+        }
+    }
     #[doc = "encryption and decryption sram start address register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct SramAddr(pub u32);
     impl SramAddr {
         #[doc = "encryption and decryption sram start address register."]
+        #[must_use]
         #[inline(always)]
         pub const fn sram_addr(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -831,7 +1042,7 @@ pub mod regs {
         }
         #[doc = "encryption and decryption sram start address register."]
         #[inline(always)]
-        pub fn set_sram_addr(&mut self, val: u32) {
+        pub const fn set_sram_addr(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -841,12 +1052,20 @@ pub mod regs {
             SramAddr(0)
         }
     }
+    impl core::fmt::Debug for SramAddr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("SramAddr")
+                .field("sram_addr", &self.sram_addr())
+                .finish()
+        }
+    }
     #[doc = "encryption and decryption sram size register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct SramLen(pub u32);
     impl SramLen {
         #[doc = "encryption and decryption sram size register."]
+        #[must_use]
         #[inline(always)]
         pub const fn sram_len(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -854,7 +1073,7 @@ pub mod regs {
         }
         #[doc = "encryption and decryption sram size register."]
         #[inline(always)]
-        pub fn set_sram_len(&mut self, val: u32) {
+        pub const fn set_sram_len(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -862,6 +1081,13 @@ pub mod regs {
         #[inline(always)]
         fn default() -> SramLen {
             SramLen(0)
+        }
+    }
+    impl core::fmt::Debug for SramLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("SramLen")
+                .field("sram_len", &self.sram_len())
+                .finish()
         }
     }
 }

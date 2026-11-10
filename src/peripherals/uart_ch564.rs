@@ -22,110 +22,110 @@ impl UartFull {
     #[doc = "UART_FULL divisor latch low byte, visible when LCR.DLAB=1."]
     #[inline(always)]
     pub const fn dll(self) -> crate::common::Reg<regs::Dll, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "UART_FULL receiver buffer, receiving byte."]
     #[inline(always)]
     pub const fn rbr(self) -> crate::common::Reg<regs::Rbr, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "UART_FULL transmitter holding, transmittal byte."]
     #[inline(always)]
     pub const fn thr(self) -> crate::common::Reg<regs::Thr, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "UART_FULL divisor latch high byte, visible when LCR.DLAB=1."]
     #[inline(always)]
     pub const fn dlm(self) -> crate::common::Reg<regs::Dlm, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x01usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x01usize) as _) }
     }
     #[doc = "UART_FULL interrupt enable."]
     #[inline(always)]
     pub const fn ier(self) -> crate::common::Reg<regs::Ier, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x01usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x01usize) as _) }
     }
     #[doc = "UART_FULL FIFO control."]
     #[inline(always)]
     pub const fn fcr(self) -> crate::common::Reg<regs::Fcr, crate::common::W> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x02usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x02usize) as _) }
     }
     #[doc = "UART_FULL interrupt identification."]
     #[inline(always)]
     pub const fn iir(self) -> crate::common::Reg<regs::Iir, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x02usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x02usize) as _) }
     }
     #[doc = "UART_FULL line control."]
     #[inline(always)]
     pub const fn lcr(self) -> crate::common::Reg<regs::Lcr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x03usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x03usize) as _) }
     }
     #[doc = "UART_FULL modem control."]
     #[inline(always)]
     pub const fn mcr(self) -> crate::common::Reg<regs::Mcr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "UART_FULL line status."]
     #[inline(always)]
     pub const fn lsr(self) -> crate::common::Reg<regs::Lsr, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x05usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x05usize) as _) }
     }
     #[doc = "UART_FULL modem status."]
     #[inline(always)]
     pub const fn msr(self) -> crate::common::Reg<regs::Msr, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x06usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x06usize) as _) }
     }
     #[doc = "UART_FULL pre-frequency divisiono register."]
     #[inline(always)]
     pub const fn div(self) -> crate::common::Reg<regs::Div, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x07usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x07usize) as _) }
     }
     #[doc = "DMA Control register."]
     #[inline(always)]
     pub const fn dma_ctrl(self) -> crate::common::Reg<regs::DmaCtrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x08usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "DMA status register."]
     #[inline(always)]
     pub const fn dma_if(self) -> crate::common::Reg<regs::DmaIf, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x09usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x09usize) as _) }
     }
     #[doc = "DMA receive mode current address register."]
     #[inline(always)]
     pub const fn dma_wr_now_addr(self) -> crate::common::Reg<regs::DmaWrNowAddr, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0cusize) as _) }
     }
     #[doc = "DMA receive mode start address register."]
     #[inline(always)]
     pub const fn dma_wr_start_addr(
         self,
     ) -> crate::common::Reg<regs::DmaWrStartAddr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "DMA received mode end address register."]
     #[inline(always)]
     pub const fn dma_wr_end_addr(
         self,
     ) -> crate::common::Reg<regs::DmaWrEndAddr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
     #[doc = "DMA send mode current address register."]
     #[inline(always)]
     pub const fn dma_rd_now_addr(self) -> crate::common::Reg<regs::DmaRdNowAddr, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x18usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
     }
     #[doc = "DMA send mode start address register."]
     #[inline(always)]
     pub const fn dma_rd_start_addr(
         self,
     ) -> crate::common::Reg<regs::DmaRdStartAddr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x1cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1cusize) as _) }
     }
     #[doc = "DMA send mode end address register."]
     #[inline(always)]
     pub const fn dma_rd_end_addr(
         self,
     ) -> crate::common::Reg<regs::DmaRdEndAddr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x20usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
 }
 pub mod regs {
@@ -135,6 +135,7 @@ pub mod regs {
     pub struct Div(pub u8);
     impl Div {
         #[doc = "System clock is pre-divided after frequency doubling to. generate the internal reference clock of the serial port."]
+        #[must_use]
         #[inline(always)]
         pub const fn div(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -142,7 +143,7 @@ pub mod regs {
         }
         #[doc = "System clock is pre-divided after frequency doubling to. generate the internal reference clock of the serial port."]
         #[inline(always)]
-        pub fn set_div(&mut self, val: u8) {
+        pub const fn set_div(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -152,12 +153,18 @@ pub mod regs {
             Div(0)
         }
     }
+    impl core::fmt::Debug for Div {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Div").field("div", &self.div()).finish()
+        }
+    }
     #[doc = "UART_FULL divisor latch low byte, visible when LCR.DLAB=1."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Dll(pub u8);
     impl Dll {
         #[doc = "UART divisor latch low byte."]
+        #[must_use]
         #[inline(always)]
         pub const fn dll(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -165,7 +172,7 @@ pub mod regs {
         }
         #[doc = "UART divisor latch low byte."]
         #[inline(always)]
-        pub fn set_dll(&mut self, val: u8) {
+        pub const fn set_dll(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -175,12 +182,18 @@ pub mod regs {
             Dll(0)
         }
     }
+    impl core::fmt::Debug for Dll {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Dll").field("dll", &self.dll()).finish()
+        }
+    }
     #[doc = "UART_FULL divisor latch high byte, visible when LCR.DLAB=1."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Dlm(pub u8);
     impl Dlm {
         #[doc = "UART divisor latch high byte."]
+        #[must_use]
         #[inline(always)]
         pub const fn dlm(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -188,7 +201,7 @@ pub mod regs {
         }
         #[doc = "UART divisor latch high byte."]
         #[inline(always)]
-        pub fn set_dlm(&mut self, val: u8) {
+        pub const fn set_dlm(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -198,12 +211,18 @@ pub mod regs {
             Dlm(0)
         }
     }
+    impl core::fmt::Debug for Dlm {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Dlm").field("dlm", &self.dlm()).finish()
+        }
+    }
     #[doc = "DMA Control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaCtrl(pub u8);
     impl DmaCtrl {
         #[doc = "DMA enabled when receiving data."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_wr_en(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -211,10 +230,11 @@ pub mod regs {
         }
         #[doc = "DMA enabled when receiving data."]
         #[inline(always)]
-        pub fn set_dma_wr_en(&mut self, val: bool) {
+        pub const fn set_dma_wr_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "DMA loop mode enabled when receiving data."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_wr_loop_en(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -222,10 +242,11 @@ pub mod regs {
         }
         #[doc = "DMA loop mode enabled when receiving data."]
         #[inline(always)]
-        pub fn set_dma_wr_loop_en(&mut self, val: bool) {
+        pub const fn set_dma_wr_loop_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "the end of DMA interrupt when receiving data is enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_wr_end_en(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -233,10 +254,11 @@ pub mod regs {
         }
         #[doc = "the end of DMA interrupt when receiving data is enabled."]
         #[inline(always)]
-        pub fn set_dma_wr_end_en(&mut self, val: bool) {
+        pub const fn set_dma_wr_end_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "DMA data transfer error interrupt when receiving data is. enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_wr_err_en(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -244,10 +266,11 @@ pub mod regs {
         }
         #[doc = "DMA data transfer error interrupt when receiving data is. enabled."]
         #[inline(always)]
-        pub fn set_dma_wr_err_en(&mut self, val: bool) {
+        pub const fn set_dma_wr_err_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "DMA enabled when sending data."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_rd_en(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -255,10 +278,11 @@ pub mod regs {
         }
         #[doc = "DMA enabled when sending data."]
         #[inline(always)]
-        pub fn set_dma_rd_en(&mut self, val: bool) {
+        pub const fn set_dma_rd_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "DMA loop mode enabled when sending data."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_rd_loop_en(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -266,10 +290,11 @@ pub mod regs {
         }
         #[doc = "DMA loop mode enabled when sending data."]
         #[inline(always)]
-        pub fn set_dma_rd_loop_en(&mut self, val: bool) {
+        pub const fn set_dma_rd_loop_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "the end of DMA interrupt when sending data is enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_rd_end_en(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -277,10 +302,11 @@ pub mod regs {
         }
         #[doc = "the end of DMA interrupt when sending data is enabled."]
         #[inline(always)]
-        pub fn set_dma_rd_end_en(&mut self, val: bool) {
+        pub const fn set_dma_rd_end_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "DMA data transfer error interrupt when sending data is. enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_rd_err_en(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -288,7 +314,7 @@ pub mod regs {
         }
         #[doc = "DMA data transfer error interrupt when sending data is. enabled."]
         #[inline(always)]
-        pub fn set_dma_rd_err_en(&mut self, val: bool) {
+        pub const fn set_dma_rd_err_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -298,12 +324,27 @@ pub mod regs {
             DmaCtrl(0)
         }
     }
+    impl core::fmt::Debug for DmaCtrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaCtrl")
+                .field("dma_wr_en", &self.dma_wr_en())
+                .field("dma_wr_loop_en", &self.dma_wr_loop_en())
+                .field("dma_wr_end_en", &self.dma_wr_end_en())
+                .field("dma_wr_err_en", &self.dma_wr_err_en())
+                .field("dma_rd_en", &self.dma_rd_en())
+                .field("dma_rd_loop_en", &self.dma_rd_loop_en())
+                .field("dma_rd_end_en", &self.dma_rd_end_en())
+                .field("dma_rd_err_en", &self.dma_rd_err_en())
+                .finish()
+        }
+    }
     #[doc = "DMA status register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaIf(pub u8);
     impl DmaIf {
         #[doc = "DMA end flag when data is received."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_if_rx_end(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -311,10 +352,11 @@ pub mod regs {
         }
         #[doc = "DMA end flag when data is received."]
         #[inline(always)]
-        pub fn set_dma_if_rx_end(&mut self, val: bool) {
+        pub const fn set_dma_if_rx_end(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "DMA transfer error flag while receiving data."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_if_rx_err(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -322,10 +364,11 @@ pub mod regs {
         }
         #[doc = "DMA transfer error flag while receiving data."]
         #[inline(always)]
-        pub fn set_dma_if_rx_err(&mut self, val: bool) {
+        pub const fn set_dma_if_rx_err(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "DMA end flag when data is sended."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_if_tx_end(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -333,10 +376,11 @@ pub mod regs {
         }
         #[doc = "DMA end flag when data is sended."]
         #[inline(always)]
-        pub fn set_dma_if_tx_end(&mut self, val: bool) {
+        pub const fn set_dma_if_tx_end(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "DMA transfer error flag while sending data."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_if_tx_err(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -344,7 +388,7 @@ pub mod regs {
         }
         #[doc = "DMA transfer error flag while sending data."]
         #[inline(always)]
-        pub fn set_dma_if_tx_err(&mut self, val: bool) {
+        pub const fn set_dma_if_tx_err(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
     }
@@ -354,12 +398,23 @@ pub mod regs {
             DmaIf(0)
         }
     }
+    impl core::fmt::Debug for DmaIf {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaIf")
+                .field("dma_if_rx_end", &self.dma_if_rx_end())
+                .field("dma_if_rx_err", &self.dma_if_rx_err())
+                .field("dma_if_tx_end", &self.dma_if_tx_end())
+                .field("dma_if_tx_err", &self.dma_if_tx_err())
+                .finish()
+        }
+    }
     #[doc = "DMA send mode end address register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaRdEndAddr(pub u32);
     impl DmaRdEndAddr {
         #[doc = "DMA send mode end address."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_rd_end_addr(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0003_ffff;
@@ -367,7 +422,7 @@ pub mod regs {
         }
         #[doc = "DMA send mode end address."]
         #[inline(always)]
-        pub fn set_dma_rd_end_addr(&mut self, val: u32) {
+        pub const fn set_dma_rd_end_addr(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0003_ffff << 0usize)) | (((val as u32) & 0x0003_ffff) << 0usize);
         }
     }
@@ -377,12 +432,20 @@ pub mod regs {
             DmaRdEndAddr(0)
         }
     }
+    impl core::fmt::Debug for DmaRdEndAddr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaRdEndAddr")
+                .field("dma_rd_end_addr", &self.dma_rd_end_addr())
+                .finish()
+        }
+    }
     #[doc = "DMA send mode current address register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaRdNowAddr(pub u32);
     impl DmaRdNowAddr {
         #[doc = "DMA send mode current address."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_wr_rd_addr(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0003_ffff;
@@ -390,7 +453,7 @@ pub mod regs {
         }
         #[doc = "DMA send mode current address."]
         #[inline(always)]
-        pub fn set_dma_wr_rd_addr(&mut self, val: u32) {
+        pub const fn set_dma_wr_rd_addr(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0003_ffff << 0usize)) | (((val as u32) & 0x0003_ffff) << 0usize);
         }
     }
@@ -400,12 +463,20 @@ pub mod regs {
             DmaRdNowAddr(0)
         }
     }
+    impl core::fmt::Debug for DmaRdNowAddr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaRdNowAddr")
+                .field("dma_wr_rd_addr", &self.dma_wr_rd_addr())
+                .finish()
+        }
+    }
     #[doc = "DMA send mode start address register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaRdStartAddr(pub u32);
     impl DmaRdStartAddr {
         #[doc = "DMA send mode start address."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_rd_start_addr(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0003_ffff;
@@ -413,7 +484,7 @@ pub mod regs {
         }
         #[doc = "DMA send mode start address."]
         #[inline(always)]
-        pub fn set_dma_rd_start_addr(&mut self, val: u32) {
+        pub const fn set_dma_rd_start_addr(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0003_ffff << 0usize)) | (((val as u32) & 0x0003_ffff) << 0usize);
         }
     }
@@ -423,12 +494,20 @@ pub mod regs {
             DmaRdStartAddr(0)
         }
     }
+    impl core::fmt::Debug for DmaRdStartAddr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaRdStartAddr")
+                .field("dma_rd_start_addr", &self.dma_rd_start_addr())
+                .finish()
+        }
+    }
     #[doc = "DMA received mode end address register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaWrEndAddr(pub u32);
     impl DmaWrEndAddr {
         #[doc = "DMA receivek mode end address."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_wr_end_addr(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0003_ffff;
@@ -436,7 +515,7 @@ pub mod regs {
         }
         #[doc = "DMA receivek mode end address."]
         #[inline(always)]
-        pub fn set_dma_wr_end_addr(&mut self, val: u32) {
+        pub const fn set_dma_wr_end_addr(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0003_ffff << 0usize)) | (((val as u32) & 0x0003_ffff) << 0usize);
         }
     }
@@ -446,12 +525,20 @@ pub mod regs {
             DmaWrEndAddr(0)
         }
     }
+    impl core::fmt::Debug for DmaWrEndAddr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaWrEndAddr")
+                .field("dma_wr_end_addr", &self.dma_wr_end_addr())
+                .finish()
+        }
+    }
     #[doc = "DMA receive mode current address register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaWrNowAddr(pub u32);
     impl DmaWrNowAddr {
         #[doc = "DMA receive mode current address."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_wr_now_addr(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0003_ffff;
@@ -459,7 +546,7 @@ pub mod regs {
         }
         #[doc = "DMA receive mode current address."]
         #[inline(always)]
-        pub fn set_dma_wr_now_addr(&mut self, val: u32) {
+        pub const fn set_dma_wr_now_addr(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0003_ffff << 0usize)) | (((val as u32) & 0x0003_ffff) << 0usize);
         }
     }
@@ -469,12 +556,20 @@ pub mod regs {
             DmaWrNowAddr(0)
         }
     }
+    impl core::fmt::Debug for DmaWrNowAddr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaWrNowAddr")
+                .field("dma_wr_now_addr", &self.dma_wr_now_addr())
+                .finish()
+        }
+    }
     #[doc = "DMA receive mode start address register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaWrStartAddr(pub u32);
     impl DmaWrStartAddr {
         #[doc = "DMA receive mode start address."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_wr_start_addr(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0003_ffff;
@@ -482,7 +577,7 @@ pub mod regs {
         }
         #[doc = "DMA receive mode start address."]
         #[inline(always)]
-        pub fn set_dma_wr_start_addr(&mut self, val: u32) {
+        pub const fn set_dma_wr_start_addr(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0003_ffff << 0usize)) | (((val as u32) & 0x0003_ffff) << 0usize);
         }
     }
@@ -492,12 +587,20 @@ pub mod regs {
             DmaWrStartAddr(0)
         }
     }
+    impl core::fmt::Debug for DmaWrStartAddr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaWrStartAddr")
+                .field("dma_wr_start_addr", &self.dma_wr_start_addr())
+                .finish()
+        }
+    }
     #[doc = "UART_FULL FIFO control (write)."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Fcr(pub u8);
     impl Fcr {
         #[doc = "UART FIFO enable bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn fcr_fifo_en(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -505,10 +608,11 @@ pub mod regs {
         }
         #[doc = "UART FIFO enable bit."]
         #[inline(always)]
-        pub fn set_fcr_fifo_en(&mut self, val: bool) {
+        pub const fn set_fcr_fifo_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "clear UART receiver FIFO, high action, auto clear."]
+        #[must_use]
         #[inline(always)]
         pub const fn fcr_rx_fifo_clr(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -516,10 +620,11 @@ pub mod regs {
         }
         #[doc = "clear UART receiver FIFO, high action, auto clear."]
         #[inline(always)]
-        pub fn set_fcr_rx_fifo_clr(&mut self, val: bool) {
+        pub const fn set_fcr_rx_fifo_clr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "clear UART transmitter FIFO, high action, auto clear."]
+        #[must_use]
         #[inline(always)]
         pub const fn fcr_tx_fifo_clr(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -527,10 +632,11 @@ pub mod regs {
         }
         #[doc = "clear UART transmitter FIFO, high action, auto clear."]
         #[inline(always)]
-        pub fn set_fcr_tx_fifo_clr(&mut self, val: bool) {
+        pub const fn set_fcr_tx_fifo_clr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "UART receiver FIFO trigger level."]
+        #[must_use]
         #[inline(always)]
         pub const fn fcr_fifo_trig(&self) -> u8 {
             let val = (self.0 >> 6usize) & 0x03;
@@ -538,7 +644,7 @@ pub mod regs {
         }
         #[doc = "UART receiver FIFO trigger level."]
         #[inline(always)]
-        pub fn set_fcr_fifo_trig(&mut self, val: u8) {
+        pub const fn set_fcr_fifo_trig(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 6usize)) | (((val as u8) & 0x03) << 6usize);
         }
     }
@@ -548,12 +654,23 @@ pub mod regs {
             Fcr(0)
         }
     }
+    impl core::fmt::Debug for Fcr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Fcr")
+                .field("fcr_fifo_en", &self.fcr_fifo_en())
+                .field("fcr_rx_fifo_clr", &self.fcr_rx_fifo_clr())
+                .field("fcr_tx_fifo_clr", &self.fcr_tx_fifo_clr())
+                .field("fcr_fifo_trig", &self.fcr_fifo_trig())
+                .finish()
+        }
+    }
     #[doc = "UART_FULL interrupt enable."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ier(pub u8);
     impl Ier {
         #[doc = "UART interrupt enable for receiver data ready."]
+        #[must_use]
         #[inline(always)]
         pub const fn ier_recv_rdy(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -561,10 +678,11 @@ pub mod regs {
         }
         #[doc = "UART interrupt enable for receiver data ready."]
         #[inline(always)]
-        pub fn set_ier_recv_rdy(&mut self, val: bool) {
+        pub const fn set_ier_recv_rdy(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "UART interrupt enable for THR empty."]
+        #[must_use]
         #[inline(always)]
         pub const fn ier_thr_empty(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -572,10 +690,11 @@ pub mod regs {
         }
         #[doc = "UART interrupt enable for THR empty."]
         #[inline(always)]
-        pub fn set_ier_thr_empty(&mut self, val: bool) {
+        pub const fn set_ier_thr_empty(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "UART interrupt enable for receiver line status."]
+        #[must_use]
         #[inline(always)]
         pub const fn ier_line_stat(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -583,10 +702,11 @@ pub mod regs {
         }
         #[doc = "UART interrupt enable for receiver line status."]
         #[inline(always)]
-        pub fn set_ier_line_stat(&mut self, val: bool) {
+        pub const fn set_ier_line_stat(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "UART_FULL interrupt enable for modem status change."]
+        #[must_use]
         #[inline(always)]
         pub const fn ier_modem_chg(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -594,10 +714,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL interrupt enable for modem status change."]
         #[inline(always)]
-        pub fn set_ier_modem_chg(&mut self, val: bool) {
+        pub const fn set_ier_modem_chg(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "serial modem MODEM signal pin selection bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn ier_modem_io(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -605,10 +726,11 @@ pub mod regs {
         }
         #[doc = "serial modem MODEM signal pin selection bit."]
         #[inline(always)]
-        pub fn set_ier_modem_io(&mut self, val: bool) {
+        pub const fn set_ier_modem_io(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "UART_FULL RTS/DTR output pin enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ier_mout_en(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -616,10 +738,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL RTS/DTR output pin enable."]
         #[inline(always)]
-        pub fn set_ier_mout_en(&mut self, val: bool) {
+        pub const fn set_ier_mout_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "UART TXD pin enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ier_txd_en(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -627,10 +750,11 @@ pub mod regs {
         }
         #[doc = "UART TXD pin enable."]
         #[inline(always)]
-        pub fn set_ier_txd_en(&mut self, val: bool) {
+        pub const fn set_ier_txd_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "UART software reset control, high action, auto clear."]
+        #[must_use]
         #[inline(always)]
         pub const fn ier_reset(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -638,7 +762,7 @@ pub mod regs {
         }
         #[doc = "UART software reset control, high action, auto clear."]
         #[inline(always)]
-        pub fn set_ier_reset(&mut self, val: bool) {
+        pub const fn set_ier_reset(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -648,12 +772,27 @@ pub mod regs {
             Ier(0)
         }
     }
+    impl core::fmt::Debug for Ier {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ier")
+                .field("ier_recv_rdy", &self.ier_recv_rdy())
+                .field("ier_thr_empty", &self.ier_thr_empty())
+                .field("ier_line_stat", &self.ier_line_stat())
+                .field("ier_modem_chg", &self.ier_modem_chg())
+                .field("ier_modem_io", &self.ier_modem_io())
+                .field("ier_mout_en", &self.ier_mout_en())
+                .field("ier_txd_en", &self.ier_txd_en())
+                .field("ier_reset", &self.ier_reset())
+                .finish()
+        }
+    }
     #[doc = "UART_FULL interrupt identification (read)."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Iir(pub u8);
     impl Iir {
         #[doc = "UART interrupt status flag: 0=interrupt action, 1=no interrupt."]
+        #[must_use]
         #[inline(always)]
         pub const fn iir_no_int(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -661,10 +800,11 @@ pub mod regs {
         }
         #[doc = "UART interrupt status flag: 0=interrupt action, 1=no interrupt."]
         #[inline(always)]
-        pub fn set_iir_no_int(&mut self, val: bool) {
+        pub const fn set_iir_no_int(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "UART interrupt flag bit mask."]
+        #[must_use]
         #[inline(always)]
         pub const fn iir_int_mask(&self) -> u8 {
             let val = (self.0 >> 1usize) & 0x07;
@@ -672,10 +812,11 @@ pub mod regs {
         }
         #[doc = "UART interrupt flag bit mask."]
         #[inline(always)]
-        pub fn set_iir_int_mask(&mut self, val: u8) {
+        pub const fn set_iir_int_mask(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 1usize)) | (((val as u8) & 0x07) << 1usize);
         }
         #[doc = "UART FIFO enabled flag."]
+        #[must_use]
         #[inline(always)]
         pub const fn iir_fifo_en(&self) -> u8 {
             let val = (self.0 >> 6usize) & 0x03;
@@ -683,7 +824,7 @@ pub mod regs {
         }
         #[doc = "UART FIFO enabled flag."]
         #[inline(always)]
-        pub fn set_iir_fifo_en(&mut self, val: u8) {
+        pub const fn set_iir_fifo_en(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 6usize)) | (((val as u8) & 0x03) << 6usize);
         }
     }
@@ -693,12 +834,22 @@ pub mod regs {
             Iir(0)
         }
     }
+    impl core::fmt::Debug for Iir {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Iir")
+                .field("iir_no_int", &self.iir_no_int())
+                .field("iir_int_mask", &self.iir_int_mask())
+                .field("iir_fifo_en", &self.iir_fifo_en())
+                .finish()
+        }
+    }
     #[doc = "UART_FULL line control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Lcr(pub u8);
     impl Lcr {
         #[doc = "UART word bit length."]
+        #[must_use]
         #[inline(always)]
         pub const fn lcr_word_sz(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x03;
@@ -706,10 +857,11 @@ pub mod regs {
         }
         #[doc = "UART word bit length."]
         #[inline(always)]
-        pub fn set_lcr_word_sz(&mut self, val: u8) {
+        pub const fn set_lcr_word_sz(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 0usize)) | (((val as u8) & 0x03) << 0usize);
         }
         #[doc = "UART stop bit length."]
+        #[must_use]
         #[inline(always)]
         pub const fn lcr_stop_bit(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -717,10 +869,11 @@ pub mod regs {
         }
         #[doc = "UART stop bit length."]
         #[inline(always)]
-        pub fn set_lcr_stop_bit(&mut self, val: bool) {
+        pub const fn set_lcr_stop_bit(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "UART parity enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn lcr_par_en(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -728,10 +881,11 @@ pub mod regs {
         }
         #[doc = "UART parity enable."]
         #[inline(always)]
-        pub fn set_lcr_par_en(&mut self, val: bool) {
+        pub const fn set_lcr_par_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "UART parity mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn lcr_par_mod(&self) -> u8 {
             let val = (self.0 >> 4usize) & 0x03;
@@ -739,10 +893,11 @@ pub mod regs {
         }
         #[doc = "UART parity mode."]
         #[inline(always)]
-        pub fn set_lcr_par_mod(&mut self, val: u8) {
+        pub const fn set_lcr_par_mod(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 4usize)) | (((val as u8) & 0x03) << 4usize);
         }
         #[doc = "UART break control enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn lcr_break_en(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -750,10 +905,11 @@ pub mod regs {
         }
         #[doc = "UART break control enable."]
         #[inline(always)]
-        pub fn set_lcr_break_en(&mut self, val: bool) {
+        pub const fn set_lcr_break_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "UART divisor latch access enable bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn lcr_dlab(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -761,7 +917,7 @@ pub mod regs {
         }
         #[doc = "UART divisor latch access enable bit."]
         #[inline(always)]
-        pub fn set_lcr_dlab(&mut self, val: bool) {
+        pub const fn set_lcr_dlab(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -771,12 +927,25 @@ pub mod regs {
             Lcr(0)
         }
     }
+    impl core::fmt::Debug for Lcr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Lcr")
+                .field("lcr_word_sz", &self.lcr_word_sz())
+                .field("lcr_stop_bit", &self.lcr_stop_bit())
+                .field("lcr_par_en", &self.lcr_par_en())
+                .field("lcr_par_mod", &self.lcr_par_mod())
+                .field("lcr_break_en", &self.lcr_break_en())
+                .field("lcr_dlab", &self.lcr_dlab())
+                .finish()
+        }
+    }
     #[doc = "UART_FULL line status."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Lsr(pub u8);
     impl Lsr {
         #[doc = "UART receiver fifo data ready status."]
+        #[must_use]
         #[inline(always)]
         pub const fn lsr_data_rdy(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -784,10 +953,11 @@ pub mod regs {
         }
         #[doc = "UART receiver fifo data ready status."]
         #[inline(always)]
-        pub fn set_lsr_data_rdy(&mut self, val: bool) {
+        pub const fn set_lsr_data_rdy(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "UART receiver overrun error."]
+        #[must_use]
         #[inline(always)]
         pub const fn lsr_over_err(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -795,10 +965,11 @@ pub mod regs {
         }
         #[doc = "UART receiver overrun error."]
         #[inline(always)]
-        pub fn set_lsr_over_err(&mut self, val: bool) {
+        pub const fn set_lsr_over_err(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "UART receiver frame error."]
+        #[must_use]
         #[inline(always)]
         pub const fn lsr_par_err(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -806,10 +977,11 @@ pub mod regs {
         }
         #[doc = "UART receiver frame error."]
         #[inline(always)]
-        pub fn set_lsr_par_err(&mut self, val: bool) {
+        pub const fn set_lsr_par_err(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "UART receiver frame error."]
+        #[must_use]
         #[inline(always)]
         pub const fn lsr_frame_err(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -817,10 +989,11 @@ pub mod regs {
         }
         #[doc = "UART receiver frame error."]
         #[inline(always)]
-        pub fn set_lsr_frame_err(&mut self, val: bool) {
+        pub const fn set_lsr_frame_err(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "UART receiver break error."]
+        #[must_use]
         #[inline(always)]
         pub const fn lsr_break_err(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -828,10 +1001,11 @@ pub mod regs {
         }
         #[doc = "UART receiver break error."]
         #[inline(always)]
-        pub fn set_lsr_break_err(&mut self, val: bool) {
+        pub const fn set_lsr_break_err(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "UART transmitter fifo empty status."]
+        #[must_use]
         #[inline(always)]
         pub const fn lsr_tx_fifo_emp(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -839,10 +1013,11 @@ pub mod regs {
         }
         #[doc = "UART transmitter fifo empty status."]
         #[inline(always)]
-        pub fn set_lsr_tx_fifo_emp(&mut self, val: bool) {
+        pub const fn set_lsr_tx_fifo_emp(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "UART transmitter all empty status."]
+        #[must_use]
         #[inline(always)]
         pub const fn lsr_tx_all_emp(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -850,10 +1025,11 @@ pub mod regs {
         }
         #[doc = "UART transmitter all empty status."]
         #[inline(always)]
-        pub fn set_lsr_tx_all_emp(&mut self, val: bool) {
+        pub const fn set_lsr_tx_all_emp(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "indicate error in UART receiver fifo."]
+        #[must_use]
         #[inline(always)]
         pub const fn lsr_err_rx_fifo(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -861,7 +1037,7 @@ pub mod regs {
         }
         #[doc = "indicate error in UART receiver fifo."]
         #[inline(always)]
-        pub fn set_lsr_err_rx_fifo(&mut self, val: bool) {
+        pub const fn set_lsr_err_rx_fifo(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -871,12 +1047,27 @@ pub mod regs {
             Lsr(0)
         }
     }
+    impl core::fmt::Debug for Lsr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Lsr")
+                .field("lsr_data_rdy", &self.lsr_data_rdy())
+                .field("lsr_over_err", &self.lsr_over_err())
+                .field("lsr_par_err", &self.lsr_par_err())
+                .field("lsr_frame_err", &self.lsr_frame_err())
+                .field("lsr_break_err", &self.lsr_break_err())
+                .field("lsr_tx_fifo_emp", &self.lsr_tx_fifo_emp())
+                .field("lsr_tx_all_emp", &self.lsr_tx_all_emp())
+                .field("lsr_err_rx_fifo", &self.lsr_err_rx_fifo())
+                .finish()
+        }
+    }
     #[doc = "UART_FULL modem control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Mcr(pub u8);
     impl Mcr {
         #[doc = "UART_FULL control DTR output."]
+        #[must_use]
         #[inline(always)]
         pub const fn mcr_dtr(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -884,10 +1075,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL control DTR output."]
         #[inline(always)]
-        pub fn set_mcr_dtr(&mut self, val: bool) {
+        pub const fn set_mcr_dtr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "UART_FULL control RTS output."]
+        #[must_use]
         #[inline(always)]
         pub const fn mcr_rts(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -895,10 +1087,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL control RTS output."]
         #[inline(always)]
-        pub fn set_mcr_rts(&mut self, val: bool) {
+        pub const fn set_mcr_rts(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "UART_FULL MODEM Control bit."]
+        #[must_use]
         #[inline(always)]
         pub const fn mcr_out1(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -906,10 +1099,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL MODEM Control bit."]
         #[inline(always)]
-        pub fn set_mcr_out1(&mut self, val: bool) {
+        pub const fn set_mcr_out1(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "UART interrupt required output control."]
+        #[must_use]
         #[inline(always)]
         pub const fn mcr_out2(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -917,10 +1111,11 @@ pub mod regs {
         }
         #[doc = "UART interrupt required output control."]
         #[inline(always)]
-        pub fn set_mcr_out2(&mut self, val: bool) {
+        pub const fn set_mcr_out2(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "UART_FULL enable local loop back."]
+        #[must_use]
         #[inline(always)]
         pub const fn mcr_loop(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -928,10 +1123,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL enable local loop back."]
         #[inline(always)]
-        pub fn set_mcr_loop(&mut self, val: bool) {
+        pub const fn set_mcr_loop(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "UART_FULL enable autoflow control."]
+        #[must_use]
         #[inline(always)]
         pub const fn mcr_au_flow_en(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -939,10 +1135,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL enable autoflow control."]
         #[inline(always)]
-        pub fn set_mcr_au_flow_en(&mut self, val: bool) {
+        pub const fn set_mcr_au_flow_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "UART_FULL enable TNOW output on DTR pin."]
+        #[must_use]
         #[inline(always)]
         pub const fn mcr_tnow(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -950,7 +1147,7 @@ pub mod regs {
         }
         #[doc = "UART_FULL enable TNOW output on DTR pin."]
         #[inline(always)]
-        pub fn set_mcr_tnow(&mut self, val: bool) {
+        pub const fn set_mcr_tnow(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
     }
@@ -960,12 +1157,26 @@ pub mod regs {
             Mcr(0)
         }
     }
+    impl core::fmt::Debug for Mcr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Mcr")
+                .field("mcr_dtr", &self.mcr_dtr())
+                .field("mcr_rts", &self.mcr_rts())
+                .field("mcr_out1", &self.mcr_out1())
+                .field("mcr_out2", &self.mcr_out2())
+                .field("mcr_loop", &self.mcr_loop())
+                .field("mcr_au_flow_en", &self.mcr_au_flow_en())
+                .field("mcr_tnow", &self.mcr_tnow())
+                .finish()
+        }
+    }
     #[doc = "UART_FULL modem status."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Msr(pub u8);
     impl Msr {
         #[doc = "UART_FULL CTS changed status, high action."]
+        #[must_use]
         #[inline(always)]
         pub const fn msr_cts_chg(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -973,10 +1184,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL CTS changed status, high action."]
         #[inline(always)]
-        pub fn set_msr_cts_chg(&mut self, val: bool) {
+        pub const fn set_msr_cts_chg(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "UART_FULL DSR changed status, high action."]
+        #[must_use]
         #[inline(always)]
         pub const fn msr_dsr_chg(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -984,10 +1196,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL DSR changed status, high action."]
         #[inline(always)]
-        pub fn set_msr_dsr_chg(&mut self, val: bool) {
+        pub const fn set_msr_dsr_chg(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "UART_FULL RI changed status, high action."]
+        #[must_use]
         #[inline(always)]
         pub const fn msr_ri_chg(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -995,10 +1208,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL RI changed status, high action."]
         #[inline(always)]
-        pub fn set_msr_ri_chg(&mut self, val: bool) {
+        pub const fn set_msr_ri_chg(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "UART_FULL DCD changed status, high action."]
+        #[must_use]
         #[inline(always)]
         pub const fn msr_dcd_chg(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -1006,10 +1220,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL DCD changed status, high action."]
         #[inline(always)]
-        pub fn set_msr_dcd_chg(&mut self, val: bool) {
+        pub const fn set_msr_dcd_chg(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "UART_FULL CTS action status."]
+        #[must_use]
         #[inline(always)]
         pub const fn msr_cts(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -1017,10 +1232,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL CTS action status."]
         #[inline(always)]
-        pub fn set_msr_cts(&mut self, val: bool) {
+        pub const fn set_msr_cts(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
         #[doc = "UART_FULL DSR action status."]
+        #[must_use]
         #[inline(always)]
         pub const fn msr_dsr(&self) -> bool {
             let val = (self.0 >> 5usize) & 0x01;
@@ -1028,10 +1244,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL DSR action status."]
         #[inline(always)]
-        pub fn set_msr_dsr(&mut self, val: bool) {
+        pub const fn set_msr_dsr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
         }
         #[doc = "UART_FULL RI action status."]
+        #[must_use]
         #[inline(always)]
         pub const fn msr_ri(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -1039,10 +1256,11 @@ pub mod regs {
         }
         #[doc = "UART_FULL RI action status."]
         #[inline(always)]
-        pub fn set_msr_ri(&mut self, val: bool) {
+        pub const fn set_msr_ri(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "UART_FULL DCD action status."]
+        #[must_use]
         #[inline(always)]
         pub const fn msr_dcd(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -1050,7 +1268,7 @@ pub mod regs {
         }
         #[doc = "UART_FULL DCD action status."]
         #[inline(always)]
-        pub fn set_msr_dcd(&mut self, val: bool) {
+        pub const fn set_msr_dcd(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -1060,12 +1278,27 @@ pub mod regs {
             Msr(0)
         }
     }
+    impl core::fmt::Debug for Msr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Msr")
+                .field("msr_cts_chg", &self.msr_cts_chg())
+                .field("msr_dsr_chg", &self.msr_dsr_chg())
+                .field("msr_ri_chg", &self.msr_ri_chg())
+                .field("msr_dcd_chg", &self.msr_dcd_chg())
+                .field("msr_cts", &self.msr_cts())
+                .field("msr_dsr", &self.msr_dsr())
+                .field("msr_ri", &self.msr_ri())
+                .field("msr_dcd", &self.msr_dcd())
+                .finish()
+        }
+    }
     #[doc = "UART_FULL receiver buffer, receiving byte."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Rbr(pub u8);
     impl Rbr {
         #[doc = "UART receiver buffer, receiving byte."]
+        #[must_use]
         #[inline(always)]
         pub const fn rbr(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -1073,7 +1306,7 @@ pub mod regs {
         }
         #[doc = "UART receiver buffer, receiving byte."]
         #[inline(always)]
-        pub fn set_rbr(&mut self, val: u8) {
+        pub const fn set_rbr(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -1083,12 +1316,18 @@ pub mod regs {
             Rbr(0)
         }
     }
+    impl core::fmt::Debug for Rbr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Rbr").field("rbr", &self.rbr()).finish()
+        }
+    }
     #[doc = "UART_FULL transmitter holding, transmittal byte."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Thr(pub u8);
     impl Thr {
         #[doc = "UART transmitter holding, transmittal byte."]
+        #[must_use]
         #[inline(always)]
         pub const fn thr(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
@@ -1096,7 +1335,7 @@ pub mod regs {
         }
         #[doc = "UART transmitter holding, transmittal byte."]
         #[inline(always)]
-        pub fn set_thr(&mut self, val: u8) {
+        pub const fn set_thr(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -1104,6 +1343,11 @@ pub mod regs {
         #[inline(always)]
         fn default() -> Thr {
             Thr(0)
+        }
+    }
+    impl core::fmt::Debug for Thr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Thr").field("thr", &self.thr()).finish()
         }
     }
 }

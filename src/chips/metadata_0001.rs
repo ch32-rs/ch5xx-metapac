@@ -191,12 +191,12 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         interrupts: &[],
     },
     Peripheral {
-        name: "PWMx",
+        name: "PWMX",
         address: 0x40005000,
         registers: Some(PeripheralRegisters {
             kind: "pwmx",
             version: "ch569",
-            block: "PWMx",
+            block: "PWMX",
             ir: &pwmx::REGISTERS,
         }),
         rcc: None,

@@ -1780,7 +1780,7 @@ pub(crate) static REGISTERS: IR = IR {
                     enumm: None,
                 },
                 Field {
-                    name: "dupl_ex",
+                    name: "duplex",
                     description: Some(
                         "Even Ethernet mode selection.",
                     ),

@@ -46,12 +46,12 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         interrupts: &[],
     },
     Peripheral {
-        name: "TouchKey",
+        name: "TOUCHKEY",
         address: 0x40001000,
         registers: Some(PeripheralRegisters {
             kind: "touchkey",
             version: "ch595",
-            block: "TouchKey",
+            block: "TOUCH_KEY",
             ir: &touchkey::REGISTERS,
         }),
         rcc: None,
@@ -251,12 +251,12 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         interrupts: &[],
     },
     Peripheral {
-        name: "PWMx",
+        name: "PWMX",
         address: 0x40005000,
         registers: Some(PeripheralRegisters {
             kind: "pwmx",
             version: "ch585",
-            block: "PWMx",
+            block: "PWMX",
             ir: &pwmx::REGISTERS,
         }),
         rcc: None,

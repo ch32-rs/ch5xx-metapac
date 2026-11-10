@@ -22,57 +22,57 @@ impl Dvp {
     #[doc = "DVP control register0."]
     #[inline(always)]
     pub const fn cr0(self) -> crate::common::Reg<regs::Cr0, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "DVP control register1."]
     #[inline(always)]
     pub const fn cr1(self) -> crate::common::Reg<regs::Cr1, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x01usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x01usize) as _) }
     }
     #[doc = "DVP interrupt enable register."]
     #[inline(always)]
     pub const fn int_en(self) -> crate::common::Reg<regs::IntEn, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x02usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x02usize) as _) }
     }
     #[doc = "DVP row number of a frame indicator register."]
     #[inline(always)]
     pub const fn row_num(self) -> crate::common::Reg<regs::RowNum, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "DVP row number of a frame indicator register."]
     #[inline(always)]
     pub const fn col_num(self) -> crate::common::Reg<regs::ColNum, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x06usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x06usize) as _) }
     }
     #[doc = "DVP dma buffer0 addr."]
     #[inline(always)]
     pub const fn dma_buf0(self) -> crate::common::Reg<regs::DmaBuf0, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x08usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "DVP dma buffer1 addr."]
     #[inline(always)]
     pub const fn dma_buf1(self) -> crate::common::Reg<regs::DmaBuf1, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0cusize) as _) }
     }
     #[doc = "DVP interrupt flag register."]
     #[inline(always)]
     pub const fn int_flag(self) -> crate::common::Reg<regs::IntFlag, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x10usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
     #[doc = "DVP receive fifo status."]
     #[inline(always)]
     pub const fn fifo_st(self) -> crate::common::Reg<regs::FifoSt, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x11usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x11usize) as _) }
     }
     #[doc = "DVP row count value."]
     #[inline(always)]
     pub const fn row_cnt(self) -> crate::common::Reg<regs::RowCnt, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x14usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
     #[doc = "DVP col count value."]
     #[inline(always)]
     pub const fn col_cnt(self) -> crate::common::Reg<regs::ColCnt, crate::common::R> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x16usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x16usize) as _) }
     }
 }
 pub mod regs {
@@ -82,6 +82,7 @@ pub mod regs {
     pub struct ColCnt(pub u16);
     impl ColCnt {
         #[doc = "DVP receive fifo ready."]
+        #[must_use]
         #[inline(always)]
         pub const fn col_cnt(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -89,7 +90,7 @@ pub mod regs {
         }
         #[doc = "DVP receive fifo ready."]
         #[inline(always)]
-        pub fn set_col_cnt(&mut self, val: u16) {
+        pub const fn set_col_cnt(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -99,12 +100,20 @@ pub mod regs {
             ColCnt(0)
         }
     }
+    impl core::fmt::Debug for ColCnt {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("ColCnt")
+                .field("col_cnt", &self.col_cnt())
+                .finish()
+        }
+    }
     #[doc = "DVP row number of a frame indicator register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct ColNum(pub u16);
     impl ColNum {
         #[doc = "the number of PCLK cyccles contained in a row of data in RGB mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn col_num(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -112,7 +121,7 @@ pub mod regs {
         }
         #[doc = "the number of PCLK cyccles contained in a row of data in RGB mode."]
         #[inline(always)]
-        pub fn set_col_num(&mut self, val: u16) {
+        pub const fn set_col_num(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -122,12 +131,20 @@ pub mod regs {
             ColNum(0)
         }
     }
+    impl core::fmt::Debug for ColNum {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("ColNum")
+                .field("col_num", &self.col_num())
+                .finish()
+        }
+    }
     #[doc = "DVP control register0."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cr0(pub u8);
     impl Cr0 {
         #[doc = "DVP enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn enable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -135,10 +152,11 @@ pub mod regs {
         }
         #[doc = "DVP enable."]
         #[inline(always)]
-        pub fn set_enable(&mut self, val: bool) {
+        pub const fn set_enable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "DVP VSYNC polarity control."]
+        #[must_use]
         #[inline(always)]
         pub const fn v_polar(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -146,10 +164,11 @@ pub mod regs {
         }
         #[doc = "DVP VSYNC polarity control."]
         #[inline(always)]
-        pub fn set_v_polar(&mut self, val: bool) {
+        pub const fn set_v_polar(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "DVP HSYNC polarity control."]
+        #[must_use]
         #[inline(always)]
         pub const fn h_polar(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -157,10 +176,11 @@ pub mod regs {
         }
         #[doc = "DVP HSYNC polarity control."]
         #[inline(always)]
-        pub fn set_h_polar(&mut self, val: bool) {
+        pub const fn set_h_polar(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "DVP PCLK polarity control."]
+        #[must_use]
         #[inline(always)]
         pub const fn p_polar(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -168,10 +188,11 @@ pub mod regs {
         }
         #[doc = "DVP PCLK polarity control."]
         #[inline(always)]
-        pub fn set_p_polar(&mut self, val: bool) {
+        pub const fn set_p_polar(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "DVP data bit width confguration."]
+        #[must_use]
         #[inline(always)]
         pub const fn msk_dat_mod(&self) -> u8 {
             let val = (self.0 >> 4usize) & 0x03;
@@ -179,10 +200,11 @@ pub mod regs {
         }
         #[doc = "DVP data bit width confguration."]
         #[inline(always)]
-        pub fn set_msk_dat_mod(&mut self, val: u8) {
+        pub const fn set_msk_dat_mod(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 4usize)) | (((val as u8) & 0x03) << 4usize);
         }
         #[doc = "DVP JPEG mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn jpeg(&self) -> bool {
             let val = (self.0 >> 6usize) & 0x01;
@@ -190,10 +212,11 @@ pub mod regs {
         }
         #[doc = "DVP JPEG mode."]
         #[inline(always)]
-        pub fn set_jpeg(&mut self, val: bool) {
+        pub const fn set_jpeg(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
         }
         #[doc = "DVP row count mode."]
+        #[must_use]
         #[inline(always)]
         pub const fn raw_cm(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -201,7 +224,7 @@ pub mod regs {
         }
         #[doc = "DVP row count mode."]
         #[inline(always)]
-        pub fn set_raw_cm(&mut self, val: bool) {
+        pub const fn set_raw_cm(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
         }
     }
@@ -211,12 +234,26 @@ pub mod regs {
             Cr0(0)
         }
     }
+    impl core::fmt::Debug for Cr0 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cr0")
+                .field("enable", &self.enable())
+                .field("v_polar", &self.v_polar())
+                .field("h_polar", &self.h_polar())
+                .field("p_polar", &self.p_polar())
+                .field("msk_dat_mod", &self.msk_dat_mod())
+                .field("jpeg", &self.jpeg())
+                .field("raw_cm", &self.raw_cm())
+                .finish()
+        }
+    }
     #[doc = "DVP control register1."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Cr1(pub u8);
     impl Cr1 {
         #[doc = "DVP dma enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_enable(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -224,10 +261,11 @@ pub mod regs {
         }
         #[doc = "DVP dma enable."]
         #[inline(always)]
-        pub fn set_dma_enable(&mut self, val: bool) {
+        pub const fn set_dma_enable(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "DVP all clear, high action."]
+        #[must_use]
         #[inline(always)]
         pub const fn all_clr(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -235,10 +273,11 @@ pub mod regs {
         }
         #[doc = "DVP all clear, high action."]
         #[inline(always)]
-        pub fn set_all_clr(&mut self, val: bool) {
+        pub const fn set_all_clr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "DVP receive logic clear, high action."]
+        #[must_use]
         #[inline(always)]
         pub const fn rcv_clr(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -246,10 +285,11 @@ pub mod regs {
         }
         #[doc = "DVP receive logic clear, high action."]
         #[inline(always)]
-        pub fn set_rcv_clr(&mut self, val: bool) {
+        pub const fn set_rcv_clr(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "DVP bug toggle by software."]
+        #[must_use]
         #[inline(always)]
         pub const fn buf_tog(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -257,7 +297,7 @@ pub mod regs {
         }
         #[doc = "DVP bug toggle by software."]
         #[inline(always)]
-        pub fn set_buf_tog(&mut self, val: bool) {
+        pub const fn set_buf_tog(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
     }
@@ -267,12 +307,23 @@ pub mod regs {
             Cr1(0)
         }
     }
+    impl core::fmt::Debug for Cr1 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cr1")
+                .field("dma_enable", &self.dma_enable())
+                .field("all_clr", &self.all_clr())
+                .field("rcv_clr", &self.rcv_clr())
+                .field("buf_tog", &self.buf_tog())
+                .finish()
+        }
+    }
     #[doc = "DVP dma buffer0 addr."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaBuf0(pub u32);
     impl DmaBuf0 {
         #[doc = "the receiving address 0 of DMA."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_buf0(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -280,7 +331,7 @@ pub mod regs {
         }
         #[doc = "the receiving address 0 of DMA."]
         #[inline(always)]
-        pub fn set_dma_buf0(&mut self, val: u32) {
+        pub const fn set_dma_buf0(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -290,12 +341,20 @@ pub mod regs {
             DmaBuf0(0)
         }
     }
+    impl core::fmt::Debug for DmaBuf0 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaBuf0")
+                .field("dma_buf0", &self.dma_buf0())
+                .finish()
+        }
+    }
     #[doc = "DVP dma buffer1 addr."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DmaBuf1(pub u32);
     impl DmaBuf1 {
         #[doc = "the receiving address1 of DMA."]
+        #[must_use]
         #[inline(always)]
         pub const fn dma_buf1(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0x0001_ffff;
@@ -303,7 +362,7 @@ pub mod regs {
         }
         #[doc = "the receiving address1 of DMA."]
         #[inline(always)]
-        pub fn set_dma_buf1(&mut self, val: u32) {
+        pub const fn set_dma_buf1(&mut self, val: u32) {
             self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
@@ -313,12 +372,20 @@ pub mod regs {
             DmaBuf1(0)
         }
     }
+    impl core::fmt::Debug for DmaBuf1 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("DmaBuf1")
+                .field("dma_buf1", &self.dma_buf1())
+                .finish()
+        }
+    }
     #[doc = "DVP receive fifo status."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct FifoSt(pub u8);
     impl FifoSt {
         #[doc = "DVP receive fifo ready."]
+        #[must_use]
         #[inline(always)]
         pub const fn fifo_rdy(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -326,10 +393,11 @@ pub mod regs {
         }
         #[doc = "DVP receive fifo ready."]
         #[inline(always)]
-        pub fn set_fifo_rdy(&mut self, val: bool) {
+        pub const fn set_fifo_rdy(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "DVP receive fifo full."]
+        #[must_use]
         #[inline(always)]
         pub const fn fifo_full(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -337,10 +405,11 @@ pub mod regs {
         }
         #[doc = "DVP receive fifo full."]
         #[inline(always)]
-        pub fn set_fifo_full(&mut self, val: bool) {
+        pub const fn set_fifo_full(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "DVP receive fifo overflow."]
+        #[must_use]
         #[inline(always)]
         pub const fn fifo_ov(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -348,10 +417,11 @@ pub mod regs {
         }
         #[doc = "DVP receive fifo overflow."]
         #[inline(always)]
-        pub fn set_fifo_ov(&mut self, val: bool) {
+        pub const fn set_fifo_ov(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "DVP receive fifo count."]
+        #[must_use]
         #[inline(always)]
         pub const fn msk_fifo_cnt(&self) -> u8 {
             let val = (self.0 >> 4usize) & 0x07;
@@ -359,7 +429,7 @@ pub mod regs {
         }
         #[doc = "DVP receive fifo count."]
         #[inline(always)]
-        pub fn set_msk_fifo_cnt(&mut self, val: u8) {
+        pub const fn set_msk_fifo_cnt(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 4usize)) | (((val as u8) & 0x07) << 4usize);
         }
     }
@@ -369,12 +439,23 @@ pub mod regs {
             FifoSt(0)
         }
     }
+    impl core::fmt::Debug for FifoSt {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("FifoSt")
+                .field("fifo_rdy", &self.fifo_rdy())
+                .field("fifo_full", &self.fifo_full())
+                .field("fifo_ov", &self.fifo_ov())
+                .field("msk_fifo_cnt", &self.msk_fifo_cnt())
+                .finish()
+        }
+    }
     #[doc = "DVP interrupt enable register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct IntEn(pub u8);
     impl IntEn {
         #[doc = "DVP frame start interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_str_frm(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -382,10 +463,11 @@ pub mod regs {
         }
         #[doc = "DVP frame start interrupt enable."]
         #[inline(always)]
-        pub fn set_ie_str_frm(&mut self, val: bool) {
+        pub const fn set_ie_str_frm(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "DVP row received done interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_row_done(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -393,10 +475,11 @@ pub mod regs {
         }
         #[doc = "DVP row received done interrupt enable."]
         #[inline(always)]
-        pub fn set_ie_row_done(&mut self, val: bool) {
+        pub const fn set_ie_row_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "DVP frame received done interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_frm_done(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -404,10 +487,11 @@ pub mod regs {
         }
         #[doc = "DVP frame received done interrupt enable."]
         #[inline(always)]
-        pub fn set_ie_frm_done(&mut self, val: bool) {
+        pub const fn set_ie_frm_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "DVP receive fifo overflow interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_fifo_ov(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -415,10 +499,11 @@ pub mod regs {
         }
         #[doc = "DVP receive fifo overflow interrupt enable."]
         #[inline(always)]
-        pub fn set_ie_fifo_ov(&mut self, val: bool) {
+        pub const fn set_ie_fifo_ov(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
         #[doc = "DVP frame stop interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn ie_stp_frm(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -426,7 +511,7 @@ pub mod regs {
         }
         #[doc = "DVP frame stop interrupt enable."]
         #[inline(always)]
-        pub fn set_ie_stp_frm(&mut self, val: bool) {
+        pub const fn set_ie_stp_frm(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
         }
     }
@@ -436,12 +521,24 @@ pub mod regs {
             IntEn(0)
         }
     }
+    impl core::fmt::Debug for IntEn {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("IntEn")
+                .field("ie_str_frm", &self.ie_str_frm())
+                .field("ie_row_done", &self.ie_row_done())
+                .field("ie_frm_done", &self.ie_frm_done())
+                .field("ie_fifo_ov", &self.ie_fifo_ov())
+                .field("ie_stp_frm", &self.ie_stp_frm())
+                .finish()
+        }
+    }
     #[doc = "DVP interrupt flag register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct IntFlag(pub u32);
     impl IntFlag {
         #[doc = "interrupt flag for DVP frame start."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_str_frm(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -449,10 +546,11 @@ pub mod regs {
         }
         #[doc = "interrupt flag for DVP frame start."]
         #[inline(always)]
-        pub fn set_if_str_frm(&mut self, val: bool) {
+        pub const fn set_if_str_frm(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "interrupt flag for DVP row receive done."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_row_done(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -460,10 +558,11 @@ pub mod regs {
         }
         #[doc = "interrupt flag for DVP row receive done."]
         #[inline(always)]
-        pub fn set_if_row_done(&mut self, val: bool) {
+        pub const fn set_if_row_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
         #[doc = "interrupt flag for DVP frame receive done."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_frm_done(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -471,10 +570,11 @@ pub mod regs {
         }
         #[doc = "interrupt flag for DVP frame receive done."]
         #[inline(always)]
-        pub fn set_if_frm_done(&mut self, val: bool) {
+        pub const fn set_if_frm_done(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
         #[doc = "interrupt flag for DVP receive fifo overflow."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_fifo_ov(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -482,10 +582,11 @@ pub mod regs {
         }
         #[doc = "interrupt flag for DVP receive fifo overflow."]
         #[inline(always)]
-        pub fn set_if_fifo_ov(&mut self, val: bool) {
+        pub const fn set_if_fifo_ov(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
         }
         #[doc = "interrupt flag for DVP frame stop."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_stp_frm(&self) -> bool {
             let val = (self.0 >> 4usize) & 0x01;
@@ -493,7 +594,7 @@ pub mod regs {
         }
         #[doc = "interrupt flag for DVP frame stop."]
         #[inline(always)]
-        pub fn set_if_stp_frm(&mut self, val: bool) {
+        pub const fn set_if_stp_frm(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
         }
     }
@@ -503,12 +604,24 @@ pub mod regs {
             IntFlag(0)
         }
     }
+    impl core::fmt::Debug for IntFlag {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("IntFlag")
+                .field("if_str_frm", &self.if_str_frm())
+                .field("if_row_done", &self.if_row_done())
+                .field("if_frm_done", &self.if_frm_done())
+                .field("if_fifo_ov", &self.if_fifo_ov())
+                .field("if_stp_frm", &self.if_stp_frm())
+                .finish()
+        }
+    }
     #[doc = "DVP row count value."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct RowCnt(pub u16);
     impl RowCnt {
         #[doc = "DVP receive fifo full."]
+        #[must_use]
         #[inline(always)]
         pub const fn row_cnt(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -516,7 +629,7 @@ pub mod regs {
         }
         #[doc = "DVP receive fifo full."]
         #[inline(always)]
-        pub fn set_row_cnt(&mut self, val: u16) {
+        pub const fn set_row_cnt(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -526,12 +639,20 @@ pub mod regs {
             RowCnt(0)
         }
     }
+    impl core::fmt::Debug for RowCnt {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("RowCnt")
+                .field("row_cnt", &self.row_cnt())
+                .finish()
+        }
+    }
     #[doc = "DVP row number of a frame indicator register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct RowNum(pub u16);
     impl RowNum {
         #[doc = "the number of rows contained in a frame of image data."]
+        #[must_use]
         #[inline(always)]
         pub const fn row_num(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -539,7 +660,7 @@ pub mod regs {
         }
         #[doc = "the number of rows contained in a frame of image data."]
         #[inline(always)]
-        pub fn set_row_num(&mut self, val: u16) {
+        pub const fn set_row_num(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
         }
     }
@@ -547,6 +668,13 @@ pub mod regs {
         #[inline(always)]
         fn default() -> RowNum {
             RowNum(0)
+        }
+    }
+    impl core::fmt::Debug for RowNum {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("RowNum")
+                .field("row_num", &self.row_num())
+                .finish()
         }
     }
 }

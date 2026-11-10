@@ -22,7 +22,7 @@ impl Cmp {
     #[doc = "RW, Comparator control register."]
     #[inline(always)]
     pub const fn ctrl(self) -> crate::common::Reg<regs::Ctrl, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x54usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x54usize) as _) }
     }
 }
 pub mod regs {
@@ -32,6 +32,7 @@ pub mod regs {
     pub struct Ctrl(pub u32);
     impl Ctrl {
         #[doc = "RW, Comparator enabled."]
+        #[must_use]
         #[inline(always)]
         pub const fn en(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -39,10 +40,11 @@ pub mod regs {
         }
         #[doc = "RW, Comparator enabled."]
         #[inline(always)]
-        pub fn set_en(&mut self, val: bool) {
+        pub const fn set_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "RW, Timer captures channel signal source selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn cap(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -50,10 +52,11 @@ pub mod regs {
         }
         #[doc = "RW, Timer captures channel signal source selection."]
         #[inline(always)]
-        pub fn set_cap(&mut self, val: bool) {
+        pub const fn set_cap(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
         #[doc = "RW, Comparator channel selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn sw(&self) -> u8 {
             let val = (self.0 >> 2usize) & 0x03;
@@ -61,10 +64,11 @@ pub mod regs {
         }
         #[doc = "RW, Comparator channel selection."]
         #[inline(always)]
-        pub fn set_sw(&mut self, val: u8) {
+        pub const fn set_sw(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 2usize)) | (((val as u32) & 0x03) << 2usize);
         }
         #[doc = "RW, Selection of negative reference level for comparator."]
+        #[must_use]
         #[inline(always)]
         pub const fn nref_level(&self) -> u8 {
             let val = (self.0 >> 4usize) & 0x0f;
@@ -72,10 +76,11 @@ pub mod regs {
         }
         #[doc = "RW, Selection of negative reference level for comparator."]
         #[inline(always)]
-        pub fn set_nref_level(&mut self, val: u8) {
+        pub const fn set_nref_level(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 4usize)) | (((val as u32) & 0x0f) << 4usize);
         }
         #[doc = "RW, Comparator interrupt enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn int(&self) -> bool {
             let val = (self.0 >> 8usize) & 0x01;
@@ -83,10 +88,11 @@ pub mod regs {
         }
         #[doc = "RW, Comparator interrupt enable."]
         #[inline(always)]
-        pub fn set_int(&mut self, val: bool) {
+        pub const fn set_int(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 8usize)) | (((val as u32) & 0x01) << 8usize);
         }
         #[doc = "RW, Comparator interrupt generates event selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn out_sel(&self) -> u8 {
             let val = (self.0 >> 10usize) & 0x03;
@@ -94,10 +100,11 @@ pub mod regs {
         }
         #[doc = "RW, Comparator interrupt generates event selection."]
         #[inline(always)]
-        pub fn set_out_sel(&mut self, val: u8) {
+        pub const fn set_out_sel(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 10usize)) | (((val as u32) & 0x03) << 10usize);
         }
         #[doc = "RW1, Comparator interrupt flag, write 1 to reset to zero."]
+        #[must_use]
         #[inline(always)]
         pub const fn if_(&self) -> bool {
             let val = (self.0 >> 16usize) & 0x01;
@@ -105,10 +112,11 @@ pub mod regs {
         }
         #[doc = "RW1, Comparator interrupt flag, write 1 to reset to zero."]
         #[inline(always)]
-        pub fn set_if_(&mut self, val: bool) {
+        pub const fn set_if_(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 16usize)) | (((val as u32) & 0x01) << 16usize);
         }
         #[doc = "RW, Real time output signal of comparator."]
+        #[must_use]
         #[inline(always)]
         pub const fn apr_out_cmp(&self) -> bool {
             let val = (self.0 >> 25usize) & 0x01;
@@ -116,7 +124,7 @@ pub mod regs {
         }
         #[doc = "RW, Real time output signal of comparator."]
         #[inline(always)]
-        pub fn set_apr_out_cmp(&mut self, val: bool) {
+        pub const fn set_apr_out_cmp(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 25usize)) | (((val as u32) & 0x01) << 25usize);
         }
     }
@@ -124,6 +132,20 @@ pub mod regs {
         #[inline(always)]
         fn default() -> Ctrl {
             Ctrl(0)
+        }
+    }
+    impl core::fmt::Debug for Ctrl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ctrl")
+                .field("en", &self.en())
+                .field("cap", &self.cap())
+                .field("sw", &self.sw())
+                .field("nref_level", &self.nref_level())
+                .field("int", &self.int())
+                .field("out_sel", &self.out_sel())
+                .field("if_", &self.if_())
+                .field("apr_out_cmp", &self.apr_out_cmp())
+                .finish()
         }
     }
 }

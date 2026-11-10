@@ -1278,7 +1278,7 @@ pub(crate) static REGISTERS: IR = IR {
                     enumm: None,
                 },
                 Field {
-                    name: "pbhx_in_dis",
+                    name: "pbh_in_dis",
                     description: Some(
                         "RW, PB16~PB23 channel pin digital input disabled.",
                     ),
@@ -1287,8 +1287,15 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 8,
                         },
                     ),
-                    bit_size: 8,
-                    array: None,
+                    bit_size: 1,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 8,
+                                stride: 1,
+                            },
+                        ),
+                    ),
                     enumm: None,
                 },
             ],
@@ -1302,7 +1309,7 @@ pub(crate) static REGISTERS: IR = IR {
             bit_size: 32,
             fields: &[
                 Field {
-                    name: "pax_in_dis",
+                    name: "pa_in_dis",
                     description: Some(
                         "RW, PA0~PA15 channel pin digital input disabled.",
                     ),
@@ -1311,12 +1318,19 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 16,
-                    array: None,
+                    bit_size: 1,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 16,
+                                stride: 1,
+                            },
+                        ),
+                    ),
                     enumm: None,
                 },
                 Field {
-                    name: "pblx_in_dis",
+                    name: "pbl_in_dis",
                     description: Some(
                         "RW, PB0~PB15 channel pin digital input disabled.",
                     ),
@@ -1325,8 +1339,15 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 16,
                         },
                     ),
-                    bit_size: 16,
-                    array: None,
+                    bit_size: 1,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 16,
+                                stride: 1,
+                            },
+                        ),
+                    ),
                     enumm: None,
                 },
             ],

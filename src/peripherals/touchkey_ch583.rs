@@ -22,17 +22,17 @@ impl TouchKey {
     #[doc = "RW, Touchkey charge and discharge count."]
     #[inline(always)]
     pub const fn count(self) -> crate::common::Reg<regs::Count, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x54usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x54usize) as _) }
     }
     #[doc = "RW, Touchkey convert start control."]
     #[inline(always)]
     pub const fn convert(self) -> crate::common::Reg<regs::Convert, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x56usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x56usize) as _) }
     }
     #[doc = "RW, Touchkey configure."]
     #[inline(always)]
     pub const fn cfg(self) -> crate::common::Reg<regs::Cfg, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x57usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x57usize) as _) }
     }
 }
 pub mod regs {
@@ -42,6 +42,7 @@ pub mod regs {
     pub struct Cfg(pub u8);
     impl Cfg {
         #[doc = "RW, Touchkey power on."]
+        #[must_use]
         #[inline(always)]
         pub const fn pwr_on(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -49,10 +50,11 @@ pub mod regs {
         }
         #[doc = "RW, Touchkey power on."]
         #[inline(always)]
-        pub fn set_pwr_on(&mut self, val: bool) {
+        pub const fn set_pwr_on(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "RW, Touchkey charge current selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn current(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -60,10 +62,11 @@ pub mod regs {
         }
         #[doc = "RW, Touchkey charge current selection."]
         #[inline(always)]
-        pub fn set_current(&mut self, val: bool) {
+        pub const fn set_current(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u8) & 0x01) << 1usize);
         }
         #[doc = "RW, Touchkey drive shield enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn drv_en(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -71,10 +74,11 @@ pub mod regs {
         }
         #[doc = "RW, Touchkey drive shield enable."]
         #[inline(always)]
-        pub fn set_drv_en(&mut self, val: bool) {
+        pub const fn set_drv_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u8) & 0x01) << 2usize);
         }
         #[doc = "RW, ADC input PGA speed selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn pga_adj(&self) -> bool {
             let val = (self.0 >> 3usize) & 0x01;
@@ -82,7 +86,7 @@ pub mod regs {
         }
         #[doc = "RW, ADC input PGA speed selection."]
         #[inline(always)]
-        pub fn set_pga_adj(&mut self, val: bool) {
+        pub const fn set_pga_adj(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u8) & 0x01) << 3usize);
         }
     }
@@ -92,12 +96,23 @@ pub mod regs {
             Cfg(0)
         }
     }
+    impl core::fmt::Debug for Cfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cfg")
+                .field("pwr_on", &self.pwr_on())
+                .field("current", &self.current())
+                .field("drv_en", &self.drv_en())
+                .field("pga_adj", &self.pga_adj())
+                .finish()
+        }
+    }
     #[doc = "RW, Touchkey convert start control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Convert(pub u8);
     impl Convert {
         #[doc = "RW, Touchkey convert start control."]
+        #[must_use]
         #[inline(always)]
         pub const fn start(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -105,7 +120,7 @@ pub mod regs {
         }
         #[doc = "RW, Touchkey convert start control."]
         #[inline(always)]
-        pub fn set_start(&mut self, val: bool) {
+        pub const fn set_start(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
     }
@@ -115,12 +130,20 @@ pub mod regs {
             Convert(0)
         }
     }
+    impl core::fmt::Debug for Convert {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Convert")
+                .field("start", &self.start())
+                .finish()
+        }
+    }
     #[doc = "RW, Touchkey charge and discharge count."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Count(pub u8);
     impl Count {
         #[doc = "RW, Touchkey charge count."]
+        #[must_use]
         #[inline(always)]
         pub const fn charg_cnt(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x1f;
@@ -128,10 +151,11 @@ pub mod regs {
         }
         #[doc = "RW, Touchkey charge count."]
         #[inline(always)]
-        pub fn set_charg_cnt(&mut self, val: u8) {
+        pub const fn set_charg_cnt(&mut self, val: u8) {
             self.0 = (self.0 & !(0x1f << 0usize)) | (((val as u8) & 0x1f) << 0usize);
         }
         #[doc = "RW, Touchkey discharge count."]
+        #[must_use]
         #[inline(always)]
         pub const fn disch_cnt(&self) -> u8 {
             let val = (self.0 >> 5usize) & 0x07;
@@ -139,7 +163,7 @@ pub mod regs {
         }
         #[doc = "RW, Touchkey discharge count."]
         #[inline(always)]
-        pub fn set_disch_cnt(&mut self, val: u8) {
+        pub const fn set_disch_cnt(&mut self, val: u8) {
             self.0 = (self.0 & !(0x07 << 5usize)) | (((val as u8) & 0x07) << 5usize);
         }
     }
@@ -147,6 +171,14 @@ pub mod regs {
         #[inline(always)]
         fn default() -> Count {
             Count(0)
+        }
+    }
+    impl core::fmt::Debug for Count {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Count")
+                .field("charg_cnt", &self.charg_cnt())
+                .field("disch_cnt", &self.disch_cnt())
+                .finish()
         }
     }
 }

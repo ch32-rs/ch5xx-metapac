@@ -22,22 +22,22 @@ impl Lcd {
     #[doc = "RW, LCD Command Register."]
     #[inline(always)]
     pub const fn cmd(self) -> crate::common::Reg<regs::Cmd, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "RW, LCD RAM0 register."]
     #[inline(always)]
     pub const fn ram0(self) -> crate::common::Reg<regs::Ram0, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x04usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "RW, LCD RAM1 register."]
     #[inline(always)]
     pub const fn ram1(self) -> crate::common::Reg<regs::Ram1, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x08usize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "RW, LCD RAM2 register."]
     #[inline(always)]
     pub const fn ram2(self) -> crate::common::Reg<regs::Ram2, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.add(0x0cusize) as _) }
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0cusize) as _) }
     }
 }
 pub mod regs {
@@ -47,6 +47,7 @@ pub mod regs {
     pub struct Cmd(pub u32);
     impl Cmd {
         #[doc = "RW, System Enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn sys_en(&self) -> bool {
             let val = (self.0 >> 0usize) & 0x01;
@@ -54,10 +55,11 @@ pub mod regs {
         }
         #[doc = "RW, System Enable."]
         #[inline(always)]
-        pub fn set_sys_en(&mut self, val: bool) {
+        pub const fn set_sys_en(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
         #[doc = "RW, LCD switch."]
+        #[must_use]
         #[inline(always)]
         pub const fn on(&self) -> bool {
             let val = (self.0 >> 1usize) & 0x01;
@@ -65,10 +67,11 @@ pub mod regs {
         }
         #[doc = "RW, LCD switch."]
         #[inline(always)]
-        pub fn set_on(&mut self, val: bool) {
+        pub const fn set_on(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
         }
         #[doc = "RW, PWM6 Bias ratio selection enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn bias(&self) -> bool {
             let val = (self.0 >> 2usize) & 0x01;
@@ -76,10 +79,11 @@ pub mod regs {
         }
         #[doc = "RW, PWM6 Bias ratio selection enable."]
         #[inline(always)]
-        pub fn set_bias(&mut self, val: bool) {
+        pub const fn set_bias(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
         }
         #[doc = "RW, LCD duty cycle selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn duty(&self) -> u8 {
             let val = (self.0 >> 3usize) & 0x03;
@@ -87,10 +91,11 @@ pub mod regs {
         }
         #[doc = "RW, LCD duty cycle selection."]
         #[inline(always)]
-        pub fn set_duty(&mut self, val: u8) {
+        pub const fn set_duty(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 3usize)) | (((val as u32) & 0x03) << 3usize);
         }
         #[doc = "RW, Scan clock selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn scan_clk_sel(&self) -> u8 {
             let val = (self.0 >> 5usize) & 0x03;
@@ -98,10 +103,11 @@ pub mod regs {
         }
         #[doc = "RW, Scan clock selection."]
         #[inline(always)]
-        pub fn set_scan_clk_sel(&mut self, val: u8) {
+        pub const fn set_scan_clk_sel(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 5usize)) | (((val as u32) & 0x03) << 5usize);
         }
         #[doc = "RW, LCD driver voltage selection."]
+        #[must_use]
         #[inline(always)]
         pub const fn vlcd_sel(&self) -> bool {
             let val = (self.0 >> 7usize) & 0x01;
@@ -109,10 +115,11 @@ pub mod regs {
         }
         #[doc = "RW, LCD driver voltage selection."]
         #[inline(always)]
-        pub fn set_vlcd_sel(&mut self, val: bool) {
+        pub const fn set_vlcd_sel(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u32) & 0x01) << 7usize);
         }
         #[doc = "RW, SEG0-SEG7 section enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn seg_en1(&self) -> u8 {
             let val = (self.0 >> 8usize) & 0xff;
@@ -120,10 +127,11 @@ pub mod regs {
         }
         #[doc = "RW, SEG0-SEG7 section enable."]
         #[inline(always)]
-        pub fn set_seg_en1(&mut self, val: u8) {
+        pub const fn set_seg_en1(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 8usize)) | (((val as u32) & 0xff) << 8usize);
         }
         #[doc = "RW, SEG8-SEG15 section enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn seg_en2(&self) -> u8 {
             let val = (self.0 >> 16usize) & 0xff;
@@ -131,10 +139,11 @@ pub mod regs {
         }
         #[doc = "RW, SEG8-SEG15 section enable."]
         #[inline(always)]
-        pub fn set_seg_en2(&mut self, val: u8) {
+        pub const fn set_seg_en2(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 16usize)) | (((val as u32) & 0xff) << 16usize);
         }
         #[doc = "RW, SEG16-SEG19 section enable."]
+        #[must_use]
         #[inline(always)]
         pub const fn seg_en3(&self) -> u8 {
             let val = (self.0 >> 24usize) & 0x0f;
@@ -142,7 +151,7 @@ pub mod regs {
         }
         #[doc = "RW, SEG16-SEG19 section enable."]
         #[inline(always)]
-        pub fn set_seg_en3(&mut self, val: u8) {
+        pub const fn set_seg_en3(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 24usize)) | (((val as u32) & 0x0f) << 24usize);
         }
     }
@@ -152,12 +161,28 @@ pub mod regs {
             Cmd(0)
         }
     }
+    impl core::fmt::Debug for Cmd {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cmd")
+                .field("sys_en", &self.sys_en())
+                .field("on", &self.on())
+                .field("bias", &self.bias())
+                .field("duty", &self.duty())
+                .field("scan_clk_sel", &self.scan_clk_sel())
+                .field("vlcd_sel", &self.vlcd_sel())
+                .field("seg_en1", &self.seg_en1())
+                .field("seg_en2", &self.seg_en2())
+                .field("seg_en3", &self.seg_en3())
+                .finish()
+        }
+    }
     #[doc = "RW, LCD RAM0 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ram0(pub u32);
     impl Ram0 {
         #[doc = "RW, SEG0-SEG7 segment data."]
+        #[must_use]
         #[inline(always)]
         pub const fn segx(&self) -> u32 {
             let val = (self.0 >> 0usize) & 0xffff_ffff;
@@ -165,7 +190,7 @@ pub mod regs {
         }
         #[doc = "RW, SEG0-SEG7 segment data."]
         #[inline(always)]
-        pub fn set_segx(&mut self, val: u32) {
+        pub const fn set_segx(&mut self, val: u32) {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
@@ -175,12 +200,18 @@ pub mod regs {
             Ram0(0)
         }
     }
+    impl core::fmt::Debug for Ram0 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ram0").field("segx", &self.segx()).finish()
+        }
+    }
     #[doc = "RW, LCD RAM1 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ram1(pub u32);
     impl Ram1 {
         #[doc = "RW, SEG8-SEG15 segment data."]
+        #[must_use]
         #[inline(always)]
         pub const fn segx(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0x0f;
@@ -188,7 +219,7 @@ pub mod regs {
         }
         #[doc = "RW, SEG8-SEG15 segment data."]
         #[inline(always)]
-        pub fn set_segx(&mut self, val: u8) {
+        pub const fn set_segx(&mut self, val: u8) {
             self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u32) & 0x0f) << 0usize);
         }
     }
@@ -198,12 +229,18 @@ pub mod regs {
             Ram1(0)
         }
     }
+    impl core::fmt::Debug for Ram1 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ram1").field("segx", &self.segx()).finish()
+        }
+    }
     #[doc = "RW, LCD RAM2 register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct Ram2(pub u32);
     impl Ram2 {
         #[doc = "RW, SEG16-SEG19 segment data."]
+        #[must_use]
         #[inline(always)]
         pub const fn segx(&self) -> u16 {
             let val = (self.0 >> 0usize) & 0xffff;
@@ -211,7 +248,7 @@ pub mod regs {
         }
         #[doc = "RW, SEG16-SEG19 segment data."]
         #[inline(always)]
-        pub fn set_segx(&mut self, val: u16) {
+        pub const fn set_segx(&mut self, val: u16) {
             self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u32) & 0xffff) << 0usize);
         }
     }
@@ -219,6 +256,11 @@ pub mod regs {
         #[inline(always)]
         fn default() -> Ram2 {
             Ram2(0)
+        }
+    }
+    impl core::fmt::Debug for Ram2 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ram2").field("segx", &self.segx()).finish()
         }
     }
 }

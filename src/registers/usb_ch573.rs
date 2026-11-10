@@ -37,7 +37,7 @@ pub(crate) static REGISTERS: IR = IR {
                             access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
-                                "UdevCtrl_uhostCtrl",
+                                "UdevCtrlUhostCtrl",
                             ),
                         },
                     ),
@@ -173,7 +173,7 @@ pub(crate) static REGISTERS: IR = IR {
                             access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
-                                "Uep23Mod_uhEpMod",
+                                "Uep23ModUhEpMod",
                             ),
                         },
                     ),
@@ -224,7 +224,7 @@ pub(crate) static REGISTERS: IR = IR {
                             access: Access::ReadWrite,
                             bit_size: 16,
                             fieldset: Some(
-                                "Uep2Dma_uhRxDma",
+                                "Uep2DmaUhRxDma",
                             ),
                         },
                     ),
@@ -307,7 +307,7 @@ pub(crate) static REGISTERS: IR = IR {
                             access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
-                                "Uep1Ctrl_uhSetup",
+                                "Uep1CtrlUhSetup",
                             ),
                         },
                     ),
@@ -358,7 +358,7 @@ pub(crate) static REGISTERS: IR = IR {
                             access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
-                                "Uep3TLen_uhTxLen",
+                                "Uep3TLenUhTxLen",
                             ),
                         },
                     ),
@@ -375,7 +375,7 @@ pub(crate) static REGISTERS: IR = IR {
                             access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
-                                "Uep3Ctrl_uhTxCtrl",
+                                "Uep3CtrlUhTxCtrl",
                             ),
                         },
                     ),
@@ -1007,7 +1007,7 @@ pub(crate) static REGISTERS: IR = IR {
             ],
         },
         FieldSet {
-            name: "UdevCtrl_uhostCtrl",
+            name: "UdevCtrlUhostCtrl",
             extends: None,
             description: Some(
                 "USB device physical prot control.",
@@ -1229,7 +1229,7 @@ pub(crate) static REGISTERS: IR = IR {
             ],
         },
         FieldSet {
-            name: "Uep1Ctrl_uhSetup",
+            name: "Uep1CtrlUhSetup",
             extends: None,
             description: Some(
                 "endpoint 1 control;host aux setup.",
@@ -1357,7 +1357,7 @@ pub(crate) static REGISTERS: IR = IR {
             ],
         },
         FieldSet {
-            name: "Uep23Mod_uhEpMod",
+            name: "Uep23ModUhEpMod",
             extends: None,
             description: Some(
                 "endpoint 2_3 mode;host endpoint mode.",
@@ -1545,7 +1545,7 @@ pub(crate) static REGISTERS: IR = IR {
             ],
         },
         FieldSet {
-            name: "Uep2Dma_uhRxDma",
+            name: "Uep2DmaUhRxDma",
             extends: None,
             description: Some(
                 "endpoint 2 DMA buffer address;host rx endpoint buffer high address.",
@@ -1621,7 +1621,7 @@ pub(crate) static REGISTERS: IR = IR {
             ],
         },
         FieldSet {
-            name: "Uep3Ctrl_uhTxCtrl",
+            name: "Uep3CtrlUhTxCtrl",
             extends: None,
             description: Some(
                 "endpoint 3 control;host transmittal endpoint control.",
@@ -1715,7 +1715,7 @@ pub(crate) static REGISTERS: IR = IR {
             ],
         },
         FieldSet {
-            name: "Uep3TLen_uhTxLen",
+            name: "Uep3TLenUhTxLen",
             extends: None,
             description: Some(
                 "endpoint 3 transmittal length;host transmittal endpoint transmittal length.",
