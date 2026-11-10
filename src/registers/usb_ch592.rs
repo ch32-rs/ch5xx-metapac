@@ -43,6 +43,23 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "uhost_ctrl",
+                    description: Some(
+                        "USB host physical port control.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "UhostCtrl",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "int_en",
                     description: Some(
                         "USB interrupt enable.",
@@ -179,6 +196,23 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "uh_ep_mod",
+                    description: Some(
+                        "USB host endpoint mode.",
+                    ),
+                    array: None,
+                    byte_offset: 0xd,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "UhEpMod",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "uep567_mod",
                     description: Some(
                         "endpoint 5/6/7 mode.",
@@ -247,6 +281,21 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "uh_rx_dma",
+                    description: Some(
+                        "USB host receive endpoint DMA buffer address.",
+                    ),
+                    array: None,
+                    byte_offset: 0x18,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 16,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "uep3_dma",
                     description: Some(
                         "endpoint 3 DMA buffer address;host tx endpoint buffer high address.",
@@ -264,6 +313,21 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "uh_tx_dma",
+                    description: Some(
+                        "USB host transmit endpoint DMA buffer address.",
+                    ),
+                    array: None,
+                    byte_offset: 0x1c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 16,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "uep0_t_len",
                     description: Some(
                         "endpoint 0 transmittal length.",
@@ -276,6 +340,38 @@ pub(crate) static REGISTERS: IR = IR {
                             bit_size: 8,
                             fieldset: Some(
                                 "Uep0TLen",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "uep_t_len",
+                    description: Some(
+                        "Device endpoint transmit length, indexed by endpoint number. In host mode, endpoints 2 and 3 have different meanings.",
+                    ),
+                    array: Some(
+                        Array::Cursed(
+                            CursedArray {
+                                offsets: &[
+                                    0,
+                                    4,
+                                    8,
+                                    12,
+                                    16,
+                                    68,
+                                    72,
+                                    76,
+                                ],
+                            },
+                        ),
+                    ),
+                    byte_offset: 0x20,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "UepTLen",
                             ),
                         },
                     ),
@@ -332,6 +428,23 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "uh_setup",
+                    description: Some(
+                        "USB host auxiliary setup.",
+                    ),
+                    array: None,
+                    byte_offset: 0x26,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "UhSetup",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "uep2_t_len",
                     description: Some(
                         "endpoint 2 transmittal length;host endpoint and PID.",
@@ -344,6 +457,23 @@ pub(crate) static REGISTERS: IR = IR {
                             bit_size: 8,
                             fieldset: Some(
                                 "Uep2TLen",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "uh_ep_pid",
+                    description: Some(
+                        "USB host endpoint and token PID.",
+                    ),
+                    array: None,
+                    byte_offset: 0x28,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "UhEpPid",
                             ),
                         },
                     ),
@@ -366,6 +496,23 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "uh_rx_ctrl",
+                    description: Some(
+                        "USB host receive endpoint control.",
+                    ),
+                    array: None,
+                    byte_offset: 0x2a,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "UhRxCtrl",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "uep3_t_len",
                     description: Some(
                         "endpoint 3 transmittal length;host transmittal endpoint transmittal length.",
@@ -383,6 +530,21 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "uh_tx_len",
+                    description: Some(
+                        "USB host transmit endpoint length.",
+                    ),
+                    array: None,
+                    byte_offset: 0x2c,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: None,
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "uep3_ctrl",
                     description: Some(
                         "endpoint 3 control;host transmittal endpoint control.",
@@ -395,6 +557,23 @@ pub(crate) static REGISTERS: IR = IR {
                             bit_size: 8,
                             fieldset: Some(
                                 "Uep3Ctrl",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "uh_tx_ctrl",
+                    description: Some(
+                        "USB host transmit endpoint control.",
+                    ),
+                    array: None,
+                    byte_offset: 0x2e,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "UhTxCtrl",
                             ),
                         },
                     ),
@@ -759,9 +938,37 @@ pub(crate) static REGISTERS: IR = IR {
             bit_size: 8,
             fields: &[
                 Field {
+                    name: "uie_bus_rst",
+                    description: Some(
+                        "Enable bus reset interrupt in device mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
                     name: "uie_bus_rst__uie_detect",
                     description: Some(
                         "enable interrupt for USB bus reset event for USB device mode;enable interrupt for USB device detected event for USB host mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uie_detect",
+                    description: Some(
+                        "Enable device detection interrupt in host mode.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -867,9 +1074,37 @@ pub(crate) static REGISTERS: IR = IR {
             bit_size: 8,
             fields: &[
                 Field {
+                    name: "uif_bus_rst",
+                    description: Some(
+                        "Device bus reset interrupt flag; write 1 to clear. Avoid read-modify-write when clearing flags.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
                     name: "uif_bus_rst__uif_detect",
                     description: Some(
                         "RW,bus reset event interrupt flag for USB device mode, direct bit address clear or write 1 to clear;device detected event interrupt flag for USB host mode, direct bit address clear or write 1 to clear.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uif_detect",
+                    description: Some(
+                        "Host device detection interrupt flag; write 1 to clear. Avoid read-modify-write when clearing flags.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -988,6 +1223,34 @@ pub(crate) static REGISTERS: IR = IR {
             ),
             bit_size: 8,
             fields: &[
+                Field {
+                    name: "mask_uis_endp",
+                    description: Some(
+                        "Device transfer endpoint number.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "mask_uis_h_res",
+                    description: Some(
+                        "Host transfer handshake response PID, or zero on timeout.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: None,
+                    enumm: None,
+                },
                 Field {
                     name: "mask_uis_h_res__mask_uis_endp",
                     description: Some(
@@ -1673,20 +1936,6 @@ pub(crate) static REGISTERS: IR = IR {
                     enumm: None,
                 },
                 Field {
-                    name: "mask_uh_r_res",
-                    description: Some(
-                        "bit mask of handshake response type for USB endpoint X receiving (OUT).",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 2,
-                        },
-                    ),
-                    bit_size: 1,
-                    array: None,
-                    enumm: None,
-                },
-                Field {
                     name: "uep_auto_tog",
                     description: Some(
                         "enable automatic toggle after successful transfer completion on endpoint 1_2_3: 0=manual toggle, 1=automatic toggle;enable automatic toggle after successful transfer completion: 0=manual toggle, 1=automatic toggle.",
@@ -1773,20 +2022,6 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                     bit_size: 7,
-                    array: None,
-                    enumm: None,
-                },
-                Field {
-                    name: "uep2_host_pid3",
-                    description: Some(
-                        "The token in host mode identifies the bit3 of the PID.",
-                    ),
-                    bit_offset: BitOffset::Regular(
-                        RegularBitOffset {
-                            offset: 7,
-                        },
-                    ),
-                    bit_size: 1,
                     array: None,
                     enumm: None,
                 },
@@ -2577,6 +2812,370 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                     bit_size: 7,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "UepTLen",
+            extends: None,
+            description: Some(
+                "Device endpoint transmit length.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "t_len",
+                    description: Some(
+                        "Transmit length in bytes.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 7,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "UhEpMod",
+            extends: None,
+            description: Some(
+                "USB host endpoint mode.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "uh_ep_rbuf_mod",
+                    description: Some(
+                        "Host IN endpoint buffer mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_ep_rx_en",
+                    description: Some(
+                        "Enable host IN endpoint receiving.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 3,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_ep_tbuf_mod",
+                    description: Some(
+                        "Host OUT endpoint buffer mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_ep_tx_en",
+                    description: Some(
+                        "Enable host OUT endpoint transmission.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 6,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "UhEpPid",
+            extends: None,
+            description: Some(
+                "USB host endpoint and token PID.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "mask_uh_endp",
+                    description: Some(
+                        "Endpoint number.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "mask_uh_token",
+                    description: Some(
+                        "Token PID.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "UhRxCtrl",
+            extends: None,
+            description: Some(
+                "USB host receive endpoint control.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "uh_r_res",
+                    description: Some(
+                        "Prepared receive handshake response; set for no response.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_r_auto_tog",
+                    description: Some(
+                        "Enable automatic receive toggle.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_r_tog",
+                    description: Some(
+                        "Expected receive data toggle.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "UhSetup",
+            extends: None,
+            description: Some(
+                "USB host auxiliary setup.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "uh_sof_en",
+                    description: Some(
+                        "Enable automatic SOF.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 6,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_pre_pid_en",
+                    description: Some(
+                        "Enable PRE PID for a low-speed device via a hub.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "UhTxCtrl",
+            extends: None,
+            description: Some(
+                "USB host transmit endpoint control.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "uh_t_res",
+                    description: Some(
+                        "Expected transmit handshake response; set for no response.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_t_auto_tog",
+                    description: Some(
+                        "Enable automatic transmit toggle.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_t_tog",
+                    description: Some(
+                        "Prepared transmit data toggle.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 6,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "UhostCtrl",
+            extends: None,
+            description: Some(
+                "USB host physical port control.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "uh_port_en",
+                    description: Some(
+                        "Enable the USB host port.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_bus_reset",
+                    description: Some(
+                        "Force USB bus reset.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 1,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_low_speed",
+                    description: Some(
+                        "Enable low-speed operation.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 2,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_dm_pin",
+                    description: Some(
+                        "Current UDM pin level.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_dp_pin",
+                    description: Some(
+                        "Current UDP pin level.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 5,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "uh_pd_dis",
+                    description: Some(
+                        "Disable UDP and UDM pulldown resistors.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
                     array: None,
                     enumm: None,
                 },

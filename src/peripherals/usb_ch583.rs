@@ -119,6 +119,19 @@ impl Usb {
     pub const fn uep0_t_len(self) -> crate::common::Reg<regs::Uep0TLen, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x20usize) as _) }
     }
+    #[doc = "Device endpoint transmit length, indexed by endpoint number. In host mode, endpoints 2 and 3 have different meanings."]
+    #[inline(always)]
+    pub const fn uep_t_len(self, n: usize) -> crate::common::Reg<regs::UepTLen, crate::common::RW> {
+        assert!(n < 8usize);
+        unsafe {
+            crate::common::Reg::from_ptr(self.ptr.wrapping_add(
+                0x20usize
+                    + ([
+                        0usize, 4usize, 8usize, 12usize, 16usize, 68usize, 72usize, 76usize,
+                    ][n] as usize),
+            ) as _)
+        }
+    }
     #[doc = "endpoint 0 control."]
     #[inline(always)]
     pub const fn uep0_ctrl(self) -> crate::common::Reg<regs::Uep0Ctrl, crate::common::RW> {
@@ -407,6 +420,18 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct IntEn(pub u8);
     impl IntEn {
+        #[doc = "Enable bus reset interrupt in device mode."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn uie_bus_rst(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Enable bus reset interrupt in device mode."]
+        #[inline(always)]
+        pub const fn set_uie_bus_rst(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
         #[doc = "enable interrupt for USB bus reset event for USB device mode;enable interrupt for USB device detected event for USB host mode."]
         #[must_use]
         #[inline(always)]
@@ -417,6 +442,18 @@ pub mod regs {
         #[doc = "enable interrupt for USB bus reset event for USB device mode;enable interrupt for USB device detected event for USB host mode."]
         #[inline(always)]
         pub const fn set_uie_bus_rst__uie_detect(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "Enable device detection interrupt in host mode."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn uie_detect(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Enable device detection interrupt in host mode."]
+        #[inline(always)]
+        pub const fn set_uie_detect(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "enable interrupt for USB transfer completion."]
@@ -501,7 +538,9 @@ pub mod regs {
     impl core::fmt::Debug for IntEn {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("IntEn")
+                .field("uie_bus_rst", &self.uie_bus_rst())
                 .field("uie_bus_rst__uie_detect", &self.uie_bus_rst__uie_detect())
+                .field("uie_detect", &self.uie_detect())
                 .field("uie_transfer", &self.uie_transfer())
                 .field("uie_suspend", &self.uie_suspend())
                 .field("uie_hst_sof", &self.uie_hst_sof())
@@ -516,6 +555,18 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct IntFg(pub u8);
     impl IntFg {
+        #[doc = "Device bus reset interrupt flag; write 1 to clear. Avoid read-modify-write when clearing flags."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn uif_bus_rst(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Device bus reset interrupt flag; write 1 to clear. Avoid read-modify-write when clearing flags."]
+        #[inline(always)]
+        pub const fn set_uif_bus_rst(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
         #[doc = "RW,bus reset event interrupt flag for USB device mode, direct bit address clear or write 1 to clear;device detected event interrupt flag for USB host mode, direct bit address clear or write 1 to clear."]
         #[must_use]
         #[inline(always)]
@@ -526,6 +577,18 @@ pub mod regs {
         #[doc = "RW,bus reset event interrupt flag for USB device mode, direct bit address clear or write 1 to clear;device detected event interrupt flag for USB host mode, direct bit address clear or write 1 to clear."]
         #[inline(always)]
         pub const fn set_uif_bus_rst__uif_detect(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+        #[doc = "Host device detection interrupt flag; write 1 to clear. Avoid read-modify-write when clearing flags."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn uif_detect(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Host device detection interrupt flag; write 1 to clear. Avoid read-modify-write when clearing flags."]
+        #[inline(always)]
+        pub const fn set_uif_detect(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
         #[doc = "RW,USB transfer completion interrupt flag, direct bit address clear or write 1 to clear."]
@@ -622,7 +685,9 @@ pub mod regs {
     impl core::fmt::Debug for IntFg {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("IntFg")
+                .field("uif_bus_rst", &self.uif_bus_rst())
                 .field("uif_bus_rst__uif_detect", &self.uif_bus_rst__uif_detect())
+                .field("uif_detect", &self.uif_detect())
                 .field("uif_transfer", &self.uif_transfer())
                 .field("uif_suspend", &self.uif_suspend())
                 .field("uif_hst_sof", &self.uif_hst_sof())
@@ -638,6 +703,30 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct IntSt(pub u8);
     impl IntSt {
+        #[doc = "Device transfer endpoint number."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn mask_uis_endp(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x0f;
+            val as u8
+        }
+        #[doc = "Device transfer endpoint number."]
+        #[inline(always)]
+        pub const fn set_mask_uis_endp(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u8) & 0x0f) << 0usize);
+        }
+        #[doc = "Host transfer handshake response PID, or zero on timeout."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn mask_uis_h_res(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x0f;
+            val as u8
+        }
+        #[doc = "Host transfer handshake response PID, or zero on timeout."]
+        #[inline(always)]
+        pub const fn set_mask_uis_h_res(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x0f << 0usize)) | (((val as u8) & 0x0f) << 0usize);
+        }
         #[doc = "RO, bit mask of current transfer handshake response for USB host mode: 0000=no response, time out from device, others=handshake response PID received;RO, bit mask of current transfer endpoint number for USB device mode."]
         #[must_use]
         #[inline(always)]
@@ -696,6 +785,8 @@ pub mod regs {
     impl core::fmt::Debug for IntSt {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("IntSt")
+                .field("mask_uis_endp", &self.mask_uis_endp())
+                .field("mask_uis_h_res", &self.mask_uis_h_res())
                 .field(
                     "mask_uis_h_res__mask_uis_endp",
                     &self.mask_uis_h_res__mask_uis_endp(),
@@ -2356,6 +2447,37 @@ pub mod regs {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("Uep7TLen")
                 .field("uep7_t_len", &self.uep7_t_len())
+                .finish()
+        }
+    }
+    #[doc = "Device endpoint transmit length."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct UepTLen(pub u8);
+    impl UepTLen {
+        #[doc = "Transmit length in bytes."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn t_len(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0xff;
+            val as u8
+        }
+        #[doc = "Transmit length in bytes."]
+        #[inline(always)]
+        pub const fn set_t_len(&mut self, val: u8) {
+            self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
+        }
+    }
+    impl Default for UepTLen {
+        #[inline(always)]
+        fn default() -> UepTLen {
+            UepTLen(0)
+        }
+    }
+    impl core::fmt::Debug for UepTLen {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("UepTLen")
+                .field("t_len", &self.t_len())
                 .finish()
         }
     }
