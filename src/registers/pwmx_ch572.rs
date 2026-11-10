@@ -94,6 +94,40 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "pwm1_data",
+                    description: Some(
+                        "RW, PWM1 data holding, 16 bits wide.",
+                    ),
+                    array: None,
+                    byte_offset: 0x4,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 16,
+                            fieldset: Some(
+                                "Pwm1Data",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "pwm2_data",
+                    description: Some(
+                        "RW, PWM2 data holding, 16 bits wide.",
+                    ),
+                    array: None,
+                    byte_offset: 0x6,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 16,
+                            fieldset: Some(
+                                "Pwm2Data",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "pwm3_data",
                     description: Some(
                         "RW, PWM data retention register group 2.",
@@ -162,6 +196,40 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "pwm4_data",
+                    description: Some(
+                        "RW, PWM4 data holding, 16 bits wide.",
+                    ),
+                    array: None,
+                    byte_offset: 0x10,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 16,
+                            fieldset: Some(
+                                "Pwm4Data",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "pwm5_data",
+                    description: Some(
+                        "RW, PWM5 data holding, 16 bits wide.",
+                    ),
+                    array: None,
+                    byte_offset: 0x12,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 16,
+                            fieldset: Some(
+                                "Pwm5Data",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "cyc_value",
                     description: Some(
                         "RW, PWM1/2/3 cycles end register.",
@@ -174,6 +242,23 @@ pub(crate) static REGISTERS: IR = IR {
                             bit_size: 16,
                             fieldset: Some(
                                 "CycValue",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "cyc1_value",
+                    description: Some(
+                        "RW, PWM4/5 cycles end register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x16,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 16,
+                            fieldset: Some(
+                                "Cyc1Value",
                             ),
                         },
                     ),
@@ -363,6 +448,30 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                     bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Cyc1Value",
+            extends: None,
+            description: Some(
+                "RW, PWM4/5 cycles end register.",
+            ),
+            bit_size: 16,
+            fields: &[
+                Field {
+                    name: "cyc1_value",
+                    description: Some(
+                        "RW, PWM4/5 clock cycle at 16 data widths.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 16,
                     array: None,
                     enumm: None,
                 },
@@ -917,6 +1026,54 @@ pub(crate) static REGISTERS: IR = IR {
             ],
         },
         FieldSet {
+            name: "Pwm1Data",
+            extends: None,
+            description: Some(
+                "RW, PWM1 data holding, 16 bits wide.",
+            ),
+            bit_size: 16,
+            fields: &[
+                Field {
+                    name: "pwm1_data",
+                    description: Some(
+                        "RW, PWM1 data holding, 16 bits wide.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Pwm2Data",
+            extends: None,
+            description: Some(
+                "RW, PWM2 data holding, 16 bits wide.",
+            ),
+            bit_size: 16,
+            fields: &[
+                Field {
+                    name: "pwm2_data",
+                    description: Some(
+                        "RW, PWM2 data holding, 16 bits wide.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
             name: "Pwm3Data",
             extends: None,
             description: Some(
@@ -986,7 +1143,55 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 16,
                         },
                     ),
-                    bit_size: 17,
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Pwm4Data",
+            extends: None,
+            description: Some(
+                "RW, PWM4 data holding, 16 bits wide.",
+            ),
+            bit_size: 16,
+            fields: &[
+                Field {
+                    name: "pwm4_data",
+                    description: Some(
+                        "RW, PWM4 data holding, 16 bits wide.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "Pwm5Data",
+            extends: None,
+            description: Some(
+                "RW, PWM5 data holding, 16 bits wide.",
+            ),
+            bit_size: 16,
+            fields: &[
+                Field {
+                    name: "pwm5_data",
+                    description: Some(
+                        "RW, PWM5 data holding, 16 bits wide.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 16,
                     array: None,
                     enumm: None,
                 },

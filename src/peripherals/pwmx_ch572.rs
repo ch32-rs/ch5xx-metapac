@@ -44,6 +44,16 @@ impl Pwmx {
     pub const fn pwm1_3_data(self) -> crate::common::Reg<regs::Pwm13Data, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
+    #[doc = "RW, PWM1 data holding, 16 bits wide."]
+    #[inline(always)]
+    pub const fn pwm1_data(self) -> crate::common::Reg<regs::Pwm1Data, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
+    }
+    #[doc = "RW, PWM2 data holding, 16 bits wide."]
+    #[inline(always)]
+    pub const fn pwm2_data(self) -> crate::common::Reg<regs::Pwm2Data, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x06usize) as _) }
+    }
     #[doc = "RW, PWM data retention register group 2."]
     #[inline(always)]
     pub const fn pwm3_data(self) -> crate::common::Reg<regs::Pwm3Data, crate::common::RW> {
@@ -64,10 +74,25 @@ impl Pwmx {
     pub const fn pwm4_5_data(self) -> crate::common::Reg<regs::Pwm45Data, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
+    #[doc = "RW, PWM4 data holding, 16 bits wide."]
+    #[inline(always)]
+    pub const fn pwm4_data(self) -> crate::common::Reg<regs::Pwm4Data, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
+    }
+    #[doc = "RW, PWM5 data holding, 16 bits wide."]
+    #[inline(always)]
+    pub const fn pwm5_data(self) -> crate::common::Reg<regs::Pwm5Data, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x12usize) as _) }
+    }
     #[doc = "RW, PWM1/2/3 cycles end register."]
     #[inline(always)]
     pub const fn cyc_value(self) -> crate::common::Reg<regs::CycValue, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
+    }
+    #[doc = "RW, PWM4/5 cycles end register."]
+    #[inline(always)]
+    pub const fn cyc1_value(self) -> crate::common::Reg<regs::Cyc1Value, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x16usize) as _) }
     }
     #[doc = "RW, PWM reference clock frequency division coefficient."]
     #[inline(always)]
@@ -215,6 +240,37 @@ pub mod regs {
                 .field("pwm4_5_ch", &self.pwm4_5_ch())
                 .field("sync_start", &self.sync_start())
                 .field("sync_en", &self.sync_en())
+                .finish()
+        }
+    }
+    #[doc = "RW, PWM4/5 cycles end register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Cyc1Value(pub u16);
+    impl Cyc1Value {
+        #[doc = "RW, PWM4/5 clock cycle at 16 data widths."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn cyc1_value(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "RW, PWM4/5 clock cycle at 16 data widths."]
+        #[inline(always)]
+        pub const fn set_cyc1_value(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Cyc1Value {
+        #[inline(always)]
+        fn default() -> Cyc1Value {
+            Cyc1Value(0)
+        }
+    }
+    impl core::fmt::Debug for Cyc1Value {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cyc1Value")
+                .field("cyc1_value", &self.cyc1_value())
                 .finish()
         }
     }
@@ -814,6 +870,68 @@ pub mod regs {
                 .finish()
         }
     }
+    #[doc = "RW, PWM1 data holding, 16 bits wide."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Pwm1Data(pub u16);
+    impl Pwm1Data {
+        #[doc = "RW, PWM1 data holding, 16 bits wide."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pwm1_data(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "RW, PWM1 data holding, 16 bits wide."]
+        #[inline(always)]
+        pub const fn set_pwm1_data(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Pwm1Data {
+        #[inline(always)]
+        fn default() -> Pwm1Data {
+            Pwm1Data(0)
+        }
+    }
+    impl core::fmt::Debug for Pwm1Data {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pwm1Data")
+                .field("pwm1_data", &self.pwm1_data())
+                .finish()
+        }
+    }
+    #[doc = "RW, PWM2 data holding, 16 bits wide."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Pwm2Data(pub u16);
+    impl Pwm2Data {
+        #[doc = "RW, PWM2 data holding, 16 bits wide."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pwm2_data(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "RW, PWM2 data holding, 16 bits wide."]
+        #[inline(always)]
+        pub const fn set_pwm2_data(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Pwm2Data {
+        #[inline(always)]
+        fn default() -> Pwm2Data {
+            Pwm2Data(0)
+        }
+    }
+    impl core::fmt::Debug for Pwm2Data {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pwm2Data")
+                .field("pwm2_data", &self.pwm2_data())
+                .finish()
+        }
+    }
     #[doc = "RW, PWM data retention register group 2."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -877,15 +995,14 @@ pub mod regs {
         #[doc = "RW, PWM5 data holding(16bits wide)."]
         #[must_use]
         #[inline(always)]
-        pub const fn pwm5_data(&self) -> u32 {
-            let val = (self.0 >> 16usize) & 0x0001_ffff;
-            val as u32
+        pub const fn pwm5_data(&self) -> u16 {
+            let val = (self.0 >> 16usize) & 0xffff;
+            val as u16
         }
         #[doc = "RW, PWM5 data holding(16bits wide)."]
         #[inline(always)]
-        pub const fn set_pwm5_data(&mut self, val: u32) {
-            self.0 =
-                (self.0 & !(0x0001_ffff << 16usize)) | (((val as u32) & 0x0001_ffff) << 16usize);
+        pub const fn set_pwm5_data(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 16usize)) | (((val as u32) & 0xffff) << 16usize);
         }
     }
     impl Default for Pwm45Data {
@@ -899,6 +1016,68 @@ pub mod regs {
             f.debug_struct("Pwm45Data")
                 .field("pwm4_data__pwm4_data", &self.pwm4_data__pwm4_data())
                 .field("pwm5_data__pwm4_data", &self.pwm5_data__pwm4_data())
+                .field("pwm5_data", &self.pwm5_data())
+                .finish()
+        }
+    }
+    #[doc = "RW, PWM4 data holding, 16 bits wide."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Pwm4Data(pub u16);
+    impl Pwm4Data {
+        #[doc = "RW, PWM4 data holding, 16 bits wide."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pwm4_data(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "RW, PWM4 data holding, 16 bits wide."]
+        #[inline(always)]
+        pub const fn set_pwm4_data(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Pwm4Data {
+        #[inline(always)]
+        fn default() -> Pwm4Data {
+            Pwm4Data(0)
+        }
+    }
+    impl core::fmt::Debug for Pwm4Data {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pwm4Data")
+                .field("pwm4_data", &self.pwm4_data())
+                .finish()
+        }
+    }
+    #[doc = "RW, PWM5 data holding, 16 bits wide."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Pwm5Data(pub u16);
+    impl Pwm5Data {
+        #[doc = "RW, PWM5 data holding, 16 bits wide."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pwm5_data(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "RW, PWM5 data holding, 16 bits wide."]
+        #[inline(always)]
+        pub const fn set_pwm5_data(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for Pwm5Data {
+        #[inline(always)]
+        fn default() -> Pwm5Data {
+            Pwm5Data(0)
+        }
+    }
+    impl core::fmt::Debug for Pwm5Data {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Pwm5Data")
                 .field("pwm5_data", &self.pwm5_data())
                 .finish()
         }

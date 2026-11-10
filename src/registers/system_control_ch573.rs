@@ -77,6 +77,40 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "glob_rom_cfg",
+                    description: Some(
+                        "RWA, FlashROM application configuration.",
+                    ),
+                    array: None,
+                    byte_offset: 0x44,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "GlobRomCfg",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "reset_status",
+                    description: Some(
+                        "RO, reset status.",
+                    ),
+                    array: None,
+                    byte_offset: 0x44,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "ResetStatus",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "glob_cfg_info",
                     description: Some(
                         "RO, global configuration information and status.",
@@ -328,6 +362,72 @@ pub(crate) static REGISTERS: IR = IR {
             ],
         },
         FieldSet {
+            name: "GlobRomCfg",
+            extends: None,
+            description: Some(
+                "RWA, FlashROM application configuration.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "rom_code_ofs",
+                    description: Some(
+                        "RWA, user code start offset in FlashROM: 0=0x000000, 1=0x040000.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "rom_ctrl_en",
+                    description: Some(
+                        "RWA, enable the FlashROM access control interface.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 5,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "rom_data_we",
+                    description: Some(
+                        "RWA, allow erasing and programming the DataFlash area.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 6,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "rom_code_we",
+                    description: Some(
+                        "RWA, allow erasing and programming the CodeFlash area.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
             name: "OscCalCnt",
             extends: None,
             description: Some(
@@ -408,6 +508,30 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                     bit_size: 7,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "ResetStatus",
+            extends: None,
+            description: Some(
+                "RO, reset status.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "reset_flag",
+                    description: Some(
+                        "RO, recent reset flag.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 3,
                     array: None,
                     enumm: None,
                 },

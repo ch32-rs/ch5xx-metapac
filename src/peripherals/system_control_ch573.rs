@@ -41,6 +41,16 @@ impl SystemControl {
     pub const fn wdog_count(self) -> crate::common::Reg<regs::WdogCount, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x43usize) as _) }
     }
+    #[doc = "RWA, FlashROM application configuration."]
+    #[inline(always)]
+    pub const fn glob_rom_cfg(self) -> crate::common::Reg<regs::GlobRomCfg, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x44usize) as _) }
+    }
+    #[doc = "RO, reset status."]
+    #[inline(always)]
+    pub const fn reset_status(self) -> crate::common::Reg<regs::ResetStatus, crate::common::R> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x44usize) as _) }
+    }
     #[doc = "RO, global configuration information and status."]
     #[inline(always)]
     pub const fn glob_cfg_info(self) -> crate::common::Reg<regs::GlobCfgInfo, crate::common::R> {
@@ -225,6 +235,76 @@ pub mod regs {
                 .finish()
         }
     }
+    #[doc = "RWA, FlashROM application configuration."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct GlobRomCfg(pub u8);
+    impl GlobRomCfg {
+        #[doc = "RWA, user code start offset in FlashROM: 0=0x000000, 1=0x040000."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn rom_code_ofs(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RWA, user code start offset in FlashROM: 0=0x000000, 1=0x040000."]
+        #[inline(always)]
+        pub const fn set_rom_code_ofs(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u8) & 0x01) << 4usize);
+        }
+        #[doc = "RWA, enable the FlashROM access control interface."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn rom_ctrl_en(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RWA, enable the FlashROM access control interface."]
+        #[inline(always)]
+        pub const fn set_rom_ctrl_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u8) & 0x01) << 5usize);
+        }
+        #[doc = "RWA, allow erasing and programming the DataFlash area."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn rom_data_we(&self) -> bool {
+            let val = (self.0 >> 6usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RWA, allow erasing and programming the DataFlash area."]
+        #[inline(always)]
+        pub const fn set_rom_data_we(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 6usize)) | (((val as u8) & 0x01) << 6usize);
+        }
+        #[doc = "RWA, allow erasing and programming the CodeFlash area."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn rom_code_we(&self) -> bool {
+            let val = (self.0 >> 7usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RWA, allow erasing and programming the CodeFlash area."]
+        #[inline(always)]
+        pub const fn set_rom_code_we(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 7usize)) | (((val as u8) & 0x01) << 7usize);
+        }
+    }
+    impl Default for GlobRomCfg {
+        #[inline(always)]
+        fn default() -> GlobRomCfg {
+            GlobRomCfg(0)
+        }
+    }
+    impl core::fmt::Debug for GlobRomCfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("GlobRomCfg")
+                .field("rom_code_ofs", &self.rom_code_ofs())
+                .field("rom_ctrl_en", &self.rom_ctrl_en())
+                .field("rom_data_we", &self.rom_data_we())
+                .field("rom_code_we", &self.rom_code_we())
+                .finish()
+        }
+    }
     #[doc = "RO, system clock count value for 32KHz 5 cycles."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
@@ -328,6 +408,37 @@ pub mod regs {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("PllConfig")
                 .field("pll_cfg_dat", &self.pll_cfg_dat())
+                .finish()
+        }
+    }
+    #[doc = "RO, reset status."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct ResetStatus(pub u8);
+    impl ResetStatus {
+        #[doc = "RO, recent reset flag."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn reset_flag(&self) -> u8 {
+            let val = (self.0 >> 0usize) & 0x07;
+            val as u8
+        }
+        #[doc = "RO, recent reset flag."]
+        #[inline(always)]
+        pub const fn set_reset_flag(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x07 << 0usize)) | (((val as u8) & 0x07) << 0usize);
+        }
+    }
+    impl Default for ResetStatus {
+        #[inline(always)]
+        fn default() -> ResetStatus {
+            ResetStatus(0)
+        }
+    }
+    impl core::fmt::Debug for ResetStatus {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("ResetStatus")
+                .field("reset_flag", &self.reset_flag())
                 .finish()
         }
     }
