@@ -481,32 +481,32 @@ impl Pfic {
     }
     #[doc = "System counter control register."]
     #[inline(always)]
-    pub const fn stk_ctlr(self) -> crate::common::Reg<regs::StkCtlr, crate::common::RW> {
+    pub const fn ctlr(self) -> crate::common::Reg<regs::Ctlr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1000usize) as _) }
     }
     #[doc = "System START."]
     #[inline(always)]
-    pub const fn stk_sr(self) -> crate::common::Reg<regs::StkSr, crate::common::RW> {
+    pub const fn sr(self) -> crate::common::Reg<regs::Sr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1004usize) as _) }
     }
     #[doc = "System counter low register."]
     #[inline(always)]
-    pub const fn stk_cntl(self) -> crate::common::Reg<regs::StkCntl, crate::common::RW> {
+    pub const fn cntl(self) -> crate::common::Reg<regs::Cntl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1008usize) as _) }
     }
     #[doc = "System counter high register."]
     #[inline(always)]
-    pub const fn stk_cnth(self) -> crate::common::Reg<regs::StkCnth, crate::common::RW> {
+    pub const fn cnth(self) -> crate::common::Reg<regs::Cnth, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x100cusize) as _) }
     }
     #[doc = "System compare low register."]
     #[inline(always)]
-    pub const fn stk_cmplr(self) -> crate::common::Reg<regs::StkCmplr, crate::common::RW> {
+    pub const fn cmplr(self) -> crate::common::Reg<regs::Cmplr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1010usize) as _) }
     }
     #[doc = "System compare high register."]
     #[inline(always)]
-    pub const fn stk_cmphr(self) -> crate::common::Reg<regs::StkCmphr, crate::common::RW> {
+    pub const fn cmphr(self) -> crate::common::Reg<regs::Cmphr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1014usize) as _) }
     }
 }
@@ -552,6 +552,231 @@ pub mod regs {
             f.debug_struct("Cfgr")
                 .field("rstsys", &self.rstsys())
                 .field("keycode", &self.keycode())
+                .finish()
+        }
+    }
+    #[doc = "System compare high register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Cmphr(pub u32);
+    impl Cmphr {
+        #[doc = "CMPH."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn cmph(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0xffff_ffff;
+            val as u32
+        }
+        #[doc = "CMPH."]
+        #[inline(always)]
+        pub const fn set_cmph(&mut self, val: u32) {
+            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
+        }
+    }
+    impl Default for Cmphr {
+        #[inline(always)]
+        fn default() -> Cmphr {
+            Cmphr(0)
+        }
+    }
+    impl core::fmt::Debug for Cmphr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cmphr").field("cmph", &self.cmph()).finish()
+        }
+    }
+    #[doc = "System compare low register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Cmplr(pub u32);
+    impl Cmplr {
+        #[doc = "CMPL."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn cmpl(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0xffff_ffff;
+            val as u32
+        }
+        #[doc = "CMPL."]
+        #[inline(always)]
+        pub const fn set_cmpl(&mut self, val: u32) {
+            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
+        }
+    }
+    impl Default for Cmplr {
+        #[inline(always)]
+        fn default() -> Cmplr {
+            Cmplr(0)
+        }
+    }
+    impl core::fmt::Debug for Cmplr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cmplr").field("cmpl", &self.cmpl()).finish()
+        }
+    }
+    #[doc = "System counter high register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Cnth(pub u32);
+    impl Cnth {
+        #[doc = "CNTH."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn cnth(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0xffff_ffff;
+            val as u32
+        }
+        #[doc = "CNTH."]
+        #[inline(always)]
+        pub const fn set_cnth(&mut self, val: u32) {
+            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
+        }
+    }
+    impl Default for Cnth {
+        #[inline(always)]
+        fn default() -> Cnth {
+            Cnth(0)
+        }
+    }
+    impl core::fmt::Debug for Cnth {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cnth").field("cnth", &self.cnth()).finish()
+        }
+    }
+    #[doc = "System counter low register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Cntl(pub u32);
+    impl Cntl {
+        #[doc = "CNTL."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn cntl(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0xffff_ffff;
+            val as u32
+        }
+        #[doc = "CNTL."]
+        #[inline(always)]
+        pub const fn set_cntl(&mut self, val: u32) {
+            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
+        }
+    }
+    impl Default for Cntl {
+        #[inline(always)]
+        fn default() -> Cntl {
+            Cntl(0)
+        }
+    }
+    impl core::fmt::Debug for Cntl {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Cntl").field("cntl", &self.cntl()).finish()
+        }
+    }
+    #[doc = "System counter control register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct Ctlr(pub u32);
+    impl Ctlr {
+        #[doc = "System counter enable."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn ste(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "System counter enable."]
+        #[inline(always)]
+        pub const fn set_ste(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
+        }
+        #[doc = "System counter interrupt enable."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn stie(&self) -> bool {
+            let val = (self.0 >> 1usize) & 0x01;
+            val != 0
+        }
+        #[doc = "System counter interrupt enable."]
+        #[inline(always)]
+        pub const fn set_stie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
+        }
+        #[doc = "System selects the clock source."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn stclk(&self) -> bool {
+            let val = (self.0 >> 2usize) & 0x01;
+            val != 0
+        }
+        #[doc = "System selects the clock source."]
+        #[inline(always)]
+        pub const fn set_stclk(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
+        }
+        #[doc = "System reload register."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn stre(&self) -> bool {
+            let val = (self.0 >> 3usize) & 0x01;
+            val != 0
+        }
+        #[doc = "System reload register."]
+        #[inline(always)]
+        pub const fn set_stre(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
+        }
+        #[doc = "System Mode."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn mode(&self) -> bool {
+            let val = (self.0 >> 4usize) & 0x01;
+            val != 0
+        }
+        #[doc = "System Mode."]
+        #[inline(always)]
+        pub const fn set_mode(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
+        }
+        #[doc = "System Initialization update."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn init(&self) -> bool {
+            let val = (self.0 >> 5usize) & 0x01;
+            val != 0
+        }
+        #[doc = "System Initialization update."]
+        #[inline(always)]
+        pub const fn set_init(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
+        }
+        #[doc = "System software triggered interrupts enable."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn swie(&self) -> bool {
+            let val = (self.0 >> 31usize) & 0x01;
+            val != 0
+        }
+        #[doc = "System software triggered interrupts enable."]
+        #[inline(always)]
+        pub const fn set_swie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 31usize)) | (((val as u32) & 0x01) << 31usize);
+        }
+    }
+    impl Default for Ctlr {
+        #[inline(always)]
+        fn default() -> Ctlr {
+            Ctlr(0)
+        }
+    }
+    impl core::fmt::Debug for Ctlr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("Ctlr")
+                .field("ste", &self.ste())
+                .field("stie", &self.stie())
+                .field("stclk", &self.stclk())
+                .field("stre", &self.stre())
+                .field("mode", &self.mode())
+                .field("init", &self.init())
+                .field("swie", &self.swie())
                 .finish()
         }
     }
@@ -1433,244 +1658,11 @@ pub mod regs {
                 .finish()
         }
     }
-    #[doc = "System compare high register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkCmphr(pub u32);
-    impl StkCmphr {
-        #[doc = "CMPH."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn cmph(&self) -> u32 {
-            let val = (self.0 >> 0usize) & 0xffff_ffff;
-            val as u32
-        }
-        #[doc = "CMPH."]
-        #[inline(always)]
-        pub const fn set_cmph(&mut self, val: u32) {
-            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
-        }
-    }
-    impl Default for StkCmphr {
-        #[inline(always)]
-        fn default() -> StkCmphr {
-            StkCmphr(0)
-        }
-    }
-    impl core::fmt::Debug for StkCmphr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkCmphr")
-                .field("cmph", &self.cmph())
-                .finish()
-        }
-    }
-    #[doc = "System compare low register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkCmplr(pub u32);
-    impl StkCmplr {
-        #[doc = "CMPL."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn cmpl(&self) -> u32 {
-            let val = (self.0 >> 0usize) & 0xffff_ffff;
-            val as u32
-        }
-        #[doc = "CMPL."]
-        #[inline(always)]
-        pub const fn set_cmpl(&mut self, val: u32) {
-            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
-        }
-    }
-    impl Default for StkCmplr {
-        #[inline(always)]
-        fn default() -> StkCmplr {
-            StkCmplr(0)
-        }
-    }
-    impl core::fmt::Debug for StkCmplr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkCmplr")
-                .field("cmpl", &self.cmpl())
-                .finish()
-        }
-    }
-    #[doc = "System counter high register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkCnth(pub u32);
-    impl StkCnth {
-        #[doc = "CNTH."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn cnth(&self) -> u32 {
-            let val = (self.0 >> 0usize) & 0xffff_ffff;
-            val as u32
-        }
-        #[doc = "CNTH."]
-        #[inline(always)]
-        pub const fn set_cnth(&mut self, val: u32) {
-            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
-        }
-    }
-    impl Default for StkCnth {
-        #[inline(always)]
-        fn default() -> StkCnth {
-            StkCnth(0)
-        }
-    }
-    impl core::fmt::Debug for StkCnth {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkCnth")
-                .field("cnth", &self.cnth())
-                .finish()
-        }
-    }
-    #[doc = "System counter low register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkCntl(pub u32);
-    impl StkCntl {
-        #[doc = "CNTL."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn cntl(&self) -> u32 {
-            let val = (self.0 >> 0usize) & 0xffff_ffff;
-            val as u32
-        }
-        #[doc = "CNTL."]
-        #[inline(always)]
-        pub const fn set_cntl(&mut self, val: u32) {
-            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
-        }
-    }
-    impl Default for StkCntl {
-        #[inline(always)]
-        fn default() -> StkCntl {
-            StkCntl(0)
-        }
-    }
-    impl core::fmt::Debug for StkCntl {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkCntl")
-                .field("cntl", &self.cntl())
-                .finish()
-        }
-    }
-    #[doc = "System counter control register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkCtlr(pub u32);
-    impl StkCtlr {
-        #[doc = "System counter enable."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn ste(&self) -> bool {
-            let val = (self.0 >> 0usize) & 0x01;
-            val != 0
-        }
-        #[doc = "System counter enable."]
-        #[inline(always)]
-        pub const fn set_ste(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
-        }
-        #[doc = "System counter interrupt enable."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn stie(&self) -> bool {
-            let val = (self.0 >> 1usize) & 0x01;
-            val != 0
-        }
-        #[doc = "System counter interrupt enable."]
-        #[inline(always)]
-        pub const fn set_stie(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 1usize)) | (((val as u32) & 0x01) << 1usize);
-        }
-        #[doc = "System selects the clock source."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn stclk(&self) -> bool {
-            let val = (self.0 >> 2usize) & 0x01;
-            val != 0
-        }
-        #[doc = "System selects the clock source."]
-        #[inline(always)]
-        pub const fn set_stclk(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 2usize)) | (((val as u32) & 0x01) << 2usize);
-        }
-        #[doc = "System reload register."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn stre(&self) -> bool {
-            let val = (self.0 >> 3usize) & 0x01;
-            val != 0
-        }
-        #[doc = "System reload register."]
-        #[inline(always)]
-        pub const fn set_stre(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 3usize)) | (((val as u32) & 0x01) << 3usize);
-        }
-        #[doc = "System Mode."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn mode(&self) -> bool {
-            let val = (self.0 >> 4usize) & 0x01;
-            val != 0
-        }
-        #[doc = "System Mode."]
-        #[inline(always)]
-        pub const fn set_mode(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 4usize)) | (((val as u32) & 0x01) << 4usize);
-        }
-        #[doc = "System Initialization update."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn init(&self) -> bool {
-            let val = (self.0 >> 5usize) & 0x01;
-            val != 0
-        }
-        #[doc = "System Initialization update."]
-        #[inline(always)]
-        pub const fn set_init(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 5usize)) | (((val as u32) & 0x01) << 5usize);
-        }
-        #[doc = "System software triggered interrupts enable."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn swie(&self) -> bool {
-            let val = (self.0 >> 31usize) & 0x01;
-            val != 0
-        }
-        #[doc = "System software triggered interrupts enable."]
-        #[inline(always)]
-        pub const fn set_swie(&mut self, val: bool) {
-            self.0 = (self.0 & !(0x01 << 31usize)) | (((val as u32) & 0x01) << 31usize);
-        }
-    }
-    impl Default for StkCtlr {
-        #[inline(always)]
-        fn default() -> StkCtlr {
-            StkCtlr(0)
-        }
-    }
-    impl core::fmt::Debug for StkCtlr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkCtlr")
-                .field("ste", &self.ste())
-                .field("stie", &self.stie())
-                .field("stclk", &self.stclk())
-                .field("stre", &self.stre())
-                .field("mode", &self.mode())
-                .field("init", &self.init())
-                .field("swie", &self.swie())
-                .finish()
-        }
-    }
     #[doc = "System START."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkSr(pub u32);
-    impl StkSr {
+    pub struct Sr(pub u32);
+    impl Sr {
         #[doc = "CNTIF."]
         #[must_use]
         #[inline(always)]
@@ -1684,17 +1676,15 @@ pub mod regs {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
         }
     }
-    impl Default for StkSr {
+    impl Default for Sr {
         #[inline(always)]
-        fn default() -> StkSr {
-            StkSr(0)
+        fn default() -> Sr {
+            Sr(0)
         }
     }
-    impl core::fmt::Debug for StkSr {
+    impl core::fmt::Debug for Sr {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkSr")
-                .field("cntif", &self.cntif())
-                .finish()
+            f.debug_struct("Sr").field("cntif", &self.cntif()).finish()
         }
     }
     #[doc = "Interrupt 0 address. Register."]

@@ -3,7 +3,7 @@
 #![allow(clippy::unnecessary_cast)]
 #![allow(clippy::erasing_op)]
 
-#[doc = "Systick register."]
+#[doc = "Systick register, 32-bit up/down counter."]
 #[derive(Copy, Clone, Eq, PartialEq)]
 pub struct Systick {
     ptr: *mut u8,
@@ -21,67 +21,41 @@ impl Systick {
     }
     #[doc = "Systick counter control register."]
     #[inline(always)]
-    pub const fn stk_ctlr(self) -> crate::common::Reg<regs::StkCtlr, crate::common::RW> {
+    pub const fn ctlr(self) -> crate::common::Reg<regs::Ctlr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
     }
     #[doc = "Systick count status register."]
     #[inline(always)]
-    pub const fn stk_sr(self) -> crate::common::Reg<regs::StkSr, crate::common::RW> {
+    pub const fn sr(self) -> crate::common::Reg<regs::Sr, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
+    }
+    #[doc = "RW, System counter value, 32-bit view at the CNTL address."]
+    #[inline(always)]
+    pub const fn cnt(self) -> crate::common::Reg<u32, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
     #[doc = "Systick counter low register."]
     #[inline(always)]
-    pub const fn stk_cntl(self) -> crate::common::Reg<regs::StkCntl, crate::common::RW> {
+    pub const fn cntl(self) -> crate::common::Reg<regs::Cntl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
     }
-    #[doc = "Count reload low register."]
+    #[doc = "RW, System compare value, 32-bit view at the CMPLR address."]
     #[inline(always)]
-    pub const fn stk_cmplr(self) -> crate::common::Reg<regs::StkCmplr, crate::common::RW> {
+    pub const fn cmp(self) -> crate::common::Reg<u32, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
-    #[doc = "Systick compare high register."]
+    #[doc = "Systick compare low register."]
     #[inline(always)]
-    pub const fn stk_cmphr(self) -> crate::common::Reg<regs::StkCmphr, crate::common::RW> {
-        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
+    pub const fn cmplr(self) -> crate::common::Reg<regs::Cmplr, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
 }
 pub mod regs {
-    #[doc = "Systick compare high register."]
+    #[doc = "Systick compare low register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkCmphr(pub u32);
-    impl StkCmphr {
-        #[doc = "RW, Set the reload counter value to the lower 32 bits."]
-        #[must_use]
-        #[inline(always)]
-        pub const fn cmph(&self) -> u32 {
-            let val = (self.0 >> 0usize) & 0xffff_ffff;
-            val as u32
-        }
-        #[doc = "RW, Set the reload counter value to the lower 32 bits."]
-        #[inline(always)]
-        pub const fn set_cmph(&mut self, val: u32) {
-            self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
-        }
-    }
-    impl Default for StkCmphr {
-        #[inline(always)]
-        fn default() -> StkCmphr {
-            StkCmphr(0)
-        }
-    }
-    impl core::fmt::Debug for StkCmphr {
-        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkCmphr")
-                .field("cmph", &self.cmph())
-                .finish()
-        }
-    }
-    #[doc = "Count reload low register."]
-    #[repr(transparent)]
-    #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkCmplr(pub u32);
-    impl StkCmplr {
+    pub struct Cmplr(pub u32);
+    impl Cmplr {
         #[doc = "RW, set the lower 32 bits of the reload counter value."]
         #[must_use]
         #[inline(always)]
@@ -95,24 +69,22 @@ pub mod regs {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
-    impl Default for StkCmplr {
+    impl Default for Cmplr {
         #[inline(always)]
-        fn default() -> StkCmplr {
-            StkCmplr(0)
+        fn default() -> Cmplr {
+            Cmplr(0)
         }
     }
-    impl core::fmt::Debug for StkCmplr {
+    impl core::fmt::Debug for Cmplr {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkCmplr")
-                .field("cmpl", &self.cmpl())
-                .finish()
+            f.debug_struct("Cmplr").field("cmpl", &self.cmpl()).finish()
         }
     }
     #[doc = "Systick counter low register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkCntl(pub u32);
-    impl StkCntl {
+    pub struct Cntl(pub u32);
+    impl Cntl {
         #[doc = "RW, CNTL."]
         #[must_use]
         #[inline(always)]
@@ -126,24 +98,22 @@ pub mod regs {
             self.0 = (self.0 & !(0xffff_ffff << 0usize)) | (((val as u32) & 0xffff_ffff) << 0usize);
         }
     }
-    impl Default for StkCntl {
+    impl Default for Cntl {
         #[inline(always)]
-        fn default() -> StkCntl {
-            StkCntl(0)
+        fn default() -> Cntl {
+            Cntl(0)
         }
     }
-    impl core::fmt::Debug for StkCntl {
+    impl core::fmt::Debug for Cntl {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkCntl")
-                .field("cntl", &self.cntl())
-                .finish()
+            f.debug_struct("Cntl").field("cntl", &self.cntl()).finish()
         }
     }
     #[doc = "Systick counter control register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkCtlr(pub u32);
-    impl StkCtlr {
+    pub struct Ctlr(pub u32);
+    impl Ctlr {
         #[doc = "Systick counter enable."]
         #[must_use]
         #[inline(always)]
@@ -217,15 +187,15 @@ pub mod regs {
             self.0 = (self.0 & !(0x01 << 31usize)) | (((val as u32) & 0x01) << 31usize);
         }
     }
-    impl Default for StkCtlr {
+    impl Default for Ctlr {
         #[inline(always)]
-        fn default() -> StkCtlr {
-            StkCtlr(0)
+        fn default() -> Ctlr {
+            Ctlr(0)
         }
     }
-    impl core::fmt::Debug for StkCtlr {
+    impl core::fmt::Debug for Ctlr {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkCtlr")
+            f.debug_struct("Ctlr")
                 .field("ste", &self.ste())
                 .field("stie", &self.stie())
                 .field("stclk", &self.stclk())
@@ -238,8 +208,8 @@ pub mod regs {
     #[doc = "Systick count status register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct StkSr(pub u32);
-    impl StkSr {
+    pub struct Sr(pub u32);
+    impl Sr {
         #[doc = "RW, CNTIF."]
         #[must_use]
         #[inline(always)]
@@ -265,15 +235,15 @@ pub mod regs {
             self.0 = (self.0 & !(0x01 << 31usize)) | (((val as u32) & 0x01) << 31usize);
         }
     }
-    impl Default for StkSr {
+    impl Default for Sr {
         #[inline(always)]
-        fn default() -> StkSr {
-            StkSr(0)
+        fn default() -> Sr {
+            Sr(0)
         }
     }
-    impl core::fmt::Debug for StkSr {
+    impl core::fmt::Debug for Sr {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("StkSr")
+            f.debug_struct("Sr")
                 .field("cntif", &self.cntif())
                 .field("swie", &self.swie())
                 .finish()
