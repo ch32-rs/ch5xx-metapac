@@ -246,6 +246,23 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                 },
+                BlockItem {
+                    name: "safe_access_sig2",
+                    description: Some(
+                        "RO, FlashROM safe-access status register 2.",
+                    ),
+                    array: None,
+                    byte_offset: 0x58,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Read,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "SafeAccessSig2",
+                            ),
+                        },
+                    ),
+                },
             ],
         },
     ],
@@ -799,6 +816,86 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                     bit_size: 5,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "SafeAccessSig2",
+            extends: None,
+            description: Some(
+                "RO, FlashROM safe-access status register 2.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "safe_ac_dis",
+                    description: Some(
+                        "RO, safe-register auto-close state: 1 auto-close disabled, 0 auto-close still active.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 20,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "rd_protect",
+                    description: Some(
+                        "RO, read protection: 1 enabled, 0 disabled.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 21,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "manu_cfg_lock",
+                    description: Some(
+                        "RO, vendor configuration-word lock: 1 locked, 0 unlocked.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 22,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "flash_halted",
+                    description: Some(
+                        "RO, two-wire Flash operation halt: 1 halted, 0 allowed.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 23,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "fun_mode",
+                    description: Some(
+                        "RO, function enable word.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 24,
+                        },
+                    ),
+                    bit_size: 3,
                     array: None,
                     enumm: None,
                 },

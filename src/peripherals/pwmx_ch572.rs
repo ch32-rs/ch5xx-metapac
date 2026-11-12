@@ -164,14 +164,14 @@ pub mod regs {
         pub const fn set_cycle_sel(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
         }
-        #[doc = "RW, PWM data width mode: 00=8 bits data, 01=7 bits data, 10=6 bits data, 11=5 bits data."]
+        #[doc = "RW, PWM data width mode: 00=8 bits data, 01=7 bits data, 10=6 bits data, 11=16 bits data."]
         #[must_use]
         #[inline(always)]
         pub const fn cyc_mod(&self) -> u8 {
             let val = (self.0 >> 1usize) & 0x03;
             val as u8
         }
-        #[doc = "RW, PWM data width mode: 00=8 bits data, 01=7 bits data, 10=6 bits data, 11=5 bits data."]
+        #[doc = "RW, PWM data width mode: 00=8 bits data, 01=7 bits data, 10=6 bits data, 11=16 bits data."]
         #[inline(always)]
         pub const fn set_cyc_mod(&mut self, val: u8) {
             self.0 = (self.0 & !(0x03 << 1usize)) | (((val as u8) & 0x03) << 1usize);

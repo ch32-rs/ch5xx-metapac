@@ -384,7 +384,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "cyc_mod",
                     description: Some(
-                        "RW, PWM data width mode: 00=8 bits data, 01=7 bits data, 10=6 bits data, 11=5 bits data.",
+                        "RW, PWM data width mode: 00=8 bits data, 01=7 bits data, 10=6 bits data, 11=16 bits data.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
