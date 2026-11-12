@@ -337,7 +337,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     },
     Peripheral {
         name: "LED",
-        address: 0x4000f000,
+        address: 0x4000e000,
         registers: Some(PeripheralRegisters {
             kind: "led",
             version: "ch595",
