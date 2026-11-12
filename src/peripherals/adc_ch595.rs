@@ -79,6 +79,16 @@ impl Adc {
     pub const fn dma_end(self) -> crate::common::Reg<regs::DmaEnd, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x6cusize) as _) }
     }
+    #[doc = "RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register."]
+    #[inline(always)]
+    pub const fn scan_cfg1(self) -> crate::common::Reg<regs::ScanCfg1, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x70usize) as _) }
+    }
+    #[doc = "RW, ADC scan sequence, slots 10 through 14, and scan control."]
+    #[inline(always)]
+    pub const fn scan_cfg2(self) -> crate::common::Reg<regs::ScanCfg2, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x74usize) as _) }
+    }
 }
 pub mod regs {
     #[doc = "RO, ADC interrupt flag."]
@@ -586,6 +596,178 @@ pub mod regs {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("IntFlag")
                 .field("if_eoc", &self.if_eoc())
+                .finish()
+        }
+    }
+    #[doc = "RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct ScanCfg1(pub u32);
+    impl ScanCfg1 {
+        #[doc = "Scan sequence slot; entry 0 holds the second slot in the sequence. 0x0-0xD select AIN0-13, 0xE the battery channel, 0xF the temperature sensor."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn ch(&self, n: usize) -> u8 {
+            assert!(n < 8usize);
+            let offs = 0usize + n * 4usize;
+            let val = (self.0 >> offs) & 0x0f;
+            val as u8
+        }
+        #[doc = "Scan sequence slot; entry 0 holds the second slot in the sequence. 0x0-0xD select AIN0-13, 0xE the battery channel, 0xF the temperature sensor."]
+        #[inline(always)]
+        pub const fn set_ch(&mut self, n: usize, val: u8) {
+            assert!(n < 8usize);
+            let offs = 0usize + n * 4usize;
+            self.0 = (self.0 & !(0x0f << offs)) | (((val as u32) & 0x0f) << offs);
+        }
+    }
+    impl Default for ScanCfg1 {
+        #[inline(always)]
+        fn default() -> ScanCfg1 {
+            ScanCfg1(0)
+        }
+    }
+    impl core::fmt::Debug for ScanCfg1 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("ScanCfg1")
+                .field("ch[0]", &self.ch(0usize))
+                .field("ch[1]", &self.ch(1usize))
+                .field("ch[2]", &self.ch(2usize))
+                .field("ch[3]", &self.ch(3usize))
+                .field("ch[4]", &self.ch(4usize))
+                .field("ch[5]", &self.ch(5usize))
+                .field("ch[6]", &self.ch(6usize))
+                .field("ch[7]", &self.ch(7usize))
+                .finish()
+        }
+    }
+    #[doc = "RW, ADC scan sequence, slots 10 through 14, and scan control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct ScanCfg2(pub u32);
+    impl ScanCfg2 {
+        #[doc = "Scan sequence slot; entry 0 holds the tenth slot in the sequence. 0x0-0xD select AIN0-13, 0xE the battery channel, 0xF the temperature sensor."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn ch(&self, n: usize) -> u8 {
+            assert!(n < 5usize);
+            let offs = 0usize + n * 4usize;
+            let val = (self.0 >> offs) & 0x0f;
+            val as u8
+        }
+        #[doc = "Scan sequence slot; entry 0 holds the tenth slot in the sequence. 0x0-0xD select AIN0-13, 0xE the battery channel, 0xF the temperature sensor."]
+        #[inline(always)]
+        pub const fn set_ch(&mut self, n: usize, val: u8) {
+            assert!(n < 5usize);
+            let offs = 0usize + n * 4usize;
+            self.0 = (self.0 & !(0x0f << offs)) | (((val as u32) & 0x0f) << offs);
+        }
+        #[doc = "RW, ADC samples taken per scanned channel: 0=1, 1=2, 2=3, 3=4."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn ehch_tim(&self) -> u8 {
+            let val = (self.0 >> 20usize) & 0x03;
+            val as u8
+        }
+        #[doc = "RW, ADC samples taken per scanned channel: 0=1, 1=2, 2=3, 3=4."]
+        #[inline(always)]
+        pub const fn set_ehch_tim(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x03 << 20usize)) | (((val as u32) & 0x03) << 20usize);
+        }
+        #[doc = "RW, enable scan mode."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn scan_en(&self) -> bool {
+            let val = (self.0 >> 23usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, enable scan mode."]
+        #[inline(always)]
+        pub const fn set_scan_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 23usize)) | (((val as u32) & 0x01) << 23usize);
+        }
+        #[doc = "Number of scanned channels; minus one while SCAN_SEL is set."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn scan_num(&self) -> u8 {
+            let val = (self.0 >> 24usize) & 0x0f;
+            val as u8
+        }
+        #[doc = "Number of scanned channels; minus one while SCAN_SEL is set."]
+        #[inline(always)]
+        pub const fn set_scan_num(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x0f << 24usize)) | (((val as u32) & 0x0f) << 24usize);
+        }
+        #[doc = "Scan source: 0 selects the touch-key block, 1 selects the ADC."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn scan_sel(&self) -> bool {
+            let val = (self.0 >> 28usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Scan source: 0 selects the touch-key block, 1 selects the ADC."]
+        #[inline(always)]
+        pub const fn set_scan_sel(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 28usize)) | (((val as u32) & 0x01) << 28usize);
+        }
+        #[doc = "Enable an interrupt when one scan pass ends."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn ie_scan_end(&self) -> bool {
+            let val = (self.0 >> 29usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Enable an interrupt when one scan pass ends."]
+        #[inline(always)]
+        pub const fn set_ie_scan_end(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 29usize)) | (((val as u32) & 0x01) << 29usize);
+        }
+        #[doc = "Channel enable after each scan sample: 0 lets the hardware close the sampled channel, 1 forbids closing it."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn scan_mask_dis(&self) -> bool {
+            let val = (self.0 >> 30usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Channel enable after each scan sample: 0 lets the hardware close the sampled channel, 1 forbids closing it."]
+        #[inline(always)]
+        pub const fn set_scan_mask_dis(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 30usize)) | (((val as u32) & 0x01) << 30usize);
+        }
+        #[doc = "Scan pass end flag; write 1 to clear."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn if_scan_end(&self) -> bool {
+            let val = (self.0 >> 31usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Scan pass end flag; write 1 to clear."]
+        #[inline(always)]
+        pub const fn set_if_scan_end(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 31usize)) | (((val as u32) & 0x01) << 31usize);
+        }
+    }
+    impl Default for ScanCfg2 {
+        #[inline(always)]
+        fn default() -> ScanCfg2 {
+            ScanCfg2(0)
+        }
+    }
+    impl core::fmt::Debug for ScanCfg2 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("ScanCfg2")
+                .field("ch[0]", &self.ch(0usize))
+                .field("ch[1]", &self.ch(1usize))
+                .field("ch[2]", &self.ch(2usize))
+                .field("ch[3]", &self.ch(3usize))
+                .field("ch[4]", &self.ch(4usize))
+                .field("ehch_tim", &self.ehch_tim())
+                .field("scan_en", &self.scan_en())
+                .field("scan_num", &self.scan_num())
+                .field("scan_sel", &self.scan_sel())
+                .field("ie_scan_end", &self.ie_scan_end())
+                .field("scan_mask_dis", &self.scan_mask_dis())
+                .field("if_scan_end", &self.if_scan_end())
                 .finish()
         }
     }
