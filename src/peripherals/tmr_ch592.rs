@@ -34,6 +34,11 @@ impl TmrFull {
     pub const fn inter_en(self) -> crate::common::Reg<regs::InterEn, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x02usize) as _) }
     }
+    #[doc = "RW, TMR PWM mode control."]
+    #[inline(always)]
+    pub const fn pwm_mod(self) -> crate::common::Reg<regs::PwmMod, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
+    }
     #[doc = "RW1, TMR interrupt flag."]
     #[inline(always)]
     pub const fn int_flag(self) -> crate::common::Reg<regs::IntFlag, crate::common::RW> {
@@ -100,6 +105,11 @@ impl TmrNodma {
     #[inline(always)]
     pub const fn inter_en(self) -> crate::common::Reg<regs::InterEn, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x02usize) as _) }
+    }
+    #[doc = "RW, TMR PWM mode control."]
+    #[inline(always)]
+    pub const fn pwm_mod(self) -> crate::common::Reg<regs::PwmMod, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "RW1, TMR interrupt flag."]
     #[inline(always)]
@@ -672,6 +682,37 @@ pub mod regs {
                 .field("ie_fifo_hf", &self.ie_fifo_hf())
                 .field("ie_dma_end", &self.ie_dma_end())
                 .field("ie_fifo_ov", &self.ie_fifo_ov())
+                .finish()
+        }
+    }
+    #[doc = "RW, TMR PWM mode control."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct PwmMod(pub u8);
+    impl PwmMod {
+        #[doc = "RW, first PWM data repeat count when PWM_REPEAT is set: 1 follows PWM_REPEAT, 0 repeats once."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pwm_mod(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, first PWM data repeat count when PWM_REPEAT is set: 1 follows PWM_REPEAT, 0 repeats once."]
+        #[inline(always)]
+        pub const fn set_pwm_mod(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+    }
+    impl Default for PwmMod {
+        #[inline(always)]
+        fn default() -> PwmMod {
+            PwmMod(0)
+        }
+    }
+    impl core::fmt::Debug for PwmMod {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("PwmMod")
+                .field("pwm_mod", &self.pwm_mod())
                 .finish()
         }
     }

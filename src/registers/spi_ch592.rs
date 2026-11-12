@@ -162,6 +162,40 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "ctrl_mod1",
+                    description: Some(
+                        "RW, SPI mode control register 1.",
+                    ),
+                    array: None,
+                    byte_offset: 0x8,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "CtrlMod1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "ctrl_mod2",
+                    description: Some(
+                        "RW, SPI mode control register 2.",
+                    ),
+                    array: None,
+                    byte_offset: 0x9,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "CtrlMod2",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "total_cnt",
                     description: Some(
                         "RW, SPI total byte count, only low 12 bit.",
@@ -523,6 +557,54 @@ pub(crate) static REGISTERS: IR = IR {
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
                             offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "CtrlMod1",
+            extends: None,
+            description: Some(
+                "RW, SPI mode control register 1.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "mst_clk_sel",
+                    description: Some(
+                        "RW, master clock polarity select while MODE_SLAVE is clear: 1 inverts the polarity, 0 keeps it. In slave mode selects the two-wire input/output direction: 1 input, 0 output.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "CtrlMod2",
+            extends: None,
+            description: Some(
+                "RW, SPI mode control register 2.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "slv_fast_mod",
+                    description: Some(
+                        "RW, slave fast mode for higher clock rates: 1 enabled, 0 default mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
                         },
                     ),
                     bit_size: 1,

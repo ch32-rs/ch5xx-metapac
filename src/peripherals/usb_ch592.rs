@@ -247,6 +247,11 @@ impl Usb {
     pub const fn uep7_ctrl(self) -> crate::common::Reg<regs::Uep7Ctrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x6eusize) as _) }
     }
+    #[doc = "RW, endpoints 8-15 transmit/receive enable."]
+    #[inline(always)]
+    pub const fn ep_mode(self) -> crate::common::Reg<regs::EpMode, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x70usize) as _) }
+    }
 }
 pub mod regs {
     #[doc = "USB base control."]
@@ -412,6 +417,85 @@ pub mod regs {
             f.debug_struct("DevAd")
                 .field("mask_usb_addr", &self.mask_usb_addr())
                 .field("uda_gp_bit", &self.uda_gp_bit())
+                .finish()
+        }
+    }
+    #[doc = "RW, endpoints 8-15 transmit/receive enable."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct EpMode(pub u32);
+    impl EpMode {
+        #[doc = "RW, endpoint 8-15 transmit (IN) enable: 1 enabled, 0 disabled."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn ep_t_en(&self, n: usize) -> bool {
+            assert!(n < 8usize);
+            let offs = 0usize + n * 1usize;
+            let val = (self.0 >> offs) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, endpoint 8-15 transmit (IN) enable: 1 enabled, 0 disabled."]
+        #[inline(always)]
+        pub const fn set_ep_t_en(&mut self, n: usize, val: bool) {
+            assert!(n < 8usize);
+            let offs = 0usize + n * 1usize;
+            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
+        }
+        #[doc = "RW, endpoint 8-15 receive (OUT) enable: 1 enabled, 0 disabled."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn ep_r_en(&self, n: usize) -> bool {
+            assert!(n < 8usize);
+            let offs = 8usize + n * 1usize;
+            let val = (self.0 >> offs) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, endpoint 8-15 receive (OUT) enable: 1 enabled, 0 disabled."]
+        #[inline(always)]
+        pub const fn set_ep_r_en(&mut self, n: usize, val: bool) {
+            assert!(n < 8usize);
+            let offs = 8usize + n * 1usize;
+            self.0 = (self.0 & !(0x01 << offs)) | (((val as u32) & 0x01) << offs);
+        }
+        #[doc = "RW, endpoints 8-15 transmit alternate-function (multiplexed transmit) enable, one bit per endpoint."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn ep_t_af(&self) -> u8 {
+            let val = (self.0 >> 17usize) & 0x7f;
+            val as u8
+        }
+        #[doc = "RW, endpoints 8-15 transmit alternate-function (multiplexed transmit) enable, one bit per endpoint."]
+        #[inline(always)]
+        pub const fn set_ep_t_af(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x7f << 17usize)) | (((val as u32) & 0x7f) << 17usize);
+        }
+    }
+    impl Default for EpMode {
+        #[inline(always)]
+        fn default() -> EpMode {
+            EpMode(0)
+        }
+    }
+    impl core::fmt::Debug for EpMode {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("EpMode")
+                .field("ep_t_en[0]", &self.ep_t_en(0usize))
+                .field("ep_t_en[1]", &self.ep_t_en(1usize))
+                .field("ep_t_en[2]", &self.ep_t_en(2usize))
+                .field("ep_t_en[3]", &self.ep_t_en(3usize))
+                .field("ep_t_en[4]", &self.ep_t_en(4usize))
+                .field("ep_t_en[5]", &self.ep_t_en(5usize))
+                .field("ep_t_en[6]", &self.ep_t_en(6usize))
+                .field("ep_t_en[7]", &self.ep_t_en(7usize))
+                .field("ep_r_en[0]", &self.ep_r_en(0usize))
+                .field("ep_r_en[1]", &self.ep_r_en(1usize))
+                .field("ep_r_en[2]", &self.ep_r_en(2usize))
+                .field("ep_r_en[3]", &self.ep_r_en(3usize))
+                .field("ep_r_en[4]", &self.ep_r_en(4usize))
+                .field("ep_r_en[5]", &self.ep_r_en(5usize))
+                .field("ep_r_en[6]", &self.ep_r_en(6usize))
+                .field("ep_r_en[7]", &self.ep_r_en(7usize))
+                .field("ep_t_af", &self.ep_t_af())
                 .finish()
         }
     }

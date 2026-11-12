@@ -19,6 +19,16 @@ impl Sys {
     pub const fn as_ptr(&self) -> *mut () {
         self.ptr as _
     }
+    #[doc = "WO, Watchdog key register, SAM."]
+    #[inline(always)]
+    pub const fn iwdg_kr(self) -> crate::common::Reg<regs::IwdgKr, crate::common::W> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x0usize) as _) }
+    }
+    #[doc = "RW, Watchdog configuration register, SAM."]
+    #[inline(always)]
+    pub const fn iwdg_cfg(self) -> crate::common::Reg<regs::IwdgCfg, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
+    }
     #[doc = "RWA, system clock configuration, SAM."]
     #[inline(always)]
     pub const fn clk_cfg(self) -> crate::common::Reg<regs::ClkCfg, crate::common::RW> {
@@ -48,6 +58,11 @@ impl Sys {
     #[inline(always)]
     pub const fn sleep_ctrl2(self) -> crate::common::Reg<regs::SleepCtrl2, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
+    }
+    #[doc = "RWA, Sleep control register 3, SAM."]
+    #[inline(always)]
+    pub const fn sleep_ctrl3(self) -> crate::common::Reg<regs::SleepCtrl3, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
     }
     #[doc = "RW, function pin alternate configuration."]
     #[inline(always)]
@@ -515,6 +530,146 @@ pub mod regs {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
             f.debug_struct("Int32kTune")
                 .field("int32k_tune", &self.int32k_tune())
+                .finish()
+        }
+    }
+    #[doc = "RW, Watchdog configuration register, SAM."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct IwdgCfg(pub u32);
+    impl IwdgCfg {
+        #[doc = "RW, RL \\[11:0\\]: Watchdog counter reload (with write protection)."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn rlr(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0x0fff;
+            val as u16
+        }
+        #[doc = "RW, RL \\[11:0\\]: Watchdog counter reload (with write protection)."]
+        #[inline(always)]
+        pub const fn set_rlr(&mut self, val: u16) {
+            self.0 = (self.0 & !(0x0fff << 0usize)) | (((val as u32) & 0x0fff) << 0usize);
+        }
+        #[doc = "RW, Prescaler factor (with write protection)."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pr(&self) -> u8 {
+            let val = (self.0 >> 12usize) & 0x07;
+            val as u8
+        }
+        #[doc = "RW, Prescaler factor (with write protection)."]
+        #[inline(always)]
+        pub const fn set_pr(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x07 << 12usize)) | (((val as u32) & 0x07) << 12usize);
+        }
+        #[doc = "RO, Configure register update flag bit (with write protection)."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn pvu(&self) -> bool {
+            let val = (self.0 >> 15usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RO, Configure register update flag bit (with write protection)."]
+        #[inline(always)]
+        pub const fn set_pvu(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 15usize)) | (((val as u32) & 0x01) << 15usize);
+        }
+        #[doc = "RO, Watchdog countdown counter."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn count(&self) -> u16 {
+            let val = (self.0 >> 16usize) & 0x0fff;
+            val as u16
+        }
+        #[doc = "RO, Watchdog countdown counter."]
+        #[inline(always)]
+        pub const fn set_count(&mut self, val: u16) {
+            self.0 = (self.0 & !(0x0fff << 16usize)) | (((val as u32) & 0x0fff) << 16usize);
+        }
+        #[doc = "RW, Watchdog stop enabled (with write protection)."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn stop_en(&self) -> bool {
+            let val = (self.0 >> 29usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, Watchdog stop enabled (with write protection)."]
+        #[inline(always)]
+        pub const fn set_stop_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 29usize)) | (((val as u32) & 0x01) << 29usize);
+        }
+        #[doc = "RO, Write protection flag."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn wr_protect(&self) -> bool {
+            let val = (self.0 >> 30usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RO, Write protection flag."]
+        #[inline(always)]
+        pub const fn set_wr_protect(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 30usize)) | (((val as u32) & 0x01) << 30usize);
+        }
+        #[doc = "RO, Watchdog enable flag: 1 running, 0 stopped."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn iwdg_en(&self) -> bool {
+            let val = (self.0 >> 31usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RO, Watchdog enable flag: 1 running, 0 stopped."]
+        #[inline(always)]
+        pub const fn set_iwdg_en(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 31usize)) | (((val as u32) & 0x01) << 31usize);
+        }
+    }
+    impl Default for IwdgCfg {
+        #[inline(always)]
+        fn default() -> IwdgCfg {
+            IwdgCfg(0)
+        }
+    }
+    impl core::fmt::Debug for IwdgCfg {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("IwdgCfg")
+                .field("rlr", &self.rlr())
+                .field("pr", &self.pr())
+                .field("pvu", &self.pvu())
+                .field("count", &self.count())
+                .field("stop_en", &self.stop_en())
+                .field("wr_protect", &self.wr_protect())
+                .field("iwdg_en", &self.iwdg_en())
+                .finish()
+        }
+    }
+    #[doc = "WO, Watchdog key register, SAM."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct IwdgKr(pub u32);
+    impl IwdgKr {
+        #[doc = "WO, KEY \\[15:0\\]: Key value; write 0xAAAA to reload, 0x5555 to release write protection, 0xCCCC to start the watchdog."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn iwdg_kr(&self) -> u16 {
+            let val = (self.0 >> 0usize) & 0xffff;
+            val as u16
+        }
+        #[doc = "WO, KEY \\[15:0\\]: Key value; write 0xAAAA to reload, 0x5555 to release write protection, 0xCCCC to start the watchdog."]
+        #[inline(always)]
+        pub const fn set_iwdg_kr(&mut self, val: u16) {
+            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u32) & 0xffff) << 0usize);
+        }
+    }
+    impl Default for IwdgKr {
+        #[inline(always)]
+        fn default() -> IwdgKr {
+            IwdgKr(0)
+        }
+    }
+    impl core::fmt::Debug for IwdgKr {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("IwdgKr")
+                .field("iwdg_kr", &self.iwdg_kr())
                 .finish()
         }
     }
@@ -1060,6 +1215,37 @@ pub mod regs {
             f.debug_struct("SleepCtrl2")
                 .field("tkey_wake_en1", &self.tkey_wake_en1())
                 .field("tkey_wake_en2", &self.tkey_wake_en2())
+                .finish()
+        }
+    }
+    #[doc = "RWA, Sleep control register 3, SAM."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct SleepCtrl3(pub u32);
+    impl SleepCtrl3 {
+        #[doc = "RWA, GPIO wake event selection when GPIO_WAKE_MODE is set: 1 wakes on either edge, 0 wakes on the programmed edge only."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn slp_gpio_edge_mode(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RWA, GPIO wake event selection when GPIO_WAKE_MODE is set: 1 wakes on either edge, 0 wakes on the programmed edge only."]
+        #[inline(always)]
+        pub const fn set_slp_gpio_edge_mode(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u32) & 0x01) << 0usize);
+        }
+    }
+    impl Default for SleepCtrl3 {
+        #[inline(always)]
+        fn default() -> SleepCtrl3 {
+            SleepCtrl3(0)
+        }
+    }
+    impl core::fmt::Debug for SleepCtrl3 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("SleepCtrl3")
+                .field("slp_gpio_edge_mode", &self.slp_gpio_edge_mode())
                 .finish()
         }
     }

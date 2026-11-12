@@ -64,6 +64,16 @@ impl SpiFull {
     pub const fn fifo_count(self) -> crate::common::Reg<regs::FifoCount, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x07usize) as _) }
     }
+    #[doc = "RW, SPI mode control register 1."]
+    #[inline(always)]
+    pub const fn ctrl_mod1(self) -> crate::common::Reg<regs::CtrlMod1, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x08usize) as _) }
+    }
+    #[doc = "RW, SPI mode control register 2."]
+    #[inline(always)]
+    pub const fn ctrl_mod2(self) -> crate::common::Reg<regs::CtrlMod2, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x09usize) as _) }
+    }
     #[doc = "RW, SPI total byte count, only low 12 bit."]
     #[inline(always)]
     pub const fn total_cnt(self) -> crate::common::Reg<regs::TotalCnt, crate::common::RW> {
@@ -373,6 +383,68 @@ pub mod regs {
                 .field("sck_oe", &self.sck_oe())
                 .field("mosi_oe", &self.mosi_oe())
                 .field("miso_oe", &self.miso_oe())
+                .finish()
+        }
+    }
+    #[doc = "RW, SPI mode control register 1."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct CtrlMod1(pub u8);
+    impl CtrlMod1 {
+        #[doc = "RW, master clock polarity select while MODE_SLAVE is clear: 1 inverts the polarity, 0 keeps it. In slave mode selects the two-wire input/output direction: 1 input, 0 output."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn mst_clk_sel(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, master clock polarity select while MODE_SLAVE is clear: 1 inverts the polarity, 0 keeps it. In slave mode selects the two-wire input/output direction: 1 input, 0 output."]
+        #[inline(always)]
+        pub const fn set_mst_clk_sel(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+    }
+    impl Default for CtrlMod1 {
+        #[inline(always)]
+        fn default() -> CtrlMod1 {
+            CtrlMod1(0)
+        }
+    }
+    impl core::fmt::Debug for CtrlMod1 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("CtrlMod1")
+                .field("mst_clk_sel", &self.mst_clk_sel())
+                .finish()
+        }
+    }
+    #[doc = "RW, SPI mode control register 2."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct CtrlMod2(pub u8);
+    impl CtrlMod2 {
+        #[doc = "RW, slave fast mode for higher clock rates: 1 enabled, 0 default mode."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn slv_fast_mod(&self) -> bool {
+            let val = (self.0 >> 0usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RW, slave fast mode for higher clock rates: 1 enabled, 0 default mode."]
+        #[inline(always)]
+        pub const fn set_slv_fast_mod(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 0usize)) | (((val as u8) & 0x01) << 0usize);
+        }
+    }
+    impl Default for CtrlMod2 {
+        #[inline(always)]
+        fn default() -> CtrlMod2 {
+            CtrlMod2(0)
+        }
+    }
+    impl core::fmt::Debug for CtrlMod2 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("CtrlMod2")
+                .field("slv_fast_mod", &self.slv_fast_mod())
                 .finish()
         }
     }

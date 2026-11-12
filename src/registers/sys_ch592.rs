@@ -9,6 +9,40 @@ pub(crate) static REGISTERS: IR = IR {
             ),
             items: &[
                 BlockItem {
+                    name: "iwdg_kr",
+                    description: Some(
+                        "WO, Watchdog key register, SAM.",
+                    ),
+                    array: None,
+                    byte_offset: 0x0,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::Write,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "IwdgKr",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "iwdg_cfg",
+                    description: Some(
+                        "RW, Watchdog configuration register, SAM.",
+                    ),
+                    array: None,
+                    byte_offset: 0x4,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "IwdgCfg",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "clk_cfg",
                     description: Some(
                         "RWA, system clock configuration, SAM.",
@@ -106,6 +140,23 @@ pub(crate) static REGISTERS: IR = IR {
                             bit_size: 32,
                             fieldset: Some(
                                 "SleepCtrl2",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "sleep_ctrl3",
+                    description: Some(
+                        "RWA, Sleep control register 3, SAM.",
+                    ),
+                    array: None,
+                    byte_offset: 0x14,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "SleepCtrl3",
                             ),
                         },
                     ),
@@ -680,6 +731,138 @@ pub(crate) static REGISTERS: IR = IR {
             ],
         },
         FieldSet {
+            name: "IwdgCfg",
+            extends: None,
+            description: Some(
+                "RW, Watchdog configuration register, SAM.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "rlr",
+                    description: Some(
+                        "RW, RL [11:0]: Watchdog counter reload (with write protection).",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 12,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pr",
+                    description: Some(
+                        "RW, Prescaler factor (with write protection).",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 12,
+                        },
+                    ),
+                    bit_size: 3,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "pvu",
+                    description: Some(
+                        "RO, Configure register update flag bit (with write protection).",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 15,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "count",
+                    description: Some(
+                        "RO, Watchdog countdown counter.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 16,
+                        },
+                    ),
+                    bit_size: 12,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "stop_en",
+                    description: Some(
+                        "RW, Watchdog stop enabled (with write protection).",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 29,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "wr_protect",
+                    description: Some(
+                        "RO, Write protection flag.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 30,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "iwdg_en",
+                    description: Some(
+                        "RO, Watchdog enable flag: 1 running, 0 stopped.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 31,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "IwdgKr",
+            extends: None,
+            description: Some(
+                "WO, Watchdog key register, SAM.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "iwdg_kr",
+                    description: Some(
+                        "WO, KEY [15:0]: Key value; write 0xAAAA to reload, 0x5555 to release write protection, 0xCCCC to start the watchdog.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 16,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
             name: "PinAlternate",
             extends: None,
             description: Some(
@@ -1214,6 +1397,30 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                     bit_size: 6,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "SleepCtrl3",
+            extends: None,
+            description: Some(
+                "RWA, Sleep control register 3, SAM.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "slp_gpio_edge_mode",
+                    description: Some(
+                        "RWA, GPIO wake event selection when GPIO_WAKE_MODE is set: 1 wakes on either edge, 0 wakes on the programmed edge only.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
                     array: None,
                     enumm: None,
                 },

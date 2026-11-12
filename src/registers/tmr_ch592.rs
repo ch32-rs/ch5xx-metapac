@@ -60,6 +60,23 @@ pub(crate) static REGISTERS: IR = IR {
                     ),
                 },
                 BlockItem {
+                    name: "pwm_mod",
+                    description: Some(
+                        "RW, TMR PWM mode control.",
+                    ),
+                    array: None,
+                    byte_offset: 0x4,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "PwmMod",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
                     name: "int_flag",
                     description: Some(
                         "RW1, TMR interrupt flag.",
@@ -234,6 +251,23 @@ pub(crate) static REGISTERS: IR = IR {
                             bit_size: 8,
                             fieldset: Some(
                                 "InterEn",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "pwm_mod",
+                    description: Some(
+                        "RW, TMR PWM mode control.",
+                    ),
+                    array: None,
+                    byte_offset: 0x4,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 8,
+                            fieldset: Some(
+                                "PwmMod",
                             ),
                         },
                     ),
@@ -807,6 +841,30 @@ pub(crate) static REGISTERS: IR = IR {
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
                             offset: 4,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "PwmMod",
+            extends: None,
+            description: Some(
+                "RW, TMR PWM mode control.",
+            ),
+            bit_size: 8,
+            fields: &[
+                Field {
+                    name: "pwm_mod",
+                    description: Some(
+                        "RW, first PWM data repeat count when PWM_REPEAT is set: 1 follows PWM_REPEAT, 0 repeats once.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
                         },
                     ),
                     bit_size: 1,

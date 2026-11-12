@@ -765,6 +765,23 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                 },
+                BlockItem {
+                    name: "ep_mode",
+                    description: Some(
+                        "RW, endpoints 8-15 transmit/receive enable.",
+                    ),
+                    array: None,
+                    byte_offset: 0x70,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "EpMode",
+                            ),
+                        },
+                    ),
+                },
             ],
         },
     ],
@@ -924,6 +941,72 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                     bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "EpMode",
+            extends: None,
+            description: Some(
+                "RW, endpoints 8-15 transmit/receive enable.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "ep_t_en",
+                    description: Some(
+                        "RW, endpoint 8-15 transmit (IN) enable: 1 enabled, 0 disabled.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 8,
+                                stride: 1,
+                            },
+                        ),
+                    ),
+                    enumm: None,
+                },
+                Field {
+                    name: "ep_r_en",
+                    description: Some(
+                        "RW, endpoint 8-15 receive (OUT) enable: 1 enabled, 0 disabled.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 8,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 8,
+                                stride: 1,
+                            },
+                        ),
+                    ),
+                    enumm: None,
+                },
+                Field {
+                    name: "ep_t_af",
+                    description: Some(
+                        "RW, endpoints 8-15 transmit alternate-function (multiplexed transmit) enable, one bit per endpoint.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 17,
+                        },
+                    ),
+                    bit_size: 7,
                     array: None,
                     enumm: None,
                 },
