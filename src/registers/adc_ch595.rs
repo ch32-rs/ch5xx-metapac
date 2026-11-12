@@ -212,6 +212,40 @@ pub(crate) static REGISTERS: IR = IR {
                         },
                     ),
                 },
+                BlockItem {
+                    name: "scan_cfg1",
+                    description: Some(
+                        "RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register.",
+                    ),
+                    array: None,
+                    byte_offset: 0x70,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "ScanCfg1",
+                            ),
+                        },
+                    ),
+                },
+                BlockItem {
+                    name: "scan_cfg2",
+                    description: Some(
+                        "RW, ADC scan sequence, slots 10 through 14, and scan control.",
+                    ),
+                    array: None,
+                    byte_offset: 0x74,
+                    inner: BlockItemInner::Register(
+                        Register {
+                            access: Access::ReadWrite,
+                            bit_size: 32,
+                            fieldset: Some(
+                                "ScanCfg2",
+                            ),
+                        },
+                    ),
+                },
             ],
         },
     ],
@@ -654,6 +688,166 @@ pub(crate) static REGISTERS: IR = IR {
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
                             offset: 7,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "ScanCfg1",
+            extends: None,
+            description: Some(
+                "RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "ch",
+                    description: Some(
+                        "Scan sequence slot; entry 0 holds the second slot in the sequence. 0x0-0xD select AIN0-13, 0xE the battery channel, 0xF the temperature sensor.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 8,
+                                stride: 4,
+                            },
+                        ),
+                    ),
+                    enumm: None,
+                },
+            ],
+        },
+        FieldSet {
+            name: "ScanCfg2",
+            extends: None,
+            description: Some(
+                "RW, ADC scan sequence, slots 10 through 14, and scan control.",
+            ),
+            bit_size: 32,
+            fields: &[
+                Field {
+                    name: "ch",
+                    description: Some(
+                        "Scan sequence slot; entry 0 holds the tenth slot in the sequence. 0x0-0xD select AIN0-13, 0xE the battery channel, 0xF the temperature sensor.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 0,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: Some(
+                        Array::Regular(
+                            RegularArray {
+                                len: 5,
+                                stride: 4,
+                            },
+                        ),
+                    ),
+                    enumm: None,
+                },
+                Field {
+                    name: "ehch_tim",
+                    description: Some(
+                        "RW, ADC samples taken per scanned channel: 0=1, 1=2, 2=3, 3=4.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 20,
+                        },
+                    ),
+                    bit_size: 2,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "scan_en",
+                    description: Some(
+                        "RW, enable scan mode.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 23,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "scan_num",
+                    description: Some(
+                        "Number of scanned channels; minus one while SCAN_SEL is set.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 24,
+                        },
+                    ),
+                    bit_size: 4,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "scan_sel",
+                    description: Some(
+                        "Scan source: 0 selects the touch-key block, 1 selects the ADC.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 28,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "ie_scan_end",
+                    description: Some(
+                        "Enable an interrupt when one scan pass ends.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 29,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "scan_mask_dis",
+                    description: Some(
+                        "Channel enable after each scan sample: 0 lets the hardware close the sampled channel, 1 forbids closing it.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 30,
+                        },
+                    ),
+                    bit_size: 1,
+                    array: None,
+                    enumm: None,
+                },
+                Field {
+                    name: "if_scan_end",
+                    description: Some(
+                        "Scan pass end flag; write 1 to clear.",
+                    ),
+                    bit_offset: BitOffset::Regular(
+                        RegularBitOffset {
+                            offset: 31,
                         },
                     ),
                     bit_size: 1,

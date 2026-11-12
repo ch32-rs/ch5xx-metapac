@@ -93,6 +93,13 @@ impl SystemControl {
     pub const fn osc_cal_ctrl(self) -> crate::common::Reg<regs::OscCalCtrl, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x53usize) as _) }
     }
+    #[doc = "RO, FlashROM safe-access status register 2."]
+    #[inline(always)]
+    pub const fn safe_access_sig2(
+        self,
+    ) -> crate::common::Reg<regs::SafeAccessSig2, crate::common::R> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x58usize) as _) }
+    }
 }
 pub mod regs {
     #[doc = "RF, chip ID register, always is ID_CH57*."]
@@ -711,6 +718,89 @@ pub mod regs {
                 .field("safe_access_sig", &self.safe_access_sig())
                 .field("safe_acc_act", &self.safe_acc_act())
                 .field("safe_acc_timer", &self.safe_acc_timer())
+                .finish()
+        }
+    }
+    #[doc = "RO, FlashROM safe-access status register 2."]
+    #[repr(transparent)]
+    #[derive(Copy, Clone, Eq, PartialEq)]
+    pub struct SafeAccessSig2(pub u32);
+    impl SafeAccessSig2 {
+        #[doc = "RO, safe-register auto-close state: 1 auto-close disabled, 0 auto-close still active."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn safe_ac_dis(&self) -> bool {
+            let val = (self.0 >> 20usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RO, safe-register auto-close state: 1 auto-close disabled, 0 auto-close still active."]
+        #[inline(always)]
+        pub const fn set_safe_ac_dis(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 20usize)) | (((val as u32) & 0x01) << 20usize);
+        }
+        #[doc = "RO, read protection: 1 enabled, 0 disabled."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn rd_protect(&self) -> bool {
+            let val = (self.0 >> 21usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RO, read protection: 1 enabled, 0 disabled."]
+        #[inline(always)]
+        pub const fn set_rd_protect(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 21usize)) | (((val as u32) & 0x01) << 21usize);
+        }
+        #[doc = "RO, vendor configuration-word lock: 1 locked, 0 unlocked."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn manu_cfg_lock(&self) -> bool {
+            let val = (self.0 >> 22usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RO, vendor configuration-word lock: 1 locked, 0 unlocked."]
+        #[inline(always)]
+        pub const fn set_manu_cfg_lock(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 22usize)) | (((val as u32) & 0x01) << 22usize);
+        }
+        #[doc = "RO, two-wire Flash operation halt: 1 halted, 0 allowed."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn flash_halted(&self) -> bool {
+            let val = (self.0 >> 23usize) & 0x01;
+            val != 0
+        }
+        #[doc = "RO, two-wire Flash operation halt: 1 halted, 0 allowed."]
+        #[inline(always)]
+        pub const fn set_flash_halted(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 23usize)) | (((val as u32) & 0x01) << 23usize);
+        }
+        #[doc = "RO, function enable word."]
+        #[must_use]
+        #[inline(always)]
+        pub const fn fun_mode(&self) -> u8 {
+            let val = (self.0 >> 24usize) & 0x07;
+            val as u8
+        }
+        #[doc = "RO, function enable word."]
+        #[inline(always)]
+        pub const fn set_fun_mode(&mut self, val: u8) {
+            self.0 = (self.0 & !(0x07 << 24usize)) | (((val as u32) & 0x07) << 24usize);
+        }
+    }
+    impl Default for SafeAccessSig2 {
+        #[inline(always)]
+        fn default() -> SafeAccessSig2 {
+            SafeAccessSig2(0)
+        }
+    }
+    impl core::fmt::Debug for SafeAccessSig2 {
+        fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+            f.debug_struct("SafeAccessSig2")
+                .field("safe_ac_dis", &self.safe_ac_dis())
+                .field("rd_protect", &self.rd_protect())
+                .field("manu_cfg_lock", &self.manu_cfg_lock())
+                .field("flash_halted", &self.flash_halted())
+                .field("fun_mode", &self.fun_mode())
                 .finish()
         }
     }

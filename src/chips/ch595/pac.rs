@@ -157,7 +157,7 @@ pub mod keyscan;
 pub mod lcd;
 #[path = "../../peripherals/led_ch595.rs"]
 pub mod led;
-#[path = "../../peripherals/pfic_ch585.rs"]
+#[path = "../../peripherals/pfic_ch595.rs"]
 pub mod pfic;
 #[path = "../../peripherals/pwmx_ch585.rs"]
 pub mod pwmx;
@@ -175,7 +175,7 @@ pub mod systick;
 pub mod tmr;
 #[path = "../../peripherals/touchkey_ch595.rs"]
 pub mod touchkey;
-#[path = "../../peripherals/uart_ch585.rs"]
+#[path = "../../peripherals/uart_ch595.rs"]
 pub mod uart;
 #[path = "../../peripherals/usbfs_ch585.rs"]
 pub mod usbfs;

@@ -165,7 +165,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         address: 0x40003000,
         registers: Some(PeripheralRegisters {
             kind: "uart",
-            version: "ch585",
+            version: "ch595",
             block: "UART_FULL",
             ir: &uart::REGISTERS,
         }),
@@ -180,7 +180,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         address: 0x40003400,
         registers: Some(PeripheralRegisters {
             kind: "uart",
-            version: "ch585",
+            version: "ch595",
             block: "UART_NOMODEM",
             ir: &uart::REGISTERS,
         }),
@@ -195,7 +195,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         address: 0x40003800,
         registers: Some(PeripheralRegisters {
             kind: "uart",
-            version: "ch585",
+            version: "ch595",
             block: "UART_NOMODEM",
             ir: &uart::REGISTERS,
         }),
@@ -210,7 +210,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         address: 0x40003c00,
         registers: Some(PeripheralRegisters {
             kind: "uart",
-            version: "ch585",
+            version: "ch595",
             block: "UART_NOMODEM",
             ir: &uart::REGISTERS,
         }),
@@ -355,7 +355,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         address: 0xe000e000,
         registers: Some(PeripheralRegisters {
             kind: "pfic",
-            version: "ch585",
+            version: "ch595",
             block: "PFIC",
             ir: &pfic::REGISTERS,
         }),
@@ -486,7 +486,7 @@ pub mod keyscan;
 pub mod lcd;
 #[path = "../registers/led_ch595.rs"]
 pub mod led;
-#[path = "../registers/pfic_ch585.rs"]
+#[path = "../registers/pfic_ch595.rs"]
 pub mod pfic;
 #[path = "../registers/pwmx_ch585.rs"]
 pub mod pwmx;
@@ -504,7 +504,7 @@ pub mod systick;
 pub mod tmr;
 #[path = "../registers/touchkey_ch595.rs"]
 pub mod touchkey;
-#[path = "../registers/uart_ch585.rs"]
+#[path = "../registers/uart_ch595.rs"]
 pub mod uart;
 #[path = "../registers/usbfs_ch585.rs"]
 pub mod usbfs;
