@@ -79,12 +79,12 @@ impl Adc {
     pub const fn dma_end(self) -> crate::common::Reg<regs::DmaEnd, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x6cusize) as _) }
     }
-    #[doc = "RW, ADC scan sequence, channels 2 through 9."]
+    #[doc = "RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register."]
     #[inline(always)]
     pub const fn scan_cfg1(self) -> crate::common::Reg<regs::ScanCfg1, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x70usize) as _) }
     }
-    #[doc = "RW, ADC scan sequence, channels 10 through 12, and scan control."]
+    #[doc = "RW, ADC scan sequence, slots 10 through 12, and scan control."]
     #[inline(always)]
     pub const fn scan_cfg2(self) -> crate::common::Reg<regs::ScanCfg2, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x74usize) as _) }
@@ -601,12 +601,12 @@ usage."]
                 .finish()
         }
     }
-    #[doc = "RW, ADC scan sequence, channels 2 through 9."]
+    #[doc = "RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct ScanCfg1(pub u32);
     impl ScanCfg1 {
-        #[doc = "Scan sequence entry; entry 0 holds the second channel in the sequence."]
+        #[doc = "Scan sequence slot; entry 0 holds the second slot in the sequence."]
         #[must_use]
         #[inline(always)]
         pub const fn ch(&self, n: usize) -> u8 {
@@ -615,7 +615,7 @@ usage."]
             let val = (self.0 >> offs) & 0x0f;
             val as u8
         }
-        #[doc = "Scan sequence entry; entry 0 holds the second channel in the sequence."]
+        #[doc = "Scan sequence slot; entry 0 holds the second slot in the sequence."]
         #[inline(always)]
         pub const fn set_ch(&mut self, n: usize, val: u8) {
             assert!(n < 8usize);
@@ -643,12 +643,12 @@ usage."]
                 .finish()
         }
     }
-    #[doc = "RW, ADC scan sequence, channels 10 through 12, and scan control."]
+    #[doc = "RW, ADC scan sequence, slots 10 through 12, and scan control."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct ScanCfg2(pub u32);
     impl ScanCfg2 {
-        #[doc = "Scan sequence entry; entry 0 holds the tenth channel in the sequence."]
+        #[doc = "Scan sequence slot; entry 0 holds the tenth slot in the sequence."]
         #[must_use]
         #[inline(always)]
         pub const fn ch(&self, n: usize) -> u8 {
@@ -657,7 +657,7 @@ usage."]
             let val = (self.0 >> offs) & 0x0f;
             val as u8
         }
-        #[doc = "Scan sequence entry; entry 0 holds the tenth channel in the sequence."]
+        #[doc = "Scan sequence slot; entry 0 holds the tenth slot in the sequence."]
         #[inline(always)]
         pub const fn set_ch(&mut self, n: usize, val: u8) {
             assert!(n < 3usize);

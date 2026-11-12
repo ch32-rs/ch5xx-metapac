@@ -215,7 +215,7 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "scan_cfg1",
                     description: Some(
-                        "RW, ADC scan sequence, channels 2 through 9.",
+                        "RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register.",
                     ),
                     array: None,
                     byte_offset: 0x70,
@@ -232,7 +232,7 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "scan_cfg2",
                     description: Some(
-                        "RW, ADC scan sequence, channels 10 through 14, and scan control.",
+                        "RW, ADC scan sequence, slots 10 through 14, and scan control.",
                     ),
                     array: None,
                     byte_offset: 0x74,
@@ -728,14 +728,14 @@ pub(crate) static REGISTERS: IR = IR {
             name: "ScanCfg1",
             extends: None,
             description: Some(
-                "RW, ADC scan sequence, channels 2 through 9.",
+                "RW, ADC scan sequence, slots 2 through 9; the first slot is the CHANNEL register.",
             ),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "ch",
                     description: Some(
-                        "Scan sequence entry; entry 0 holds the second channel in the sequence.",
+                        "Scan sequence slot; entry 0 holds the second slot in the sequence.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -759,14 +759,14 @@ pub(crate) static REGISTERS: IR = IR {
             name: "ScanCfg2",
             extends: None,
             description: Some(
-                "RW, ADC scan sequence, channels 10 through 14, and scan control.",
+                "RW, ADC scan sequence, slots 10 through 14, and scan control.",
             ),
             bit_size: 32,
             fields: &[
                 Field {
                     name: "ch",
                     description: Some(
-                        "Scan sequence entry; entry 0 holds the tenth channel in the sequence.",
+                        "Scan sequence slot; entry 0 holds the tenth slot in the sequence.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
@@ -829,7 +829,7 @@ pub(crate) static REGISTERS: IR = IR {
                 Field {
                     name: "scan_mask_dis",
                     description: Some(
-                        "Disable the channel mask after the sampled channel ends.",
+                        "Channel enable after each scan sample: 0 lets the hardware close the sampled channel, 1 forbids closing it.",
                     ),
                     bit_offset: BitOffset::Regular(
                         RegularBitOffset {
