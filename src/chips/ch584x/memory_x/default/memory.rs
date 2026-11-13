@@ -14,6 +14,18 @@ pub static MEMORY: &[MemoryRegion] = &[
         access: None,
     },
     MemoryRegion {
+        name: "DATAFLASH",
+        kind: MemoryRegionKind::Flash,
+        role: Vendor,
+        address: 0x80000,
+        size: 524288,
+        modes: &[Standard {
+            erase_size: 4096,
+            write_size: 1,
+        }],
+        access: None,
+    },
+    MemoryRegion {
         name: "SRAM",
         kind: MemoryRegionKind::Ram,
         role: Ram,
