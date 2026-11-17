@@ -74,9 +74,9 @@ impl SpiFull {
     pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
-    #[doc = "RO, SPI FIFO count status."]
+    #[doc = "RW, SPI FIFO count status."]
     #[inline(always)]
-    pub const fn fifo_count1(self) -> crate::common::Reg<regs::FifoCount1, crate::common::R> {
+    pub const fn fifo_count1(self) -> crate::common::Reg<regs::FifoCount1, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13usize) as _) }
     }
     #[doc = "RW, SPI DMA current address."]
@@ -161,9 +161,9 @@ impl SpiNodma {
     pub const fn fifo(self) -> crate::common::Reg<regs::Fifo, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x10usize) as _) }
     }
-    #[doc = "RO, SPI FIFO count status."]
+    #[doc = "RW, SPI FIFO count status."]
     #[inline(always)]
-    pub const fn fifo_count1(self) -> crate::common::Reg<regs::FifoCount1, crate::common::R> {
+    pub const fn fifo_count1(self) -> crate::common::Reg<regs::FifoCount1, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13usize) as _) }
     }
 }

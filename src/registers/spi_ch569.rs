@@ -102,7 +102,7 @@ pub(crate) static REGISTERS: IR = IR {
                     byte_offset: 0x4,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Read,
+                            access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
                                 "Buffer",

@@ -198,13 +198,13 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "fifo_count1",
                     description: Some(
-                        "RO, SPI FIFO count status.",
+                        "RW, SPI FIFO count status.",
                     ),
                     array: None,
                     byte_offset: 0x13,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Read,
+                            access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
                                 "FifoCount1",
@@ -445,13 +445,13 @@ pub(crate) static REGISTERS: IR = IR {
                 BlockItem {
                     name: "fifo_count1",
                     description: Some(
-                        "RO, SPI FIFO count status.",
+                        "RW, SPI FIFO count status.",
                     ),
                     array: None,
                     byte_offset: 0x13,
                     inner: BlockItemInner::Register(
                         Register {
-                            access: Access::Read,
+                            access: Access::ReadWrite,
                             bit_size: 8,
                             fieldset: Some(
                                 "FifoCount1",

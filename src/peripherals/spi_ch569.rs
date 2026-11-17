@@ -46,7 +46,7 @@ impl SpiFull {
     }
     #[doc = "SPI_FULL data buffer."]
     #[inline(always)]
-    pub const fn buffer(self) -> crate::common::Reg<regs::Buffer, crate::common::R> {
+    pub const fn buffer(self) -> crate::common::Reg<regs::Buffer, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x04usize) as _) }
     }
     #[doc = "SPI_FULL work flag."]
