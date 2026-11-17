@@ -93,6 +93,28 @@ pub(crate) static REGISTERS: IR = IR {
                     fieldset: Some("XbusSetupHold"),
                 }),
             },
+            BlockItem {
+                name: "flash_data",
+                description: Some("RW, flash transfer byte port."),
+                array: None,
+                byte_offset: 0x18,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: None,
+                }),
+            },
+            BlockItem {
+                name: "flash_ctrl",
+                description: Some("RW, flash engine mode; 3 = write, 7 = read."),
+                array: None,
+                byte_offset: 0x1a,
+                inner: BlockItemInner::Register(Register {
+                    access: Access::ReadWrite,
+                    bit_size: 8,
+                    fieldset: None,
+                }),
+            },
         ],
     }],
     fieldsets: &[

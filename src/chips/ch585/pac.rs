@@ -126,7 +126,8 @@ pub const TOUCHKEY: touchkey::TouchKey =
 pub const ADC: adc::Adc = unsafe { adc::Adc::from_ptr(0x4000_1000usize as _) };
 pub const GPIO: gpio::Gpio = unsafe { gpio::Gpio::from_ptr(0x4000_1000usize as _) };
 pub const NFC: *mut () = 0x4000_1000usize as _;
-pub const FLASHROM: *mut () = 0x4000_1800usize as _;
+pub const FLASHROM: flashrom::Flashrom =
+    unsafe { flashrom::Flashrom::from_ptr(0x4000_1800usize as _) };
 pub const TMR0: tmr::TmrFull = unsafe { tmr::TmrFull::from_ptr(0x4000_2000usize as _) };
 pub const TMR1: tmr::TmrFull = unsafe { tmr::TmrFull::from_ptr(0x4000_2400usize as _) };
 pub const TMR2: tmr::TmrFull = unsafe { tmr::TmrFull::from_ptr(0x4000_2800usize as _) };
@@ -151,6 +152,8 @@ pub const SYSTICK: systick::Systick = unsafe { systick::Systick::from_ptr(0xe000
 pub use Interrupt as interrupt;
 #[path = "../../peripherals/adc_ch585.rs"]
 pub mod adc;
+#[path = "../../peripherals/flashrom_ch570.rs"]
+pub mod flashrom;
 #[path = "../../peripherals/gpio_ch585.rs"]
 pub mod gpio;
 #[path = "../../peripherals/i2c_ch585.rs"]

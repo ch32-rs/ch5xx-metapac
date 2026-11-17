@@ -94,7 +94,8 @@ pub const SYSTEM_CONTROL: system_control::SystemControl =
 pub const CMP: cmp::Cmp = unsafe { cmp::Cmp::from_ptr(0x4000_1000usize as _) };
 pub const KEYSCAN: keyscan::Keyscan = unsafe { keyscan::Keyscan::from_ptr(0x4000_1000usize as _) };
 pub const GPIO: gpio::Gpio = unsafe { gpio::Gpio::from_ptr(0x4000_1000usize as _) };
-pub const FLASHROM: *mut () = 0x4000_1800usize as _;
+pub const FLASHROM: flashrom::Flashrom =
+    unsafe { flashrom::Flashrom::from_ptr(0x4000_1800usize as _) };
 pub const TMR0: tmr::TmrFull = unsafe { tmr::TmrFull::from_ptr(0x4000_2400usize as _) };
 pub const ENCODER: encoder::Encoder = unsafe { encoder::Encoder::from_ptr(0x4000_2400usize as _) };
 pub const UART0: uart::UartFull = unsafe { uart::UartFull::from_ptr(0x4000_3400usize as _) };
@@ -112,6 +113,8 @@ pub use Interrupt as interrupt;
 pub mod cmp;
 #[path = "../../peripherals/encoder_ch572.rs"]
 pub mod encoder;
+#[path = "../../peripherals/flashrom_ch570.rs"]
+pub mod flashrom;
 #[path = "../../peripherals/gpio_ch572.rs"]
 pub mod gpio;
 #[path = "../../peripherals/i2c_ch585.rs"]

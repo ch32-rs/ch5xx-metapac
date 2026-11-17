@@ -93,7 +93,12 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
     Peripheral {
         name: "FLASHROM",
         address: 0x40001800,
-        registers: None,
+        registers: Some(PeripheralRegisters {
+            kind: "flashrom",
+            version: "ch570",
+            block: "FLASHROM",
+            ir: &flashrom::REGISTERS,
+        }),
         rcc: None,
         remap: None,
         pins: &[],
@@ -313,6 +318,8 @@ pub(crate) static DMA_CHANNELS: &[DmaChannel] = &[];
 pub mod cmp;
 #[path = "../registers/encoder_ch572.rs"]
 pub mod encoder;
+#[path = "../registers/flashrom_ch570.rs"]
+pub mod flashrom;
 #[path = "../registers/gpio_ch572.rs"]
 pub mod gpio;
 #[path = "../registers/i2c_ch585.rs"]

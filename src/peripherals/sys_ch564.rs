@@ -61,6 +61,16 @@ impl Sys {
     ) -> crate::common::Reg<regs::XbusSetupHold, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x13usize) as _) }
     }
+    #[doc = "RW, flash transfer byte port."]
+    #[inline(always)]
+    pub const fn flash_data(self) -> crate::common::Reg<u8, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
+    }
+    #[doc = "RW, flash engine mode; 3 = write, 7 = read."]
+    #[inline(always)]
+    pub const fn flash_ctrl(self) -> crate::common::Reg<u8, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1ausize) as _) }
+    }
 }
 pub mod regs {
     #[doc = "output clock divider from PLL."]

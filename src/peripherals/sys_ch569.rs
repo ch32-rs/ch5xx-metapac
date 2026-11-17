@@ -59,6 +59,21 @@ impl Sys {
     pub const fn pin_alternate(self) -> crate::common::Reg<regs::PinAlternate, crate::common::RW> {
         unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x12usize) as _) }
     }
+    #[doc = "RW, 32-bit flash program data write port."]
+    #[inline(always)]
+    pub const fn flash_wdata(self) -> crate::common::Reg<u32, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x14usize) as _) }
+    }
+    #[doc = "RW, flash transfer byte port."]
+    #[inline(always)]
+    pub const fn flash_data(self) -> crate::common::Reg<u8, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x18usize) as _) }
+    }
+    #[doc = "RW, flash engine mode; 0/3 = write, 5 = status, 7 = read."]
+    #[inline(always)]
+    pub const fn flash_ctrl(self) -> crate::common::Reg<u8, crate::common::RW> {
+        unsafe { crate::common::Reg::from_ptr(self.ptr.wrapping_add(0x1ausize) as _) }
+    }
     #[doc = "Serdes Analog parameter configuration1."]
     #[inline(always)]
     pub const fn serd_ana_cfg1(self) -> crate::common::Reg<regs::SerdAnaCfg1, crate::common::RW> {
