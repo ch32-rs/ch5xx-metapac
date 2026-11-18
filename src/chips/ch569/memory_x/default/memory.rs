@@ -39,7 +39,7 @@ pub static MEMORY: &[MemoryRegion] = &[
         kind: MemoryRegionKind::Ram,
         role: Ram,
         address: 0x20020000,
-        size: 98304,
+        size: 32768,
         modes: &[],
         access: None,
     },
