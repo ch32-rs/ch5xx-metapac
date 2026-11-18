@@ -323,8 +323,10 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some("UART_FULL pre-divisor latch byte."),
             bit_size: 8,
             fields: &[Field {
-                name: "adr",
-                description: Some("UART pre-divisor latch byte."),
+                name: "div",
+                description: Some(
+                    "RW, UART pre-divisor latch byte, only low 7 bit, from 1 to 0/128.",
+                ),
                 bit_offset: BitOffset::Regular(RegularBitOffset { offset: 0 }),
                 bit_size: 8,
                 array: None,

@@ -202,16 +202,16 @@ pub mod regs {
     #[derive(Copy, Clone, Eq, PartialEq)]
     pub struct DivFull(pub u8);
     impl DivFull {
-        #[doc = "UART pre-divisor latch byte."]
+        #[doc = "RW, UART pre-divisor latch byte, only low 7 bit, from 1 to 0/128."]
         #[must_use]
         #[inline(always)]
-        pub const fn adr(&self) -> u8 {
+        pub const fn div(&self) -> u8 {
             let val = (self.0 >> 0usize) & 0xff;
             val as u8
         }
-        #[doc = "UART pre-divisor latch byte."]
+        #[doc = "RW, UART pre-divisor latch byte, only low 7 bit, from 1 to 0/128."]
         #[inline(always)]
-        pub const fn set_adr(&mut self, val: u8) {
+        pub const fn set_div(&mut self, val: u8) {
             self.0 = (self.0 & !(0xff << 0usize)) | (((val as u8) & 0xff) << 0usize);
         }
     }
@@ -223,7 +223,7 @@ pub mod regs {
     }
     impl core::fmt::Debug for DivFull {
         fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-            f.debug_struct("DivFull").field("adr", &self.adr()).finish()
+            f.debug_struct("DivFull").field("div", &self.div()).finish()
         }
     }
     #[doc = "UART_NOMODEM pre-divisor latch byte."]
