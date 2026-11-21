@@ -200,7 +200,7 @@ pub(crate) static PERIPHERALS: &[Peripheral] = &[
         address: 0x40008000,
         registers: Some(PeripheralRegisters {
             kind: "usbfs",
-            version: "ch585",
+            version: "ch572",
             block: "USBFS",
             ir: &usbfs::REGISTERS,
         }),
@@ -344,5 +344,5 @@ pub mod systick;
 pub mod tmr;
 #[path = "../registers/uart_ch572.rs"]
 pub mod uart;
-#[path = "../registers/usbfs_ch585.rs"]
+#[path = "../registers/usbfs_ch572.rs"]
 pub mod usbfs;

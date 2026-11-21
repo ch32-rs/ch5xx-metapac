@@ -239,7 +239,7 @@ pub(crate) static REGISTERS: IR = IR {
                     inner: BlockItemInner::Register(
                         Register {
                             access: Access::ReadWrite,
-                            bit_size: 16,
+                            bit_size: 32,
                             fieldset: Some(
                                 "Uep0Dma",
                             ),
@@ -256,7 +256,7 @@ pub(crate) static REGISTERS: IR = IR {
                     inner: BlockItemInner::Register(
                         Register {
                             access: Access::ReadWrite,
-                            bit_size: 16,
+                            bit_size: 32,
                             fieldset: Some(
                                 "Uep1Dma",
                             ),
@@ -273,7 +273,7 @@ pub(crate) static REGISTERS: IR = IR {
                     inner: BlockItemInner::Register(
                         Register {
                             access: Access::ReadWrite,
-                            bit_size: 16,
+                            bit_size: 32,
                             fieldset: Some(
                                 "Uep2Dma",
                             ),
@@ -290,7 +290,7 @@ pub(crate) static REGISTERS: IR = IR {
                     inner: BlockItemInner::Register(
                         Register {
                             access: Access::ReadWrite,
-                            bit_size: 16,
+                            bit_size: 32,
                             fieldset: Some(
                                 "UhRxDma",
                             ),
@@ -307,7 +307,7 @@ pub(crate) static REGISTERS: IR = IR {
                     inner: BlockItemInner::Register(
                         Register {
                             access: Access::ReadWrite,
-                            bit_size: 16,
+                            bit_size: 32,
                             fieldset: Some(
                                 "Uep3Dma",
                             ),
@@ -324,7 +324,7 @@ pub(crate) static REGISTERS: IR = IR {
                     inner: BlockItemInner::Register(
                         Register {
                             access: Access::ReadWrite,
-                            bit_size: 16,
+                            bit_size: 32,
                             fieldset: Some(
                                 "UhTxDma",
                             ),
@@ -628,7 +628,7 @@ pub(crate) static REGISTERS: IR = IR {
                     inner: BlockItemInner::Register(
                         Register {
                             access: Access::ReadWrite,
-                            bit_size: 16,
+                            bit_size: 32,
                             fieldset: Some(
                                 "Uep5Dma",
                             ),
@@ -645,7 +645,7 @@ pub(crate) static REGISTERS: IR = IR {
                     inner: BlockItemInner::Register(
                         Register {
                             access: Access::ReadWrite,
-                            bit_size: 16,
+                            bit_size: 32,
                             fieldset: Some(
                                 "Uep6Dma",
                             ),
@@ -662,7 +662,7 @@ pub(crate) static REGISTERS: IR = IR {
                     inner: BlockItemInner::Register(
                         Register {
                             access: Access::ReadWrite,
-                            bit_size: 16,
+                            bit_size: 32,
                             fieldset: Some(
                                 "Uep7Dma",
                             ),
@@ -1731,7 +1731,7 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some(
                 "endpoint 0 DMA buffer address.",
             ),
-            bit_size: 16,
+            bit_size: 32,
             fields: &[
                 Field {
                     name: "uep0_dma",
@@ -1743,7 +1743,7 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 16,
+                    bit_size: 17,
                     array: None,
                     enumm: None,
                 },
@@ -1859,7 +1859,7 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some(
                 "endpoint 1 DMA buffer address.",
             ),
-            bit_size: 16,
+            bit_size: 32,
             fields: &[
                 Field {
                     name: "uep1_dma",
@@ -1871,7 +1871,7 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 16,
+                    bit_size: 17,
                     array: None,
                     enumm: None,
                 },
@@ -2081,7 +2081,7 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some(
                 "endpoint 2 DMA buffer address;host rx endpoint buffer high address.",
             ),
-            bit_size: 16,
+            bit_size: 32,
             fields: &[
                 Field {
                     name: "uep2_dma",
@@ -2093,7 +2093,7 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 16,
+                    bit_size: 17,
                     array: None,
                     enumm: None,
                 },
@@ -2209,7 +2209,7 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some(
                 "endpoint 3 DMA buffer address;host tx endpoint buffer high address.",
             ),
-            bit_size: 16,
+            bit_size: 32,
             fields: &[
                 Field {
                     name: "uep3_dma",
@@ -2221,7 +2221,7 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 16,
+                    bit_size: 17,
                     array: None,
                     enumm: None,
                 },
@@ -2615,7 +2615,7 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some(
                 "endpoint 5 DMA buffer address.",
             ),
-            bit_size: 16,
+            bit_size: 32,
             fields: &[
                 Field {
                     name: "uep5_dma",
@@ -2627,7 +2627,7 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 16,
+                    bit_size: 17,
                     array: None,
                     enumm: None,
                 },
@@ -2743,7 +2743,7 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some(
                 "endpoint 6 DMA buffer address.",
             ),
-            bit_size: 16,
+            bit_size: 32,
             fields: &[
                 Field {
                     name: "uep6_dma",
@@ -2755,7 +2755,7 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 16,
+                    bit_size: 17,
                     array: None,
                     enumm: None,
                 },
@@ -2871,7 +2871,7 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some(
                 "endpoint 7 DMA buffer address.",
             ),
-            bit_size: 16,
+            bit_size: 32,
             fields: &[
                 Field {
                     name: "uep7_dma",
@@ -2883,7 +2883,7 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 16,
+                    bit_size: 17,
                     array: None,
                     enumm: None,
                 },
@@ -3099,7 +3099,7 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some(
                 "USB host receiving buffer starting address.",
             ),
-            bit_size: 16,
+            bit_size: 32,
             fields: &[
                 Field {
                     name: "uh_rx_dma",
@@ -3111,7 +3111,7 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 16,
+                    bit_size: 17,
                     array: None,
                     enumm: None,
                 },
@@ -3213,7 +3213,7 @@ pub(crate) static REGISTERS: IR = IR {
             description: Some(
                 "USB host sends buffer starting address.",
             ),
-            bit_size: 16,
+            bit_size: 32,
             fields: &[
                 Field {
                     name: "uh_tx_dma",
@@ -3225,7 +3225,7 @@ pub(crate) static REGISTERS: IR = IR {
                             offset: 0,
                         },
                     ),
-                    bit_size: 16,
+                    bit_size: 17,
                     array: None,
                     enumm: None,
                 },

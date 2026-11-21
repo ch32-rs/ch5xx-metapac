@@ -1226,19 +1226,19 @@ pub mod regs {
     #[doc = "endpoint 0 DMA buffer address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep0Dma(pub u16);
+    pub struct Uep0Dma(pub u32);
     impl Uep0Dma {
         #[doc = "RW,endpoint 0 DMA buffer address."]
         #[must_use]
         #[inline(always)]
-        pub const fn uep0_dma(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0xffff;
-            val as u16
+        pub const fn uep0_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
         }
         #[doc = "RW,endpoint 0 DMA buffer address."]
         #[inline(always)]
-        pub const fn set_uep0_dma(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        pub const fn set_uep0_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
     impl Default for Uep0Dma {
@@ -1371,19 +1371,19 @@ pub mod regs {
     #[doc = "endpoint 1 DMA buffer address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep1Dma(pub u16);
+    pub struct Uep1Dma(pub u32);
     impl Uep1Dma {
         #[doc = "RW,endpoint 1 DMA buffer address."]
         #[must_use]
         #[inline(always)]
-        pub const fn uep1_dma(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0xffff;
-            val as u16
+        pub const fn uep1_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
         }
         #[doc = "RW,endpoint 1 DMA buffer address."]
         #[inline(always)]
-        pub const fn set_uep1_dma(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        pub const fn set_uep1_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
     impl Default for Uep1Dma {
@@ -1612,19 +1612,19 @@ pub mod regs {
     #[doc = "endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep2Dma(pub u16);
+    pub struct Uep2Dma(pub u32);
     impl Uep2Dma {
         #[doc = "RW,endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
         #[must_use]
         #[inline(always)]
-        pub const fn uep2_dma(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0xffff;
-            val as u16
+        pub const fn uep2_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
         }
         #[doc = "RW,endpoint 2 DMA buffer address;host rx endpoint buffer high address."]
         #[inline(always)]
-        pub const fn set_uep2_dma(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        pub const fn set_uep2_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
     impl Default for Uep2Dma {
@@ -1757,19 +1757,19 @@ pub mod regs {
     #[doc = "endpoint 3 DMA buffer address;host tx endpoint buffer high address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep3Dma(pub u16);
+    pub struct Uep3Dma(pub u32);
     impl Uep3Dma {
         #[doc = "RW,endpoint 3 DMA buffer address;host rx endpoint buffer high address."]
         #[must_use]
         #[inline(always)]
-        pub const fn uep3_dma(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0xffff;
-            val as u16
+        pub const fn uep3_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
         }
         #[doc = "RW,endpoint 3 DMA buffer address;host rx endpoint buffer high address."]
         #[inline(always)]
-        pub const fn set_uep3_dma(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        pub const fn set_uep3_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
     impl Default for Uep3Dma {
@@ -2195,19 +2195,19 @@ pub mod regs {
     #[doc = "endpoint 5 DMA buffer address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep5Dma(pub u16);
+    pub struct Uep5Dma(pub u32);
     impl Uep5Dma {
         #[doc = "RW,endpoint 5 DMA buffer address;host rx endpoint buffer high address."]
         #[must_use]
         #[inline(always)]
-        pub const fn uep5_dma(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0xffff;
-            val as u16
+        pub const fn uep5_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
         }
         #[doc = "RW,endpoint 5 DMA buffer address;host rx endpoint buffer high address."]
         #[inline(always)]
-        pub const fn set_uep5_dma(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        pub const fn set_uep5_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
     impl Default for Uep5Dma {
@@ -2340,19 +2340,19 @@ pub mod regs {
     #[doc = "endpoint 6 DMA buffer address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep6Dma(pub u16);
+    pub struct Uep6Dma(pub u32);
     impl Uep6Dma {
         #[doc = "RW,endpoint 6 DMA buffer address;host rx endpoint buffer high address."]
         #[must_use]
         #[inline(always)]
-        pub const fn uep6_dma(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0xffff;
-            val as u16
+        pub const fn uep6_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
         }
         #[doc = "RW,endpoint 6 DMA buffer address;host rx endpoint buffer high address."]
         #[inline(always)]
-        pub const fn set_uep6_dma(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        pub const fn set_uep6_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
     impl Default for Uep6Dma {
@@ -2485,19 +2485,19 @@ pub mod regs {
     #[doc = "endpoint 7 DMA buffer address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct Uep7Dma(pub u16);
+    pub struct Uep7Dma(pub u32);
     impl Uep7Dma {
         #[doc = "RW,endpoint 7 DMA buffer address;host rx endpoint buffer high address."]
         #[must_use]
         #[inline(always)]
-        pub const fn uep7_dma(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0xffff;
-            val as u16
+        pub const fn uep7_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
         }
         #[doc = "RW,endpoint 7 DMA buffer address;host rx endpoint buffer high address."]
         #[inline(always)]
-        pub const fn set_uep7_dma(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        pub const fn set_uep7_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
     impl Default for Uep7Dma {
@@ -2749,19 +2749,19 @@ pub mod regs {
     #[doc = "USB host receiving buffer starting address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct UhRxDma(pub u16);
+    pub struct UhRxDma(pub u32);
     impl UhRxDma {
         #[doc = "USB host receiving endpoint receiving data buffer mode control bit."]
         #[must_use]
         #[inline(always)]
-        pub const fn uh_rx_dma(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0xffff;
-            val as u16
+        pub const fn uh_rx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
         }
         #[doc = "USB host receiving endpoint receiving data buffer mode control bit."]
         #[inline(always)]
-        pub const fn set_uh_rx_dma(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        pub const fn set_uh_rx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
     impl Default for UhRxDma {
@@ -2881,19 +2881,19 @@ pub mod regs {
     #[doc = "USB host sends buffer starting address."]
     #[repr(transparent)]
     #[derive(Copy, Clone, Eq, PartialEq)]
-    pub struct UhTxDma(pub u16);
+    pub struct UhTxDma(pub u32);
     impl UhTxDma {
         #[doc = "Starting address of host endpoint data sending buffer."]
         #[must_use]
         #[inline(always)]
-        pub const fn uh_tx_dma(&self) -> u16 {
-            let val = (self.0 >> 0usize) & 0xffff;
-            val as u16
+        pub const fn uh_tx_dma(&self) -> u32 {
+            let val = (self.0 >> 0usize) & 0x0001_ffff;
+            val as u32
         }
         #[doc = "Starting address of host endpoint data sending buffer."]
         #[inline(always)]
-        pub const fn set_uh_tx_dma(&mut self, val: u16) {
-            self.0 = (self.0 & !(0xffff << 0usize)) | (((val as u16) & 0xffff) << 0usize);
+        pub const fn set_uh_tx_dma(&mut self, val: u32) {
+            self.0 = (self.0 & !(0x0001_ffff << 0usize)) | (((val as u32) & 0x0001_ffff) << 0usize);
         }
     }
     impl Default for UhTxDma {

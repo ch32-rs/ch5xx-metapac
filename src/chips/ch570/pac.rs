@@ -139,7 +139,7 @@ pub mod systick;
 pub mod tmr;
 #[path = "../../peripherals/uart_ch572.rs"]
 pub mod uart;
-#[path = "../../peripherals/usbfs_ch585.rs"]
+#[path = "../../peripherals/usbfs_ch572.rs"]
 pub mod usbfs;
 pub const CORE_INDEX: usize = 0;
 #[deprecated(note = "use ch5xx_metapac::MEMORY_LAYOUT instead")]
